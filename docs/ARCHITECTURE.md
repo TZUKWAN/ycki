@@ -1,5 +1,9 @@
 # ARCHITECTURE — 长江文化智能知识基础设施（YCKI）
 
+> ⚠️ **2026-09-08 canonical_v1 重构进行中**：本文档部分内容描述的是重构前架构。
+> 以 [docs/REFACTOR_PHASE0_AUDIT.md](REFACTOR_PHASE0_AUDIT.md) 与 [docs/DECISIONS.md](DECISIONS.md) ADR-018~019 之后的最新决策为准。
+> 核心变化：Retrieval Graph 与 Canonical KG 双层拆分；资源准入/实体消歧/Claim-Evidence 流水线上线。
+
 > 版本 v0.2（2026-09-06，T00 六项目审计 + T01 基线实测后修订）· 审计依据：`docs/OPEN_SOURCE_AUDIT.md`
 > 原则：**LightRAG 是宿主，YCKI 是产品**。最小修改核心 + 最大程度扩展。
 
