@@ -1,12 +1,8 @@
-# =====================================================================
-# YCKI 受控谓词本体 predicates_v1
-# 规则：Canonical Claim 的 predicate 必须在此注册；domain/range 强校验；
-#       违反即 REJECT，不靠 LLM description 猜测。
-# 治理：新增谓词需在 docs/DECISIONS.md 记 ADR；禁止直接删除已使用谓词。
-# =====================================================================
-version: predicates_v1_1
+# predicates_v1_2：新增 cardinality（single=同主体同谓词多个不同宾语即 CONTESTED；multi=合法多宾语）
+# 谓词治理：新增须 ADR 登记；禁止删除已使用谓词。
+
+version: predicates_v1_2
 predicates:
-  # ---------- 人物 ----------
   born_at:
     name: 出生于
     domain: [Person]
@@ -18,6 +14,7 @@ predicates:
     evidence_required: true
     inverse: null
     description: 人物出生地。
+    cardinality: single
   died_at:
     name: 逝世于
     domain: [Person]
@@ -28,6 +25,7 @@ predicates:
     place_required: false
     evidence_required: true
     description: 人物逝世地。
+    cardinality: single
   participated_in:
     name: 参与
     domain: [Person, Organization]
@@ -39,6 +37,7 @@ predicates:
     evidence_required: true
     inverse: has_participant
     description: 人物或机构参与历史/当代事件。
+    cardinality: multi
   founded:
     name: 创办
     domain: [Person, Organization]
@@ -50,6 +49,7 @@ predicates:
     evidence_required: true
     inverse: founded_by
     description: 创办机构、设施或工程。
+    cardinality: single
   authored:
     name: 著有
     domain: [Person]
@@ -61,6 +61,7 @@ predicates:
     evidence_required: true
     inverse: authored_by
     description: 创作文学作品、著作。
+    cardinality: multi
   served_at:
     name: 任职于
     domain: [Person]
@@ -71,6 +72,7 @@ predicates:
     place_required: false
     evidence_required: true
     description: 担任职务。
+    cardinality: multi
   member_of:
     name: 隶属于(人)
     domain: [Person]
@@ -80,6 +82,7 @@ predicates:
     time_required: true
     evidence_required: true
     description: 成为成员。
+    cardinality: multi
   studied_at:
     name: 就读于
     domain: [Person]
@@ -89,6 +92,7 @@ predicates:
     time_required: true
     evidence_required: true
     description: 求学。
+    cardinality: multi
   taught_at:
     name: 执教于
     domain: [Person]
@@ -98,15 +102,17 @@ predicates:
     time_required: true
     evidence_required: true
     description: 任教。
+    cardinality: multi
   led:
     name: 领导
     domain: [Person]
-    range: [Organization, Event, Event_Place]
+    range: [Organization, Event]
     directed: true
     symmetric: false
     time_required: true
     evidence_required: true
     description: 领导组织或事件。
+    cardinality: single
   associated_with:
     name: 关联
     domain: [Person, Organization, Place, Work, Artifact, Event, Site, Practice, WaterSystem, Route, Heritage, Institution]
@@ -116,8 +122,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 有明确文本证据的实质性关联（兜底谓词，须严格引用原文）。
-
-  # ---------- 事件 ----------
+    cardinality: multi
   happened_at:
     name: 发生于
     domain: [Event]
@@ -127,6 +132,7 @@ predicates:
     time_required: true
     evidence_required: true
     description: 事件发生地。
+    cardinality: single
   occurred_during:
     name: 发生于(时期)
     domain: [Event]
@@ -136,6 +142,7 @@ predicates:
     time_required: true
     evidence_required: true
     description: 发生于某历史时期/ larger event。
+    cardinality: single
   has_participant:
     name: 有参与者
     domain: [Event, Institution]
@@ -146,6 +153,7 @@ predicates:
     evidence_required: true
     inverse: participated_in
     description: 事件的参与者。
+    cardinality: multi
   involved_organization:
     name: 涉及机构
     domain: [Event]
@@ -155,6 +163,7 @@ predicates:
     time_required: true
     evidence_required: true
     description: 事件涉及的机构。
+    cardinality: multi
   caused:
     name: 导致
     domain: [Event]
@@ -164,6 +173,7 @@ predicates:
     time_required: true
     evidence_required: true
     description: 因果关系（须原文明确表述因果）。
+    cardinality: single
   influenced:
     name: 影响
     domain: [Event, Work, Person, Concept, Practice]
@@ -173,6 +183,7 @@ predicates:
     time_required: true
     evidence_required: true
     description: 影响（须原文明确表述）。
+    cardinality: multi
   predecessor_event:
     name: 前序事件
     domain: [Event]
@@ -183,6 +194,7 @@ predicates:
     evidence_required: true
     inverse: successor_event
     description: 事件链前序。
+    cardinality: single
   successor_event:
     name: 后续事件
     domain: [Event]
@@ -193,8 +205,7 @@ predicates:
     evidence_required: true
     inverse: predecessor_event
     description: 事件链后续。
-
-  # ---------- 地点 ----------
+    cardinality: single
   located_within:
     name: 位于
     domain: [Place, Site, Organization, Institution, Artifact, Event, WaterSystem, NaturalObject, Heritage, Route, Practice, Work]
@@ -204,6 +215,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 行政/地理隶属。
+    cardinality: single
   part_of:
     name: 组成部分
     domain: [Place, Artifact, Site, Organization]
@@ -213,6 +225,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 组成关系。
+    cardinality: single
   historical_name_of:
     name: 历史名称
     domain: [Place, Site]
@@ -223,6 +236,7 @@ predicates:
     evidence_required: true
     inverse: modern_name_of
     description: 古今地名（带时间约束）。
+    cardinality: single
   successor_of:
     name: 后继
     domain: [Place, Organization]
@@ -233,6 +247,7 @@ predicates:
     evidence_required: true
     inverse: predecessor_of
     description: 行政区/机构沿革后继。
+    cardinality: single
   predecessor_of:
     name: 前身
     domain: [Place, Organization]
@@ -243,6 +258,7 @@ predicates:
     evidence_required: true
     inverse: successor_of
     description: 行政区/机构沿革前身。
+    cardinality: single
   overlaps_with:
     name: 地域重叠
     domain: [Place]
@@ -252,6 +268,7 @@ predicates:
     time_required: true
     evidence_required: true
     description: 辖区重叠。
+    cardinality: single
   adjacent_to:
     name: 毗邻
     domain: [Place]
@@ -261,8 +278,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 相邻。
-
-  # ---------- 作品 ----------
+    cardinality: single
   authored_by:
     name: 作者
     domain: [Work]
@@ -273,6 +289,7 @@ predicates:
     evidence_required: true
     inverse: authored
     description: 作品作者。
+    cardinality: single
   created_at_place:
     name: 创作于
     domain: [Work, Artifact]
@@ -282,6 +299,7 @@ predicates:
     time_required: true
     evidence_required: true
     description: 创作地点。
+    cardinality: single
   created_during:
     name: 创作于(时期)
     domain: [Work, Artifact]
@@ -291,6 +309,7 @@ predicates:
     time_required: true
     evidence_required: true
     description: 创作时期/朝代。
+    cardinality: single
   describes:
     name: 描写
     domain: [Work]
@@ -300,6 +319,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 作品题材对象。
+    cardinality: multi
   depicts:
     name: 描绘
     domain: [Work, Artifact]
@@ -309,8 +329,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 图像/器物描绘。
-
-  # ---------- 机构 ----------
+    cardinality: single
   founded_by:
     name: 由…创办
     domain: [Organization, Institution, Site]
@@ -321,6 +340,7 @@ predicates:
     evidence_required: true
     inverse: founded
     description: 创办者。
+    cardinality: single
   located_at:
     name: 坐落于
     domain: [Organization, Institution]
@@ -330,8 +350,7 @@ predicates:
     time_required: true
     evidence_required: true
     description: 机构驻地。
-
-  # ---------- 水系 ----------
+    cardinality: single
   tributary_of:
     name: 支流
     domain: [WaterSystem]
@@ -341,6 +360,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 支流-干流。
+    cardinality: single
   flows_through:
     name: 流经
     domain: [WaterSystem]
@@ -350,6 +370,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 流经地域。
+    cardinality: multi
   originates_at:
     name: 发源于
     domain: [WaterSystem]
@@ -359,6 +380,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 源头。
+    cardinality: single
   empties_into:
     name: 汇入
     domain: [WaterSystem]
@@ -368,6 +390,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 注入。
+    cardinality: single
   belongs_to_basin:
     name: 属于流域
     domain: [Place, Site, Event, WaterSystem, NaturalObject]
@@ -377,6 +400,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 属于某流域。
+    cardinality: single
   impounds:
     name: 拦蓄
     domain: [Artifact, WaterSystem]
@@ -386,6 +410,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 水利工程拦蓄江河。
+    cardinality: multi
   supplies_water_to:
     name: 供水/灌溉
     domain: [WaterSystem, Artifact]
@@ -395,14 +420,14 @@ predicates:
     time_required: false
     evidence_required: true
     description: 灌溉/供水区域。
-
-  # ---------- 主题 ----------
+    cardinality: multi
   has_topic:
     name: 主题
-    domain: [Work, Event, Resource_Concept]
+    domain: [Work, Event]
     range: [Concept]
     directed: true
     symmetric: false
     time_required: false
     evidence_required: false
     description: 主题标签（允许多值）。
+    cardinality: multi

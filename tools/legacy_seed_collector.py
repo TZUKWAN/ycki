@@ -21,7 +21,7 @@ import traceback
 from datetime import datetime
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[0]   # auto_growth.py 位于 ycki/ 根目录
+ROOT = Path(__file__).resolve().parents[1]   # 文件位于 tools/ 下，ROOT=ycki/
 sys.path.insert(0, str(ROOT))
 sys.stdout.reconfigure(encoding="utf-8")
 

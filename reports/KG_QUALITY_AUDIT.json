@@ -1,63 +1,71 @@
 {
  "scope": {
   "cases": 8,
-  "passed": 7,
-  "precision": 0.875,
+  "passed": 8,
+  "scope_precision": 1.0,
   "detail": [
    {
     "expect": "CORE",
     "got": "CORE",
     "title": "都江堰",
-    "pass": true
+    "pass": true,
+    "reason": "都江堰位于长江支流岷江，是长江流域核心水利文化遗产，直接构成长江文化研究对象。"
    },
    {
     "expect": "CORE",
     "got": "CORE",
     "title": "汉阳铁厂",
-    "pass": true
+    "pass": true,
+    "reason": "汉阳铁厂位于长江中游湖北汉阳，是长江流域近代工业文明的重要历史遗存，属长江文化研究对象。"
    },
    {
     "expect": "CORE",
     "got": "CORE",
     "title": "洞庭湖",
-    "pass": true
+    "pass": true,
+    "reason": "洞庭湖明确列为长江流域湖泊，是长江文化研究对象。"
    },
    {
     "expect": "CONTEXT",
-    "got": "CORE",
+    "got": "CONTEXT",
     "title": "北京桥梁专家组赴武汉",
-    "pass": false
+    "pass": true,
+    "reason": "北京专家组参与武汉长江大桥建设，该桥为长江文化核心对象，北京机构与其有直接必要关系。"
    },
    {
     "expect": "REJECT",
     "got": "REJECT",
     "title": "故宫",
-    "pass": true
+    "pass": true,
+    "reason": "故宫位于北京，属黄河流域文化圈，与长江流域无直接地理或文化关联，文中未提及长江。"
    },
    {
     "expect": "REJECT",
     "got": "REJECT",
     "title": "颐和园",
-    "pass": true
+    "pass": true,
+    "reason": "颐和园位于北京，属海河流域，与长江流域无地理或文化关联。"
    },
    {
     "expect": "REJECT",
     "got": "REJECT",
     "title": "山西晋商",
-    "pass": true
+    "pass": true,
+    "reason": "晋商活动范围及文化核心均在山西，属黄河流域，与长江流域无直接结构性关系。"
    },
    {
     "expect": "REJECT",
     "got": "REJECT",
     "title": "东北抗联一般史",
-    "pass": true
+    "pass": true,
+    "reason": "内容聚焦东北抗日联军，地理位于东北，与长江流域无直接结构性关系。"
    }
   ]
  },
- "er": {
+ "er_adjudicator": {
   "cases": 6,
   "passed": 6,
-  "accuracy": 1.0,
+  "adjudicator_accuracy": 1.0,
   "detail": [
    {
     "a": "毛泽东",
@@ -103,13 +111,46 @@
    }
   ]
  },
+ "false_merge": {
+  "pairs_checked": 4,
+  "false_merge_count": 3,
+  "false_merge_rate": 0.75,
+  "samples": [
+   {
+    "entity": "安陆州",
+    "type": "Place",
+    "a": "安陆州",
+    "b": "承天府",
+    "verdict": "different",
+    "reason": "安陆州与承天府为明代不同行政区划，非同一实体"
+   },
+   {
+    "entity": "睿功圣德碑",
+    "type": "Artifact",
+    "a": "睿功圣德碑",
+    "b": "纯德山碑",
+    "verdict": "different",
+    "reason": "睿功圣德碑与纯德山碑为不同历史文物，非同一对象。"
+   },
+   {
+    "entity": "神宫监",
+    "type": "Site",
+    "a": "神宫监",
+    "b": "神库",
+    "verdict": "different",
+    "reason": "神宫监为机构，神库为场所，职能与性质不同"
+   }
+  ]
+ },
  "db": {
   "invalid_predicate_admitted": 0,
-  "admitted_claims_with_evidence": 125,
-  "claim_provenance_complete_rate": 1.0,
+  "provenance_checked": 28,
+  "chunk_exists_rate": 0.9643,
+  "document_exists_rate": 1.0,
+  "source_exists_rate": 1.0,
+  "evidence_relocated_rate": 0.9643,
+  "relocate_fail_samples": [],
   "admitted_without_evidence": 0,
-  "evidence_total": 196,
-  "evidence_located_rate": 1.0,
   "unknown_type_entities": 0
  }
 }
