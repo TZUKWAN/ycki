@@ -1,5 +1,9 @@
 # ONTOLOGY — 长江文化本体与 Schema
 
+> ⚠️ **2026-09-08 canonical_v1 重构进行中**：本文档部分内容描述的是重构前架构。
+> 以 [docs/REFACTOR_PHASE0_AUDIT.md](REFACTOR_PHASE0_AUDIT.md) 与 [docs/DECISIONS.md](DECISIONS.md) ADR-018~019 之后的最新决策为准。
+> 核心变化：Retrieval Graph 与 Canonical KG 双层拆分；资源准入/实体消歧/Claim-Evidence 流水线上线。
+
 > v0.1 骨架（2026-09-06）· T04 定稿
 > 治理：稳定核心 Core → 领域扩展 Domain Extension → 候选 Candidate；Agent 只能提议新类型，不得直接改核心。
 

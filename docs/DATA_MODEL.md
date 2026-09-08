@@ -1,5 +1,9 @@
 # DATA MODEL — YCKI 数据模型
 
+> ⚠️ **2026-09-08 canonical_v1 重构进行中**：本文档部分内容描述的是重构前架构。
+> 以 [docs/REFACTOR_PHASE0_AUDIT.md](REFACTOR_PHASE0_AUDIT.md) 与 [docs/DECISIONS.md](DECISIONS.md) ADR-018~019 之后的最新决策为准。
+> 核心变化：Retrieval Graph 与 Canonical KG 双层拆分；资源准入/实体消歧/Claim-Evidence 流水线上线。
+
 > v0.1 骨架（2026-09-06）· T03 落库前定稿
 > 三态分离：Raw Information → Candidate Knowledge → Admitted Knowledge
 
