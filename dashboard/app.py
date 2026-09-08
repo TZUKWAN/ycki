@@ -1,0 +1,206 @@
+# -*- coding: utf-8 -*-
+"""YCKI 可视化控制台 (http://localhost:9622)
+- 增长总览/最新入库/每日增长/队列状态
+- 自定义搜索词条管理（写入即被自增长引擎采用，可一键立即采集）
+- 引擎暂停/恢复
+"""
+from __future__ import annotations
+
+import json
+import subprocess
+import sys
+import threading
+import time
+from datetime import datetime
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.stdout.reconfigure(encoding="utf-8")
+
+import requests
+import uvicorn
+from fastapi import FastAPI
+from fastapi.responses import HTMLResponse, JSONResponse
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from tools.registry import Registry  # noqa: E402
+
+LIGHTRAG = "http://localhost:9621"
+H = {"X-API-Key": "ycki-baseline-6f2a91c4"}
+CUSTOM_TOPICS = ROOT / "yangtze" / "custom_topics.json"
+ENGINE_STATE = ROOT / "data" / "engine_state.json"
+PAUSE_FLAG = ROOT / "data" / "engine_pause.flag"
+COLLECT_LOCK = ROOT / "data" / "custom_collect.lock"
+
+app = FastAPI(title="YCKI Console")
+
+# 实体规模缓存（graphml 解析较重，后台线程低频刷新）
+_entity_cache = {"count": None, "relations": None, "updated": 0, "lock": threading.Lock()}
+
+
+def refresh_entities():
+    with _entity_cache["lock"]:
+        try:
+            sys.path.insert(0, str(ROOT))
+            from tools.verify_chain import load_graphml
+            nodes, edges = load_graphml()
+            _entity_cache["count"] = len(nodes)
+            _entity_cache["relations"] = len(edges)
+            _entity_cache["updated"] = time.time()
+        except Exception:
+            pass
+
+
+def entity_scheduler():
+    while True:
+        refresh_entities()
+        time.sleep(300)
+
+
+threading.Thread(target=entity_scheduler, daemon=True).start()
+
+
+def pg_stats():
+    reg = Registry()
+    try:
+        with reg.conn.cursor() as cur:
+            cur.execute("""SELECT count(*), COALESCE(sum(content_chars),0),
+                                  count(DISTINCT source_domain) FROM resources""")
+            total, chars, domains = cur.fetchone()
+            cur.execute("SELECT count(*) FROM sources")
+            sources = cur.fetchone()[0]
+            cur.execute("""SELECT title, source_domain, retrieved_at, ingest_status, source_url
+                           FROM resources ORDER BY retrieved_at DESC LIMIT 30""")
+            recent = [{"title": r[0], "domain": r[1], "at": str(r[2]),
+                       "status": r[3], "url": r[4]} for r in cur.fetchall()]
+            cur.execute("""SELECT to_char(retrieved_at::date,'MM-DD'), count(*)
+                           FROM resources WHERE retrieved_at > now() - interval '14 days'
+                           GROUP BY 1 ORDER BY 1""")
+            daily = [{"day": r[0], "n": r[1]} for r in cur.fetchall()]
+        return {"resources": total, "chars": chars, "domains": domains,
+                "sources": sources, "recent": recent, "daily": daily}
+    finally:
+        reg.close()
+
+
+def lr_stats():
+    try:
+        d = requests.get(f"{LIGHTRAG}/documents/status_counts", headers=H, timeout=90).json()
+        return d.get("status_counts", {})
+    except Exception:
+        return {}
+
+
+def engine_state():
+    st = {"running": False, "cycle": None, "last_msg": "", "paused": PAUSE_FLAG.exists()}
+    try:
+        if ENGINE_STATE.exists():
+            d = json.loads(ENGINE_STATE.read_text(encoding="utf-8"))
+            age = time.time() - d.get("ts", 0)
+            st["running"] = age < 3600
+            st["cycle"] = d.get("cycle")
+            st["last_msg"] = d.get("last_msg", "")[:160]
+            st["last_ts"] = datetime.fromtimestamp(d.get("ts", 0)).strftime("%m-%d %H:%M")
+    except Exception:
+        pass
+    return st
+
+
+def custom_topics():
+    if CUSTOM_TOPICS.exists():
+        try:
+            return json.loads(CUSTOM_TOPICS.read_text(encoding="utf-8"))
+        except Exception:
+            return {"queries": [], "seen": []}
+    return {"queries": [], "seen": []}
+
+
+@app.get("/api/overview")
+def overview():
+    try:
+        p = pg_stats()
+    except Exception as exc:
+        p = {"error": str(exc), "resources": 0, "chars": 0, "domains": 0,
+             "sources": 0, "recent": [], "daily": []}
+    return {
+        "pg": p,
+        "lr": lr_stats(),
+        "entities": _entity_cache["count"],
+        "relations": _entity_cache["relations"],
+        "entity_updated": datetime.fromtimestamp(_entity_cache["updated"]).strftime("%H:%M") if _entity_cache["updated"] else "",
+        "engine": engine_state(),
+    }
+
+
+@app.get("/api/topics")
+def get_topics():
+    return custom_topics()
+
+
+@app.post("/api/topics/add")
+def add_topics(payload: dict):
+    queries = [q.strip() for q in (payload.get("queries") or []) if q.strip()]
+    if not queries:
+        return JSONResponse({"ok": False, "msg": "没有有效词条"}, status_code=400)
+    data = custom_topics()
+    seen = set(data.get("seen", []))
+    new = [q for q in queries if q not in seen]
+    data.setdefault("seen", []).extend(new)
+    data["queries"] = new          # 只保留未采过的新词，采集完自动清空
+    CUSTOM_TOPICS.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    return {"ok": True, "added": len(new), "total_seen": len(data["seen"])}
+
+
+@app.post("/api/collect/run")
+def run_collect_now():
+    if COLLECT_LOCK.exists():
+        return {"ok": False, "msg": "已有一次立即采集在运行"}
+    data = custom_topics()
+    if not data.get("queries"):
+        return {"ok": False, "msg": "请先添加词条"}
+    COLLECT_LOCK.write_text(datetime.now().isoformat(), encoding="utf-8")
+    logf = open(ROOT / "data" / "custom_collect.log", "a", encoding="utf-8")
+
+    def _run():
+        try:
+            subprocess.Popen(
+                [sys.executable, str(ROOT / "tools" / "collect.py"),
+                 "--batch", "custom", "--topics", str(CUSTOM_TOPICS),
+                 "--max-total", "60", "--max-urls", "6", "--wiki-per-query", "2",
+                 "--delay", "1.1"],
+                stdout=logf, stderr=subprocess.STDOUT, cwd=str(ROOT))
+        finally:
+            time.sleep(3)
+
+    threading.Thread(target=_run, daemon=True).start()
+    return {"ok": True, "msg": "立即采集已启动，结果稍后出现在『最新入库』"}
+
+
+@app.post("/api/collect/clear_lock")
+def clear_lock():
+    if COLLECT_LOCK.exists():
+        COLLECT_LOCK.unlink()
+    return {"ok": True}
+
+
+@app.post("/api/engine/pause")
+def pause_engine():
+    PAUSE_FLAG.write_text(datetime.now().isoformat(), encoding="utf-8")
+    return {"ok": True, "paused": True}
+
+
+@app.post("/api/engine/resume")
+def resume_engine():
+    if PAUSE_FLAG.exists():
+        PAUSE_FLAG.unlink()
+    return {"ok": True, "paused": False}
+
+
+@app.get("/", response_class=HTMLResponse)
+def index():
+    return (ROOT / "dashboard" / "index.html").read_text(encoding="utf-8")
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=9622, log_level="warning")
