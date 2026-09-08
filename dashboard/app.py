@@ -167,8 +167,12 @@ def add_topics(payload: dict):
 
 @app.post("/api/collect/run")
 def run_collect_now():
+    # stale lock 自动清理（>30 分钟视为崩溃残留）
     if COLLECT_LOCK.exists():
-        return {"ok": False, "msg": "已有一次立即采集在运行"}
+        age = time.time() - COLLECT_LOCK.stat().st_mtime
+        if age < 1800:
+            return {"ok": False, "msg": f"已有一次立即采集在运行（{int(age)}s）"}
+        COLLECT_LOCK.unlink()
     data = custom_topics()
     if not data.get("queries"):
         return {"ok": False, "msg": "请先添加词条"}
@@ -177,14 +181,24 @@ def run_collect_now():
 
     def _run():
         try:
-            subprocess.Popen(
+            # custom_topics.json 是 {queries, seen} 结构：包装成 collect 需要的 themes
+            pending = data.get("queries", [])
+            tmp = ROOT / "data" / "custom_pending.json"
+            tmp.write_text(json.dumps(
+                {"themes": [{"topic": "自定义词条", "queries": pending}]},
+                ensure_ascii=False), encoding="utf-8")
+            proc = subprocess.Popen(
                 [sys.executable, str(ROOT / "tools" / "collect.py"),
-                 "--batch", "custom", "--topics", str(CUSTOM_TOPICS),
+                 "--batch", "custom", "--topics", str(tmp),
                  "--max-total", "60", "--max-urls", "6", "--wiki-per-query", "2",
                  "--delay", "1.1"],
                 stdout=logf, stderr=subprocess.STDOUT, cwd=str(ROOT))
+            proc.wait(timeout=3600)       # 等待完成再释放锁
+        except Exception:
+            pass
         finally:
-            time.sleep(3)
+            if COLLECT_LOCK.exists():
+                COLLECT_LOCK.unlink()
 
     threading.Thread(target=_run, daemon=True).start()
     return {"ok": True, "msg": "立即采集已启动，结果稍后出现在『最新入库』"}

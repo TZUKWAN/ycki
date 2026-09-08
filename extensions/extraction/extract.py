@@ -97,10 +97,47 @@ def extract(title: str, chunks: list[tuple[int, str]]) -> dict[str, Any]:
 
 
 def persist_candidates(resource_id: str, doc_id: str, result: dict[str, Any], conn) -> int:
-    """候选实体入库（resolved_status=UNRESOLVED，等待 ER）。返回候选数。"""
+    """候选实体 + 事件载荷 + 待准入 claims 入库（供后续阶段断点续跑消费）。"""
     import hashlib
     n = 0
     with conn.cursor() as cur:
+        # 事件载荷持久化（含 time/place/participants，供断点续跑）
+        for ev in result["events"]:
+            cur.execute(
+                """INSERT INTO events
+                   (event_type, canonical_name, description, time_text, period,
+                    participants_json, organizations_json, status, resource_id,
+                    quote_span, extraction_model, prompt_version)
+                   VALUES (%s,%s,%s,%s,%s,%s,%s,'CANDIDATE',%s,%s,%s,%s)
+                   ON CONFLICT (resource_id, canonical_name) DO NOTHING""",
+                (ev["event_type"], ev["name"], ev["description"], ev.get("time"),
+                 ev.get("period"), json.dumps(ev["participants"], ensure_ascii=False),
+                 json.dumps(ev["organizations"], ensure_ascii=False),
+                 resource_id, ev["quote_span"], result["model"],
+                 result["prompt_version"]))
+        # 待准入 claims 暂存
+        for c in result["claims"]:
+            cur.execute(
+                """INSERT INTO pending_claims
+                   (resource_id, subject, predicate, object, time_text, place, quote_span)
+                   VALUES (%s,%s,%s,%s,%s,%s,%s)
+                   ON CONFLICT DO NOTHING""",
+                (resource_id, c["subject"], c["predicate"], c["object"],
+                 c.get("time"), c.get("place"), c["quote_span"]))
+        # 事件名也登记为候选实体（类型 Event），供 ER 统一消歧
+        for ev in result["events"]:
+            cid = "ce-" + hashlib.sha1(
+                f"{resource_id}|{ev['name']}|Event".encode()).hexdigest()[:16]
+            cur.execute(
+                """INSERT INTO candidate_entities
+                   (candidate_id, surface_name, normalized_name, entity_type, description,
+                    resource_id, document_id, extraction_model, prompt_version,
+                    pipeline_version)
+                   VALUES (%s,%s,%s,'Event',%s,%s,%s,%s,%s,%s)
+                   ON CONFLICT (candidate_id) DO NOTHING""",
+                (cid, ev["name"], ev["name"].strip().lower(), ev["description"][:300],
+                 resource_id, doc_id, result["model"], result["prompt_version"],
+                 result["pipeline_version"]))
         for e in result["entities"]:
             cid = "ce-" + hashlib.sha1(
                 f"{resource_id}|{e['name']}|{e['type']}".encode()).hexdigest()[:16]

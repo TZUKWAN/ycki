@@ -1,9 +1,26 @@
 # -*- coding: utf-8 -*-
-"""Phase 9：Claim Admission —— 十阶段准入流水线（任一 FAIL 即不得 ADMITTED）。
+"""Phase 8/9 v2：Claim Admission —— 十阶段准入（全部真实执行并留痕）。
 
-stages: schema_validation → entity_resolution → domain_range → evidence_span
-        → temporal → spatial → yangtze_scope → source_independence
-        → conflict_detection → admission
+stages:
+ 1 schema_validation     谓词已注册、cardinality 已知
+ 2 entity_resolution     subject/object 已解析为 Canonical Entity（禁止补建类型）
+ 3 domain_range          类型 ∈ domain/range
+ 4 evidence_span         quote_span 能在「真实所在 chunk」定位（EXACT/NORMALIZED）
+ 5 temporal              谓词要求时间 → 必须有 TimeSpan
+ 6 spatial               谓词要求地点 → 必须有 place entity
+ 7 yangtze_scope         来源资源为 CORE/CONTEXT
+ 8 source_independence   统计同三元组独立来源数（进 confidence）
+ 9 conflict_detection    cardinality 感知：single 谓词同主体不同宾语 → CONTESTED
+10 admission             综合置信模型 → ADMITTED / SUPPORTED / CONTESTED
+
+confidence 模型（可解释，非拍脑袋）：
+  base 0.35
+  + 0.15 × min(独立来源数−1, 2)     （独立来源增益，封顶 +0.30）
+  + 0.15                             （来源权威级 S/A）
+  + 0.10                             （证据 EXACT 定位）
+  + 0.10                             （有时间）
+  + 0.10                             （非兜底谓词 associated_with）
+  上限 0.95；CONTESTED 固定 0.30。
 """
 from __future__ import annotations
 
@@ -12,138 +29,234 @@ import logging
 from typing import Any
 
 from config.settings import SETTINGS
-from extensions.extraction.extract import predicate_domain_range
 from extensions.evidence.binder import bind
+from extensions.extraction.extract import _PRED
 
 log = logging.getLogger("ycki.claim_gate")
 
-
-def admit(claim_draft: dict[str, Any], conn) -> dict[str, Any]:
-    """对单条候选 claim 执行准入。返回最终 claim 记录（含状态与 stages 结果）。
-
-    claim_draft 字段：subject_candidate_id/object_candidate_id（已解析实体 id）、
-    predicate、quote_span、chunk_id、document_id、resource_id、source_id、
-    time_text、place_name、chunk_text
-    """
-    stages: list[tuple[str, str, dict]] = []
-
-    def record(stage: str, result: str, detail: dict) -> None:
-        stages.append((stage, result, detail))
-        if result == "FAIL":
-            raise _StageFailure(stage, detail)
-
-    try:
-        # 1 schema_validation：谓词已注册
-        dr = predicate_domain_range(claim_draft["predicate"])
-        if dr is None:
-            record("schema_validation", "FAIL", {"reason": "谓词未注册"})
-        record("schema_validation", "PASS", {"predicate": claim_draft["predicate"]})
-
-        # 3 domain_range：subject/object 实体类型必须在 domain/range 内
-        with conn.cursor() as cur:
-            cur.execute("SELECT entity_type FROM canonical_entities WHERE entity_id=%s",
-                        (claim_draft["subject_entity_id"],))
-            stype = (cur.fetchone() or [""])[0]
-            cur.execute("SELECT entity_type FROM canonical_entities WHERE entity_id=%s",
-                        (claim_draft["object_entity_id"],))
-            otype = (cur.fetchone() or [""])[0]
-        domain, rng = dr
-        if (stype not in domain) or (otype not in rng):
-            record("domain_range", "FAIL",
-                   {"reason": f"{stype} --{claim_draft['predicate']}--> {otype} 不在 domain/range",
-                    "domain": domain, "range": rng})
-        record("domain_range", "PASS", {"subject_type": stype, "object_type": otype})
-
-        # 4 evidence_span：quote 必须能在 chunk 原文定位
-        match = bind(claim_draft["quote_span"], claim_draft.get("chunk_text", ""))
-        if match == "FAILED":
-            record("evidence_span", "FAIL", {"reason": "quote_span 无法在原文定位"})
-        record("evidence_span", "PASS", {"match_status": match})
-
-        # 5 temporal：谓词要求时间则必须有 time
-        pred = SETTINGS  # noqa
-        from extensions.extraction.extract import _PRED
-        need_time = _PRED[claim_draft["predicate"]].get("time_required", False)
-        if need_time and not (claim_draft.get("timespan_id") or claim_draft.get("time_text")):
-            record("temporal", "FAIL", {"reason": "谓词要求时间但缺失"})
-        record("temporal", "PASS", {"time": claim_draft.get("time_text", "")})
-
-        # 7 yangtze_scope：来源资源必须 CORE/CONTEXT
-        with conn.cursor() as cur:
-            cur.execute("SELECT admission_status FROM resources WHERE resource_id=%s",
-                        (claim_draft["resource_id"],))
-            adm = (cur.fetchone() or ["REJECTED"])[0]
-        if adm not in ("CORE", "CONTEXT"):
-            record("yangtze_scope", "FAIL", {"reason": f"资源准入状态 {adm}"})
-        record("yangtze_scope", "PASS", {"resource_admission": adm})
-
-        # 9 conflict_detection：与已 ADMITTED 主张矛盾 → CONTESTED
-        conflict = _detect_conflict(claim_draft, conn)
-        contested = conflict is not None
-
-        # 10 admission
-        status = "CONTESTED" if contested else (
-            "ADMITTED" if match in ("EXACT", "NORMALIZED") else "SUPPORTED")
-        record("admission", "PASS", {"status": status})
-
-        claim_id = _insert_claim(claim_draft, status, match, conn, stages)
-        return {"claim_id": claim_id, "status": status, "stages": stages,
-                "conflict_with": conflict}
-
-    except _StageFailure as fail:
-        claim_id = _insert_claim(claim_draft, "REJECTED", "FAILED", conn, stages,
-                                 fail_stage=fail.stage, fail_detail=fail.detail)
-        return {"claim_id": claim_id, "status": "REJECTED",
-                "failed_stage": fail.stage, "detail": fail.detail, "stages": stages}
+_FALLBACK_PREDICATES = {"associated_with"}
 
 
-class _StageFailure(Exception):
+class StageFailure(Exception):
     def __init__(self, stage: str, detail: dict):
         super().__init__(stage)
         self.stage = stage
         self.detail = detail
 
 
-def _detect_conflict(claim_draft: dict[str, Any], conn) -> str | None:
-    """同主体同谓词但宾语不同、且均为 ADMITTED → 视为冲突（保守判定）。"""
-    with conn.cursor() as cur:
-        cur.execute("""SELECT c.claim_id, o.canonical_name FROM claims c
-                       JOIN canonical_entities o ON o.entity_id=c.object_id
-                       WHERE c.subject_id=%s AND c.predicate_id=%s AND c.status='ADMITTED'
-                       LIMIT 5""", (claim_draft["subject_entity_id"],
-                                    claim_draft["predicate"]))
-        rows = cur.fetchall()
-    for cid, oname in rows:
-        if oname != claim_draft.get("object_name"):
-            return str(cid)
-    return None
+def admit(claim_draft: dict[str, Any], conn) -> dict[str, Any]:
+    """执行十阶段准入。claim_draft 必须含：
+    subject_entity_id / object_entity_id（已解析，禁止缺省补建）、predicate、
+    quote_span、chunk_id（真实 chunk）、chunk_text（该 chunk 原文）、
+    resource_id / document_id / source_id、time_text、place_name、object_name。
+    """
+    stages: list[tuple[str, str, dict]] = []
+
+    def record(stage: str, result: str, detail: dict) -> None:
+        stages.append((stage, result, detail))
+        if result == "FAIL":
+            raise StageFailure(stage, detail)
+
+    pred = _PRED[claim_draft["predicate"]]
+
+    def _type_of(entity_id: str) -> str:
+        with conn.cursor() as cur:
+            cur.execute("SELECT entity_type FROM canonical_entities WHERE entity_id=%s",
+                        (entity_id,))
+            row = cur.fetchone()
+        return row[0] if row else ""
+
+    try:
+        # ---- 1 schema_validation ----
+        if claim_draft["predicate"] not in _PRED:
+            record("schema_validation", "FAIL", {"reason": "谓词未注册"})
+        record("schema_validation", "PASS",
+               {"predicate": claim_draft["predicate"],
+                "cardinality": pred.get("cardinality", "single")})
+
+        # ---- 2 entity_resolution（端点必须已解析，绝不补建） ----
+        if not claim_draft.get("subject_entity_id") or not claim_draft.get("object_entity_id"):
+            # 端点未解析：不产生 claims 行（claims 表要求端点存在），
+            # 只在 provenance 留痕，等待实体解析后重试。
+            with conn.cursor() as cur:
+                cur.execute(
+                    """INSERT INTO provenance_events
+                       (object_type, object_id, action, actor, detail)
+                       VALUES ('claim_draft', %s, 'rejected_pre_insert',
+                               'claim_gate', %s)""",
+                    (f"{claim_draft.get('resource_id')}|{claim_draft.get('subject')}|"
+                     f"{claim_draft['predicate']}|{claim_draft.get('object')}",
+                     json.dumps({"reason": "endpoints unresolved",
+                                 "quote": claim_draft["quote_span"][:80]},
+                                ensure_ascii=False)))
+            conn.commit()
+            return {"status": "REJECTED_PRE_INSERT",
+                    "failed_stage": "entity_resolution",
+                    "reason": "端点实体未解析（等待 ER 后重试）",
+                    "stages": stages}
+        with conn.cursor() as cur:
+            cur.execute("""SELECT resolution_status FROM candidate_entities
+                           WHERE resolved_entity_id=%s
+                           ORDER BY created_at DESC LIMIT 1""",
+                        (claim_draft["subject_entity_id"],))
+            r = cur.fetchone()
+            s_stat = r[0] if r else "RESOLVED_EXISTING"
+            cur.execute("""SELECT resolution_status FROM candidate_entities
+                           WHERE resolved_entity_id=%s
+                           ORDER BY created_at DESC LIMIT 1""",
+                        (claim_draft["object_entity_id"],))
+            r = cur.fetchone()
+            o_stat = r[0] if r else "RESOLVED_EXISTING"
+        if "UNRESOLVED" in (s_stat, o_stat):
+            record("entity_resolution", "FAIL",
+                   {"reason": "端点候选处于 UNRESOLVED", "subject": s_stat, "object": o_stat})
+        record("entity_resolution", "PASS", {"subject": s_stat, "object": o_stat})
+
+        # ---- 3 domain_range ----
+        stype, otype = _type_of(claim_draft["subject_entity_id"]), \
+            _type_of(claim_draft["object_entity_id"])
+        if stype not in pred["domain"] or otype not in pred["range"]:
+            record("domain_range", "FAIL",
+                   {"reason": f"{stype} --{claim_draft['predicate']}--> {otype} 越界",
+                    "domain": pred["domain"], "range": pred["range"]})
+        record("domain_range", "PASS", {"subject_type": stype, "object_type": otype})
+
+        # ---- 4 evidence_span（绑定真实 chunk） ----
+        chunk_text = claim_draft.get("chunk_text", "")
+        match = bind(claim_draft["quote_span"], chunk_text)
+        if match == "FAILED":
+            record("evidence_span", "FAIL",
+                   {"reason": "quote_span 无法在真实 chunk 原文定位",
+                    "chunk_id": claim_draft.get("chunk_id")})
+        record("evidence_span", "PASS", {"match_status": match,
+                                         "chunk_id": claim_draft.get("chunk_id")})
+
+        # ---- 5 temporal ----
+        if pred.get("time_required") and not (claim_draft.get("timespan_id")
+                                              or claim_draft.get("time_text")):
+            record("temporal", "FAIL", {"reason": "谓词要求时间但缺失"})
+        record("temporal", "PASS", {"time": claim_draft.get("time_text", "")})
+
+        # ---- 6 spatial ----
+        if pred.get("place_required") and not claim_draft.get("place_entity_id"):
+            record("spatial", "FAIL", {"reason": "谓词要求地点但缺失"})
+        record("spatial", "PASS", {"place": claim_draft.get("place_name", ""),
+                                   "place_entity_id": str(claim_draft.get("place_entity_id") or "")})
+
+        # ---- 7 yangtze_scope ----
+        with conn.cursor() as cur:
+            cur.execute("SELECT admission_status FROM resources WHERE resource_id=%s",
+                        (claim_draft["resource_id"],))
+            row = cur.fetchone()
+        adm = row[0] if row else "REJECTED"
+        if adm not in ("CORE", "CONTEXT"):
+            record("yangtze_scope", "FAIL", {"reason": f"资源准入状态 {adm}"})
+        record("yangtze_scope", "PASS", {"resource_admission": adm})
+
+        # ---- 8 source_independence ----
+        with conn.cursor() as cur:
+            cur.execute("""SELECT count(DISTINCT src.source_id) AS n
+                           FROM claims c
+                           JOIN evidence e ON e.claim_id=c.claim_id
+                           JOIN sources src ON src.source_id=e.source_id
+                           WHERE c.subject_id=%s AND c.predicate_id=%s
+                             AND c.object_id=%s AND c.status='ADMITTED'""",
+                        (claim_draft["subject_entity_id"], claim_draft["predicate"],
+                         claim_draft["object_entity_id"]))
+            r = cur.fetchone()
+            indep = (r[0] if r else 0) + 1       # 本条来源计数在内
+        record("source_independence", "PASS",
+               {"independent_source_count": indep,
+                "authority": claim_draft.get("authority_level", "UNKNOWN")})
+
+        # ---- 9 conflict_detection（cardinality 感知） ----
+        cardinality = pred.get("cardinality", "single")
+        conflict_id = None
+        if cardinality == "single":
+            with conn.cursor() as cur:
+                cur.execute("""SELECT c.claim_id, o.canonical_name FROM claims c
+                               JOIN canonical_entities o ON o.entity_id=c.object_id
+                               WHERE c.subject_id=%s AND c.predicate_id=%s
+                                 AND c.object_id<>%s AND c.status='ADMITTED'
+                               LIMIT 5""",
+                            (claim_draft["subject_entity_id"], claim_draft["predicate"],
+                             claim_draft["object_entity_id"]))
+                conflicts = cur.fetchall()
+            if conflicts:
+                conflict_id = str(conflicts[0][0])
+                record("conflict_detection", "PASS",
+                       {"CONTESTED": True, "with_claim": conflict_id,
+                        "other_object": conflicts[0][1]})
+        else:
+            record("conflict_detection", "PASS",
+                   {"note": "multi-cardinality 谓词允许多宾语，不判冲突"})
+
+        # ---- 10 admission（置信模型） ----
+        status = "CONTESTED" if conflict_id else (
+            "ADMITTED" if match in ("EXACT", "NORMALIZED") else "SUPPORTED")
+        confidence = _confidence(indep, claim_draft.get("authority_level", "UNKNOWN"),
+                                 match, claim_draft.get("time_text"),
+                                 claim_draft["predicate"], status)
+        record("admission", "PASS",
+               {"status": status, "confidence": round(confidence, 2)})
+
+        claim_id = _insert(claim_draft, status, match, confidence, indep,
+                           conflict_id, conn, stages)
+        return {"claim_id": str(claim_id), "status": status,
+                "confidence": round(confidence, 2), "stages": stages}
+
+    except StageFailure as fail:
+        claim_id = _insert(claim_draft, "REJECTED", "FAILED", 0.0, 0, None, conn,
+                           stages, fail_stage=fail.stage, fail_detail=fail.detail)
+        return {"claim_id": str(claim_id), "status": "REJECTED",
+                "failed_stage": fail.stage, "detail": fail.detail, "stages": stages}
 
 
-def _insert_claim(claim_draft: dict[str, Any], status: str, match_status: str,
-                  conn, stages: list, fail_stage: str | None = None,
-                  fail_detail: dict | None = None) -> str:
+def _confidence(indep: int, authority: str, match: str, time_text: Any,
+                predicate: str, status: str) -> float:
+    if status == "CONTESTED":
+        return 0.30
+    c = 0.35
+    c += 0.15 * min(max(indep - 1, 0), 2)
+    if authority in ("S", "A"):
+        c += 0.15
+    if match == "EXACT":
+        c += 0.10
+    if time_text:
+        c += 0.10
+    if predicate not in _FALLBACK_PREDICATES:
+        c += 0.10
+    return min(0.95, round(c, 2))
+
+
+def _insert(claim_draft: dict[str, Any], status: str, match_status: str,
+            confidence: float, indep: int, conflict_id: str | None, conn,
+            stages: list, fail_stage: str | None = None,
+            fail_detail: dict | None = None) -> str:
+    keep = status in ("ADMITTED", "SUPPORTED", "CONTESTED")
     with conn.cursor() as cur:
         cur.execute(
             """INSERT INTO claims
-               (subject_id, predicate_id, object_id, timespan_id, status, confidence,
-                generation_model, model_version, prompt_version, pipeline_version)
-               VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) RETURNING claim_id""",
+               (subject_id, predicate_id, object_id, timespan_id, place_entity_id,
+                status, confidence, generation_model, model_version, prompt_version,
+                pipeline_version)
+               VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) RETURNING claim_id""",
             (claim_draft["subject_entity_id"], claim_draft["predicate"],
-             claim_draft["object_entity_id"], claim_draft.get("timespan_id"), status,
-             0.6 if status == "ADMITTED" else 0.3,
+             claim_draft["object_entity_id"], claim_draft.get("timespan_id"),
+             claim_draft.get("place_entity_id"), status, confidence,
              SETTINGS.llm_model, "", SETTINGS.prompt_admission,
              SETTINGS.pipeline_version))
         claim_id = cur.fetchone()[0]
 
-        if status in ("ADMITTED", "SUPPORTED", "CONTESTED"):
+        if keep:
             cur.execute(
                 """INSERT INTO evidence
-                   (claim_id, resource_id, document_id, chunk_id, quote_span,
+                   (claim_id, resource_id, document_id, chunk_id, page, quote_span,
                     match_status, relation, source_id)
-                   VALUES (%s,%s,%s,%s,%s,%s,'SUPPORTS',%s)""",
+                   VALUES (%s,%s,%s,%s,%s,%s,%s,'SUPPORTS',%s)""",
                 (claim_id, claim_draft.get("resource_id"), claim_draft.get("document_id"),
-                 claim_draft.get("chunk_id"), claim_draft["quote_span"], match_status,
-                 claim_draft.get("source_id")))
+                 claim_draft.get("chunk_id"), claim_draft.get("chunk_part_index"),
+                 claim_draft["quote_span"], match_status, claim_draft.get("source_id")))
 
         for stage, result, detail in stages:
             cur.execute(

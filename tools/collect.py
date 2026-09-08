@@ -91,6 +91,15 @@ def handle_wiki_doc(w: dict, reg: Registry, batch: str, stats: dict) -> None:
         stats["dup_url" if status == "duplicate_url" else "dup_text"] += 1
         return
     stats["registered"] += 1
+    # ---- Resource Scope Gate（维基源同样强制准入）----
+    from extensions.admission import resource_gate
+    verdict = resource_gate.evaluate(d.title, d.text, domain, "GeneralWebsite",
+                                     search_query=w["search_query"])
+    resource_gate.persist(rid, verdict, reg.conn)
+    if verdict["scope_role"] == "REJECT":
+        stats["gate_rejected"] = stats.get("gate_rejected", 0) + 1
+        reg.mark(rid, admission_status="REJECTED")
+        return
     ok, file_source = upload_to_lightrag(rid, d.title, d.text)
     if ok:
         stats["uploaded"] += 1
@@ -179,6 +188,20 @@ def run(batch: str, topics_file: str, max_urls_per_query: int = 6,
                     total_registered += 1
                     stats["fetched"] += 1
 
+                    # ---- Phase 2: Resource Scope Gate（生产入口强制准入）----
+                    from extensions.admission import resource_gate
+                    verdict = resource_gate.evaluate(doc.title, doc.text, domain,
+                                                     "GeneralWebsite",
+                                                     search_query=query)
+                    resource_gate.persist(rid, verdict, reg.conn)
+                    if verdict["scope_role"] == "REJECT":
+                        stats["gate_rejected"] = stats.get("gate_rejected", 0) + 1
+                        reg.mark(rid, admission_status="REJECTED")
+                        reg.log_job(batch, "ingest", "skipped", query=query,
+                                    target=doc.canonical_url,
+                                    detail={"reason": "scope REJECT"})
+                        time.sleep(fetch_delay)
+                        continue
                     ok, file_source = upload_to_lightrag(rid, doc.title, doc.text)
                     if ok:
                         stats["uploaded"] += 1
