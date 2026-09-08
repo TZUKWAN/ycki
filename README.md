@@ -5,10 +5,12 @@ Yangtze Cultural Knowledge Infrastructure — 以 [HKUDS/LightRAG](https://githu
 ## 当前能力（实测）
 
 - **持续自增长**：`auto_growth.py` 常驻循环 —— 轮换采集 10+ 主题表 → 正文抽取 → 知识图谱 → 自愈重试 → PostgreSQL 对账
-- **真实数据规模**：1,400+ 资源 / 340+ 信息源 / 560 万字 / **9.9 万实体 / 12.3 万关系**，全链溯源闭合率 99.9%+
+- **双层图谱**：Retrieval Graph（LightRAG 索引层，9.9 万实体/12.3 万关联边，仅供检索）+ **Canonical KG**（正式知识：UUID 实体/受控谓词有向 Claim/证据溯源，2026-09-08 起建设）
+- **资源准入**：Resource Scope Gate（CORE/CONTEXT/REJECT，实测正负例 7/8）；Chunk 级相关性分层
 - **证据可溯**：任何实体/关系可回溯 chunk → 文档 → 资源 → 来源 URL（权威级 S/A/B/C 分级）
 - **可视化控制台**（:9622）：增长曲线、最新入库、队列状态、引擎启停
 - **自定义词条**：控制台粘贴搜索词，立即采集或由引擎自动消化
+- **质量审计**：ADMITTED Claim 溯源闭环率 100%、证据原文定位率 100%、ER 测试 6/6（reports/KG_QUALITY_AUDIT.json）
 
 ## 架构
 

@@ -1,0 +1,115 @@
+{
+ "scope": {
+  "cases": 8,
+  "passed": 7,
+  "precision": 0.875,
+  "detail": [
+   {
+    "expect": "CORE",
+    "got": "CORE",
+    "title": "都江堰",
+    "pass": true
+   },
+   {
+    "expect": "CORE",
+    "got": "CORE",
+    "title": "汉阳铁厂",
+    "pass": true
+   },
+   {
+    "expect": "CORE",
+    "got": "CORE",
+    "title": "洞庭湖",
+    "pass": true
+   },
+   {
+    "expect": "CONTEXT",
+    "got": "CORE",
+    "title": "北京桥梁专家组赴武汉",
+    "pass": false
+   },
+   {
+    "expect": "REJECT",
+    "got": "REJECT",
+    "title": "故宫",
+    "pass": true
+   },
+   {
+    "expect": "REJECT",
+    "got": "REJECT",
+    "title": "颐和园",
+    "pass": true
+   },
+   {
+    "expect": "REJECT",
+    "got": "REJECT",
+    "title": "山西晋商",
+    "pass": true
+   },
+   {
+    "expect": "REJECT",
+    "got": "REJECT",
+    "title": "东北抗联一般史",
+    "pass": true
+   }
+  ]
+ },
+ "er": {
+  "cases": 6,
+  "passed": 6,
+  "accuracy": 1.0,
+  "detail": [
+   {
+    "a": "毛泽东",
+    "b": "毛润之",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true
+   },
+   {
+    "a": "毛泽东",
+    "b": "Mao Zedong",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true
+   },
+   {
+    "a": "南京",
+    "b": "江宁",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true
+   },
+   {
+    "a": "武昌起义",
+    "b": "辛亥首义",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true
+   },
+   {
+    "a": "汉阳铁厂",
+    "b": "汉冶萍公司",
+    "expect_same": false,
+    "verdict": false,
+    "pass": true
+   },
+   {
+    "a": "李白",
+    "b": "李隆基",
+    "expect_same": false,
+    "verdict": false,
+    "pass": true
+   }
+  ]
+ },
+ "db": {
+  "invalid_predicate_admitted": 0,
+  "admitted_claims_with_evidence": 125,
+  "claim_provenance_complete_rate": 1.0,
+  "admitted_without_evidence": 0,
+  "evidence_total": 196,
+  "evidence_located_rate": 1.0,
+  "unknown_type_entities": 0
+ }
+}

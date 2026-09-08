@@ -11,7 +11,12 @@
 - 批1–6 数据建成：1,172 资源/297 源/492 万字/26,316 实体，全链核验 99.94% 闭合
 - 详见 `reports/COLLECTION_REPORT_BATCH1.md`
 
-**采集收官（批1–8 全 FINAL + 队列 100% 排空，2026-09-07）**：1,432 资源/341 源/561 万字/**99,533 实体/123,123 关系**；LightRAG 1,444 篇全部 processed（failed=0）；全链闭合 99.99%
+**重构启动（2026-09-08，docs/REFACTOR_PHASE0_AUDIT.md）**：明确双层图谱——
+- Retrieval Graph（LightRAG 索引）：9.9 万实体/12.3 万边，仅检索用，**不再称为知识图谱**
+- Canonical KG（正式知识，canonical_v1 管线）：已建 16 张表+41 谓词本体+全准入流水线，存量 1,347 资源重评后台进行中
+- 冻结：auto_growth 更名 legacy_seed_collector、probe 写库废除（改官方 recovery）、heal 重名修复、15 篇测试文档清出生产库
+- 审计实测：Scope 7/8、ER 6/6、溯源闭环 100%、证据定位率 100%（reports/KG_QUALITY_AUDIT.json）
+- 覆盖缺口实测：136 个（25 省零覆盖/139 单来源/75 冲突/13 未消歧）→ 后续 Gap 驱动
 **主模型**：2026-09-07 起切换 Qwen3.6-35B-A3B（亚秒级、稳定；Qwen3.5-122B 网关后期不稳，用户指定切换）
 **下一里程碑**：M3 Claim-Evidence-Provenance（地基已就绪：全链闭合+引用回查已实证）
 **续采方式**：仿照 `yangtze/topics_batch*.json` 新增主题表 → `python tools/collect.py --batch batchN --topics ... --max-total N`（断点续跑、双去重，10 分钟 Bash 上限被杀后原命令重跑即可）
