@@ -66,14 +66,25 @@ def wait_lightrag(timeout=1800):
 
 
 def probe():
-    """上传一条探针文本唤醒管道（ADR-016）。"""
+    """非写数式管道唤醒：检查是否积压未完成文档；有则用官方 recovery 接口复位重跑。
+
+    禁止向生产知识库写伪文档（Phase 1 冻结，REFACTOR_PHASE0_AUDIT P0-2）。
+    """
     try:
-        r = requests.post(f"{LIGHTRAG}/documents/text", headers=H, timeout=60,
-                          json={"text": f"自增长探针 {datetime.now():%Y-%m-%d %H:%M}：长江流域文化知识库持续建设中。",
-                                "file_source": f"自增长探针_{int(time.time())}.txt"})
-        return r.status_code == 200
+        counts = requests.get(f"{LIGHTRAG}/documents/status_counts", headers=H,
+                              timeout=90).json().get("status_counts", {})
+        stuck = (counts.get("pending", 0) + counts.get("parsing", 0)
+                 + counts.get("analyzing", 0) + counts.get("processing", 0))
+        busy = requests.get(f"{LIGHTRAG}/documents/pipeline_status", headers=H,
+                            timeout=60).json().get("busy", False)
+        if stuck == 0 or busy:
+            return True          # 无积压或管道在工作，无需干预
+        r = requests.post(f"{LIGHTRAG}/documents/recovery/force_reset", headers=H,
+                          json={"confirm": True}, timeout=120)
+        log(f"recovery force_reset: {r.status_code} {r.text[:120]}")
+        return True
     except Exception as exc:
-        log(f"probe error: {exc}")
+        log(f"probe(recovery) error: {exc}")
         return False
 
 
@@ -136,14 +147,6 @@ def reconcile():
                        errors="replace", timeout=600, cwd=str(ROOT))
     return (r.stdout or "").strip().splitlines()
 
-
-def heal_failed():
-    """重排失败文档（网关瞬断自愈）。"""
-    try:
-        r = requests.post(f"{LIGHTRAG}/documents/reprocess_failed", headers=H, timeout=60)
-        return r.json().get("status")
-    except Exception as exc:
-        return f"error: {exc}"
 
 
 def stats():

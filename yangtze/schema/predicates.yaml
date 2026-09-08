@@ -1,0 +1,408 @@
+# =====================================================================
+# YCKI 受控谓词本体 predicates_v1
+# 规则：Canonical Claim 的 predicate 必须在此注册；domain/range 强校验；
+#       违反即 REJECT，不靠 LLM description 猜测。
+# 治理：新增谓词需在 docs/DECISIONS.md 记 ADR；禁止直接删除已使用谓词。
+# =====================================================================
+version: predicates_v1_1
+predicates:
+  # ---------- 人物 ----------
+  born_at:
+    name: 出生于
+    domain: [Person]
+    range: [Place]
+    directed: true
+    symmetric: false
+    time_required: true
+    place_required: false
+    evidence_required: true
+    inverse: null
+    description: 人物出生地。
+  died_at:
+    name: 逝世于
+    domain: [Person]
+    range: [Place]
+    directed: true
+    symmetric: false
+    time_required: true
+    place_required: false
+    evidence_required: true
+    description: 人物逝世地。
+  participated_in:
+    name: 参与
+    domain: [Person, Organization]
+    range: [Event, Organization]
+    directed: true
+    symmetric: false
+    time_required: true
+    place_required: false
+    evidence_required: true
+    inverse: has_participant
+    description: 人物或机构参与历史/当代事件。
+  founded:
+    name: 创办
+    domain: [Person, Organization]
+    range: [Organization, Institution, Site, Artifact]
+    directed: true
+    symmetric: false
+    time_required: true
+    place_required: false
+    evidence_required: true
+    inverse: founded_by
+    description: 创办机构、设施或工程。
+  authored:
+    name: 著有
+    domain: [Person]
+    range: [Work]
+    directed: true
+    symmetric: false
+    time_required: false
+    place_required: false
+    evidence_required: true
+    inverse: authored_by
+    description: 创作文学作品、著作。
+  served_at:
+    name: 任职于
+    domain: [Person]
+    range: [Organization, Institution]
+    directed: true
+    symmetric: false
+    time_required: true
+    place_required: false
+    evidence_required: true
+    description: 担任职务。
+  member_of:
+    name: 隶属于(人)
+    domain: [Person]
+    range: [Organization, Institution]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    description: 成为成员。
+  studied_at:
+    name: 就读于
+    domain: [Person]
+    range: [Institution]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    description: 求学。
+  taught_at:
+    name: 执教于
+    domain: [Person]
+    range: [Institution]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    description: 任教。
+  led:
+    name: 领导
+    domain: [Person]
+    range: [Organization, Event, Event_Place]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    description: 领导组织或事件。
+  associated_with:
+    name: 关联
+    domain: [Person, Organization, Place, Work, Artifact, Event, Site, Practice, WaterSystem, Route, Heritage, Institution]
+    range: [Person, Organization, Place, Work, Artifact, Event, Site, Practice, WaterSystem, Route, Heritage, Institution]
+    directed: false
+    symmetric: true
+    time_required: false
+    evidence_required: true
+    description: 有明确文本证据的实质性关联（兜底谓词，须严格引用原文）。
+
+  # ---------- 事件 ----------
+  happened_at:
+    name: 发生于
+    domain: [Event]
+    range: [Place]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    description: 事件发生地。
+  occurred_during:
+    name: 发生于(时期)
+    domain: [Event]
+    range: [Event, Concept]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    description: 发生于某历史时期/ larger event。
+  has_participant:
+    name: 有参与者
+    domain: [Event, Institution]
+    range: [Person, Organization]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    inverse: participated_in
+    description: 事件的参与者。
+  involved_organization:
+    name: 涉及机构
+    domain: [Event]
+    range: [Organization, Institution]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    description: 事件涉及的机构。
+  caused:
+    name: 导致
+    domain: [Event]
+    range: [Event]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    description: 因果关系（须原文明确表述因果）。
+  influenced:
+    name: 影响
+    domain: [Event, Work, Person, Concept, Practice]
+    range: [Event, Work, Person, Concept, Practice, Place]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    description: 影响（须原文明确表述）。
+  predecessor_event:
+    name: 前序事件
+    domain: [Event]
+    range: [Event]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: true
+    inverse: successor_event
+    description: 事件链前序。
+  successor_event:
+    name: 后续事件
+    domain: [Event]
+    range: [Event]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: true
+    inverse: predecessor_event
+    description: 事件链后续。
+
+  # ---------- 地点 ----------
+  located_within:
+    name: 位于
+    domain: [Place, Site, Organization, Institution, Artifact, Event, WaterSystem, NaturalObject, Heritage, Route, Practice, Work]
+    range: [Place, Site, WaterSystem]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: true
+    description: 行政/地理隶属。
+  part_of:
+    name: 组成部分
+    domain: [Place, Artifact, Site, Organization]
+    range: [Place, Artifact, Site, Organization, WaterSystem]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: true
+    description: 组成关系。
+  historical_name_of:
+    name: 历史名称
+    domain: [Place, Site]
+    range: [Place, Site]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    inverse: modern_name_of
+    description: 古今地名（带时间约束）。
+  successor_of:
+    name: 后继
+    domain: [Place, Organization]
+    range: [Place, Organization]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    inverse: predecessor_of
+    description: 行政区/机构沿革后继。
+  predecessor_of:
+    name: 前身
+    domain: [Place, Organization]
+    range: [Place, Organization]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    inverse: successor_of
+    description: 行政区/机构沿革前身。
+  overlaps_with:
+    name: 地域重叠
+    domain: [Place]
+    range: [Place]
+    directed: false
+    symmetric: true
+    time_required: true
+    evidence_required: true
+    description: 辖区重叠。
+  adjacent_to:
+    name: 毗邻
+    domain: [Place]
+    range: [Place]
+    directed: false
+    symmetric: true
+    time_required: false
+    evidence_required: true
+    description: 相邻。
+
+  # ---------- 作品 ----------
+  authored_by:
+    name: 作者
+    domain: [Work]
+    range: [Person]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: true
+    inverse: authored
+    description: 作品作者。
+  created_at_place:
+    name: 创作于
+    domain: [Work, Artifact]
+    range: [Place]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    description: 创作地点。
+  created_during:
+    name: 创作于(时期)
+    domain: [Work, Artifact]
+    range: [Concept]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    description: 创作时期/朝代。
+  describes:
+    name: 描写
+    domain: [Work]
+    range: [Place, Event, Person, WaterSystem, Site]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: true
+    description: 作品题材对象。
+  depicts:
+    name: 描绘
+    domain: [Work, Artifact]
+    range: [Person, Event, Place, Artifact]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: true
+    description: 图像/器物描绘。
+
+  # ---------- 机构 ----------
+  founded_by:
+    name: 由…创办
+    domain: [Organization, Institution, Site]
+    range: [Person, Organization]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    inverse: founded
+    description: 创办者。
+  located_at:
+    name: 坐落于
+    domain: [Organization, Institution]
+    range: [Place]
+    directed: true
+    symmetric: false
+    time_required: true
+    evidence_required: true
+    description: 机构驻地。
+
+  # ---------- 水系 ----------
+  tributary_of:
+    name: 支流
+    domain: [WaterSystem]
+    range: [WaterSystem]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: true
+    description: 支流-干流。
+  flows_through:
+    name: 流经
+    domain: [WaterSystem]
+    range: [Place]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: true
+    description: 流经地域。
+  originates_at:
+    name: 发源于
+    domain: [WaterSystem]
+    range: [Place]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: true
+    description: 源头。
+  empties_into:
+    name: 汇入
+    domain: [WaterSystem]
+    range: [WaterSystem, Place]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: true
+    description: 注入。
+  belongs_to_basin:
+    name: 属于流域
+    domain: [Place, Site, Event, WaterSystem, NaturalObject]
+    range: [WaterSystem]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: true
+    description: 属于某流域。
+  impounds:
+    name: 拦蓄
+    domain: [Artifact, WaterSystem]
+    range: [WaterSystem]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: true
+    description: 水利工程拦蓄江河。
+  supplies_water_to:
+    name: 供水/灌溉
+    domain: [WaterSystem, Artifact]
+    range: [Place]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: true
+    description: 灌溉/供水区域。
+
+  # ---------- 主题 ----------
+  has_topic:
+    name: 主题
+    domain: [Work, Event, Resource_Concept]
+    range: [Concept]
+    directed: true
+    symmetric: false
+    time_required: false
+    evidence_required: false
+    description: 主题标签（允许多值）。

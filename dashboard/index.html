@@ -44,12 +44,17 @@
 
 <div class="cards">
   <div class="card"><div class="v" id="c-res">–</div><div class="k">资源总数（网页/文献）</div></div>
-  <div class="card"><div class="v" id="c-ent">–</div><div class="k">知识图谱实体</div></div>
-  <div class="card"><div class="v" id="c-rel">–</div><div class="k">知识图谱关系</div></div>
+  <div class="card"><div class="v" id="c-ent">–</div><div class="k">Canonical 实体（正式）</div></div>
+  <div class="card"><div class="v" id="c-claims">–</div><div class="k">ADMITTED Claims（正式）</div></div>
+  <div class="card"><div class="v" id="c-events">–</div><div class="k">Canonical 事件</div></div>
   <div class="card"><div class="v" id="c-src">–</div><div class="k">信息源（域名）</div></div>
-  <div class="card"><div class="v" id="c-chars">–</div><div class="k">正文总字数</div></div>
+  <div class="card"><div class="v" id="c-rej">–</div><div class="k">REJECT 拒收资源</div></div>
   <div class="card"><div class="v" id="c-queue">–</div><div class="k">待抽取队列</div></div>
-  <div class="card"><div class="v" id="c-fail">–</div><div class="k">失败（自动重试）</div></div>
+</div>
+
+<div class="panel">
+  <h2>Retrieval 层（仅供 RAG 内部检索，不代表正式知识关系）</h2>
+  <div class="eng" id="retrieval-info">–</div>
 </div>
 
 <div class="row">
@@ -90,17 +95,19 @@ const fmt = n => n==null ? "–" : Number(n).toLocaleString("zh-CN");
 async function refresh(){
   try{
     const d = await (await fetch("/api/overview")).json();
+    const c = d.canonical||{};
     document.getElementById("c-res").textContent = fmt(d.pg?.resources);
-    document.getElementById("c-ent").textContent = fmt(d.entities);
-    document.getElementById("c-rel").textContent = fmt(d.relations);
+    document.getElementById("c-ent").textContent = fmt(c.canonical_entities);
+    document.getElementById("c-claims").textContent = fmt(c.admitted_claims);
+    document.getElementById("c-events").textContent = fmt(c.events);
     document.getElementById("c-src").textContent = fmt(d.pg?.sources);
-    document.getElementById("c-chars").textContent = fmt(d.pg?.chars);
+    document.getElementById("c-rej").textContent = fmt(c.resources_rejected);
     const lr = d.lr||{};
     const queue = (lr.pending||0)+(lr.parsing||0)+(lr.analyzing||0)+(lr.processing||0);
     document.getElementById("c-queue").textContent = fmt(queue);
-    const f = document.getElementById("c-fail");
-    f.textContent = fmt(lr.failed||0);
-    f.parentElement.querySelector(".k").textContent = (lr.failed||0)>0 ? "失败（下一轮自动重试）" : "失败（自动重试）";
+    const ret = d.retrieval||{};
+    document.getElementById("retrieval-info").textContent =
+      `Retrieval Entities: ${fmt(ret.entities)} · Retrieval Association Edges: ${fmt(ret.relations)}（LightRAG 自动抽取索引，用于候选发现与检索；非正式知识图谱）`;
     // 每日柱状图
     const daily = (d.pg?.daily||[]).slice().reverse();
     const max = Math.max(1, ...daily.map(x=>x.n));

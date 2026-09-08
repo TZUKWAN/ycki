@@ -123,12 +123,25 @@ def overview():
     except Exception as exc:
         p = {"error": str(exc), "resources": 0, "chars": 0, "domains": 0,
              "sources": 0, "recent": [], "daily": []}
+    canon = {}
+    try:
+        reg = Registry()
+        with reg.conn.cursor() as cur:
+            cur.execute("SELECT * FROM v_canonical_stats")
+            cols = [d[0] for d in cur.description]
+            canon = dict(zip(cols, cur.fetchone()))
+        reg.close()
+    except Exception:
+        pass
     return {
         "pg": p,
         "lr": lr_stats(),
-        "entities": _entity_cache["count"],
-        "relations": _entity_cache["relations"],
-        "entity_updated": datetime.fromtimestamp(_entity_cache["updated"]).strftime("%H:%M") if _entity_cache["updated"] else "",
+        "retrieval": {  # 仅供 RAG 内部检索的索引层，不代表正式知识关系
+            "entities": _entity_cache["count"],
+            "relations": _entity_cache["relations"],
+            "updated": datetime.fromtimestamp(_entity_cache["updated"]).strftime("%H:%M") if _entity_cache["updated"] else "",
+        },
+        "canonical": canon,
         "engine": engine_state(),
     }
 
