@@ -1,0 +1,21 @@
+# 密钥与敏感配置
+.env
+config/.env
+*.key
+**/credentials*.json
+
+# 克隆的上游仓库（不入我们自己的版本库）
+upstream/
+
+# 运行数据
+data/
+rag_storage/
+*.log
+logs/
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+dist/
+build/
+.DS_Store

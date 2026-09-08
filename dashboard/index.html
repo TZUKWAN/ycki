@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>长江文化知识库 · 控制台</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Microsoft YaHei", sans-serif; background:#f4f6f8; color:#2c3e50; padding:18px; }
+  h1 { font-size:20px; margin-bottom:4px; }
+  .sub { color:#7f8c8d; font-size:12px; margin-bottom:14px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-bottom:16px; }
+  .card { background:#fff; border-radius:10px; padding:14px; box-shadow:0 1px 3px rgba(0,0,0,.08); }
+  .card .v { font-size:24px; font-weight:700; color:#1a5276; }
+  .card .k { font-size:12px; color:#7f8c8d; margin-top:2px; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:900px){ .row{grid-template-columns:1fr;} }
+  .panel { background:#fff; border-radius:10px; padding:14px; box-shadow:0 1px 3px rgba(0,0,0,.08); margin-bottom:14px; }
+  .panel h2 { font-size:14px; margin-bottom:10px; color:#1a5276; }
+  table { width:100%; border-collapse:collapse; font-size:12px; }
+  th { text-align:left; color:#7f8c8d; font-weight:600; padding:4px 6px; border-bottom:1px solid #eee; }
+  td { padding:4px 6px; border-bottom:1px solid #f5f5f5; }
+  td a { color:#2471a3; text-decoration:none; }
+  .bars { display:flex; align-items:flex-end; gap:4px; height:80px; margin-top:6px; }
+  .bar { flex:1; background:#5499c7; border-radius:3px 3px 0 0; position:relative; min-width:14px; }
+  .bar span { position:absolute; bottom:-18px; left:50%; transform:translateX(-50%); font-size:10px; color:#7f8c8d; white-space:nowrap; }
+  .bar em { position:absolute; top:-16px; left:50%; transform:translateX(-50%); font-size:10px; color:#1a5276; font-style:normal; }
+  textarea { width:100%; height:70px; font-family:inherit; font-size:13px; padding:8px; border:1px solid #d5dbdb; border-radius:6px; }
+  button { background:#1a5276; color:#fff; border:none; border-radius:6px; padding:8px 16px; font-size:13px; cursor:pointer; margin-right:8px; margin-top:8px; }
+  button:hover { background:#21618c; }
+  button.gray { background:#7f8c8d; }
+  button.red { background:#c0392b; }
+  .msg { font-size:12px; color:#27ae60; margin-top:6px; min-height:16px; }
+  .eng { font-size:12px; line-height:1.7; }
+  .pill { display:inline-block; padding:2px 8px; border-radius:10px; font-size:11px; }
+  .ok { background:#d5f5e3; color:#1e8449; }
+  .warn { background:#fdebd0; color:#b9770e; }
+  .bad { background:#fadbd8; color:#943126; }
+  .qtag { display:inline-block; background:#eaf2f8; border-radius:6px; padding:3px 8px; margin:2px; font-size:12px; }
+</style>
+</head>
+<body>
+<h1>长江文化知识库 · 控制台</h1>
+<div class="sub">数据每 8 秒自动刷新 · WebUI: <a href="http://localhost:9621/webui/" target="_blank">localhost:9621/webui</a> · 本控制台: localhost:9622</div>
+
+<div class="cards">
+  <div class="card"><div class="v" id="c-res">–</div><div class="k">资源总数（网页/文献）</div></div>
+  <div class="card"><div class="v" id="c-ent">–</div><div class="k">知识图谱实体</div></div>
+  <div class="card"><div class="v" id="c-rel">–</div><div class="k">知识图谱关系</div></div>
+  <div class="card"><div class="v" id="c-src">–</div><div class="k">信息源（域名）</div></div>
+  <div class="card"><div class="v" id="c-chars">–</div><div class="k">正文总字数</div></div>
+  <div class="card"><div class="v" id="c-queue">–</div><div class="k">待抽取队列</div></div>
+  <div class="card"><div class="v" id="c-fail">–</div><div class="k">失败（自动重试）</div></div>
+</div>
+
+<div class="row">
+  <div class="panel">
+    <h2>每日新增资源（近 14 天）</h2>
+    <div class="bars" id="daily"></div>
+    <div style="height:20px"></div>
+  </div>
+  <div class="panel">
+    <h2>自增长引擎</h2>
+    <div class="eng" id="engine">加载中…</div>
+    <button id="btn-pause" onclick="pauseEngine()">暂停引擎</button>
+    <button id="btn-resume" class="gray" onclick="resumeEngine()">恢复引擎</button>
+    <div class="msg" id="eng-msg"></div>
+  </div>
+</div>
+
+<div class="panel">
+  <h2>添加我的搜索词条（每行一个，保存后点“立即采集”）</h2>
+  <textarea id="newq" placeholder="例如：&#10;三峡移民精神&#10;景德镇 御窑厂 考古&#10;武汉 江汉关 大楼 历史"></textarea>
+  <button onclick="addTopics()">保存词条</button>
+  <button onclick="runCollect()">立即采集</button>
+  <button class="gray" onclick="clearLock()">重置采集按钮</button>
+  <div class="msg" id="topic-msg"></div>
+  <div id="topic-list"></div>
+</div>
+
+<div class="panel">
+  <h2>最新入库（30 条）</h2>
+  <table>
+    <thead><tr><th style="width:34%">标题</th><th style="width:14%">来源域名</th><th style="width:12%">状态</th><th>入库时间</th></tr></thead>
+    <tbody id="recent"></tbody>
+  </table>
+</div>
+
+<script>
+const fmt = n => n==null ? "–" : Number(n).toLocaleString("zh-CN");
+async function refresh(){
+  try{
+    const d = await (await fetch("/api/overview")).json();
+    document.getElementById("c-res").textContent = fmt(d.pg?.resources);
+    document.getElementById("c-ent").textContent = fmt(d.entities);
+    document.getElementById("c-rel").textContent = fmt(d.relations);
+    document.getElementById("c-src").textContent = fmt(d.pg?.sources);
+    document.getElementById("c-chars").textContent = fmt(d.pg?.chars);
+    const lr = d.lr||{};
+    const queue = (lr.pending||0)+(lr.parsing||0)+(lr.analyzing||0)+(lr.processing||0);
+    document.getElementById("c-queue").textContent = fmt(queue);
+    const f = document.getElementById("c-fail");
+    f.textContent = fmt(lr.failed||0);
+    f.parentElement.querySelector(".k").textContent = (lr.failed||0)>0 ? "失败（下一轮自动重试）" : "失败（自动重试）";
+    // 每日柱状图
+    const daily = (d.pg?.daily||[]).slice().reverse();
+    const max = Math.max(1, ...daily.map(x=>x.n));
+    document.getElementById("daily").innerHTML = daily.map(x=>
+      `<div class="bar" style="height:${Math.max(6, x.n/max*70)}px"><em>${x.n}</em><span>${x.day}</span></div>`).join("");
+    // 引擎
+    const e = d.engine||{};
+    document.getElementById("engine").innerHTML =
+      `状态：${e.paused ? '<span class="pill warn">已暂停</span>' : (e.running ? '<span class="pill ok">运行中</span>' : '<span class="pill bad">未运行（请双击启动脚本）</span>')}<br>`+
+      `轮次：${e.cycle ?? "–"}　最后活动：${e.last_ts ?? "–"}<br>最近动作：${e.last_msg || "–"}`;
+    // 最新入库
+    document.getElementById("recent").innerHTML = (d.pg?.recent||[]).map(r=>{
+      const cls = r.status==="processed"?"ok":(r.status==="failed"?"bad":"warn");
+      const t = (r.title||"").slice(0,42);
+      return `<tr><td><a href="${r.url}" target="_blank" title="${r.title}">${t}</a></td><td>${r.domain}</td><td><span class="pill ${cls}">${r.status}</span></td><td>${(r.at||"").slice(5,16)}</td></tr>`;
+    }).join("");
+  }catch(e){ console.error(e); }
+}
+async function addTopics(){
+  const qs = document.getElementById("newq").value.split("\n").map(s=>s.trim()).filter(Boolean);
+  if(!qs.length){ document.getElementById("topic-msg").textContent="请先输入词条"; return; }
+  const r = await (await fetch("/api/topics/add",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({queries:qs})})).json();
+  document.getElementById("topic-msg").textContent = r.ok ? `已保存 ${r.added} 条新词条，点击“立即采集”马上执行` : r.msg;
+  loadTopics();
+}
+async function runCollect(){
+  const r = await (await fetch("/api/collect/run",{method:"POST"})).json();
+  document.getElementById("topic-msg").textContent = r.msg;
+}
+async function clearLock(){
+  await fetch("/api/collect/clear_lock",{method:"POST"});
+  document.getElementById("topic-msg").textContent = "已重置，可以再次点“立即采集”";
+}
+async function pauseEngine(){ await fetch("/api/engine/pause",{method:"POST"}); document.getElementById("eng-msg").textContent="将在当前采集完成后暂停"; refresh(); }
+async function resumeEngine(){ await fetch("/api/engine/resume",{method:"POST"}); document.getElementById("eng-msg").textContent="已恢复"; refresh(); }
+async function loadTopics(){
+  const d = await (await fetch("/api/topics")).json();
+  const seen = (d.seen||[]).slice(-40).reverse();
+  document.getElementById("topic-list").innerHTML = seen.length ? "已采词条（最近40）："+seen.map(q=>`<span class="qtag">${q}</span>`).join("") : "";
+}
+refresh(); loadTopics(); setInterval(refresh, 8000);
+</script>
+</body>
+</html>
