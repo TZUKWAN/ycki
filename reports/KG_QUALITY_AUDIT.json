@@ -9,56 +9,56 @@
     "got": "CORE",
     "title": "都江堰",
     "pass": true,
-    "reason": "都江堰位于长江支流岷江，是长江流域核心水利文化遗产，直接构成长江文化研究对象。"
+    "reason": "都江堰位于岷江（长江支流），是长江流域核心水利与文化研究对象。"
    },
    {
     "expect": "CORE",
     "got": "CORE",
     "title": "汉阳铁厂",
     "pass": true,
-    "reason": "汉阳铁厂位于长江中游湖北汉阳，是长江流域近代工业文明的重要历史遗存，属长江文化研究对象。"
+    "reason": "汉阳铁厂位于长江中游湖北汉阳，是长江流域近代工业文明的重要代表，属长江文化研究对象。"
    },
    {
     "expect": "CORE",
     "got": "CORE",
     "title": "洞庭湖",
     "pass": true,
-    "reason": "洞庭湖明确列为长江流域湖泊，是长江文化研究对象。"
+    "reason": "洞庭湖明确列为长江流域湖泊，是长江文化核心研究对象。"
    },
    {
     "expect": "CONTEXT",
     "got": "CONTEXT",
     "title": "北京桥梁专家组赴武汉",
     "pass": true,
-    "reason": "北京专家组参与武汉长江大桥建设，该桥为长江文化核心对象，北京机构与其有直接必要关系。"
+    "reason": "北京专家组参与武汉长江大桥建设，该桥为长江文化核心对象，域外主体与长江核心事实存在直接必要关系。"
    },
    {
     "expect": "REJECT",
     "got": "REJECT",
     "title": "故宫",
     "pass": true,
-    "reason": "故宫位于北京，属黄河流域文化圈，与长江流域无直接地理或文化关联，文中未提及长江。"
+    "reason": "故宫位于北京，属黄河流域文化范畴，正文未提及长江，无直接结构性关系。"
    },
    {
     "expect": "REJECT",
     "got": "REJECT",
     "title": "颐和园",
     "pass": true,
-    "reason": "颐和园位于北京，属海河流域，与长江流域无地理或文化关联。"
+    "reason": "颐和园位于北京，属海河流域，与长江流域无地理或文化关联，属无关内容。"
    },
    {
     "expect": "REJECT",
     "got": "REJECT",
     "title": "山西晋商",
     "pass": true,
-    "reason": "晋商活动范围及文化核心均在山西，属黄河流域，与长江流域无直接结构性关系。"
+    "reason": "晋商活动范围及文化核心均在山西，属黄河流域或北方文化，与长江流域无直接结构性关系。"
    },
    {
     "expect": "REJECT",
     "got": "REJECT",
     "title": "东北抗联一般史",
     "pass": true,
-    "reason": "内容聚焦东北抗日联军，地理位于东北，与长江流域无直接结构性关系。"
+    "reason": "内容聚焦东北抗联，地理位于东北，与长江流域无直接结构性关系。"
    }
   ]
  },
@@ -112,43 +112,83 @@
   ]
  },
  "false_merge": {
-  "pairs_checked": 4,
-  "false_merge_count": 3,
-  "false_merge_rate": 0.75,
+  "pairs_checked": 40,
+  "false_merge_count": 20,
+  "false_merge_rate": 0.5,
   "samples": [
    {
-    "entity": "安陆州",
-    "type": "Place",
-    "a": "安陆州",
-    "b": "承天府",
+    "entity": "天中节",
+    "type": "Concept",
+    "a": "午日节",
+    "b": "地腊节",
     "verdict": "different",
-    "reason": "安陆州与承天府为明代不同行政区划，非同一实体"
+    "reason": "午日节即端午节，地腊节为道教节日，二者不同。"
    },
    {
-    "entity": "睿功圣德碑",
-    "type": "Artifact",
-    "a": "睿功圣德碑",
-    "b": "纯德山碑",
+    "entity": "天中节",
+    "type": "Concept",
+    "a": "午日节",
+    "b": "夏节",
     "verdict": "different",
-    "reason": "睿功圣德碑与纯德山碑为不同历史文物，非同一对象。"
+    "reason": "午日节即端午节，夏节非其别名，二者不同。"
    },
    {
-    "entity": "神宫监",
-    "type": "Site",
-    "a": "神宫监",
-    "b": "神库",
+    "entity": "天中节",
+    "type": "Concept",
+    "a": "午日节",
+    "b": "天医节",
     "verdict": "different",
-    "reason": "神宫监为机构，神库为场所，职能与性质不同"
+    "reason": "午日节即端午节，天医节为医药行业节日，二者不同。"
+   },
+   {
+    "entity": "天中节",
+    "type": "Concept",
+    "a": "午日节",
+    "b": "正阳节",
+    "verdict": "different",
+    "reason": "午日节即端午节，正阳节为农历正月初一，二者不同。"
+   },
+   {
+    "entity": "天中节",
+    "type": "Concept",
+    "a": "地腊节",
+    "b": "夏节",
+    "verdict": "different",
+    "reason": "地腊节为道教节日，夏节指夏季节日，二者不同。"
+   },
+   {
+    "entity": "天中节",
+    "type": "Concept",
+    "a": "地腊节",
+    "b": "天中节",
+    "verdict": "different",
+    "reason": "地腊节与天中节分别为不同传统节日，非同一对象"
+   },
+   {
+    "entity": "天中节",
+    "type": "Concept",
+    "a": "地腊节",
+    "b": "天医节",
+    "verdict": "different",
+    "reason": "地腊节与天医节为不同传统节日，非同一对象"
+   },
+   {
+    "entity": "天中节",
+    "type": "Concept",
+    "a": "地腊节",
+    "b": "正阳节",
+    "verdict": "different",
+    "reason": "地腊节与正阳节是长江流域两个不同的传统节日实体。"
    }
   ]
  },
  "db": {
   "invalid_predicate_admitted": 0,
-  "provenance_checked": 28,
-  "chunk_exists_rate": 0.9643,
-  "document_exists_rate": 1.0,
+  "provenance_checked": 300,
+  "chunk_exists_rate": 0.98,
+  "document_exists_rate": 0.8833,
   "source_exists_rate": 1.0,
-  "evidence_relocated_rate": 0.9643,
+  "evidence_relocated_rate": 0.98,
   "relocate_fail_samples": [],
   "admitted_without_evidence": 0,
   "unknown_type_entities": 0
