@@ -109,6 +109,12 @@ def compute_and_store():
         add("unresolved_entity", None, None, None, None, {"count": unresolved})
         add("low_confidence", None, None, None, None, {"count": low_conf})
 
+        # 缺口自动收敛：missing_region 已获得覆盖 → RESOLVED
+        with conn.cursor() as cur:
+            cur.execute("""UPDATE knowledge_gaps SET status='RESOLVED', resolved_at=now()
+                           WHERE gap_type='missing_region' AND status IN ('OPEN','RESEARCHING')
+                             AND region = ANY(%s)""", (covered_regions,))
+            resolved_n = cur.rowcount
         # 去重后入库
         with conn.cursor() as cur:
             for g in gaps:
@@ -126,6 +132,7 @@ def compute_and_store():
             "coverage": {"core_resources": core_total,
                          "covered_regions": covered_regions,
                          "period_admitted": period_counts},
+            "gaps_resolved_this_run": resolved_n,
             "gaps": {"total": len(gaps),
                      "missing_region": len(missing_regions),
                      "missing_period": missing_periods,

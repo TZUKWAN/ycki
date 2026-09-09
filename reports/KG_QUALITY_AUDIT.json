@@ -9,7 +9,7 @@
     "got": "CORE",
     "title": "都江堰",
     "pass": true,
-    "reason": "都江堰位于岷江（长江支流），是长江流域核心水利与文化研究对象。"
+    "reason": "都江堰位于长江支流岷江，是长江流域核心水利文化遗产，完全符合CORE标准。"
    },
    {
     "expect": "CORE",
@@ -23,7 +23,7 @@
     "got": "CORE",
     "title": "洞庭湖",
     "pass": true,
-    "reason": "洞庭湖明确列为长江流域湖泊，是长江文化核心研究对象。"
+    "reason": "洞庭湖明确列为长江流域湖泊，是长江中游重要调蓄湖泊，属长江文化核心研究对象。"
    },
    {
     "expect": "CONTEXT",
@@ -37,84 +37,307 @@
     "got": "REJECT",
     "title": "故宫",
     "pass": true,
-    "reason": "故宫位于北京，属黄河流域文化范畴，正文未提及长江，无直接结构性关系。"
+    "reason": "故宫位于北京，属黄河流域文化范畴，正文未提及任何长江流域地理或文化要素，无直接关联。"
    },
    {
     "expect": "REJECT",
     "got": "REJECT",
     "title": "颐和园",
     "pass": true,
-    "reason": "颐和园位于北京，属海河流域，与长江流域无地理或文化关联，属无关内容。"
+    "reason": "颐和园位于北京，属黄河流域或海河流域，与长江流域无地理或文化关联。"
    },
    {
     "expect": "REJECT",
     "got": "REJECT",
     "title": "山西晋商",
     "pass": true,
-    "reason": "晋商活动范围及文化核心均在山西，属黄河流域或北方文化，与长江流域无直接结构性关系。"
+    "reason": "晋商活动范围在山西，属黄河流域，与长江流域无直接地理或文化关联。"
    },
    {
     "expect": "REJECT",
     "got": "REJECT",
     "title": "东北抗联一般史",
     "pass": true,
-    "reason": "内容聚焦东北抗联，地理位于东北，与长江流域无直接结构性关系。"
+    "reason": "内容聚焦东北抗日联军，地理位于东北，与长江流域无直接结构性关系。"
    }
   ]
  },
  "er_adjudicator": {
-  "cases": 6,
-  "passed": 6,
+  "cases": 30,
+  "passed": 30,
   "adjudicator_accuracy": 1.0,
+  "by_category": {
+   "同人异名": "1/1",
+   "中英文名": "1/1",
+   "名与字": "4/4",
+   "自号": "1/1",
+   "笔名": "1/1",
+   "古今地名": "3/3",
+   "城市别称": "2/2",
+   "古今治所": "1/1",
+   "节日异名": "2/2",
+   "机构沿革（前身≠后继，应分体+successor_of）": "1/1",
+   "行政区划沿革（应分体+historical_name_of）": "1/1",
+   "不同碑刻": "1/1",
+   "不同场所": "1/1",
+   "同姓不同人": "1/1",
+   "不同湖泊": "1/1",
+   "不同事件": "1/1",
+   "同时代不同人": "1/1",
+   "同日不同节（道教vs民俗）": "1/1",
+   "相似构词不同城市": "1/1",
+   "形近不同城": "1/1",
+   "简称（歧义标注：南京大学/中山大学均可称中大，实测观察）": "1/1",
+   "书名号差异": "1/1",
+   "河段称谓": "1/1"
+  },
   "detail": [
    {
     "a": "毛泽东",
     "b": "毛润之",
     "expect_same": true,
     "verdict": true,
-    "pass": true
+    "pass": true,
+    "category": "同人异名"
    },
    {
     "a": "毛泽东",
     "b": "Mao Zedong",
     "expect_same": true,
     "verdict": true,
-    "pass": true
+    "pass": true,
+    "category": "中英文名"
+   },
+   {
+    "a": "屈原",
+    "b": "屈平",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "名与字"
+   },
+   {
+    "a": "诸葛亮",
+    "b": "孔明",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "名与字"
+   },
+   {
+    "a": "苏轼",
+    "b": "苏东坡",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "自号"
+   },
+   {
+    "a": "鲁迅",
+    "b": "周树人",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "笔名"
+   },
+   {
+    "a": "蒋介石",
+    "b": "蒋中正",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "名与字"
+   },
+   {
+    "a": "陶渊明",
+    "b": "陶潜",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "名与字"
    },
    {
     "a": "南京",
     "b": "江宁",
     "expect_same": true,
     "verdict": true,
-    "pass": true
+    "pass": true,
+    "category": "古今地名"
    },
    {
-    "a": "武昌起义",
-    "b": "辛亥首义",
+    "a": "武汉",
+    "b": "江城",
     "expect_same": true,
     "verdict": true,
-    "pass": true
+    "pass": true,
+    "category": "城市别称"
+   },
+   {
+    "a": "扬州",
+    "b": "广陵",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "古今地名"
+   },
+   {
+    "a": "苏州",
+    "b": "姑苏",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "古今地名"
+   },
+   {
+    "a": "荆州",
+    "b": "江陵",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "古今治所"
+   },
+   {
+    "a": "端午节",
+    "b": "天中节",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "节日异名"
+   },
+   {
+    "a": "端午节",
+    "b": "端阳节",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "节日异名"
+   },
+   {
+    "a": "上海",
+    "b": "申城",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "城市别称"
    },
    {
     "a": "汉阳铁厂",
     "b": "汉冶萍公司",
     "expect_same": false,
     "verdict": false,
-    "pass": true
+    "pass": true,
+    "category": "机构沿革（前身≠后继，应分体+successor_of）"
+   },
+   {
+    "a": "安陆州",
+    "b": "承天府",
+    "expect_same": false,
+    "verdict": false,
+    "pass": true,
+    "category": "行政区划沿革（应分体+historical_name_of）"
+   },
+   {
+    "a": "睿功圣德碑",
+    "b": "纯德山碑",
+    "expect_same": false,
+    "verdict": false,
+    "pass": true,
+    "category": "不同碑刻"
+   },
+   {
+    "a": "神宫监",
+    "b": "神库",
+    "expect_same": false,
+    "verdict": false,
+    "pass": true,
+    "category": "不同场所"
    },
    {
     "a": "李白",
     "b": "李隆基",
     "expect_same": false,
     "verdict": false,
-    "pass": true
+    "pass": true,
+    "category": "同姓不同人"
+   },
+   {
+    "a": "洞庭湖",
+    "b": "鄱阳湖",
+    "expect_same": false,
+    "verdict": false,
+    "pass": true,
+    "category": "不同湖泊"
+   },
+   {
+    "a": "武昌起义",
+    "b": "南昌起义",
+    "expect_same": false,
+    "verdict": false,
+    "pass": true,
+    "category": "不同事件"
+   },
+   {
+    "a": "岳飞",
+    "b": "韩世忠",
+    "expect_same": false,
+    "verdict": false,
+    "pass": true,
+    "category": "同时代不同人"
+   },
+   {
+    "a": "地腊节",
+    "b": "端午节",
+    "expect_same": false,
+    "verdict": false,
+    "pass": true,
+    "category": "同日不同节（道教vs民俗）"
+   },
+   {
+    "a": "南京",
+    "b": "东京",
+    "expect_same": false,
+    "verdict": false,
+    "pass": true,
+    "category": "相似构词不同城市"
+   },
+   {
+    "a": "南阳",
+    "b": "南宁",
+    "expect_same": false,
+    "verdict": false,
+    "pass": true,
+    "category": "形近不同城"
+   },
+   {
+    "a": "中大",
+    "b": "中山大学",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "简称（歧义标注：南京大学/中山大学均可称中大，实测观察）"
+   },
+   {
+    "a": "《本草纲目》",
+    "b": "本草纲目",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "书名号差异"
+   },
+   {
+    "a": "川江",
+    "b": "长江上游",
+    "expect_same": true,
+    "verdict": true,
+    "pass": true,
+    "category": "河段称谓"
    }
   ]
  },
  "false_merge": {
   "pairs_checked": 40,
-  "false_merge_count": 20,
-  "false_merge_rate": 0.5,
+  "false_merge_count": 19,
+  "false_merge_rate": 0.475,
   "samples": [
    {
     "entity": "天中节",
@@ -130,7 +353,7 @@
     "a": "午日节",
     "b": "夏节",
     "verdict": "different",
-    "reason": "午日节即端午节，夏节非其别名，二者不同。"
+    "reason": "午日节即端午节，夏节非其别名，二者指代不同对象。"
    },
    {
     "entity": "天中节",
@@ -154,7 +377,7 @@
     "a": "地腊节",
     "b": "夏节",
     "verdict": "different",
-    "reason": "地腊节为道教节日，夏节指夏季节日，二者不同。"
+    "reason": "地腊节为道教节日，夏节为夏季节日，二者指代不同对象。"
    },
    {
     "entity": "天中节",
@@ -178,17 +401,17 @@
     "a": "地腊节",
     "b": "正阳节",
     "verdict": "different",
-    "reason": "地腊节与正阳节是长江流域两个不同的传统节日实体。"
+    "reason": "地腊节与正阳节均为长江流域不同地区的独立民俗节日，非同一对象。"
    }
   ]
  },
  "db": {
   "invalid_predicate_admitted": 0,
   "provenance_checked": 300,
-  "chunk_exists_rate": 0.98,
-  "document_exists_rate": 0.8833,
+  "chunk_exists_rate": 0.9733,
+  "document_exists_rate": 0.91,
   "source_exists_rate": 1.0,
-  "evidence_relocated_rate": 0.98,
+  "evidence_relocated_rate": 0.9733,
   "relocate_fail_samples": [],
   "admitted_without_evidence": 0,
   "unknown_type_entities": 0

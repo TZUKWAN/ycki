@@ -41,14 +41,12 @@ SCOPE_CASES = [
     ("REJECT", "东北抗联一般史", "东北抗日联军在白山黑水间坚持游击战争，是东北抗战的重要力量。"),
 ]
 
-ER_PAIR_CASES = [
-    ("毛泽东", "Person", "毛润之", True),
-    ("毛泽东", "Person", "Mao Zedong", True),
-    ("南京", "Place", "江宁", True),
-    ("武昌起义", "Event", "辛亥首义", True),
-    ("汉阳铁厂", "Artifact", "汉冶萍公司", False),
-    ("李白", "Person", "李隆基", False),
-]
+def _er_gold_cases() -> list:
+    import json
+    f = ROOT / "yangtze" / "schema" / "er_gold.json"
+    d = json.loads(f.read_text(encoding="utf-8"))
+    return [(c["a"], c["type"], c["b"], c["expected_same"], c.get("category", ""))
+            for c in d["cases"]]
 
 
 def audit_scope() -> dict:
@@ -73,16 +71,25 @@ def _llm_pair(a, t, b) -> dict:
 
 
 def audit_er_adjudicator() -> dict:
+    """在金标集上测量 ER 裁决器（同人异名/沿革/同名不同实/节日异名）。"""
+    cases = _er_gold_cases()
+    by_cat: dict = {}
     ok, rows = 0, []
-    for a, t, b, expect in ER_PAIR_CASES:
+    for a, t, b, expect, cat in cases:
         v = _llm_pair(a, t, b)
         same = v.get("verdict") == "same"
         passed = same == expect
         ok += passed
+        c = by_cat.setdefault(cat, {"n": 0, "pass": 0})
+        c["n"] += 1
+        c["pass"] += passed
         rows.append({"a": a, "b": b, "expect_same": expect, "verdict": same,
-                     "pass": passed})
-    return {"cases": len(ER_PAIR_CASES), "passed": ok,
-            "adjudicator_accuracy": round(ok / len(ER_PAIR_CASES), 3), "detail": rows}
+                     "pass": passed, "category": cat})
+    out = {"cases": len(cases), "passed": ok,
+           "adjudicator_accuracy": round(ok / len(cases), 3),
+           "by_category": {k: f"{v['pass']}/{v['n']}" for k, v in by_cat.items()},
+           "detail": rows}
+    return out
 
 
 def audit_false_merges(limit: int = 20) -> dict:
