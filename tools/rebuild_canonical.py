@@ -49,22 +49,23 @@ _DYNASTY = ["夏", "商", "周", "秦", "汉", "三国", "晋", "南北朝", "�
 
 
 def make_timespan(conn, time_text: str, period: str = "") -> str | None:
+    """纪年解析统一走 extensions.timespan_cn（年号/朝代/干支/公元全支持）。"""
+    from extensions.timespan_cn import parse as cn_parse
     raw = (time_text or period or "").strip()
     if not raw:
         return None
-    year, m = None, re.search(r"(公元前\s*\d{1,4}|公元\s*\d{1,4}|\d{3,4})年?", raw)
-    if m:
-        year = m.group(1).replace(" ", "")
-    dynasty = None if year else next((d for d in _DYNASTY if d in raw), None)
-    if not year and not dynasty and not period:
+    parsed = cn_parse(raw)
+    if not parsed and period:
+        parsed = cn_parse(period)
+    if not parsed:
         return None
     with conn.cursor() as cur:
         cur.execute(
             """INSERT INTO timespans (valid_from, approximate, granularity, dynasty,
                historical_period, raw_text)
                VALUES (%s,%s,%s,%s,%s,%s) RETURNING timespan_id""",
-            (year, bool(year and not re.fullmatch(r"\d{3,4}年?", year)),
-             "year" if year else "dynasty", dynasty, period or None, raw[:80]))
+            (parsed["valid_from"], parsed["approximate"], parsed["granularity"],
+             parsed["dynasty"], parsed["historical_period"], raw[:80]))
         return cur.fetchone()[0]
 
 

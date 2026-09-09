@@ -229,5 +229,14 @@ def index():
     return (ROOT / "dashboard" / "index.html").read_text(encoding="utf-8")
 
 
+@app.get("/canonical", response_class=HTMLResponse)
+def canonical_page():
+    return (ROOT / "dashboard" / "canonical.html").read_text(encoding="utf-8")
+
+
+from extensions.canonical.yangtze_api import mount as mount_yangtze
+mount_yangtze(app)
+
+
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=9622, log_level="warning")

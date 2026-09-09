@@ -1,0 +1,229 @@
+{
+ "description": "ER 金标测试集 v1：同人异名/古今地名沿革/同名不同实/节日异名。expected_same 为金标答案。",
+ "cases": [
+  {
+   "a": "毛泽东",
+   "b": "毛润之",
+   "type": "Person",
+   "expected_same": true,
+   "category": "同人异名"
+  },
+  {
+   "a": "毛泽东",
+   "b": "Mao Zedong",
+   "type": "Person",
+   "expected_same": true,
+   "category": "中英文名"
+  },
+  {
+   "a": "屈原",
+   "b": "屈平",
+   "type": "Person",
+   "expected_same": true,
+   "category": "名与字"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "孔明",
+   "type": "Person",
+   "expected_same": true,
+   "category": "名与字"
+  },
+  {
+   "a": "苏轼",
+   "b": "苏东坡",
+   "type": "Person",
+   "expected_same": true,
+   "category": "自号"
+  },
+  {
+   "a": "鲁迅",
+   "b": "周树人",
+   "type": "Person",
+   "expected_same": true,
+   "category": "笔名"
+  },
+  {
+   "a": "蒋介石",
+   "b": "蒋中正",
+   "type": "Person",
+   "expected_same": true,
+   "category": "名与字"
+  },
+  {
+   "a": "陶渊明",
+   "b": "陶潜",
+   "type": "Person",
+   "expected_same": true,
+   "category": "名与字"
+  },
+  {
+   "a": "南京",
+   "b": "江宁",
+   "type": "Place",
+   "expected_same": true,
+   "category": "古今地名"
+  },
+  {
+   "a": "武汉",
+   "b": "江城",
+   "type": "Place",
+   "expected_same": true,
+   "category": "城市别称"
+  },
+  {
+   "a": "扬州",
+   "b": "广陵",
+   "type": "Place",
+   "expected_same": true,
+   "category": "古今地名"
+  },
+  {
+   "a": "苏州",
+   "b": "姑苏",
+   "type": "Place",
+   "expected_same": true,
+   "category": "古今地名"
+  },
+  {
+   "a": "荆州",
+   "b": "江陵",
+   "type": "Place",
+   "expected_same": true,
+   "category": "古今治所"
+  },
+  {
+   "a": "端午节",
+   "b": "天中节",
+   "type": "Practice",
+   "expected_same": true,
+   "category": "节日异名"
+  },
+  {
+   "a": "端午节",
+   "b": "端阳节",
+   "type": "Practice",
+   "expected_same": true,
+   "category": "节日异名"
+  },
+  {
+   "a": "上海",
+   "b": "申城",
+   "type": "Place",
+   "expected_same": true,
+   "category": "城市别称"
+  },
+  {
+   "a": "汉阳铁厂",
+   "b": "汉冶萍公司",
+   "type": "Organization",
+   "expected_same": false,
+   "category": "机构沿革（前身≠后继，应分体+successor_of）"
+  },
+  {
+   "a": "安陆州",
+   "b": "承天府",
+   "type": "Place",
+   "expected_same": false,
+   "category": "行政区划沿革（应分体+historical_name_of）"
+  },
+  {
+   "a": "睿功圣德碑",
+   "b": "纯德山碑",
+   "type": "Artifact",
+   "expected_same": false,
+   "category": "不同碑刻"
+  },
+  {
+   "a": "神宫监",
+   "b": "神库",
+   "type": "Site",
+   "expected_same": false,
+   "category": "不同场所"
+  },
+  {
+   "a": "李白",
+   "b": "李隆基",
+   "type": "Person",
+   "expected_same": false,
+   "category": "同姓不同人"
+  },
+  {
+   "a": "洞庭湖",
+   "b": "鄱阳湖",
+   "type": "WaterSystem",
+   "expected_same": false,
+   "category": "不同湖泊"
+  },
+  {
+   "a": "武昌起义",
+   "b": "南昌起义",
+   "type": "Event",
+   "expected_same": false,
+   "category": "不同事件"
+  },
+  {
+   "a": "岳飞",
+   "b": "韩世忠",
+   "type": "Person",
+   "expected_same": false,
+   "category": "同时代不同人"
+  },
+  {
+   "a": "地腊节",
+   "b": "端午节",
+   "type": "Practice",
+   "expected_same": false,
+   "category": "同日不同节（道教vs民俗）"
+  },
+  {
+   "a": "南京",
+   "b": "东京",
+   "type": "Place",
+   "expected_same": false,
+   "category": "相似构词不同城市"
+  },
+  {
+   "a": "南阳",
+   "b": "南宁",
+   "type": "Place",
+   "expected_same": false,
+   "category": "形近不同城"
+  },
+  {
+   "a": "中大",
+   "b": "中山大学",
+   "type": "Institution",
+   "expected_same": true,
+   "category": "简称（歧义标注：南京大学/中山大学均可称中大，实测观察）"
+  },
+  {
+   "a": "《本草纲目》",
+   "b": "本草纲目",
+   "type": "Work",
+   "expected_same": true,
+   "category": "书名号差异"
+  },
+  {
+   "a": "川江",
+   "b": "长江上游",
+   "type": "WaterSystem",
+   "expected_same": true,
+   "category": "河段称谓"
+  },
+  {
+   "a": "天中节",
+   "b": "午日节",
+   "type": "Practice",
+   "expected_same": true,
+   "category": "节日异名（端午）"
+  },
+  {
+   "a": "重五节",
+   "b": "端午节",
+   "type": "Practice",
+   "expected_same": true,
+   "category": "节日异名（端午）"
+  }
+ ]
+}

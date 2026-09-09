@@ -1,7 +1,7 @@
-# predicates_v1_2：新增 cardinality（single=同主体同谓词多个不同宾语即 CONTESTED；multi=合法多宾语）
-# 谓词治理：新增须 ADR 登记；禁止删除已使用谓词。
+# predicates_v1_3：founded/located_within/part_of/historical_name_of 改 multi
+# 依据：CONTESTED 审核发现 200 条假冲突（创办多学堂/嵌套辖/多沿革名均合法）
 
-version: predicates_v1_2
+version: predicates_v1_3
 predicates:
   born_at:
     name: 出生于
@@ -49,7 +49,7 @@ predicates:
     evidence_required: true
     inverse: founded_by
     description: 创办机构、设施或工程。
-    cardinality: single
+    cardinality: multi
   authored:
     name: 著有
     domain: [Person]
@@ -215,7 +215,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 行政/地理隶属。
-    cardinality: single
+    cardinality: multi
   part_of:
     name: 组成部分
     domain: [Place, Artifact, Site, Organization]
@@ -225,7 +225,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 组成关系。
-    cardinality: single
+    cardinality: multi
   historical_name_of:
     name: 历史名称
     domain: [Place, Site]
@@ -236,7 +236,7 @@ predicates:
     evidence_required: true
     inverse: modern_name_of
     description: 古今地名（带时间约束）。
-    cardinality: single
+    cardinality: multi
   successor_of:
     name: 后继
     domain: [Place, Organization]
@@ -410,7 +410,7 @@ predicates:
     time_required: false
     evidence_required: true
     description: 水利工程拦蓄江河。
-    cardinality: multi
+    cardinality: single
   supplies_water_to:
     name: 供水/灌溉
     domain: [WaterSystem, Artifact]

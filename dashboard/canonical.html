@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>Canonical KG · 正式知识图谱</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:"Microsoft YaHei",sans-serif; background:#f4f6f8; color:#2c3e50; padding:16px; }
+  h1 { font-size:19px; margin-bottom:2px; }
+  .sub { color:#7f8c8d; font-size:12px; margin-bottom:12px; }
+  .search { display:flex; gap:8px; margin-bottom:12px; }
+  input[type=text] { flex:1; padding:9px 12px; border:1px solid #d5dbdb; border-radius:8px; font-size:14px; }
+  button { background:#1a5276; color:#fff; border:none; border-radius:8px; padding:9px 18px; cursor:pointer; }
+  button:hover { background:#21618c; }
+  .panel { background:#fff; border-radius:10px; padding:14px; box-shadow:0 1px 3px rgba(0,0,0,.08); margin-bottom:14px; }
+  .panel h2 { font-size:14px; color:#1a5276; margin-bottom:8px; }
+  .ent { display:inline-block; background:#fff; border:1px solid #d5dbdb; border-radius:8px; padding:8px 12px; margin:4px; cursor:pointer; font-size:13px; }
+  .ent:hover { border-color:#1a5276; background:#eaf2f8; }
+  .ent b { color:#1a5276; }
+  .tag { font-size:10px; background:#eaf2f8; color:#1a5276; border-radius:6px; padding:1px 6px; margin-left:4px; }
+  .claim { border-left:3px solid #5499c7; background:#f8fafc; border-radius:6px; padding:10px 12px; margin:8px 0; font-size:13px; }
+  .claim .head { font-weight:700; color:#1a5276; margin-bottom:4px; }
+  .claim .q { color:#6e2c00; background:#fef5e7; border-radius:4px; padding:2px 6px; }
+  .claim .meta { color:#7f8c8d; font-size:11px; margin-top:4px; }
+  .claim a { color:#2471a3; text-decoration:none; }
+  .pill { display:inline-block; padding:1px 8px; border-radius:10px; font-size:11px; }
+  .ADMITTED { background:#d5f5e3; color:#1e8449; }
+  .CONTESTED { background:#fadbd8; color:#943126; }
+  .CONDITIONAL { background:#fdebd0; color:#b9770e; }
+  .ev { margin-top:4px; font-size:12px; }
+  .desc { font-size:12px; color:#5d6d7e; margin:4px 0; }
+  #status { font-size:12px; color:#7f8c8d; margin-top:6px; min-height:16px; }
+</style>
+</head>
+<body>
+<h1>Canonical KG · 正式知识图谱 <span class="tag">canonical_v1</span></h1>
+<div class="sub">所有 Claim 均有原文证据定位 · 点击实体展开关系卡 · <a href="/">← 控制台</a></div>
+
+<div class="search">
+  <input type="text" id="q" placeholder="搜索正式实体（如：张之洞 / 都江堰 / 武昌起义 / 泸州老窖）" onkeydown="if(event.key==='Enter')search()">
+  <button onclick="search()">搜索</button>
+</div>
+<div id="status"></div>
+<div id="results" class="panel" style="display:none"><h2>搜索结果</h2><div id="ent-list"></div></div>
+<div id="detail"></div>
+
+<script>
+async function search(){
+  const q = document.getElementById("q").value.trim();
+  if(!q) return;
+  const d = await (await fetch(`/yangtze/entities?search=${encodeURIComponent(q)}&limit=30`)).json();
+  document.getElementById("results").style.display="block";
+  document.getElementById("ent-list").innerHTML = (d.entities||[]).map(e=>
+    `<span class="ent" onclick="openEntity('${e.entity_id}')"><b>${e.canonical_name}</b><span class="tag">${e.entity_type}</span></span>`
+  ).join("") || "（无结果）";
+  document.getElementById("detail").innerHTML = "";
+}
+async function openEntity(id){
+  document.getElementById("status").textContent = "加载中…";
+  const d = await (await fetch(`/yangtze/entities/${id}`)).json();
+  const e = d.entity;
+  const alias = (d.aliases||[]).map(a=>a.alias).join(" / ");
+  let html = `<div class="panel"><h2>${e.canonical_name} <span class="tag">${e.entity_type}</span>
+    <span class="pill ${e.status==='ACTIVE'?'ADMITTED':'CONTESTED'}">${e.status}</span></h2>
+    ${alias?`<div class="desc">别名：${alias}</div>`:""}
+    ${e.description?`<div class="desc">${e.description}</div>`:""}
+    <button onclick="loadGraph('${id}')">查看邻域关系图</button></div>`;
+  if((d.events||[]).length){
+    html += `<div class="panel"><h2>参与事件</h2>` + d.events.map(ev=>
+      `<div class="claim"><div class="head">${ev.canonical_name} <span class="tag">${ev.role}</span></div>
+       <div class="desc">${(ev.description||"").slice(0,120)}</div>
+       <div class="meta">${ev.time_raw||""} ${ev.place? "· "+ev.place:""} <span class="pill ${ev.status==='ADMITTED'?'ADMITTED':'CONDITIONAL'}">${ev.status}</span></div></div>`).join("") + `</div>`;
+  }
+  if((d.claims_as_subject||[]).length){
+    html += `<div class="panel"><h2>作为主体的正式关系（含证据）</h2>` + d.claims_as_subject.map(c=>
+      `<div class="claim"><div class="head">${c.predicate_id} → <a href="javascript:void(0)" onclick="openEntity('${c.object_id}')">${c.object}</a>
+        <span class="pill ${c.status}">${c.status}</span> 置信 ${c.confidence??'–'}</div>
+       ${c.quote_span?`<div class="ev">证据：<span class="q">「${c.quote_span.slice(0,90)}」</span>
+         ${c.res_title?`—— <a href="${c.source_url||'#'}" target="_blank">${c.res_title.slice(0,30)}</a>`:""}</div>`:""}
+       ${c.time_raw?`<div class="meta">时间：${c.time_raw}</div>`:""}
+       <div class="meta"><a href="/yangtze/claims/${c.claim_id}/evidence" target="_blank">证据 JSON</a></div></div>`).join("") + `</div>`;
+  }
+  if(!(d.claims_as_subject||[]).length && !(d.events||[]).length){
+    html += `<div class="panel"><div class="desc">暂无 ADMITTED 关系（该实体可能仅有候选级数据）</div></div>`;
+  }
+  document.getElementById("detail").innerHTML = html;
+  document.getElementById("status").textContent = "";
+  window.scrollTo({top: document.getElementById("detail").offsetTop - 20, behavior:"smooth"});
+}
+async function loadGraph(id){
+  const d = await (await fetch(`/yangtze/graph?entity_id=${id}&depth=1`)).json();
+  const names = {}; (d.entities||[]).forEach(e=>names[e.entity_id]=e);
+  const cnt = {};
+  (d.edges||[]).forEach(x=>{ const k=x.predicate_id; cnt[k]=(cnt[k]||0)+1; });
+  document.getElementById("status").textContent =
+    `邻域：${(d.entities||[]).length} 实体 / ${(d.edges||[]).length} 条 ADMITTED 关系。按谓词：` +
+    Object.entries(cnt).map(([k,v])=>`${k}×${v}`).join("，");
+}
+</script>
+</body>
+</html>
