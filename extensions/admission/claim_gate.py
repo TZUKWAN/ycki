@@ -153,21 +153,36 @@ def admit(claim_draft: dict[str, Any], conn) -> dict[str, Any]:
             record("yangtze_scope", "FAIL", {"reason": f"资源准入状态 {adm}"})
         record("yangtze_scope", "PASS", {"resource_admission": adm})
 
-        # ---- 8 source_independence ----
+        # ---- 8 source_independence（§六：独立证据单位=cluster，缺省退化 resource） ----
         with conn.cursor() as cur:
-            cur.execute("""SELECT count(DISTINCT src.source_id) AS n
-                           FROM claims c
-                           JOIN evidence e ON e.claim_id=c.claim_id
-                           JOIN sources src ON src.source_id=e.source_id
-                           WHERE c.subject_id=%s AND c.predicate_id=%s
-                             AND c.object_id=%s AND c.status='ADMITTED'""",
-                        (claim_draft["subject_entity_id"], claim_draft["predicate"],
-                         claim_draft["object_entity_id"]))
+            cur.execute("""
+                SELECT count(DISTINCT COALESCE(r.source_cluster_id, r.resource_id)) AS indep,
+                       count(DISTINCT e.resource_id) AS raw_res,
+                       count(DISTINCT e.source_id) AS raw_src,
+                       count(*) AS raw_ev
+                FROM claims c2
+                JOIN evidence e ON e.claim_id=c2.claim_id
+                JOIN resources r ON r.resource_id=e.resource_id
+                WHERE c2.subject_id=%s AND c2.predicate_id=%s AND c2.object_id=%s
+                  AND c2.status='ADMITTED'""",
+                (claim_draft["subject_entity_id"], claim_draft["predicate"],
+                 claim_draft["object_entity_id"]))
             r = cur.fetchone()
-            indep = (r[0] if r else 0) + 1       # 本条来源计数在内
+            indep = (r["indep"] if r else 0) + 1
+            raw_res = (r["raw_res"] if r else 0) + 1
+            raw_src = (r["raw_src"] if r else 0) + 1
+            raw_ev = (r["raw_ev"] if r else 0) + 1
+            cur.execute("SELECT authority_level FROM sources WHERE source_id=%s",
+                        (claim_draft.get("source_id") or "",))
+            ar = cur.fetchone()
+            authority = ar[0] if ar else "UNKNOWN"
+        authority_dist = {authority: 1}
         record("source_independence", "PASS",
-               {"independent_source_count": indep,
-                "authority": claim_draft.get("authority_level", "UNKNOWN")})
+               {"independent_evidence_count": indep,
+                "raw_evidence_count": raw_ev,
+                "distinct_resource_count": raw_res,
+                "distinct_domain_count": raw_src,
+                "authority_distribution": authority_dist})
 
         # ---- 9 conflict_detection（cardinality 感知） ----
         cardinality = pred.get("cardinality", "single")
@@ -194,14 +209,15 @@ def admit(claim_draft: dict[str, Any], conn) -> dict[str, Any]:
         # ---- 10 admission（置信模型） ----
         status = "CONTESTED" if conflict_id else (
             "ADMITTED" if match in ("EXACT", "NORMALIZED") else "SUPPORTED")
-        confidence = _confidence(indep, claim_draft.get("authority_level", "UNKNOWN"),
-                                 match, claim_draft.get("time_text"),
-                                 claim_draft["predicate"], status)
+        confidence, explanation = _confidence(
+            indep, authority, match, claim_draft.get("time_text"),
+            claim_draft["predicate"], status)
         record("admission", "PASS",
-               {"status": status, "confidence": round(confidence, 2)})
+               {"status": status, "confidence": confidence,
+                "explanation": explanation})
 
         claim_id = _insert(claim_draft, status, match, confidence, indep,
-                           conflict_id, conn, stages)
+                           conflict_id, conn, stages, explanation=explanation)
         return {"claim_id": str(claim_id), "status": status,
                 "confidence": round(confidence, 2), "stages": stages}
 
@@ -213,26 +229,42 @@ def admit(claim_draft: dict[str, Any], conn) -> dict[str, Any]:
 
 
 def _confidence(indep: int, authority: str, match: str, time_text: Any,
-                predicate: str, status: str) -> float:
+                predicate: str, status: str) -> tuple[float, dict]:
+    """可解释置信模型（§十）。返回 (confidence, explanation)。"""
     if status == "CONTESTED":
-        return 0.30
+        return 0.30, {"final_confidence": 0.30, "conflict_penalty": 0.55,
+                      "evidence_grounding": 1.0, "independent_sources": indep,
+                      "authority_score": 0.15 if authority in ("S", "A") else 0.0}
+    grounding = 1.0 if match == "EXACT" else 0.85
     c = 0.35
     c += 0.15 * min(max(indep - 1, 0), 2)
-    if authority in ("S", "A"):
-        c += 0.15
+    auth_score = 0.15 if authority in ("S", "A") else 0.0
+    c += auth_score
     if match == "EXACT":
         c += 0.10
     if time_text:
         c += 0.10
     if predicate not in _FALLBACK_PREDICATES:
         c += 0.10
-    return min(0.95, round(c, 2))
+    c = min(0.95, round(c, 2))
+    explanation = {
+        "final_confidence": c,
+        "evidence_grounding": grounding,
+        "independent_sources": indep,
+        "authority_score": auth_score,
+        "match_bonus": 0.10 if match == "EXACT" else 0.0,
+        "time_bonus": 0.10 if time_text else 0.0,
+        "predicate_specificity": 0.0 if predicate in _FALLBACK_PREDICATES else 0.10,
+        "conflict_penalty": 0.0,
+    }
+    return c, explanation
 
 
 def _insert(claim_draft: dict[str, Any], status: str, match_status: str,
             confidence: float, indep: int, conflict_id: str | None, conn,
             stages: list, fail_stage: str | None = None,
-            fail_detail: dict | None = None) -> str:
+            fail_detail: dict | None = None,
+            explanation: dict | None = None) -> str:
     keep = status in ("ADMITTED", "SUPPORTED", "CONTESTED")
     with conn.cursor() as cur:
         cur.execute(
@@ -259,6 +291,9 @@ def _insert(claim_draft: dict[str, Any], status: str, match_status: str,
                  claim_draft["quote_span"], match_status, claim_draft.get("source_id")))
 
         for stage, result, detail in stages:
+            if stage == "admission" and explanation:
+                detail = {**detail, "confidence_explanation": explanation,
+                          "independent_evidence_count": indep}
             cur.execute(
                 """INSERT INTO claim_admissions
                    (claim_id, stage, result, detail, model, prompt_version)

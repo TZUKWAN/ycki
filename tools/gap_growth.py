@@ -27,10 +27,14 @@ from config.settings import SETTINGS
 
 def pick_gaps(conn, max_tasks: int) -> list[dict]:
     with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
-        cur.execute("""SELECT gap_id, gap_type, region, period, topic, entity_type, detail
-                       FROM knowledge_gaps WHERE status='OPEN'
-                       ORDER BY priority DESC, created_at ASC LIMIT %s""", (max_tasks,))
-        return [dict(r) for r in cur.fetchall()]
+        cur.execute("""
+            SELECT DISTINCT ON (region, period, topic, entity_type)
+                   gap_id, gap_type, region, period, topic, entity_type, detail, priority
+            FROM knowledge_gaps WHERE status='OPEN'
+            ORDER BY region, period, topic, entity_type, priority DESC""")
+        rows = [dict(r) for r in cur.fetchall()]
+        rows.sort(key=lambda r: -r["priority"])
+        return rows[:max_tasks]
 
 
 def plan_tasks(conn, gaps: list[dict]) -> list[dict]:
@@ -102,11 +106,11 @@ def main():
     code = run_collect(topics, "gap-growth", a.max_total)
     print(f"采集完成 exit={code}。采集结果经 Scope Gate 准入后，"
           f"重跑 python -m extensions.gap.coverage 复算缺口。")
-    # 采集完成后把 research_tasks 标记 DONE
+    # 采集完成 → COLLECTED；RESOLVED/NO_GAIN 由 autonomous_growth 验证阶段判定
     conn = psycopg2.connect(SETTINGS.pg_dsn)
     with conn.cursor() as cur:
         for t in tasks:
-            cur.execute("UPDATE research_tasks SET status='DONE', updated_at=now() "
+            cur.execute("UPDATE research_tasks SET status='COLLECTED', updated_at=now() "
                         "WHERE task_id=%s", (t["task_id"],))
     conn.commit()
     conn.close()

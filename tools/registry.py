@@ -108,7 +108,7 @@ class Registry:
             return cur.fetchone() is not None
 
     def insert_resource(self, doc, query: str, batch: str, raw_path: str,
-                        text_path: str) -> tuple[str, str]:
+                        text_path: str, discovery_topic: str | None = None) -> tuple[str, str]:
         """返回 (status, resource_id)。status ∈ registered|duplicate_url|duplicate_text"""
         canon = doc.canonical_url
         domain = domain_of(canon)
@@ -122,14 +122,15 @@ class Registry:
                         source_domain, source_id, source_type, author, publication_time,
                         mime_type, http_status, checksum, text_checksum,
                         raw_path, text_path, content_chars,
-                        search_query, collection_batch, retrieved_at)
-                    VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,now())
+                        search_query, collection_batch, retrieved_at, discovery_topic)
+                    VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,now(),
+                            %s)
                     ON CONFLICT (text_checksum) DO NOTHING
                     RETURNING resource_id
                 """, (rid, doc.title, doc.url, canon, domain, sid, stype,
                       doc.author, doc.date, doc.mime_type, doc.http_status,
                       doc.raw_sha256, doc.text_sha256, raw_path, text_path,
-                      len(doc.text), query, batch))
+                      len(doc.text), query, batch, discovery_topic))
                 row = cur.fetchone()
                 if row:
                     return "registered", row[0]

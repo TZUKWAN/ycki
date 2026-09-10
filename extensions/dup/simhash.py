@@ -41,3 +41,12 @@ def hamming(a: int, b: int) -> int:
 
 def near_duplicate(a_text: str, b_text: str, max_dist: int = 6) -> bool:
     return hamming(simhash64(a_text), simhash64(b_text)) <= max_dist
+
+
+def to_int64(sim: int) -> int:
+    """无符号 64 位 → 有符号（PostgreSQL BIGINT 兼容）。"""
+    return sim - (1 << 64) if sim >= (1 << 63) else sim
+
+
+def to_unsigned(v: int) -> int:
+    return v & 0xFFFFFFFFFFFFFFFF

@@ -60,7 +60,7 @@ class Settings:
 
     # 版本
     pipeline_version: str = PIPELINE_VERSION
-    prompt_scope_resource: str = "resource_scope_v1"
+    prompt_scope_resource: str = "resource_scope_v2"
     prompt_scope_chunk: str = "chunk_scope_v1"
     prompt_extraction: str = "entity_event_claim_extraction_v1"
     prompt_resolution: str = "entity_resolution_v1"

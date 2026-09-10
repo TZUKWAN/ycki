@@ -12,14 +12,18 @@ import requests
 
 from config.settings import SETTINGS
 
+# 禁用系统代理（代理会拦 LLM 网关请求导致超时）
+_SESSION = requests.Session()
+_SESSION.trust_env = False
+
 log = logging.getLogger("ycki.llm")
 
 
 def chat(messages: list[dict], max_tokens: int = 2000, temperature: float = 0.2,
-         timeout: int = 180, retries: int = 2) -> str:
-    """对话补全，返回 content 字符串。思考模式强制关闭。"""
+         timeout: int = 180, retries: int = 2, model: str | None = None) -> str:
+    """对话补全，返回 content 字符串。思考模式强制关闭。model 可覆盖（多模型金标）。"""
     body = {
-        "model": SETTINGS.llm_model,
+        "model": model or SETTINGS.llm_model,
         "messages": messages,
         "max_tokens": max_tokens,
         "temperature": temperature,
@@ -27,7 +31,7 @@ def chat(messages: list[dict], max_tokens: int = 2000, temperature: float = 0.2,
     }
     for attempt in range(retries + 1):
         try:
-            r = requests.post(f"{SETTINGS.gateway_url}/chat/completions",
+            r = _SESSION.post(f"{SETTINGS.gateway_url}/chat/completions",
                               headers={"Authorization": f"Bearer {SETTINGS.gateway_key}",
                                        "Content-Type": "application/json"},
                               json=body, timeout=timeout)
@@ -43,7 +47,7 @@ def chat(messages: list[dict], max_tokens: int = 2000, temperature: float = 0.2,
 
 def embed(texts: list[str]) -> list[list[float]]:
     """bge-m3 批量嵌入。"""
-    r = requests.post(f"{SETTINGS.gateway_url}/embeddings",
+    r = _SESSION.post(f"{SETTINGS.gateway_url}/embeddings",
                       headers={"Authorization": f"Bearer {SETTINGS.gateway_key}",
                                "Content-Type": "application/json"},
                       json={"model": SETTINGS.embed_model, "input": texts}, timeout=120)

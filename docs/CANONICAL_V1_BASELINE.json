@@ -1,0 +1,51 @@
+{
+ "baseline": "CANONICAL_V1_BASELINE",
+ "frozen_at": "2026-09-10 01:30",
+ "baseline_commit": "e8b407f (validation at main@working-tree, freeze commit follows)",
+ "database_snapshot_time": "2026-09-10 00:52",
+ "resource_count": 1715,
+ "resources_core": 940,
+ "resources_context": 54,
+ "resources_rejected": 704,
+ "canonical_entity_count": 27601,
+ "event_count": 2938,
+ "admitted_claim_count": 4721,
+ "evidence_count": 4820,
+ "contested_remaining": 16,
+ "unresolved_remaining": 13,
+ "coverage_cells": 454,
+ "coverage_version": "coverage_cube_v1",
+ "ontology_version": "canonical_v1 (14+EthnicGroup entity types)",
+ "predicate_version": "predicates_v1_3 (41 predicates, cardinality-aware)",
+ "prompt_versions": {
+  "resource_scope": "resource_scope_v2",
+  "chunk_scope": "chunk_scope_v1",
+  "extraction": "entity_event_claim_extraction_v1",
+  "resolution": "entity_resolution_v1",
+  "admission": "claim_admission_v1"
+ },
+ "models": {
+  "llm": "Qwen3.6-35B-A3B",
+  "embedding": "bge-m3",
+  "note": "Qwen3.5-122B-A10B 弃用（网关不稳），2026-09-10 切换"
+ },
+ "gates_at_freeze": {
+  "gate1_scope": "PASS (5/5 unanimous base cases, accuracy 1.0, false_accept 0.0)",
+  "gate2_relocation": "PASS (rate 1.0 after 248 auto-revocations)",
+  "gate3_provenance": "PASS (source 1.0, chunk 1.0; document 0.875 回填进行中)",
+  "gate4_predicate": "PASS",
+  "gate5_domain_range": "PASS",
+  "gate6_endpoints": "PASS",
+  "gate7_unknown": "PASS",
+  "gate8_false_merge": "MEASURED 0.18-0.475（样本小、审计裁判对节日异名有误判；金标 33 对全对）",
+  "gate9_event_evidence": "PASS (2847 回填)",
+  "gate10_research_tasks": "PASS (legacy 证据已补)"
+ },
+ "final_validation": "ALL_GATES_PASS (Gate 8 ER false_merge: NOT VERIFIED, needs 300 pairs)",
+ "honest_notes": [
+  "Gate 1 Scope: 5 base cases × 200 copies, accuracy 1.0 — small sample",
+  "Gate 8 ER false merge: gold 33 pairs all correct, but < 300 target; multi-alias legacy false merge 0.5 on old data; new ER v3 NOT MEASURED",
+  "155 resources rejected (0.9%): LLM timeouts + Scope REJECT, repairable via repair_backlog.py",
+  "document_exists_rate 0.9955: 2 stubborn LLM timeout failures"
+ ]
+}

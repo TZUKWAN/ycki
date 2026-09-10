@@ -1,0 +1,11 @@
+{
+ "generated_by": [
+  "Qwen3.6-35B-A3B"
+ ],
+ "method": "single_model_self_consistency_3votes_unanimous",
+ "degradation_reason": "gateway: 122B 400 / Qwen3.5-35B 间歇超时",
+ "consensus": "3/3",
+ "added": 268,
+ "ambiguous_skipped": 2,
+ "total": 300
+}

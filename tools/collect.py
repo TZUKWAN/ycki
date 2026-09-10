@@ -85,6 +85,7 @@ def handle_wiki_doc(w: dict, reg: Registry, batch: str, stats: dict) -> None:
     text_path = str(tdir / f"{rid}.txt")
     (tdir / f"{rid}.txt").write_text(d.text, encoding="utf-8")
 
+    d.discovery_topic = None
     status, rid = reg.insert_resource(d, w["search_query"], batch,
                                       str(ddir / f"{rid}.json"), text_path)
     if status != "registered":
@@ -123,6 +124,7 @@ def run(batch: str, topics_file: str, max_urls_per_query: int = 6,
 
         for theme in seed["themes"]:
             topic = theme["topic"]
+            discovery_topic = topic
             for query in theme["queries"]:
                 if total_registered >= max_total:
                     log.info("max_total=%d reached, stop.", max_total)
@@ -177,7 +179,8 @@ def run(batch: str, topics_file: str, max_urls_per_query: int = 6,
                     (ddir / f"{rid}.html").write_bytes(doc.raw_bytes)
                     (tdir / f"{rid}.txt").write_text(doc.text, encoding="utf-8")
 
-                    status, rid = reg.insert_resource(doc, query, batch, raw_path, text_path)
+                    status, rid = reg.insert_resource(doc, query, batch, raw_path, text_path,
+                                                      discovery_topic=discovery_topic)
                     if status == "duplicate_url":
                         stats["dup_url"] += 1
                         continue
