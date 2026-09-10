@@ -224,6 +224,1882 @@
    "type": "Practice",
    "expected_same": true,
    "category": "节日异名（端午）"
+  },
+  {
+   "a": "毛泽东",
+   "b": "孔明",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×名与字 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "醉翁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×自号 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "李尧棠",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×笔名 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "Chiang Kai-shek",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×中英文名 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "姑苏",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×古今地名 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "江城",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×城市别称 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "南京",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×历史地名 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "长江上游",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×河段称谓 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "端阳节",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×节日异名 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "石头记",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×作品异名 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "长江",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×繁简体 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "北京大学",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×机构沿革 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "李隆基",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×同名不同人 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "太平镇与太平县",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×同名不同地 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "鄱阳湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×不同湖泊 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "南昌起义",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×不同事件 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "汉冶萍公司",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×前身非同一 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "南宁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×形近不同城 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "玛丽",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×易混名 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "洞庭湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×古今水系 (AI金标)"
+  },
+  {
+   "a": "毛泽东",
+   "b": "长汀",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:同人异名×OCR差异 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "毛润之",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×同人异名 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "醉翁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×自号 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "李尧棠",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×笔名 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "Chiang Kai-shek",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×中英文名 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "姑苏",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×古今地名 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "江城",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×城市别称 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "南京",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×历史地名 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "长江上游",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×河段称谓 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "端阳节",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×节日异名 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "石头记",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×作品异名 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "长江",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×繁简体 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "北京大学",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×机构沿革 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "李隆基",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×同名不同人 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "太平镇与太平县",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×同名不同地 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "鄱阳湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×不同湖泊 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "南昌起义",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×不同事件 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "汉冶萍公司",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×前身非同一 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "南宁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×形近不同城 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "玛丽",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×易混名 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "洞庭湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×古今水系 (AI金标)"
+  },
+  {
+   "a": "诸葛亮",
+   "b": "长汀",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:名与字×OCR差异 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "毛润之",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×同人异名 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "孔明",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×名与字 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "醉翁",
+   "type": "Concept",
+   "expected_same": true,
+   "category": "生成:自号×自号 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "李尧棠",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×笔名 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "Chiang Kai-shek",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×中英文名 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "姑苏",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×古今地名 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "江城",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×城市别称 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "南京",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×历史地名 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "长江上游",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×河段称谓 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "端阳节",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×节日异名 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "石头记",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×作品异名 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "长江",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×繁简体 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "北京大学",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×机构沿革 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "李隆基",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×同名不同人 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "太平镇与太平县",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×同名不同地 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "鄱阳湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×不同湖泊 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "南昌起义",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×不同事件 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "汉冶萍公司",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×前身非同一 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "南宁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×形近不同城 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "玛丽",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×易混名 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "洞庭湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×古今水系 (AI金标)"
+  },
+  {
+   "a": "欧阳修",
+   "b": "长汀",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:自号×OCR差异 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "毛润之",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×同人异名 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "孔明",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×名与字 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "醉翁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×自号 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "李尧棠",
+   "type": "Concept",
+   "expected_same": true,
+   "category": "生成:笔名×笔名 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "Chiang Kai-shek",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×中英文名 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "姑苏",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×古今地名 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "江城",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×城市别称 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "南京",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×历史地名 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "长江上游",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×河段称谓 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "端阳节",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×节日异名 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "石头记",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×作品异名 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "长江",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×繁简体 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "北京大学",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×机构沿革 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "李隆基",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×同名不同人 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "太平镇与太平县",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×同名不同地 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "鄱阳湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×不同湖泊 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "南昌起义",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×不同事件 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "汉冶萍公司",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×前身非同一 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "南宁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×形近不同城 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "玛丽",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×易混名 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "洞庭湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×古今水系 (AI金标)"
+  },
+  {
+   "a": "巴金",
+   "b": "长汀",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:笔名×OCR差异 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "毛润之",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×同人异名 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "孔明",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×名与字 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "醉翁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×自号 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "李尧棠",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×笔名 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "Chiang Kai-shek",
+   "type": "Concept",
+   "expected_same": true,
+   "category": "生成:中英文名×中英文名 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "姑苏",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×古今地名 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "江城",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×城市别称 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "南京",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×历史地名 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "长江上游",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×河段称谓 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "端阳节",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×节日异名 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "石头记",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×作品异名 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "长江",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×繁简体 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "北京大学",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×机构沿革 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "李隆基",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×同名不同人 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "太平镇与太平县",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×同名不同地 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "鄱阳湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×不同湖泊 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "南昌起义",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×不同事件 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "汉冶萍公司",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×前身非同一 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "南宁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×形近不同城 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "玛丽",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×易混名 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "洞庭湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×古今水系 (AI金标)"
+  },
+  {
+   "a": "蒋介石",
+   "b": "长汀",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:中英文名×OCR差异 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "毛润之",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×同人异名 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "孔明",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×名与字 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "醉翁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×自号 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "李尧棠",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×笔名 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "Chiang Kai-shek",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×中英文名 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "南京",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×历史地名 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "长江上游",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×河段称谓 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "端阳节",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×节日异名 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "石头记",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×作品异名 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "长江",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×繁简体 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "北京大学",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×机构沿革 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "李隆基",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×同名不同人 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "太平镇与太平县",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×同名不同地 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "鄱阳湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×不同湖泊 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "南昌起义",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×不同事件 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "汉冶萍公司",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×前身非同一 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "南宁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×形近不同城 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "玛丽",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×易混名 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "洞庭湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×古今水系 (AI金标)"
+  },
+  {
+   "a": "苏州",
+   "b": "长汀",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:古今地名×OCR差异 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "毛润之",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×同人异名 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "孔明",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×名与字 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "醉翁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×自号 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "李尧棠",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×笔名 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "Chiang Kai-shek",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×中英文名 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "姑苏",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×古今地名 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "南京",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×历史地名 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "长江上游",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×河段称谓 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "端阳节",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×节日异名 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "石头记",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×作品异名 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "长江",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×繁简体 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "北京大学",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×机构沿革 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "李隆基",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×同名不同人 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "太平镇与太平县",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×同名不同地 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "鄱阳湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×不同湖泊 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "南昌起义",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×不同事件 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "汉冶萍公司",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×前身非同一 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "南宁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×形近不同城 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "玛丽",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×易混名 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "洞庭湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×古今水系 (AI金标)"
+  },
+  {
+   "a": "武汉",
+   "b": "长汀",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:城市别称×OCR差异 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "毛润之",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×同人异名 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "孔明",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×名与字 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "醉翁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×自号 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "李尧棠",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×笔名 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "Chiang Kai-shek",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×中英文名 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "姑苏",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×古今地名 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "南京",
+   "type": "Concept",
+   "expected_same": true,
+   "category": "生成:历史地名×历史地名 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "长江上游",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×河段称谓 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "端阳节",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×节日异名 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "石头记",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×作品异名 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "长江",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×繁简体 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "北京大学",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×机构沿革 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "李隆基",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×同名不同人 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "太平镇与太平县",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×同名不同地 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "鄱阳湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×不同湖泊 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "南昌起义",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×不同事件 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "汉冶萍公司",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×前身非同一 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "南宁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×形近不同城 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "玛丽",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×易混名 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "洞庭湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×古今水系 (AI金标)"
+  },
+  {
+   "a": "金陵",
+   "b": "长汀",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:历史地名×OCR差异 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "毛润之",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×同人异名 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "孔明",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×名与字 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "醉翁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×自号 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "李尧棠",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×笔名 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "Chiang Kai-shek",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×中英文名 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "姑苏",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×古今地名 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "江城",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×城市别称 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "南京",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×历史地名 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "端阳节",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×节日异名 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "石头记",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×作品异名 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "长江",
+   "type": "Concept",
+   "expected_same": true,
+   "category": "生成:河段称谓×繁简体 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "北京大学",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×机构沿革 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "李隆基",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×同名不同人 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "太平镇与太平县",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×同名不同地 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "鄱阳湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×不同湖泊 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "南昌起义",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×不同事件 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "汉冶萍公司",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×前身非同一 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "南宁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×形近不同城 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "玛丽",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×易混名 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "洞庭湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×古今水系 (AI金标)"
+  },
+  {
+   "a": "川江",
+   "b": "长汀",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:河段称谓×OCR差异 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "毛润之",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×同人异名 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "孔明",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×名与字 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "醉翁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×自号 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "李尧棠",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×笔名 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "Chiang Kai-shek",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×中英文名 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "姑苏",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×古今地名 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "江城",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×城市别称 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "南京",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×历史地名 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "长江上游",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×河段称谓 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "石头记",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×作品异名 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "长江",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×繁简体 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "北京大学",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×机构沿革 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "李隆基",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×同名不同人 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "太平镇与太平县",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×同名不同地 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "鄱阳湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×不同湖泊 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "南昌起义",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×不同事件 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "汉冶萍公司",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×前身非同一 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "南宁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×形近不同城 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "玛丽",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×易混名 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "洞庭湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×古今水系 (AI金标)"
+  },
+  {
+   "a": "端午节",
+   "b": "长汀",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:节日异名×OCR差异 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "毛润之",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×同人异名 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "孔明",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×名与字 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "醉翁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×自号 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "李尧棠",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×笔名 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "Chiang Kai-shek",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×中英文名 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "姑苏",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×古今地名 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "江城",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×城市别称 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "南京",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×历史地名 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "长江上游",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×河段称谓 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "端阳节",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×节日异名 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "石头记",
+   "type": "Concept",
+   "expected_same": true,
+   "category": "生成:作品异名×作品异名 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "长江",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×繁简体 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "北京大学",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×机构沿革 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "李隆基",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×同名不同人 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "太平镇与太平县",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×同名不同地 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "鄱阳湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×不同湖泊 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "南昌起义",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×不同事件 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "汉冶萍公司",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×前身非同一 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "南宁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×形近不同城 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "玛丽",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×易混名 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "洞庭湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×古今水系 (AI金标)"
+  },
+  {
+   "a": "《红楼梦》",
+   "b": "长汀",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:作品异名×OCR差异 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "毛润之",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×同人异名 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "孔明",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×名与字 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "醉翁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×自号 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "李尧棠",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×笔名 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "Chiang Kai-shek",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×中英文名 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "姑苏",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×古今地名 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "江城",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×城市别称 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "南京",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×历史地名 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "长江上游",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×河段称谓 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "端阳节",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×节日异名 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "石头记",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×作品异名 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "长江",
+   "type": "Concept",
+   "expected_same": true,
+   "category": "生成:繁简体×繁简体 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "北京大学",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×机构沿革 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "李隆基",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×同名不同人 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "太平镇与太平县",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×同名不同地 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "鄱阳湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×不同湖泊 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "南昌起义",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×不同事件 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "汉冶萍公司",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×前身非同一 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "南宁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×形近不同城 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "玛丽",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×易混名 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "洞庭湖",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×古今水系 (AI金标)"
+  },
+  {
+   "a": "長江",
+   "b": "长汀",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:繁简体×OCR差异 (AI金标)"
+  },
+  {
+   "a": "京师大学堂",
+   "b": "毛润之",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:机构沿革×同人异名 (AI金标)"
+  },
+  {
+   "a": "京师大学堂",
+   "b": "孔明",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:机构沿革×名与字 (AI金标)"
+  },
+  {
+   "a": "京师大学堂",
+   "b": "醉翁",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:机构沿革×自号 (AI金标)"
+  },
+  {
+   "a": "京师大学堂",
+   "b": "李尧棠",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:机构沿革×笔名 (AI金标)"
+  },
+  {
+   "a": "京师大学堂",
+   "b": "Chiang Kai-shek",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:机构沿革×中英文名 (AI金标)"
+  },
+  {
+   "a": "京师大学堂",
+   "b": "姑苏",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:机构沿革×古今地名 (AI金标)"
+  },
+  {
+   "a": "京师大学堂",
+   "b": "江城",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:机构沿革×城市别称 (AI金标)"
+  },
+  {
+   "a": "京师大学堂",
+   "b": "南京",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:机构沿革×历史地名 (AI金标)"
+  },
+  {
+   "a": "京师大学堂",
+   "b": "长江上游",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:机构沿革×河段称谓 (AI金标)"
+  },
+  {
+   "a": "京师大学堂",
+   "b": "端阳节",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:机构沿革×节日异名 (AI金标)"
+  },
+  {
+   "a": "京师大学堂",
+   "b": "石头记",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:机构沿革×作品异名 (AI金标)"
+  },
+  {
+   "a": "京师大学堂",
+   "b": "长江",
+   "type": "Concept",
+   "expected_same": false,
+   "category": "生成:机构沿革×繁简体 (AI金标)"
   }
  ]
 }

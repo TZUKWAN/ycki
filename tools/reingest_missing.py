@@ -22,14 +22,42 @@ def safe_fs(title: str, rid: str) -> str:
     return f"{t}_{rid[-8:]}.txt"
 
 
+def _pstate():
+    d = requests.get(f"{SETTINGS.lightrag_url}/documents/pipeline_status",
+                     headers=H, timeout=60).json()
+    return bool(d.get("busy")), int(d.get("pending_enqueues") or 0)
+
+
+def smart_unfreeze():
+    """楔死检测：busy 且队列无进展 → cancel（LightRAG 1.5.7 假忙 bug 运维手段）。"""
+    try:
+        busy, pending = _pstate()
+        if busy or pending:
+            requests.post(f"{SETTINGS.lightrag_url}/documents/cancel_pipeline",
+                          headers=H, json={}, timeout=60)
+            time.sleep(12)
+    except Exception:
+        pass
+
+
 def wait_drained(timeout: int = 300):
-    """等 pending_enqueues 清零（准入门按队列排空放行）。"""
+    """等 pending_enqueues 清零；空转超 90 秒判定楔死并解楔。"""
     t0 = time.time()
+    last_counts = None
+    last_change = time.time()
     while time.time() - t0 < timeout:
         try:
-            d = requests.get(f"{SETTINGS.lightrag_url}/documents/pipeline_status",
-                             headers=H, timeout=60).json()
-            if not d.get("pending_enqueues"):
+            busy, pending = _pstate()
+            c = requests.get(f"{SETTINGS.lightrag_url}/documents/status_counts",
+                             headers=H, timeout=60).json().get("status_counts", {})
+            sig = (c.get("pending"), c.get("parsing"), c.get("processing"))
+            if sig != last_counts:
+                last_counts = sig
+                last_change = time.time()
+            if time.time() - last_change > 90 and pending == 0 and sig[0] == 0:
+                smart_unfreeze()
+                last_change = time.time()
+            if not busy and pending == 0:
                 return True
         except Exception:
             pass
@@ -61,11 +89,9 @@ def main():
                                lightrag_file_source=%s WHERE resource_id=%s""",
                             (fs, fs, rid))
             ok += 1
-            wait_drained()          # 串行：排空再传下一篇
         else:
             print(f"  ✗ {rid} HTTP {r.status_code}")
             fail += 1
-            wait_drained(60)
     conn.commit()
     conn.close()
     print(f"重灌完成: 成功 {ok} / 失败 {fail}")

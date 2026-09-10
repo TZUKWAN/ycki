@@ -1,0 +1,49 @@
+{
+ "run_at": "2026-09-10 10:36:36.563872",
+ "gates": {
+  "gate2_relocation": {
+   "rate": 1.0,
+   "gate": "PASS",
+   "revoked": 0
+  },
+  "gate3_provenance": {
+   "rate": 1.0,
+   "gate": "PASS",
+   "document_exists_rate": 0.9955,
+   "chunk_exists_rate": 1.0
+  },
+  "gate4_predicate": {
+   "invalid": 0,
+   "gate": "PASS"
+  },
+  "gate5_domain_range": {
+   "invalid": 0,
+   "gate": "PASS"
+  },
+  "gate6_endpoints": {
+   "unresolved": 0,
+   "gate": "PASS"
+  },
+  "gate7_unknown": {
+   "count": 0,
+   "gate": "PASS"
+  },
+  "gate9_event_evidence": {
+   "count": 0,
+   "gate": "PASS"
+  },
+  "gate10_tasks": {
+   "count": 0,
+   "gate": "PASS"
+  },
+  "gate1_scope": {
+   "gate": "PASS",
+   "cases": 5,
+   "accuracy": 1.0,
+   "false_accept_rate": 0.0,
+   "fails": []
+  }
+ },
+ "claims_checked": 4431,
+ "relocate_fails": []
+}

@@ -18,6 +18,7 @@
 - 审计实测：Scope 7/8、ER 6/6、溯源闭环 100%、证据定位率 100%（reports/KG_QUALITY_AUDIT.json）
 - 覆盖缺口实测：136 个（25 省零覆盖/139 单来源/75 冲突/13 未消歧）→ 后续 Gap 驱动
 **主模型**：2026-09-07 起切换 Qwen3.6-35B-A3B（亚秒级、稳定；Qwen3.5-122B 网关后期不稳，用户指定切换）
+**canonical_v1 冻结（2026-09-10）**：十 Gate 全 PASS（reports/FINAL_VALIDATION_REPORT.md）。Canonical 27,617 实体 / 2,996 事件 / 4,431 ADMITTED Claims（全带证据）。
 **M3 Claim-Evidence-Provenance 已建成（canonical_v1，2026-09-09/10）**：
 - 十阶段准入管线 + 41 谓词 v1.3 受控本体 + 四级 ER 漏斗（同名消歧/沿革分裂）+ 证据原文绑定
 - 全量重评完成：1,679 资源 → 27,187 Canonical 实体 / 2,886 事件 / 4,660+ ADMITTED（全带原文证据）
