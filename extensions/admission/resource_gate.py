@@ -25,7 +25,7 @@ _STATUS_MAP = {"CORE": "CORE", "CONTEXT": "CONTEXT", "REJECT": "REJECTED"}
 def evaluate(title: str, text: str, domain: str, source_type: str,
              discovery_topic: str = "", search_query: str = "") -> dict[str, Any]:
     """评审单个资源，返回结构化判定（含版本信息）。不可解析时保守判 REJECT。"""
-    prompt = PROMPTS["resource_scope_v1"].format(
+    prompt = PROMPTS["resource_scope_v2"].format(
         title=title, domain=domain, source_type=source_type,
         discovery_topic=discovery_topic or "（无）", search_query=search_query or "（无）",
         text=text[:6000])

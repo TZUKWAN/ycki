@@ -1,5 +1,5 @@
 {
- "run_at": "2026-09-10 10:36:36.563872",
+ "run_at": "2026-09-11 01:24:10.589453",
  "gates": {
   "gate2_relocation": {
    "rate": 1.0,
@@ -9,7 +9,7 @@
   "gate3_provenance": {
    "rate": 1.0,
    "gate": "PASS",
-   "document_exists_rate": 0.9955,
+   "document_exists_rate": 0.9776,
    "chunk_exists_rate": 1.0
   },
   "gate4_predicate": {
@@ -44,6 +44,6 @@
    "fails": []
   }
  },
- "claims_checked": 4431,
+ "claims_checked": 4419,
  "relocate_fails": []
 }
