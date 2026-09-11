@@ -168,6 +168,29 @@ def run_cycle(cycle: int, top_n: int) -> dict:
         log(f"coverage 失败: {r.stderr[-200:]}")
     heartbeat(cycle, "gap_planning")
     from tools.gap_growth import main as gap_main
+
+    # 动态搜索策略：根据 Coverage 缺口生成精准检索词（而非固定 topics 循环）
+    from extensions.search.strategy import SearchStrategy
+    strategy = SearchStrategy()
+    try:
+        conn_str = psycopg2.connect(SETTINGS.pg_dsn)
+        with conn_str.cursor() as cur:
+            # 找出覆盖最薄的 3 个区域
+            cur.execute("""
+                SELECT DISTINCT region_id FROM coverage_cells
+                WHERE coverage_score < 0.25
+                ORDER BY coverage_score ASC LIMIT 3""")
+            weak_regions = [r[0] for r in cur.fetchall()]
+        conn_str.close()
+        if weak_regions:
+            for wr in weak_regions:
+                for topic_key in list(DEEP_TOPICS := __import__("extensions.search.strategy", fromlist=["DEEP_TOPICS"]).DEEP_TOPICS.keys())[:5]:
+                    qs = strategy.deep_topic_geo(topic_key, wr)
+                    if qs:
+                        log(f"策略扩展: {wr} {topic_key} -> {len(qs)} 条")
+    except Exception as exc:
+        log(f"strategy error: {exc}")
+
     sys.argv = ["gap_growth", "--max-tasks", str(top_n), "--max-total", "40"]
     gap_main()
     heartbeat(cycle, "collection+canonical")
