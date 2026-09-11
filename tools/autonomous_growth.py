@@ -98,9 +98,9 @@ def fast_audit() -> dict:
     conn = psycopg2.connect(SETTINGS.pg_dsn)
     out = {}
     with conn.cursor() as cur:
-        cur.execute("""SELECT count(*) FROM claims WHERE status='ADMITTED'
+        cur.execute("""SELECT count(*) FROM claims cc WHERE cc.status='ADMITTED'
                        AND NOT EXISTS (SELECT 1 FROM evidence e
-                                       WHERE e.claim_id=c.claim_id)""")
+                                       WHERE e.claim_id=cc.claim_id)""")
         out["admitted_without_evidence"] = cur.fetchone()[0]
         cur.execute("""SELECT count(*) FROM canonical_entities
                        WHERE entity_type='UNKNOWN' AND status='ACTIVE'""")
@@ -164,8 +164,9 @@ def run_cycle(cycle: int, top_n: int) -> dict:
     v = validate_tasks(cycle)
     heartbeat(cycle, "fast_audit")
     fa = fast_audit()
-    gain.update(v)
-    gain = {"cycle": cycle, "admitted_total": fa["admitted"],
+    gain = {"cycle": cycle, "resolved": v.get("resolved", 0),
+            "no_gain": v.get("no_gain", 0),
+            "admitted_total": fa["admitted"],
             "admitted_without_evidence": fa["admitted_without_evidence"],
             "unknown_entities": fa["unknown_entities"]}
     with open(GAIN_LOG, "a", encoding="utf-8") as f:
@@ -202,10 +203,10 @@ def main():
             top_n = [3, 5, 10][min(cycle - 1, 2)] if a.burn_in else GAPS_PER_CYCLE
             gain = run_cycle(cycle, top_n)
             # 熔断检查（§64/65）
-            if gain["admitted_without_evidence"] > 0:
+            if gain.get("admitted_without_evidence", 0) > 0:
                 PAUSE_FLAG.write_text("admitted_without_evidence>0", encoding="utf-8")
                 log("CIRCUIT BREAKER: 出现无证据 ADMITTED → PAUSE_GROWTH")
-            if gain["unknown_entities"] > 0:
+            if gain.get("unknown_entities", 0) > 0:
                 PAUSE_FLAG.write_text("unknown_entities>0", encoding="utf-8")
                 log("CIRCUIT BREAKER: UNKNOWN 实体 → PAUSE_GROWTH")
             if a.burn_in and cycle >= a.cycles:
