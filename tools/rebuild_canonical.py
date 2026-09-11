@@ -166,6 +166,16 @@ def process_resource(resource: dict, conn) -> dict:
         candidates = cur.fetchall()
     resolved: dict[str, str] = {}
     for cand in candidates:
+        # 实体门禁：文化相关性审核（§新增）
+        g = gate_entity(cand["surface_name"], cand["entity_type"],
+                        cand.get("description", ""), title)
+        if g["verdict"] == "REJECT":
+            with conn.cursor() as cur:
+                cur.execute("""UPDATE candidate_entities SET resolution_status='TYPE_CONFLICT' WHERE candidate_id=%s""",
+                            (cand["candidate_id"],))
+            conn.commit()
+            stats["entity_rejected"] = stats.get("entity_rejected", 0) + 1
+            continue
         r = resolve(dict(cand), conn)
         if r["status"] == "UNRESOLVED":
             stats["unresolved"] += 1
