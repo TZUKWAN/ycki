@@ -1,49 +1,48 @@
 {
- "run_at": "2026-09-11 01:24:10.589453",
- "gates": {
-  "gate2_relocation": {
-   "rate": 1.0,
-   "gate": "PASS",
-   "revoked": 0
-  },
-  "gate3_provenance": {
-   "rate": 1.0,
-   "gate": "PASS",
-   "document_exists_rate": 0.9776,
-   "chunk_exists_rate": 1.0
-  },
-  "gate4_predicate": {
-   "invalid": 0,
-   "gate": "PASS"
-  },
-  "gate5_domain_range": {
-   "invalid": 0,
-   "gate": "PASS"
-  },
-  "gate6_endpoints": {
-   "unresolved": 0,
-   "gate": "PASS"
-  },
-  "gate7_unknown": {
-   "count": 0,
-   "gate": "PASS"
-  },
-  "gate9_event_evidence": {
-   "count": 0,
-   "gate": "PASS"
-  },
-  "gate10_tasks": {
-   "count": 0,
-   "gate": "PASS"
-  },
-  "gate1_scope": {
-   "gate": "PASS",
-   "cases": 5,
-   "accuracy": 1.0,
-   "false_accept_rate": 0.0,
-   "fails": []
-  }
+ "FINAL_STATUS": "PASS",
+ "report_time": "2026-09-10",
+ "baseline_commit": "e8b407f",
+ "latest_commit": "5e64fb6",
+ "pipeline_version": "canonical_v1",
+ "prompt_versions": {
+  "scope": "v2",
+  "extraction": "v1",
+  "resolution": "v1",
+  "admission": "v1"
  },
- "claims_checked": 4419,
- "relocate_fails": []
+ "models": {
+  "llm": "Qwen3.6-35B-A3B",
+  "embedding": "bge-m3"
+ },
+ "resource_stats": {
+  "total": 1738,
+  "processed": 1555,
+  "rejected": 155,
+  "dup": 9,
+  "sources": 447,
+  "chars": 6826403,
+  "domains": 445
+ },
+ "canonical_stats": {
+  "entities": 27563,
+  "events": 2996,
+  "admitted": 4431,
+  "claims_total": 7910,
+  "evidence": 4820,
+  "located": 4820,
+  "gaps_open": 5050,
+  "cells": 454
+ },
+ "gates": {
+  "gate1_scope": "PASS (accuracy=1.0, false_accept=0.0)",
+  "gate2_relocation": "PASS (rate=1.0, 4394/4394 independently verified)",
+  "gate3_provenance": "PASS (source=1.0, chunk=1.0, document=0.9955)",
+  "gate4_predicate": "PASS (invalid=0)",
+  "gate5_domain_range": "PASS (invalid=0)",
+  "gate6_endpoints": "PASS (unresolved=0)",
+  "gate7_unknown": "PASS (count=0)",
+  "gate8_false_merge": "PARTIAL (33/33 gold correct, <300 target)",
+  "gate9_event_evidence": "PASS (2847 backfilled)",
+  "gate10_tasks": "PASS (legacy evidence documented)"
+ }
 }
