@@ -94,6 +94,7 @@ def handle_wiki_doc(w: dict, reg: Registry, batch: str, stats: dict) -> None:
     stats["registered"] += 1
     # ---- Resource Scope Gate（维基源同样强制准入）----
     from extensions.admission import resource_gate
+    from extensions.kg.pg_retrieval_graph import PGRetrievalGraph
     verdict = resource_gate.evaluate(d.title, d.text, domain, "GeneralWebsite",
                                      search_query=w["search_query"])
     resource_gate.persist(rid, verdict, reg.conn)
@@ -105,6 +106,16 @@ def handle_wiki_doc(w: dict, reg: Registry, batch: str, stats: dict) -> None:
     if ok:
         stats["uploaded"] += 1
         reg.mark(rid, ingest_status="uploaded", lightrag_doc_id=file_source)
+        try:
+            PGRetrievalGraph(reg.conn).upsert_node(
+                d.title[:80], "Concept", d.text[:200], rid, file_source)
+        except Exception:
+            pass
+        try:
+            pg = PGRetrievalGraph(reg.conn)
+            pg.upsert_node(d.title[:80], "Concept", d.text[:200], rid, file_source)
+        except Exception as _e:
+            pass
     else:
         stats["upload_fail"] += 1
         reg.mark(rid, ingest_status="failed", fail_reason="lightrag_upload")
@@ -193,6 +204,7 @@ def run(batch: str, topics_file: str, max_urls_per_query: int = 6,
 
                     # ---- Phase 2: Resource Scope Gate（生产入口强制准入）----
                     from extensions.admission import resource_gate
+                    from extensions.kg.pg_retrieval_graph import PGRetrievalGraph
                     verdict = resource_gate.evaluate(doc.title, doc.text, domain,
                                                      "GeneralWebsite",
                                                      search_query=query)
@@ -209,6 +221,13 @@ def run(batch: str, topics_file: str, max_urls_per_query: int = 6,
                     if ok:
                         stats["uploaded"] += 1
                         reg.mark(rid, ingest_status="uploaded", lightrag_doc_id=file_source)
+                        # 同步写入 PG Retrieval Graph（逐条，原子性）
+                        try:
+                            pg = PGRetrievalGraph(reg.conn)
+                            pg.upsert_node(doc.title[:80], "Concept",
+                                           doc.text[:200], rid, file_source)
+                        except Exception as _e:
+                            log.warning("PG retrieval graph write failed: %s", _e)
                         reg.log_job(batch, "ingest", "ok", query=query,
                                     target=doc.canonical_url, detail={"file_source": file_source})
                     else:
