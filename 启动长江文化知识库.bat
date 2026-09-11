@@ -21,6 +21,49 @@ if errorlevel 1 (
 )
 echo   Docker OK.
 
+echo [1.5/4] Checking data integrity...
+python -c "
+import os, shutil, sys
+sys.path.insert(0, r'D:\长江学论纲\ycki')
+from pathlib import Path
+
+RAG = Path(r'D:\长江学论纲\ycki\deploy\lightrag\dataag_storage')
+GRAPH = RAG / 'graph_chunk_entity_relation.graphml'
+BAK = RAG / 'graph_chunk_entity_relation.graphml.bak'
+
+# 检查 GraphML 是否损坏（头部非 XML）
+def is_corrupted(path):
+    try:
+        with open(path, 'rb') as f:
+            head = f.read(200)
+            return not head.startswith(b'<?xml')
+    except:
+        return True
+
+if is_corrupted(GRAPH):
+    print('  GraphML corrupted, restoring from backup...')
+    if BAK.exists():
+        shutil.copy2(BAK, GRAPH)
+        print('  Restored from .bak')
+    else:
+        # 从 backups 恢复
+        backup_dir = Path(r'D:\长江学论纲\ycki\dataackups\lightrag\latest')
+        if (backup_dir / 'graph_chunk_entity_relation.graphml').exists():
+            shutil.copy2(backup_dir / 'graph_chunk_entity_relation.graphml', GRAPH)
+            print('  Restored from backups')
+        else:
+            print('  No backup found, creating minimal graph')
+            minimal = '<?xml version='1.0' encoding='UTF-8'?>
+<graphml xmlns='http://graphml.graphdrawing.org/xmlns'><graph id='G' edgedefault='directed'></graph></graphml>'
+            GRAPH.write_text(minimal)
+            print('  Created minimal graph')
+else:
+    print('  GraphML OK')
+"
+if errorlevel 1 (
+    echo   数据完整性检查失败，但继续启动...
+)
+
 echo [2/4] Starting containers (lightrag / postgres / searxng) ...
 docker start lightrag-lightrag-1 ycki-postgres searxng >nul 2>&1
 

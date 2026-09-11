@@ -1,5 +1,41 @@
 # PROJECT STATE
 
+## 数据安全操作指南（2026-09-11 新增）
+
+### 三层数据保护体系
+
+| 层 | 数据 | 存储位置 | 保护机制 |
+|---|---|---|---|
+| **Canonical KG（正式知识）** | 27,563 实体 / 4,419 ADMITTED Claims | PostgreSQL | ✅ 最可靠——独立数据库，不受 LightRAG 文件损坏影响 |
+| **LightRAG 检索图谱** | 2,671 nodes / 1,585 edges | GraphML 文件 | 原子化写入 + 每日自动备份 |
+| **向量库** | vdb_*.json | 大文件（GB级） | 可从 chunk 数据重建 |
+
+### 防丢失规则
+
+1. **正常关机前**：双击 `停止长江文化知识库.bat`（等 30 秒让容器优雅停止）
+2. **每日自动备份**：Windows 任务计划 `YCKI-Daily-Backup` 每天 02:00 执行
+3. **每周完整备份**：`YCKI-Weekly-Backup` 每周日 03:00 执行
+4. **手动备份**：双击 `备份数据.bat`
+
+### 如果发生数据丢失
+
+**不要慌**——按优先级恢复：
+
+1. **检查 PostgreSQL Canonical KG**：永远完好（这是正式知识层）
+2. **检查 LightRAG 备份**：`data/backups/lightrag/latest/` 有最近的 GraphML
+3. **启动脚本会自动检测损坏**并从备份恢复（已内置）
+4. **如果备份也丢了**：Canonical KG 还在，检索图谱可以从 chunk 数据重建（`python tools/rebuild_canonical.py --all`）
+
+### 当前备份状态
+
+- 最近备份：2026-09-11 18:29:45
+- 备份位置：`D:\长江学论纲\ycki\dataackups\`
+- GraphML 备份：2,671 nodes / 1,585 edges ✓
+- PostgreSQL 备份：57 张表 ✓
+
+---
+
+
 > 当前执行状态快照 · 更新时间：2026-09-06（M2 数据库批1建成并验证）
 
 ## 当前位置

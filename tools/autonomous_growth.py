@@ -62,17 +62,30 @@ def heartbeat(cycle: int, phase: str):
         ensure_ascii=False), encoding="utf-8")
 
 
+def _pid_alive(pid: int) -> bool:
+    """Windows 兼容的 PID 存活检查。"""
+    try:
+        import ctypes
+        kernel32 = ctypes.windll.kernel32
+        handle = kernel32.OpenProcess(0x1000, False, pid)  # PROCESS_QUERY_LIMITED_INFORMATION
+        if handle:
+            kernel32.CloseHandle(handle)
+            return True
+        return False
+    except Exception:
+        return False
+
+
 def acquire_lock() -> bool:
     if LOCK.exists():
         try:
             old = json.loads(LOCK.read_text(encoding="utf-8"))
             pid = old.get("pid")
             age = time.time() - old.get("ts", 0)
-            os.kill(pid, 0)
-            if age < 7200:
+            if _pid_alive(pid) and age < 7200:
                 return False                      # 活实例在跑
-            log(f"stale lock（PID {pid} 存活但心跳 {int(age)}s 未更新）→ 接管")
-        except (ProcessLookupError, FileNotFoundError, ValueError, PermissionError):
+            log(f"stale lock（PID {pid}）→ 接管")
+        except (FileNotFoundError, ValueError, TypeError):
             pass
     LOCK.write_text(json.dumps({"pid": os.getpid(), "ts": time.time()}), encoding="utf-8")
     return True
