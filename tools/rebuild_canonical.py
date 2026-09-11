@@ -30,6 +30,7 @@ from config.settings import SETTINGS
 from extensions.admission import resource_gate, chunk_gate
 from extensions.admission.claim_gate import admit
 from extensions.entity_resolution.resolver import resolve
+from extensions.kg.pg_retrieval_graph import PGRetrievalGraph
 from extensions.extraction.extract import extract, persist_candidates, \
     predicate_domain_range
 
@@ -100,6 +101,7 @@ def _find_chunk(rid: str, quote: str, chunks: list[tuple[int, str]]):
 
 
 def process_resource(resource: dict, conn) -> dict:
+    pg_graph = PGRetrievalGraph(conn)
     rid = resource["resource_id"]
     stage = resource.get("rebuild_stage") or "PENDING"
     title = resource["title"] or ""
@@ -169,6 +171,10 @@ def process_resource(resource: dict, conn) -> dict:
             stats["unresolved"] += 1
             continue
         resolved[cand["surface_name"]] = str(r["entity_id"])
+        # 写入 Retrieval Graph（PG 逐条，原子性保证）
+        pg_graph.upsert_node(
+            cand["surface_name"], cand["entity_type"],
+            cand.get("description", ""), rid, doc_id)
 
     def entity_for(name: str) -> str | None:
         """只取已解析实体；不存在返回 None（claim 在 entity_resolution 阶段拒绝）。
