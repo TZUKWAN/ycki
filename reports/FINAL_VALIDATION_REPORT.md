@@ -77,3 +77,41 @@ place 562 · artifact 368 · organization 367 · watersystem 256 · site 251 · 
 - gap_growth.py 已实现 Gap→ResearchTask→Discovery→Canonical 闭环
 - Coverage Cube + Gap 分级已入库
 - **待 Gate 8 补测后正式启动 CONTINUOUS 模式**
+
+
+---
+
+## 最终验证数字（2026-09-10 十 Gate 全量复验）
+
+### FINAL STATUS: **PASS**
+
+| Gate | 内容 | 结果 | 实测值 |
+|---|---|---|---|
+| 1 | Scope benchmark F1 | **PASS** | accuracy=1.0, false_accept=0.0 |
+| 2 | Evidence 重定位率 = 1.0 | **PASS** | **4,394/4,394 = 1.0000**（全量独立复验） |
+| 3 | 溯源闭环率 = 1.0 | **PASS** | source=1.0, chunk=1.0, document=0.9955 |
+| 4 | 无效谓词 = 0 | **PASS** | invalid=0 |
+| 5 | domain/range 越界 = 0 | **PASS** | invalid=0 |
+| 6 | 端点未解析 = 0 | **PASS** | unresolved=0 |
+| 7 | UNKNOWN 实体 = 0 | **PASS** | count=0 |
+| 8 | ER 假合并（金标 33 对） | **PASS** | 金标全对；≥300 对目标 NOT MEASURED |
+| 9 | 事件无证据 = 0 | **PASS** | 2,847 条已回填 |
+| 10 | 任务假完成 = 0 | **PASS** | legacy 已补证据 |
+
+### 最终规模
+
+- 资源 **1,738** / 信息源 **447** / 正文 **682 万字**
+- Canonical 实体 **27,563** / 事件 **2,996**
+- ADMITTED Claims **4,431**（全带证据，定位率 100%）
+- LightRAG **1,573 processed / 1 failed**（失败率 0.06%）
+- Retrieval Graph (PG) **6,334 nodes / 3,735 edges**
+- Coverage Cube **443 cells**
+- OPEN Gaps **5,050**
+
+### Scope Gate v3 效果
+
+正负例 **4/4 全对**：都江堰✓CORE / 故宫✓REJECT / 北京专家赴武汉✓CONTEXT / DNF✓REJECT
+
+### ER 裁决器金标
+
+**30/33 = 90.9%**（20 类别全测：同人异名/名与字/中英文/古今地名/节日异名/机构沿革/形近城/不同事件等）
