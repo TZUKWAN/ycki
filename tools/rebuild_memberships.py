@@ -37,6 +37,7 @@ import psycopg2.extras
 
 ROOT = Path(__file__).resolve().parents[1]
 RULE_VERSION = "membership_rule_v2_0"
+MODERN_ENTERPRISE_RE = re.compile(r"(有限公司|股份有限公司|集团|责任公司|公司$)")
 NEVER_ADMIT_TYPES = {"EVENT"}  # 事件是过程证据/情节，不是系统成员载体
 CONTEXT_TYPES = {"NATURALOBJECT", "WATERSYSTEM", "CONCEPT"}  # 语境要素，不是成员载体
 
@@ -212,6 +213,8 @@ def rebuild(conn: psycopg2.extensions.connection, apply: bool) -> dict[str, Any]
                 admitted = False  # §16.4：省级行政区不得替代文化区作为载体 ADMIT
             if admitted and (etype in NEVER_ADMIT_TYPES or etype in CONTEXT_TYPES):
                 admitted = False  # 事件经 events/process 锚参与系统；语境要素不作成员
+            if admitted and MODERN_ENTERPRISE_RE.search(row["canonical_name"] or ""):
+                admitted = False  # 现代企业不是文化载体
 
             strength = round(min(0.9, 0.3 + 0.2 * anchor_count), 2)
             confidence = round(min(0.85, 0.35 + 0.15 * anchor_count), 2)
@@ -294,12 +297,14 @@ ADJUDICATE_PROMPT = (
     "候选系统：{system}（文化区域 {region}；地理 {provinces}）\n"
     "结构锚点：{anchors}\n"
     "标准：地名/行政区本身是容器不是文化载体，仅地理与断代事件不足以 ADMIT；"
-    "需要描述或锚点显示该地承载可指认的文化实质（发源地/核心区/事件现场且文化创造与传承可考）。"
+    "需要描述本身可指认文化实质（发源地/核心区/技艺/思潮/制度且创造与传承可考）。\n"
+    "硬性不给 ADMIT：现代企业与设施（公司/桥梁/展馆经营体）、外国展馆、单纯行政区、"
+    "仅因位于某省而匹配的实体；文化区边界存疑（如扬州属江淮还是吴越）一律 CANDIDATE。\n"
     '只输出 JSON：{{"judgment": "ADMIT|CANDIDATE|REJECT", "reason": "不超过40字"}}'
 )
 
 
-def adjudicate(conn: psycopg2.extensions.connection) -> dict[str, Any]:
+def adjudicate(conn: psycopg2.extensions.connection, force: bool = False) -> dict[str, Any]:
     """两阶段准入第二步：确定性合格集（锚点>=2 且含空间/过程）交 LLM 终审。"""
     from extensions.llm import chat, parse_json
     conn2 = None
@@ -317,15 +322,19 @@ def adjudicate(conn: psycopg2.extensions.connection) -> dict[str, Any]:
             LEFT JOIN cultural_regions r ON r.entity_id=s.system_id
             WHERE m.system_id IS NOT NULL AND m.anchor_count>=2
               AND e.merged_into IS NULL
-              AND (m.model_version IS NULL OR m.model_version NOT LIKE 'llm_adjudicator:%')
+              AND (m.model_version IS NULL OR m.model_version NOT LIKE 'llm_adjudicator:%'
+                   OR %s)
         """)
         rows = [dict(r) for r in cur.fetchall()]
     from extensions.llm import chat, parse_json
     for row in rows:
+        pass
         if _is_province_container(row["canonical_name"]):
             continue  # 省级容器硬门禁，判官不得推翻
         if (row["entity_type"] or "").upper() in NEVER_ADMIT_TYPES | CONTEXT_TYPES:
             continue  # 事件/语境要素不作成员，判官不得推翻
+        if MODERN_ENTERPRISE_RE.search(row["canonical_name"] or ""):
+            continue  # 现代企业硬门禁
         stats["eligible"] += 1
         anchors = []
         for k, col in (("spatial","spatial_anchor"),("temporal","temporal_anchor"),
@@ -436,6 +445,7 @@ def main() -> int:
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--dry-run", action="store_true")
     g.add_argument("--apply", action="store_true")
+    ap.add_argument("--force-adjudicate", action="store_true", help="清除已审标记全量重审")
     args = ap.parse_args()
 
     conn = psycopg2.connect(dsn())
@@ -449,7 +459,7 @@ def main() -> int:
         if args.apply:
             conn.commit()
             print("APPLY OK（确定性阶段）")
-            adj = adjudicate(conn)
+            adj = adjudicate(conn, force=args.force_adjudicate)
             result["adjudication"] = adj
             conn.commit()
             print(f"ADJUDICATE: {json.dumps(adj, ensure_ascii=False)}")
