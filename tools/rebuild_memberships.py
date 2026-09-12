@@ -190,11 +190,11 @@ def rebuild(conn: psycopg2.extensions.connection, apply: bool) -> dict[str, Any]
                 anchor_count = 0
 
             admitted = anchor_count >= 2
-            if admitted and not (anchors.get("spatial") or anchors.get("process")):
-                # 无空间/过程锚的纯 temporal+domain 组合，强度下调但仍合规
-                pass
             if admitted and "spatial" not in anchors and "process" not in anchors:
                 admitted = False  # 缺乏任何空间或过程证据，不允许 ADMITTED
+            etype = (row["entity_type"] or "").upper()
+            if admitted and etype == "PLACE" and "process" not in anchors:
+                admitted = False  # §19.1：地名是文化容器不是载体，纯地理+时间不足以 ADMIT
 
             strength = round(min(0.9, 0.3 + 0.2 * anchor_count), 2)
             confidence = round(min(0.85, 0.35 + 0.15 * anchor_count), 2)
@@ -271,6 +271,87 @@ def rebuild(conn: psycopg2.extensions.connection, apply: bool) -> dict[str, Any]
     }
 
 
+ADJUDICATE_PROMPT = (
+    "你是文化知识图谱的成员关系审核员。判断实体是否应被正式 ADMITTED 到该文化系统。\n"
+    "实体：{name}（类型 {etype}）\n描述：{desc}\n"
+    "候选系统：{system}（文化区域 {region}；地理 {provinces}）\n"
+    "结构锚点：{anchors}\n"
+    "标准：地名/行政区本身是容器不是文化载体，仅地理与断代事件不足以 ADMIT；"
+    "需要描述或锚点显示该地承载可指认的文化实质（发源地/核心区/事件现场且文化创造与传承可考）。"
+    '只输出 JSON：{{"judgment": "ADMIT|CANDIDATE|REJECT", "reason": "不超过40字"}}'
+)
+
+
+def adjudicate(conn: psycopg2.extensions.connection) -> dict[str, Any]:
+    """两阶段准入第二步：确定性合格集（锚点>=2 且含空间/过程）交 LLM 终审。"""
+    from extensions.llm import chat, parse_json
+    conn2 = None
+    stats = {"eligible": 0, "admitted": 0, "demoted": 0, "errors": 0}
+    with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
+        cur.execute("""
+            SELECT m.membership_id::text AS mid, m.spatial_anchor, m.temporal_anchor,
+                   m.domain_anchor, m.process_anchor, m.anchor_count, m.status,
+                   e.canonical_name, e.entity_type,
+                   substr(COALESCE(e.description,''),1,500) AS description,
+                   s.system_name, r.region_name, r.provinces
+            FROM system_memberships m
+            JOIN canonical_entities e ON m.object_id=e.entity_id
+            JOIN cultural_systems s ON m.system_id=s.system_id
+            LEFT JOIN cultural_regions r ON r.entity_id=s.system_id
+            WHERE m.system_id IS NOT NULL AND m.anchor_count>=2
+              AND e.merged_into IS NULL
+        """)
+        rows = [dict(r) for r in cur.fetchall()]
+    from extensions.llm import chat, parse_json
+    for row in rows:
+        stats["eligible"] += 1
+        anchors = []
+        for k, col in (("spatial","spatial_anchor"),("temporal","temporal_anchor"),
+                       ("domain","domain_anchor"),("process","process_anchor")):
+            if row[col]:
+                anchors.append(k)
+        provinces = "、".join(row["provinces"] or []) if row["provinces"] else "未知"
+        prompt = ADJUDICATE_PROMPT.format(
+            name=row["canonical_name"], etype=row["entity_type"], desc=row["description"] or "（无）",
+            system=row["system_name"], region=row["region_name"] or "未定", provinces=provinces,
+            anchors="+".join(anchors))
+        try:
+            j = parse_json(chat([{"role":"user","content":prompt}], max_tokens=200, temperature=0.0)) or {}
+            judgment = j.get("judgment", "ERROR")
+            reason = str(j.get("reason",""))[:120]
+        except Exception as exc:
+            judgment, reason = "ERROR", f"{type(exc).__name__}"[:80]
+        with conn.cursor() as cur:
+            if judgment == "ADMIT":
+                cur.execute("""UPDATE system_memberships SET status='ADMITTED', model_version=%s,
+                               derivation_reason=%s WHERE membership_id=%s""",
+                            (f"llm_adjudicator:{model_tag()}",
+                             f"anchors:{'+'.join(anchors)}; judge: {reason}", row["mid"]))
+                stats["admitted"] += 1
+            elif judgment == "ERROR":
+                # 判官失败：保守降级为 CANDIDATE（宁缺毋滥）
+                cur.execute("""UPDATE system_memberships SET status='CANDIDATE', model_version=%s,
+                               derivation_reason=%s WHERE membership_id=%s""",
+                            (f"llm_adjudicator:{model_tag()}", f"judge_error; demoted", row["mid"]))
+                stats["errors"] += 1
+            else:
+                cur.execute("""UPDATE system_memberships SET status='CANDIDATE', model_version=%s,
+                               derivation_reason=%s WHERE membership_id=%s""",
+                            (f"llm_adjudicator:{model_tag()}",
+                             f"demoted by judge ({judgment}): {reason}", row["mid"]))
+                stats["demoted"] += 1
+        conn.commit()
+    return stats
+
+
+def model_tag() -> str:
+    try:
+        from config.settings import SETTINGS
+        return SETTINGS.llm_model
+    except Exception:
+        return "unknown"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     g = ap.add_mutually_exclusive_group(required=True)
@@ -283,7 +364,11 @@ def main() -> int:
         result = rebuild(conn, apply=args.apply)
         if args.apply:
             conn.commit()
-            print("APPLY OK")
+            print("APPLY OK（确定性阶段）")
+            adj = adjudicate(conn)
+            result["adjudication"] = adj
+            conn.commit()
+            print(f"ADJUDICATE: {json.dumps(adj, ensure_ascii=False)}")
         else:
             print("DRY-RUN（未写库）")
         print(json.dumps(result, ensure_ascii=False, indent=2))

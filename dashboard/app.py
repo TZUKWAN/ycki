@@ -234,6 +234,12 @@ def canonical_page():
     return (ROOT / "dashboard" / "canonical.html").read_text(encoding="utf-8")
 
 
+@app.get("/v2", response_class=HTMLResponse)
+def v2_page():
+    """canonical_v2 文化系统页（§81-83：分层钻取入口，首屏回答"长江文化是什么"）。"""
+    return (ROOT / "dashboard" / "v2.html").read_text(encoding="utf-8")
+
+
 from extensions.canonical.yangtze_api import mount as mount_yangtze
 mount_yangtze(app)
 
