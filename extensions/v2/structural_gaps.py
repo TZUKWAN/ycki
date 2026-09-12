@@ -195,3 +195,26 @@ def detect_gaps(conn: psycopg2.extensions.connection, apply: bool = True,
 
 
 import json  # noqa: E402  (检测器 JSON 参数需要)
+
+
+def close_resolved_gaps(conn: psycopg2.extensions.connection) -> dict[str, int]:
+    """§62 缺口闭合：检测器条件不再匹配目标时，OPEN → RESOLVED（幂等）。"""
+    closed: dict[str, int] = {}
+    with conn.cursor() as cur:
+        for det in DETECTORS:
+            cur.execute(det["sql"])
+            live_refs = {str(r[0]) for r in cur.fetchall()}
+            cur.execute("""
+                SELECT gap_id, current_structure->>'_ref' FROM structural_gaps
+                WHERE gap_type=%s AND status='OPEN'
+            """, (det["type"],))
+            rows = cur.fetchall()
+            n = 0
+            for gid, ref in rows:
+                if str(ref) not in live_refs:
+                    cur.execute("""UPDATE structural_gaps SET status='RESOLVED'
+                                   WHERE gap_id=%s AND status='OPEN'""", (gid,))
+                    n += cur.rowcount
+            closed[det["type"]] = n
+        conn.commit()
+    return closed

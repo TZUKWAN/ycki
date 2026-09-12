@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -36,6 +37,15 @@ import psycopg2.extras
 
 ROOT = Path(__file__).resolve().parents[1]
 RULE_VERSION = "membership_rule_v2_0"
+_PROVINCE_NAMES = {"四川", "湖北", "湖南", "江苏", "浙江", "安徽", "江西",
+                   "贵州", "云南", "青海", "西藏", "甘肃", "陕西", "河南",
+                   "广西", "广东", "福建"}
+
+
+def _is_province_container(name: str | None) -> bool:
+    """§16.4 省级行政区容器：禁止作为文化系统载体 ADMIT。"""
+    n = (name or "").strip()
+    return n in _PROVINCE_NAMES or bool(re.search(r"(省|自治区|特别行政区)$", n))
 MAX_SUPPORT = 10
 
 
@@ -195,6 +205,8 @@ def rebuild(conn: psycopg2.extensions.connection, apply: bool) -> dict[str, Any]
             etype = (row["entity_type"] or "").upper()
             if admitted and etype == "PLACE" and "process" not in anchors:
                 admitted = False  # §19.1：地名是文化容器不是载体，纯地理+时间不足以 ADMIT
+            if admitted and _is_province_container(row["canonical_name"]):
+                admitted = False  # §16.4：省级行政区不得替代文化区作为载体 ADMIT
 
             strength = round(min(0.9, 0.3 + 0.2 * anchor_count), 2)
             confidence = round(min(0.85, 0.35 + 0.15 * anchor_count), 2)
@@ -300,10 +312,13 @@ def adjudicate(conn: psycopg2.extensions.connection) -> dict[str, Any]:
             LEFT JOIN cultural_regions r ON r.entity_id=s.system_id
             WHERE m.system_id IS NOT NULL AND m.anchor_count>=2
               AND e.merged_into IS NULL
+              AND (m.model_version IS NULL OR m.model_version NOT LIKE 'llm_adjudicator:%')
         """)
         rows = [dict(r) for r in cur.fetchall()]
     from extensions.llm import chat, parse_json
     for row in rows:
+        if _is_province_container(row["canonical_name"]):
+            continue  # 省级容器硬门禁，判官不得推翻
         stats["eligible"] += 1
         anchors = []
         for k, col in (("spatial","spatial_anchor"),("temporal","temporal_anchor"),
@@ -352,6 +367,63 @@ def model_tag() -> str:
         return "unknown"
 
 
+ROLE_BY_TYPE = {
+    "PERSON": "CARRIER", "WORK": "MANIFESTATION", "EVENT": "EPISODE",
+    "INSTITUTION": "INSTITUTION", "ORGANIZATION": "INSTITUTION",
+    "HERITAGE": "CARRIER_OBJECT", "ARTIFACT": "CARRIER_OBJECT", "SITE": "CARRIER_OBJECT",
+    "PRACTICE": "PRACTICE", "WATERSYSTEM": "CONTEXT", "NATURALOBJECT": "CONTEXT",
+    "CONCEPT": "CONCEPT", "ETHNICGROUP": "CARRIER",
+}
+
+
+def derive_nonplace_memberships(cur) -> int:
+    """§18 成员推导扩展：从“仅地名实体”扩展到人物/著作/机构/遗产等。
+
+    确定性规则：描述文本出现某文化区的省份词→创建到对应系统的
+    CANDIDATE 成员行（anchor_count=0，锚点由后续 rebuild() 统一推导）。
+    前置质量门：≥1 条 ADMITTED claim 且描述≥20 字。幂等：(object_id, system_id) 唯一。
+    """
+    cur.execute("""
+        SELECT s.system_id::text, s.system_name, r.region_name, r.provinces
+        FROM cultural_systems s
+        LEFT JOIN cultural_regions r ON r.entity_id=s.system_id
+        WHERE s.system_level='REGIONAL'
+    """)
+    regions = [(row[0], row[2], list(row[3] or [])) for row in cur.fetchall()]
+    cur.execute("""
+        SELECT e.entity_id::text, e.entity_type, e.canonical_name,
+               COALESCE(e.description,'') AS description
+        FROM canonical_entities e
+        WHERE e.merged_into IS NULL
+          AND (SELECT count(*) FROM claims c
+               WHERE (c.subject_id=e.entity_id OR c.object_id=e.entity_id)
+                 AND c.status='ADMITTED') >= 1
+          AND length(coalesce(e.description,'')) >= 20
+    """)
+    entities = cur.fetchall()
+    created = 0
+    for eid, etype, cname, desc in entities:
+        role = ROLE_BY_TYPE.get((etype or "").upper(), "CARRIER")
+        for sid, rname, provs in regions:
+            matched = [pv for pv in provs if pv and pv in desc]
+            if not matched:
+                continue
+            cur.execute("""
+                INSERT INTO system_memberships (object_id, system_id, region_id, membership_role,
+                    region, strength, confidence, derivation_method, derivation_reason,
+                    rule_version, status, anchor_count)
+                SELECT %s::uuid, %s::uuid,
+                       (SELECT region_id FROM cultural_regions WHERE region_name=%s),
+                       %s, %s, 0.5, 0.5, 'nonplace_derive_v1',
+                       %s, %s, 'CANDIDATE', 0
+                WHERE NOT EXISTS (SELECT 1 FROM system_memberships
+                                  WHERE object_id=%s::uuid AND system_id=%s::uuid)
+            """, (eid, sid, rname, role, matched[0],
+                  f"description mentions {matched}", RULE_VERSION, eid, sid))
+            created += cur.rowcount
+    return created
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     g = ap.add_mutually_exclusive_group(required=True)
@@ -361,6 +433,11 @@ def main() -> int:
 
     conn = psycopg2.connect(dsn())
     try:
+        if args.apply:
+            with conn.cursor() as cur:
+                created = derive_nonplace_memberships(cur)
+            conn.commit()
+            print(f"DERIVE nonplace memberships: +{created}")
         result = rebuild(conn, apply=args.apply)
         if args.apply:
             conn.commit()
