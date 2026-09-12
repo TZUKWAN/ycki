@@ -1,0 +1,129 @@
+{
+  "generated_at": "2026-09-13T04:50:33+0800",
+  "cycles_completed": 10,
+  "cycles_required": 10,
+  "status": "PASS",
+  "zero_violation_across_run": true,
+  "cycles": [
+    {
+      "cycle": 1,
+      "exit": 0,
+      "elapsed_s": 191.9,
+      "violations": {
+        "critical_schema_violation": 0,
+        "geo_only_membership": 0,
+        "evidence_less_formal_structure": 0,
+        "false_task_resolution": 0,
+        "flows_missing_hard_fields": 0
+      }
+    },
+    {
+      "cycle": 2,
+      "exit": 0,
+      "elapsed_s": 230.6,
+      "violations": {
+        "critical_schema_violation": 0,
+        "geo_only_membership": 0,
+        "evidence_less_formal_structure": 0,
+        "false_task_resolution": 0,
+        "flows_missing_hard_fields": 0
+      }
+    },
+    {
+      "cycle": 3,
+      "exit": 0,
+      "elapsed_s": 191.4,
+      "violations": {
+        "critical_schema_violation": 0,
+        "geo_only_membership": 0,
+        "evidence_less_formal_structure": 0,
+        "false_task_resolution": 0,
+        "flows_missing_hard_fields": 0
+      }
+    },
+    {
+      "cycle": 4,
+      "exit": 0,
+      "elapsed_s": 219.8,
+      "violations": {
+        "critical_schema_violation": 0,
+        "geo_only_membership": 0,
+        "evidence_less_formal_structure": 0,
+        "false_task_resolution": 0,
+        "flows_missing_hard_fields": 0
+      }
+    },
+    {
+      "cycle": 5,
+      "exit": 0,
+      "elapsed_s": 247.3,
+      "violations": {
+        "critical_schema_violation": 0,
+        "geo_only_membership": 0,
+        "evidence_less_formal_structure": 0,
+        "false_task_resolution": 0,
+        "flows_missing_hard_fields": 0
+      }
+    },
+    {
+      "cycle": 6,
+      "exit": 0,
+      "elapsed_s": 190.4,
+      "violations": {
+        "critical_schema_violation": 0,
+        "geo_only_membership": 0,
+        "evidence_less_formal_structure": 0,
+        "false_task_resolution": 0,
+        "flows_missing_hard_fields": 0
+      }
+    },
+    {
+      "cycle": 7,
+      "exit": 0,
+      "elapsed_s": 190.7,
+      "violations": {
+        "critical_schema_violation": 0,
+        "geo_only_membership": 0,
+        "evidence_less_formal_structure": 0,
+        "false_task_resolution": 0,
+        "flows_missing_hard_fields": 0
+      }
+    },
+    {
+      "cycle": 8,
+      "exit": 0,
+      "elapsed_s": 243.9,
+      "violations": {
+        "critical_schema_violation": 0,
+        "geo_only_membership": 0,
+        "evidence_less_formal_structure": 0,
+        "false_task_resolution": 0,
+        "flows_missing_hard_fields": 0
+      }
+    },
+    {
+      "cycle": 9,
+      "exit": 0,
+      "elapsed_s": 192.9,
+      "violations": {
+        "critical_schema_violation": 0,
+        "geo_only_membership": 0,
+        "evidence_less_formal_structure": 0,
+        "false_task_resolution": 0,
+        "flows_missing_hard_fields": 0
+      }
+    },
+    {
+      "cycle": 10,
+      "exit": 0,
+      "elapsed_s": 189.6,
+      "violations": {
+        "critical_schema_violation": 0,
+        "geo_only_membership": 0,
+        "evidence_less_formal_structure": 0,
+        "false_task_resolution": 0,
+        "flows_missing_hard_fields": 0
+      }
+    }
+  ]
+}

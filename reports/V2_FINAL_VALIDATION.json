@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-13T03:23:41+0800",
-  "git_commit": "014bc3f",
+  "generated_at": "2026-09-13T04:51:35+0800",
+  "git_commit": "2352236",
   "final_status": "FAIL",
   "phase_status": {
     "REPRODUCIBILITY": "PASS",
@@ -14,12 +14,12 @@
     "INTERPRETATION": "PASS",
     "STRUCTURAL_GAP_ENGINE": "PASS",
     "RESEARCH_ENGINE": "PASS",
-    "DIGITAL_HUMANITIES_BENCHMARK": "PASS(questions_only)",
-    "GOLDEN_TEN": "PARTIAL(structures_partial)",
-    "RED_TEAM": "NOT_MEASURED",
-    "CLEAN_ROOM": "PASS(2026-09-13)",
-    "BURN_IN": "CYCLE_1_DONE(_partial)_2_3_NOT_MEASURED",
-    "SOAK_TEST": "NOT_MEASURED",
+    "DIGITAL_HUMANITIES_BENCHMARK": "PARTIAL(questions_ready,answers_not_measured)",
+    "GOLDEN_TEN": "PARTIAL(structures_partial,flows=0)",
+    "RED_TEAM": "PASS",
+    "CLEAN_ROOM": "PASS(2026-09-13 twice)",
+    "BURN_IN": "PASS_PARTIAL_GAIN",
+    "SOAK_TEST": "PASS",
     "CULTURAL_SYSTEM_AUTONOMOUS_GROWTH": "CYCLE_MODE(手动触发)NOT_DAEMON",
     "CANONICAL_V1_REGRESSION": "PASS"
   },
@@ -48,8 +48,8 @@
       "status": "PASS",
       "metrics": {
         "geo_only_admitted": 0,
-        "admitted": 9,
-        "candidate": 1950
+        "admitted": 23,
+        "candidate": 2013
       },
       "failures": []
     },
@@ -69,7 +69,10 @@
       "name": "HighRiskRelationPolicy",
       "status": "PASS",
       "metrics": {
-        "admitted_without_policy_version": 0
+        "admitted_without_policy_version": 0,
+        "predicates_v2": 35,
+        "high_risk_predicates_min2src": 11,
+        "high_risk_missing": 0
       },
       "failures": []
     },
@@ -124,8 +127,8 @@
       "status": "PASS",
       "metrics": {
         "gaps_open": 527,
-        "gaps_resolved": 0,
-        "tasks": 3,
+        "gaps_resolved": 3,
+        "tasks": 10,
         "false_resolution": 0
       },
       "failures": []
@@ -135,7 +138,7 @@
       "name": "canonical_v1 regression guard",
       "status": "PASS",
       "metrics": {
-        "resources": 3695,
+        "resources": 3733,
         "admitted_claims": 4394,
         "entities": 27625,
         "claims_without_evidence": 0
@@ -144,14 +147,15 @@
     }
   ],
   "membership_benchmark": {
-    "sample_size": 117,
-    "rule_admitted": 9,
-    "admitted_precision": 0.8889,
-    "candidate_uphold_rate": 0.7222,
-    "judge_errors": 1
+    "sample_size": 131,
+    "rule_admitted": 23,
+    "admitted_precision": 0.5217,
+    "candidate_uphold_rate": 0.7963,
+    "judge_errors": 1,
+    "interpretation": "单模型受限：同模型证据丰富判官=准入终审（自洽不可作金标）；本 precision 为信息饥饿盲判官一致率（诊断指标，系统性低于准入判官）；多模型金标 P/R/F1 因网关仅 1 稳定模型而 NOT_MEASURED"
   },
   "counts": {
-    "resources": 3695,
+    "resources": 3733,
     "entities": 27625,
     "claims_admitted": 4394,
     "evidence": 4820,
@@ -161,8 +165,8 @@
     "hydro_relations": 46,
     "phases": 13,
     "domains": 93,
-    "system_memberships": 10004,
-    "memberships_admitted": 9,
+    "system_memberships": 10081,
+    "memberships_admitted": 23,
     "traditions": 6,
     "processes": 6,
     "flows": 0,
@@ -170,14 +174,14 @@
     "interpretations": 9,
     "interpretation_evidence": 166,
     "interpretations_without_evidence": 0,
-    "fact_only_entities": 17621,
+    "fact_only_entities": 17563,
     "gaps_open": 527,
-    "gaps_partial": 2,
-    "gaps_resolved": 0,
+    "gaps_partial": 4,
+    "gaps_resolved": 3,
     "tasks_resolved": 0
   },
   "notes": [
-    "未达 PASS 项（§120）：DIGITAL_HUMANITIES_BENCHMARK=PASS(questions_only); GOLDEN_TEN=PARTIAL(structures_partial); RED_TEAM=NOT_MEASURED; CLEAN_ROOM=PASS(2026-09-13); BURN_IN=CYCLE_1_DONE(_partial)_2_3_NOT_MEASURED; SOAK_TEST=NOT_MEASURED; CULTURAL_SYSTEM_AUTONOMOUS_GROWTH=CYCLE_MODE(手动触发)NOT_DAEMON",
+    "未达 PASS 项（§120）：DIGITAL_HUMANITIES_BENCHMARK=PARTIAL(questions_ready,answers_not_measured); GOLDEN_TEN=PARTIAL(structures_partial,flows=0); CLEAN_ROOM=PASS(2026-09-13 twice); BURN_IN=PASS_PARTIAL_GAIN; CULTURAL_SYSTEM_AUTONOMOUS_GROWTH=CYCLE_MODE(手动触发)NOT_DAEMON",
     "按 §0.4：代码完成/SQL成功/HTTP200/数据库有数据均不视为完成；完成只由验收门禁决定。"
   ]
 }

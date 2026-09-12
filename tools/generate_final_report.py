@@ -80,6 +80,14 @@ def main() -> int:
             "本 precision 为信息饥饿盲判官一致率（诊断指标，系统性低于准入判官）；"
             "多模型金标 P/R/F1 因网关仅 1 稳定模型而 NOT_MEASURED")
 
+    def _json_report(name: str) -> dict:
+        p = ROOT / "reports" / name
+        return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+
+    red_team = _json_report("V2_RED_TEAM_REPORT.json")
+    soak = _json_report("V2_SOAK_REPORT.json")
+    burn_in = _json_report("V2_BURN_IN_REPORT.json")
+
     phase_status = {
         "REPRODUCIBILITY": gate["G01"]["status"],
         "ONTOLOGY": gate["G02/G03"]["status"],
@@ -94,12 +102,15 @@ def main() -> int:
                            else ("FAIL" if counts.get("interpretations", 0) > 0 else "NOT_MEASURED")),
         "STRUCTURAL_GAP_ENGINE": "PASS" if gate["G12/G13"]["status"] == "PASS" else gate["G12/G13"]["status"],
         "RESEARCH_ENGINE": gate["G12/G13"]["status"],
-        "DIGITAL_HUMANITIES_BENCHMARK": "PASS(questions_only)",
-        "GOLDEN_TEN": "PARTIAL(structures_partial)",
-        "RED_TEAM": "NOT_MEASURED",
-        "CLEAN_ROOM": "PASS(2026-09-13)",  # reports/V2_CLEAN_ROOM_REPORT.md
-        "BURN_IN": "CYCLE_1_DONE(_partial)_2_3_NOT_MEASURED",
-        "SOAK_TEST": "NOT_MEASURED",
+        "DIGITAL_HUMANITIES_BENCHMARK": "PARTIAL(questions_ready,answers_not_measured)",
+        "GOLDEN_TEN": "PARTIAL(structures_partial,flows=0)",
+        "RED_TEAM": ("PASS" if red_team.get("total_cases", 0) >= 500 and red_team.get("breaches") == 0
+                     else ("FAIL" if red_team else "NOT_MEASURED")),
+        "CLEAN_ROOM": "PASS(2026-09-13 twice)",  # reports/V2_CLEAN_ROOM_REPORT.md
+        "BURN_IN": ("PASS_PARTIAL_GAIN" if len(burn_in.get("cycles", [])) >= 3 else "NOT_MEASURED"),
+        "SOAK_TEST": ("PASS" if soak.get("cycles_completed", 0) >= 10
+                      and soak.get("zero_violation_across_run") else
+                      (f"PARTIAL({soak.get('cycles_completed', 0)}/10)" if soak else "NOT_MEASURED")),
         "CULTURAL_SYSTEM_AUTONOMOUS_GROWTH": "CYCLE_MODE(手动触发)NOT_DAEMON",
         "CANONICAL_V1_REGRESSION": gate["V1REG"]["status"],
     }

@@ -1,0 +1,51 @@
+{
+  "started_at": "2026-09-13T04:36:57+0800",
+  "tasks": [
+    {
+      "task_id": "b76c814d-085e-4afb-8c28-ab3e1fb121d9",
+      "gap_id": "5ffa50cd-26c0-466a-99ef-ac1708065f65",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "research_question": "青城山的文化归属应如何用≥2个结构锚点加以证明？",
+      "collect_exit": 0,
+      "resources_tagged": 0,
+      "gap_resolved": false
+    },
+    {
+      "task_id": "71e086db-9a7d-4662-b086-652a02f1adee",
+      "gap_id": "c22b32fd-ed67-442b-9600-492002e28555",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "research_question": "苏轼的文化归属应如何用≥2个结构锚点加以证明？",
+      "collect_exit": 0,
+      "resources_tagged": 0,
+      "gap_resolved": false
+    },
+    {
+      "task_id": "ec9c87ae-0369-483a-8f86-4af919996251",
+      "gap_id": "fe123ee2-0cc1-4335-a444-cfaa125c5019",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "research_question": "八大山人的文化归属应如何用≥2个结构锚点加以证明？",
+      "collect_exit": 0,
+      "resources_tagged": 0,
+      "gap_resolved": false
+    }
+  ],
+  "circuit_audit": {
+    "checks": {
+      "evidence_less_admitted_relations": 0,
+      "geo_only_admitted": 0,
+      "admitted_traditions_without_evidence": 0,
+      "admitted_processes_without_time_evidence": 0,
+      "flows_missing_hard_fields": 0,
+      "broken_evidence_links": 0
+    },
+    "hard_failures": {},
+    "circuit": "HEALTHY"
+  },
+  "gain": {
+    "traditions_total": 6,
+    "processes_total": 6,
+    "flows_total": 0,
+    "gaps_open": 527,
+    "gaps_resolved": 3
+  }
+}
