@@ -1,0 +1,830 @@
+version: structural_predicates_v2_0
+evidence_policy_version: v2_0
+high_risk_min_independent_sources: 2
+primary_source_exception: 仅当来源为一次文献(正史/地方志/档案原文)且经 evidence binder EXACT 验证时可豁免至1，须在 structural_admissions 记录豁免理由
+predicates:
+- id: constitutes
+  name: 构成文化系统的要素
+  domain:
+  - any
+  range:
+  - CulturalSystem
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: false
+  space_required: false
+  mechanism_required: false
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types:
+  - ONTOLOGY_RELATION
+  family: COMPOSITION
+  description: 构成文化系统的要素
+  positive_examples:
+  - constitutes 的正例须绑定可核验引文
+  negative_examples: []
+- id: subsystem_of
+  name: 子系统隶属
+  domain:
+  - CulturalSystem
+  range:
+  - CulturalSystem
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: false
+  space_required: false
+  mechanism_required: false
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types:
+  - ONTOLOGY_RELATION
+  family: COMPOSITION
+  description: 子系统隶属
+  positive_examples:
+  - subsystem_of 的正例须绑定可核验引文
+  negative_examples: []
+- id: belongs_to_cultural_system
+  name: belongs_to_cultural_system
+  domain:
+  - any
+  range:
+  - CulturalSystem
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: false
+  space_required: false
+  mechanism_required: false
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: &id001
+  - ONTOLOGY_RELATION
+  - EVIDENCE_BACKED
+  family: COMPOSITION
+  description: belongs_to_cultural_system
+  positive_examples:
+  - belongs_to_cultural_system 的正例须绑定可核验引文
+  negative_examples: []
+- id: manifestation_of
+  name: manifestation_of
+  domain:
+  - any
+  range:
+  - CulturalTradition
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: false
+  space_required: false
+  mechanism_required: false
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id001
+  family: COMPOSITION
+  description: manifestation_of
+  positive_examples:
+  - manifestation_of 的正例须绑定可核验引文
+  negative_examples: []
+- id: representative_of
+  name: representative_of
+  domain:
+  - any
+  range:
+  - CulturalSystem
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: false
+  space_required: false
+  mechanism_required: false
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id001
+  family: COMPOSITION
+  description: representative_of
+  positive_examples:
+  - representative_of 的正例须绑定可核验引文
+  negative_examples: []
+- id: originated_in
+  name: originated_in
+  domain:
+  - any
+  range:
+  - HydroSpatialUnit
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: false
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: &id005
+  - EVIDENCE_BACKED
+  family: CONDITION
+  description: originated_in
+  positive_examples:
+  - originated_in 的正例须绑定可核验引文
+  negative_examples: []
+- id: emerged_from
+  name: emerged_from
+  domain:
+  - any
+  range:
+  - CulturalSystem
+  - CulturalTradition
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 2
+  allowed_knowledge_types: &id002
+  - EVIDENCE_BACKED
+  family: EVOLUTION
+  description: emerged_from
+  positive_examples:
+  - emerged_from 的正例须绑定可核验引文
+  negative_examples: []
+- id: developed_from
+  name: developed_from
+  domain:
+  - CulturalSystem
+  - CulturalTradition
+  range:
+  - CulturalSystem
+  - CulturalTradition
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 2
+  allowed_knowledge_types: *id002
+  family: EVOLUTION
+  description: developed_from
+  positive_examples:
+  - 江南昆曲 developed_from 昆山腔（明代曲论与家班传承独立史料群）
+  - 巴蜀 interacted_with 荆楚（盐铜贸易与战争的具体过程证据）
+  - 端午竞渡 spread_to 吴越（各地竞渡记载与方志）
+  negative_examples:
+  - 时间先后不构成 developed_from；地理相邻不构成 interacted_with；同主题出现不构成 spread_to
+- id: inherited_from
+  name: inherited_from
+  domain:
+  - CulturalTradition
+  - Practice
+  range:
+  - CulturalTradition
+  - Practice
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 2
+  allowed_knowledge_types: *id002
+  family: EVOLUTION
+  description: inherited_from
+  positive_examples:
+  - inherited_from 的正例须绑定可核验引文
+  negative_examples: []
+- id: continued_as
+  name: continued_as
+  domain:
+  - CulturalTradition
+  - Practice
+  range:
+  - CulturalTradition
+  - Practice
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id002
+  family: EVOLUTION
+  description: continued_as
+  positive_examples:
+  - continued_as 的正例须绑定可核验引文
+  negative_examples: []
+- id: transformed_into
+  name: transformed_into
+  domain:
+  - CulturalTradition
+  - CulturalSystem
+  range:
+  - CulturalTradition
+  - CulturalSystem
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 2
+  allowed_knowledge_types: *id002
+  family: EVOLUTION
+  description: transformed_into
+  positive_examples:
+  - transformed_into 的正例须绑定可核验引文
+  negative_examples: []
+- id: reconfigured_into
+  name: reconfigured_into
+  domain:
+  - CulturalSystem
+  range:
+  - CulturalSystem
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 2
+  allowed_knowledge_types: *id002
+  family: EVOLUTION
+  description: reconfigured_into
+  positive_examples:
+  - reconfigured_into 的正例须绑定可核验引文
+  negative_examples: []
+- id: revived_as
+  name: revived_as
+  domain:
+  - CulturalTradition
+  - Practice
+  range:
+  - CulturalTradition
+  - Practice
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id002
+  family: EVOLUTION
+  description: revived_as
+  positive_examples:
+  - revived_as 的正例须绑定可核验引文
+  negative_examples: []
+- id: localized_as
+  name: localized_as
+  domain:
+  - CulturalTradition
+  range:
+  - CulturalTradition
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id002
+  family: EVOLUTION
+  description: localized_as
+  positive_examples:
+  - localized_as 的正例须绑定可核验引文
+  negative_examples: []
+- id: institutionalized_as
+  name: institutionalized_as
+  domain:
+  - CulturalTradition
+  - CulturalProcess
+  range:
+  - Institution
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id002
+  family: EVOLUTION
+  description: institutionalized_as
+  positive_examples:
+  - institutionalized_as 的正例须绑定可核验引文
+  negative_examples: []
+- id: heritagized_as
+  name: heritagized_as
+  domain:
+  - Practice
+  - Artifact
+  range:
+  - Heritage
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id002
+  family: EVOLUTION
+  description: heritagized_as
+  positive_examples:
+  - heritagized_as 的正例须绑定可核验引文
+  negative_examples: []
+- id: modernized_as
+  name: modernized_as
+  domain:
+  - CulturalTradition
+  range:
+  - CulturalTradition
+  - Practice
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id002
+  family: EVOLUTION
+  description: modernized_as
+  positive_examples:
+  - modernized_as 的正例须绑定可核验引文
+  negative_examples: []
+- id: spread_to
+  name: spread_to
+  domain:
+  - CulturalProcess
+  - CulturalTradition
+  range:
+  - Place
+  - HydroSpatialUnit
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: true
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: &id003
+  - EVIDENCE_BACKED
+  family: DIFFUSION
+  description: spread_to
+  positive_examples:
+  - 江南昆曲 developed_from 昆山腔（明代曲论与家班传承独立史料群）
+  - 巴蜀 interacted_with 荆楚（盐铜贸易与战争的具体过程证据）
+  - 端午竞渡 spread_to 吴越（各地竞渡记载与方志）
+  negative_examples:
+  - 时间先后不构成 developed_from；地理相邻不构成 interacted_with；同主题出现不构成 spread_to
+- id: spread_along
+  name: spread_along
+  domain:
+  - CulturalProcess
+  range:
+  - Route
+  - HydroSpatialUnit
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: true
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id003
+  family: DIFFUSION
+  description: spread_along
+  positive_examples:
+  - spread_along 的正例须绑定可核验引文
+  negative_examples: []
+- id: transmitted_via
+  name: transmitted_via
+  domain:
+  - CulturalFlow
+  range:
+  - TransmissionRoute
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: true
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id003
+  family: DIFFUSION
+  description: transmitted_via
+  positive_examples:
+  - transmitted_via 的正例须绑定可核验引文
+  negative_examples: []
+- id: diffused_into
+  name: diffused_into
+  domain:
+  - CulturalTradition
+  - Concept
+  range:
+  - CulturalRegion
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: true
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id003
+  family: DIFFUSION
+  description: diffused_into
+  positive_examples:
+  - diffused_into 的正例须绑定可核验引文
+  negative_examples: []
+- id: interacted_with
+  name: interacted_with
+  domain:
+  - CulturalSystem
+  - CulturalRegion
+  range:
+  - CulturalSystem
+  - CulturalRegion
+  directed: false
+  symmetric: true
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: &id004
+  - EVIDENCE_BACKED
+  family: INTERACTION
+  description: interacted_with
+  positive_examples:
+  - 江南昆曲 developed_from 昆山腔（明代曲论与家班传承独立史料群）
+  - 巴蜀 interacted_with 荆楚（盐铜贸易与战争的具体过程证据）
+  - 端午竞渡 spread_to 吴越（各地竞渡记载与方志）
+  negative_examples:
+  - 时间先后不构成 developed_from；地理相邻不构成 interacted_with；同主题出现不构成 spread_to
+- id: exchanged_with
+  name: exchanged_with
+  domain:
+  - CulturalSystem
+  - CulturalRegion
+  range:
+  - CulturalSystem
+  - CulturalRegion
+  directed: false
+  symmetric: true
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id004
+  family: INTERACTION
+  description: exchanged_with
+  positive_examples:
+  - exchanged_with 的正例须绑定可核验引文
+  negative_examples: []
+- id: conflicted_with
+  name: conflicted_with
+  domain:
+  - CulturalSystem
+  range:
+  - CulturalSystem
+  directed: false
+  symmetric: true
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id004
+  family: INTERACTION
+  description: conflicted_with
+  positive_examples:
+  - conflicted_with 的正例须绑定可核验引文
+  negative_examples: []
+- id: absorbed_from
+  name: absorbed_from
+  domain:
+  - CulturalSystem
+  range:
+  - CulturalSystem
+  directed: false
+  symmetric: true
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 2
+  allowed_knowledge_types: *id004
+  family: INTERACTION
+  description: absorbed_from
+  positive_examples:
+  - absorbed_from 的正例须绑定可核验引文
+  negative_examples: []
+- id: integrated_with
+  name: integrated_with
+  domain:
+  - CulturalSystem
+  range:
+  - CulturalSystem
+  directed: false
+  symmetric: true
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 2
+  allowed_knowledge_types: *id004
+  family: INTERACTION
+  description: integrated_with
+  positive_examples:
+  - integrated_with 的正例须绑定可核验引文
+  negative_examples: []
+- id: fused_with
+  name: fused_with
+  domain:
+  - CulturalSystem
+  - CulturalTradition
+  range:
+  - CulturalSystem
+  - CulturalTradition
+  directed: false
+  symmetric: true
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 2
+  allowed_knowledge_types: *id004
+  family: INTERACTION
+  description: fused_with
+  positive_examples:
+  - fused_with 的正例须绑定可核验引文
+  negative_examples: []
+- id: hybridized_with
+  name: hybridized_with
+  domain:
+  - CulturalTradition
+  range:
+  - CulturalTradition
+  directed: false
+  symmetric: true
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 2
+  allowed_knowledge_types: *id004
+  family: INTERACTION
+  description: hybridized_with
+  positive_examples:
+  - hybridized_with 的正例须绑定可核验引文
+  negative_examples: []
+- id: differentiated_from
+  name: differentiated_from
+  domain:
+  - CulturalSystem
+  - CulturalTradition
+  range:
+  - CulturalSystem
+  - CulturalTradition
+  directed: false
+  symmetric: true
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id004
+  family: INTERACTION
+  description: differentiated_from
+  positive_examples:
+  - differentiated_from 的正例须绑定可核验引文
+  negative_examples: []
+- id: enabled_by
+  name: enabled_by
+  domain:
+  - CulturalProcess
+  range:
+  - any
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: false
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id005
+  family: CONDITION
+  description: enabled_by
+  positive_examples:
+  - enabled_by 的正例须绑定可核验引文
+  negative_examples: []
+- id: constrained_by
+  name: constrained_by
+  domain:
+  - CulturalProcess
+  range:
+  - HydroSpatialUnit
+  - Place
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: false
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id005
+  family: CONDITION
+  description: constrained_by
+  positive_examples:
+  - constrained_by 的正例须绑定可核验引文
+  negative_examples: []
+- id: mediated_by
+  name: mediated_by
+  domain:
+  - CulturalProcess
+  - CulturalFlow
+  range:
+  - Organization
+  - Institution
+  - Person
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: false
+  space_required: true
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id005
+  family: CONDITION
+  description: mediated_by
+  positive_examples:
+  - mediated_by 的正例须绑定可核验引文
+  negative_examples: []
+- id: contributed_to
+  name: contributed_to
+  domain:
+  - RegionalCulturalSystem
+  range:
+  - ChineseCivilization
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: false
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 2
+  allowed_knowledge_types: &id006
+  - EVIDENCE_BACKED
+  family: CONTRIBUTION
+  description: contributed_to
+  positive_examples:
+  - contributed_to 的正例须绑定可核验引文
+  negative_examples: []
+- id: integrated_into
+  name: integrated_into
+  domain:
+  - CulturalSystem
+  - Concept
+  range:
+  - ChineseCivilization
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: false
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 1
+  allowed_knowledge_types: *id006
+  family: CONTRIBUTION
+  description: integrated_into
+  positive_examples:
+  - integrated_into 的正例须绑定可核验引文
+  negative_examples: []
+- id: influenced
+  name: 实质性影响（须有机制与过程证据，非时间先后）
+  domain:
+  - CulturalSystem
+  - CulturalTradition
+  - Person
+  - Work
+  range:
+  - CulturalSystem
+  - CulturalTradition
+  - Person
+  - Work
+  directed: true
+  symmetric: false
+  inverse: null
+  cardinality: many_to_many
+  time_required: true
+  space_required: false
+  mechanism_required: true
+  route_required: false
+  evidence_required: true
+  minimum_independent_sources: 2
+  allowed_knowledge_types: *id006
+  family: CONTRIBUTION
+  description: 实质性影响（须有机制与过程证据，非时间先后）
+  positive_examples:
+  - influenced 的正例须绑定可核验引文
+  negative_examples: []
