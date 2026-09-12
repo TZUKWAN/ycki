@@ -1,0 +1,153 @@
+# ============================================================
+# golden_case_seeds.yaml — Golden Case 候选种子（§32-33/§88）
+#
+# 全部为真实存在、有明确史料记载的传统/过程/流动候选。
+# 合成管线对每个候选聚合跨文档证据束（§29-31），证据不足时
+# 只给 SUPPORTED/CANDIDATE，禁止单文档 ADMIT（§35）。
+# cross_region: true 表示该候选承担跨区域互动证明（§33）。
+# ============================================================
+version: golden_case_seeds_v1
+
+candidates:
+  # ---------- 巴蜀 ----------
+  - id: seed_ba_shu_fangshui
+    kind: TRADITION
+    name: 都江堰放水节
+    system: 巴蜀文化系统
+    terms: [放水节, 都江堰, 清明放水, 杩槎]
+    cross_region: false
+  - id: seed_ba_shu_chuanju
+    kind: TRADITION
+    name: 川剧
+    system: 巴蜀文化系统
+    terms: [川剧, 变脸, 高腔]
+    cross_region: false
+  - id: seed_huguang_tian_sichuan
+    kind: PROCESS
+    name: 湖广填四川
+    system: 巴蜀文化系统
+    terms: [湖广填四川, 麻城孝感, 移民四川, 江西填湖广]
+    cross_region: true
+    interacting_systems: [荆楚文化系统, 湖湘文化系统, 赣皖文化系统]
+  - id: seed_dujiangyan_construction
+    kind: PROCESS
+    name: 都江堰修建与历代维护
+    system: 巴蜀文化系统
+    terms: [都江堰, 李冰, 离堆, 深淘滩低作堰, 岷江引水]
+    cross_region: false
+  - id: seed_chuan_yan_ji_chu
+    kind: FLOW
+    name: 川盐济楚
+    system: 巴蜀文化系统
+    terms: [川盐济楚, 川盐, 盐运, 自贡盐]
+    cross_region: true
+    interacting_systems: [荆楚文化系统, 湖湘文化系统]
+
+  # ---------- 荆楚 ----------
+  - id: seed_jing_chu_duanwu
+    kind: TRADITION
+    name: 端午竞渡
+    system: 荆楚文化系统
+    terms: [端午, 龙舟, 竞渡, 屈原, 粽子]
+    cross_region: true
+    interacting_systems: [湖湘文化系统, 吴越文化系统]
+  - id: seed_jing_chu_bianzhong
+    kind: TRADITION
+    name: 编钟乐舞
+    system: 荆楚文化系统
+    terms: [编钟, 曾侯乙, 钟磬, 楚乐]
+    cross_region: false
+  - id: seed_chu_southward
+    kind: PROCESS
+    name: 楚人经营江汉与南进
+    system: 荆楚文化系统
+    terms: [楚国, 楚人, 纪南城, 郢都, 问鼎中原, 楚国扩张]
+    cross_region: true
+    interacting_systems: [吴越文化系统, 湖湘文化系统]
+  - id: seed_wuhan_openport
+    kind: PROCESS
+    name: 武汉开埠与近代转型
+    system: 荆楚文化系统
+    terms: [汉口开埠, 张之洞, 汉阳铁厂, 自强学堂, 武汉近代]
+    cross_region: true
+    interacting_systems: [吴越文化系统]
+  - id: seed_hankou_tea
+    kind: FLOW
+    name: 汉口茶市与万里茶道
+    system: 荆楚文化系统
+    terms: [汉口茶市, 万里茶道, 羊楼洞, 茶叶出口]
+    cross_region: true
+    interacting_systems: [赣皖文化系统]
+
+  # ---------- 湖湘 ----------
+  - id: seed_hu_xiang_xiangxiu
+    kind: TRADITION
+    name: 湘绣
+    system: 湖湘文化系统
+    terms: [湘绣, 长沙刺绣, 鬅毛针]
+    cross_region: false
+  - id: seed_hu_xiang_yuelu
+    kind: TRADITION
+    name: 岳麓书院讲学传统
+    system: 湖湘文化系统
+    terms: [岳麓书院, 湖湘学派, 朱张会讲, 书院]
+    cross_region: true
+    interacting_systems: [赣皖文化系统]
+  - id: seed_jiangxi_tian_huguang
+    kind: PROCESS
+    name: 江西填湖广
+    system: 湖湘文化系统
+    terms: [江西填湖广, 移民湖南, 元末明初移民]
+    cross_region: true
+    interacting_systems: [赣皖文化系统]
+  - id: seed_huxiang_school
+    kind: PROCESS
+    name: 湖湘学派形成与传承
+    system: 湖湘文化系统
+    terms: [湖湘学派, 周敦颐, 胡安国, 胡宏, 张栻, 王夫之]
+    cross_region: true
+    interacting_systems: [赣皖文化系统]
+  - id: seed_changsha_rice
+    kind: FLOW
+    name: 长沙米市与洞庭粮运
+    system: 湖湘文化系统
+    terms: [长沙米市, 洞庭湖粮食, 湘米外运, 漕粮]
+    cross_region: true
+    interacting_systems: [吴越文化系统]
+
+  # ---------- 吴越 ----------
+  - id: seed_wu_yue_silk
+    kind: TRADITION
+    name: 蚕桑丝织技艺
+    system: 吴越文化系统
+    terms: [蚕桑, 丝织, 缫丝, 缂丝, 杭罗, 湖丝]
+    cross_region: true
+    interacting_systems: [赣皖文化系统]
+  - id: seed_wu_yue_kunqu
+    kind: TRADITION
+    name: 昆曲
+    system: 吴越文化系统
+    terms: [昆曲, 昆山腔, 水磨调, 牡丹亭]
+    cross_region: true
+    interacting_systems: [赣皖文化系统, 荆楚文化系统]
+  - id: seed_yongjia_nandu
+    kind: PROCESS
+    name: 永嘉南渡与江南开发
+    system: 吴越文化系统
+    terms: [永嘉南渡, 衣冠南渡, 六朝, 侨置, 江南开发]
+    cross_region: true
+    interacting_systems: [荆楚文化系统, 赣皖文化系统]
+  - id: seed_jiangnan_towns
+    kind: PROCESS
+    name: 明清江南市镇专业化
+    system: 吴越文化系统
+    terms: [市镇, 丝市, 米行, 松江棉布, 江南市镇]
+    cross_region: true
+    interacting_systems: [赣皖文化系统]
+  - id: seed_huizhou_trade
+    kind: FLOW
+    name: 徽商沿江贸易
+    system: 吴越文化系统
+    terms: [徽商, 徽帮, 盐商, 扬州盐业, 无为商路]
+    cross_region: true
+    interacting_systems: [赣皖文化系统, 巴蜀文化系统]

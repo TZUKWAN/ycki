@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-09-13T02:54:07+0800",
+  "results": [
+    {
+      "seed": "seed_jiangnan_towns",
+      "name": "明清江南市镇专业化",
+      "kind": "PROCESS",
+      "bundle": {
+        "seed": "seed_jiangnan_towns",
+        "kind": "PROCESS",
+        "entities": 5,
+        "events": 7,
+        "quotes": 5,
+        "distinct_resources": 2,
+        "distinct_source_domains": 2
+      },
+      "why_yangtze": "",
+      "uncertainty": [
+        "证据束仅涉及岷江流域及川南古镇，无明清江南市镇专业化相关证据",
+        "无法提取时间、地点、行为主体及机制等关键信息"
+      ],
+      "decision": "CANDIDATE",
+      "reason": "key fields without evidence: ['time']",
+      "coverage": 0.0,
+      "cited_resources": [],
+      "supported_fields": [],
+      "object_id": "8b351079-723d-4315-9b3b-cfa4790b8710",
+      "elapsed_s": 2.5
+    }
+  ]
+}
