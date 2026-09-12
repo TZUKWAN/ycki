@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """init_canonical_v2.py — canonical_v2 受控骨架确定性构建器（goal §6/§7/§9）。
 
 受控本体（Controlled Backbone）的唯一写入者。seed 来源全部为 Git 内 YAML：

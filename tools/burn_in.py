@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """burn_in.py — Burn-in 三轮（goal §97-§99）：3/5/10 缺口，每轮前后快照对比（§98）。"""
 from __future__ import annotations
 

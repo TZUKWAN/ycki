@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """structural_gaps.py — 结构缺口引擎（goal §53-§57 / G12）。
 
 覆盖网格（coverage_cells）降级为诊断信号；正式知识缺口是结构性缺口：
@@ -194,7 +193,7 @@ def detect_gaps(conn: psycopg2.extensions.connection, apply: bool = True,
     return created
 
 
-import json  # noqa: E402  (检测器 JSON 参数需要)
+import json
 
 
 def close_resolved_gaps(conn: psycopg2.extensions.connection) -> dict[str, int]:

@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """generate_final_report.py — 生成 reports/V2_FINAL_VALIDATION.{json,md}（goal §109-§110）。
 
 所有数字由脚本实时查询/子进程运行获得（§107 禁止手写统计残留）。
@@ -32,7 +31,7 @@ def main() -> int:
     counts: dict[str, int] = {}
     try:
         with conn.cursor() as cur:
-            one = lambda sql: cur.execute(sql) or cur.fetchone()[0]  # noqa: E731
+            one = lambda sql: cur.execute(sql) or cur.fetchone()[0]
             counts.update({
                 "resources": one("SELECT count(*) FROM resources"),
                 "entities": one("SELECT count(*) FROM canonical_entities WHERE merged_into IS NULL"),

@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """red_team_v2.py — canonical_v2 红队（goal §94 + §73 变异测试）。
 
 生成 500 个确定性对抗案例，攻击以下防线并统计突破数（必须为 0）：
@@ -28,8 +27,8 @@ import psycopg2
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from extensions.v2.evidence_bundle import Bundle  # noqa: E402
-from extensions.v2.synthesis import verify_and_admit  # noqa: E402
+from extensions.v2.evidence_bundle import Bundle
+from extensions.v2.synthesis import verify_and_admit
 
 REPORT_JSON = ROOT / "reports" / "V2_RED_TEAM_REPORT.json"
 REPORT_MD = ROOT / "reports" / "V2_RED_TEAM_REPORT.md"

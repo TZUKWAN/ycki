@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """synthesize_structures.py — Golden Case 结构合成驱动器（goal §32-§50）。
 
 读取 yangtze/schema/golden_case_seeds.yaml 的真实候选，对每个候选：
@@ -27,8 +26,8 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from extensions.v2.evidence_bundle import build_bundle  # noqa: E402
-from extensions.v2.synthesis import synthesize_candidate  # noqa: E402
+from extensions.v2.evidence_bundle import build_bundle
+from extensions.v2.synthesis import synthesize_candidate
 
 SEEDS_PATH = ROOT / "yangtze" / "schema" / "golden_case_seeds.yaml"
 MIGRATION = ROOT / "deploy" / "sql" / "008_synthesis_constraints.sql"
