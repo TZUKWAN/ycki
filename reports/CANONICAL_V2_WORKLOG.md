@@ -44,3 +44,14 @@
 
 ### Task 7R-6 Clean-room rebuild
 （待做）
+
+## 2026-09-13 02:00-04:00 推进记录
+
+- 989be8a Phase 7R PASS：006/007 迁移 + seed YAML + builder + clean-room 0 漂移（修复 005 伪 SQL 存量 bug）
+- 2394dbe 数字人文基准包（100题 + Golden Ten）
+- 0fef200 Phase 10 PASS：本体验证器；领域树 §10.2 重分类（reclassify 确定性迁移挂载）
+- bbb17d2 Membership 全量重建：4 锚点推导，92 ADMITTED / 1867 CANDIDATE，geo-only ADMITTED=0
+- 81a5cc9 API v2 13 端点（主 agent 验收：25 测试过、零 SQL 拼接）
+- a5feaa8 证据束+合成引擎：首批结构落库（9 ADMITTED，含湖广填四川/都江堰/端午竞渡/楚人南进/武汉开埠/永嘉南渡/川剧/编钟乐舞/蚕桑丝织SUPPORTED；徽商流动被硬门禁 REJECT——正确行为）
+- e6eec80 缺口引擎(7检测器/527缺口) + 研究引擎(gap_id绑定) + growth v2 闭环 + validate_canonical_v2 全门禁 PASS
+- Growth Cycle 1 后台运行中（真实采集 20 资源/任务）

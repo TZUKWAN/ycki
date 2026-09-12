@@ -265,3 +265,24 @@ MULTI_ORIGIN → REGIONAL_DEVELOPMENT → BASIN_INTERACTION → CONTINUOUS_INTEG
 ```
 
 这才应该触发 ResearchTask。
+
+---
+
+## 十一、实现状态（2026-09-13，由工具生成校准）
+
+| 层 | 状态 | 交付物 |
+|---|---|---|
+| 复现性（Phase 7R） | PASS | 006/007/008 migration + 6 个受控 seed YAML + tools/init_canonical_v2.py，clean-room 0 漂移 |
+| 受控本体 | PASS | 8 系统 / 7 区域 / 93 领域（§10.2 重分类后）/ 13 分期 / 4 演化模式（多对多）/ 34 水系单元 / 46 拓扑关系 |
+| 结构谓词 | PARTIAL | v1_3 谓词表在用；Schema 2.0（§13 全字段）待升级 |
+| Membership | PASS（结构门禁）/ PARTIAL（覆盖） | 4 锚点确定性重建，ADMITTED 92 / CANDIDATE 1867，geo-only ADMITTED=0 |
+| 结构关系 | PASS（门禁） | 7 条 ONTOLOGY 豁免 + 21 条 0 证据边降级 CANDIDATE |
+| 证据束/合成 | 运行中 | extensions/v2/：束→合成→字段级核验→准入，首批 9 ADMITTED |
+| 缺口引擎 | 运行中 | 7 类检测器，527 OPEN 缺口驱动研究任务 |
+| 研究引擎 | 运行中 | gap→task（gap_id 绑定）→查询→采集溯源→缺口复测 |
+| Growth v2 | 首轮运行 | tools/cultural_system_growth.py，熔断 HEALTHY |
+| API v2 | PASS | 13 端点 /yangtze/v2/*，25 测试通过 |
+| 数字人文基准 | PASS | 100 题 + Golden Ten 定义（yangtze/benchmarks/） |
+| Burn-in / Soak / Red Team | NOT_MEASURED | 时间预算未覆盖，见 reports/V2_FINAL_VALIDATION.md |
+
+数字以当日 `python tools/validate_canonical_v2.py` 输出为准（§107 禁止手写统计长期残留）。
