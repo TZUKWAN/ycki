@@ -64,3 +64,16 @@ upstream/                 # LightRAG 等上游仓库克隆（不入库）
 
 - M0 开源审计 ✅ · M1 基线 ✅ · M2 数据库批1–8 ✅（队列 100% 排空）
 - 已知问题：自增长引擎的自愈(reprocess_failed)与 LightRAG 排他栅栏(manual_freeze)存在竞态，会造成上传期 409 弹回（已加入栅栏等待逻辑；顽固失败用拆分重灌兜底，见 ADR-019 与 split_reinsert.py）
+
+## canonical_v2 — 长江文化系统知识图谱（2026-09-13）
+
+在 canonical_v1 事实层之上叠加多层异质时空结构层：
+
+- **受控本体**（Git seed 唯一来源）：`yangtze/schema/`（系统/区域/领域/分期/演化模式/水系骨架），`python tools/init_canonical_v2.py --dry-run|--apply|--verify` 幂等构建，clean-room 0 漂移。
+- **结构合成**：`python tools/synthesize_structures.py --all` 从跨文档证据束合成 文化传统/文化过程/文化流动，字段级证据核验 + 单来源最多 SUPPORTED + 流动硬门禁。
+- **成员关系两阶段准入**：`python tools/rebuild_memberships.py --apply`（确定性锚点预滤 + LLM 判官终审；纯地理/省级行政区永不 ADMIT）。
+- **缺口驱动增长**：`python tools/cultural_system_growth.py --cycle`（缺口→研究任务→采集溯源→复测，熔断审计 `--audit`）。
+- **API/UI**：`/yangtze/v2/*` 13 端点；`/v2` 分层钻取页（系统/流域/演进/传统/过程/流动/缺口）。
+- **验收**：`python tools/validate_canonical_v2.py`（G01-G13 门禁）；最终报告 `python tools/generate_final_report.py` → `reports/V2_FINAL_VALIDATION.md`（数字全部脚本生成）。
+
+状态与指标以 `reports/V2_FINAL_VALIDATION.md` 与 `reports/CANONICAL_V2_EXECUTION_STATE.json` 为准。
