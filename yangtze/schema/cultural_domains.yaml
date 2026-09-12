@@ -32,13 +32,28 @@ domains:
     children: [土家族文化, 苗族文化, 彝族文化, 羌族文化, 藏族文化]
   - id: revolutionary_culture
     name: 革命文化
-    children: [辛亥革命, 大革命, 土地革命, 抗战文化, 解放战争]
+    children: [革命思想传播, 革命组织与政党, 武装斗争, 革命文艺, 革命纪念与遗址]
   - id: industrial_culture
     name: 工业文化
-    children: [洋务企业, 民族工业, 战时工业, 三线建设, 工业遗产]
+    children: [近代军事工业, 近代民用工业, 民族资本工业, 后方工业, 工业遗产保护]
   - id: ecological_culture
     name: 生态文化
     children: [长江大保护, 生态文明实践, 传统生态智慧, 生态修复]
   - id: contemporary_culture
     name: 当代文化
-    children: [长江经济带文化, 长三角文化, 长江国家文化公园, 当代艺术, 城市更新]
+    children: [当代流域发展, 当代公共文化, 国家文化公园建设, 当代艺术, 城市更新]
+
+# §10.2 重新分类映射：事件/工程/区域复合概念不得作为 CulturalDomain。
+# builder 将存量 domain 挂载确定性迁移到目标领域后删除旧 domain 行。
+reclassify:
+  辛亥革命: 革命文化
+  大革命: 革命文化
+  土地革命: 革命文化
+  抗战文化: 革命文化
+  解放战争: 革命文化
+  洋务企业: 工业文化
+  民族工业: 工业文化
+  战时工业: 工业文化
+  三线建设: 工业文化
+  工业遗产: 工业文化
+  长三角文化: 当代文化
