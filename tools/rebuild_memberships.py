@@ -37,6 +37,9 @@ import psycopg2.extras
 
 ROOT = Path(__file__).resolve().parents[1]
 RULE_VERSION = "membership_rule_v2_0"
+NEVER_ADMIT_TYPES = {"EVENT"}  # 事件是过程证据/情节，不是系统成员载体
+CONTEXT_TYPES = {"NATURALOBJECT", "WATERSYSTEM", "CONCEPT"}  # 语境要素，不是成员载体
+
 _PROVINCE_NAMES = {"四川", "湖北", "湖南", "江苏", "浙江", "安徽", "江西",
                    "贵州", "云南", "青海", "西藏", "甘肃", "陕西", "河南",
                    "广西", "广东", "福建"}
@@ -207,6 +210,8 @@ def rebuild(conn: psycopg2.extensions.connection, apply: bool) -> dict[str, Any]
                 admitted = False  # §19.1：地名是文化容器不是载体，纯地理+时间不足以 ADMIT
             if admitted and _is_province_container(row["canonical_name"]):
                 admitted = False  # §16.4：省级行政区不得替代文化区作为载体 ADMIT
+            if admitted and (etype in NEVER_ADMIT_TYPES or etype in CONTEXT_TYPES):
+                admitted = False  # 事件经 events/process 锚参与系统；语境要素不作成员
 
             strength = round(min(0.9, 0.3 + 0.2 * anchor_count), 2)
             confidence = round(min(0.85, 0.35 + 0.15 * anchor_count), 2)
@@ -319,6 +324,8 @@ def adjudicate(conn: psycopg2.extensions.connection) -> dict[str, Any]:
     for row in rows:
         if _is_province_container(row["canonical_name"]):
             continue  # 省级容器硬门禁，判官不得推翻
+        if (row["entity_type"] or "").upper() in NEVER_ADMIT_TYPES | CONTEXT_TYPES:
+            continue  # 事件/语境要素不作成员，判官不得推翻
         stats["eligible"] += 1
         anchors = []
         for k, col in (("spatial","spatial_anchor"),("temporal","temporal_anchor"),
