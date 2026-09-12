@@ -1,0 +1,37 @@
+# ============================================================
+# macro_evolution_patterns.yaml — 宏观演化模式（受控本体 seed）
+# version: macro_evolution_patterns_v1
+#
+# HistoricalPhase 与 MacroEvolutionPattern 为多对多（goal §11）：
+# 一个时期可同时呈现多种机制，禁止"一个朝代=一个演化机制"。
+# 分期↔模式的关联记录在 historical_phases.yaml 各分期的 macro_phase
+# 字段（字符串或列表），由 init_canonical_v2.py 写入 junction 表。
+# ============================================================
+version: macro_evolution_patterns_v1
+
+patterns:
+  - code: MULTI_ORIGIN
+    name: 多中心起源
+    description: >
+      长江文化在史前与早期历史阶段呈现多个独立起源中心（如上游宝墩—三星堆、
+      中游石家河、下游凌家滩—良渚、浙南山地好川等），各中心自主发展、
+      相互间存在远距离交流，而非单一线性扩散的产物。
+  - code: REGIONAL_DEVELOPMENT
+    name: 区域纵深发展
+    description: >
+      各区域文化系统在相对稳定的自然与政治空间内沿自身脉络深化发展，
+      形成内部一致性与区域传统（如秦汉巴蜀的郡县化整合、隋唐江南的
+      经济文化纵深）。
+  - code: BASIN_INTERACTION
+    name: 流域互动
+    description: >
+      区域文化系统之间通过战争、移民、商贸、水运、宗教与学术网络在
+      流域尺度上发生交流、竞争与融合（如魏晋南北朝人口南迁、宋元漕运
+      与海外贸易、楚与吴越的争霸与文化交流）。
+  - code: CONTINUOUS_INTEGRATION
+    name: 持续整合
+    description: >
+      明清以降，在统一市场、漕运—海运体系、近代开埠与全球化背景下，
+      流域内部走向持续的一体化与文化再生产，同时保留区域多样性
+      （如江南市镇网络、湖广填四川后的文化重组、近代工业与革命文化
+      的流域展开）。

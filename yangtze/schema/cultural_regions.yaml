@@ -1,0 +1,52 @@
+# ============================================================
+# cultural_regions.yaml — 七大文化区域（受控本体 seed）
+# version: cultural_regions_v1
+#
+# 区域是文化地理单元，不是行政区：provinces 仅作空间锚点参考，
+# 禁止用"省=文化区"做成员推理（goal §16.4/§19.1）。
+# ============================================================
+version: cultural_regions_v1
+
+regions:
+  - name: 巴蜀文化区
+    legacy_names: [巴蜀文化系统]
+    provinces: [四川, 重庆]
+    hydro_basis: [岷江, 沱江, 嘉陵江, 乌江, 成都平原]
+    system: 巴蜀文化系统
+    description: 以成都平原为核心的古蜀文明与巴文化融合区，从三星堆到湖广填四川。
+  - name: 荆楚文化区
+    legacy_names: [荆楚文化系统]
+    provinces: [湖北, 湖南北部]
+    hydro_basis: [汉江, 长江中游, 洞庭湖, 江汉平原]
+    system: 荆楚文化系统
+    description: 以楚文化为核心，从纪南城到武昌起义的江汉—洞庭文化区。
+  - name: 湖湘文化区
+    legacy_names: [湖湘文化系统]
+    provinces: [湖南]
+    hydro_basis: [湘江, 资江, 沅江, 澧水, 洞庭湖]
+    system: 湖湘文化系统
+    description: 以湖湘学派为学术核心，从屈原到近代维新的精神传统区。
+  - name: 吴越文化区
+    legacy_names: [吴越文化系统]
+    provinces: [江苏南部, 上海, 浙江北部]
+    hydro_basis: [太湖, 黄浦江, 长江下游, 长江三角洲]
+    system: 吴越文化系统
+    description: 从河姆渡、吴越争霸到江南文化的连续体区域。
+  - name: 赣皖文化区
+    legacy_names: [赣皖文化系统]
+    provinces: [江西, 安徽南部]
+    hydro_basis: [赣江, 青弋江, 鄱阳湖, 巢湖]
+    system: 赣皖文化系统
+    description: 赣鄱文化与徽州文化复合区。
+  - name: 滇黔文化区
+    legacy_names: [滇黔文化系统]
+    provinces: [云南, 贵州]
+    hydro_basis: [乌江, 金沙江]
+    system: 滇黔文化系统
+    description: 云贵高原多民族文化交汇区，彝族、苗族、布依族文化与红色文化交汇。
+  - name: 羌藏文化区
+    legacy_names: [羌藏文化系统]
+    provinces: [西藏, 青海, 川西]
+    hydro_basis: [金沙江, 雅砻江, 横断山区]
+    system: 羌藏文化系统
+    description: 长江源区藏族羌族文化区，以游牧、藏传佛教、格萨尔史诗为核心。

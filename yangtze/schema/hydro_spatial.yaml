@@ -1,0 +1,258 @@
+# ============================================================
+# hydro_spatial.yaml — 长江水系空间骨架（受控本体 seed）
+# version: hydro_spatial_v2
+#
+# 这是 HydroSpatial Backbone 的唯一事实来源（goal §6/§7）。
+# tools/init_canonical_v2.py 读取本文件幂等构建数据库；
+# --verify 逐项比对 EXPECTED(本文件) == ACTUAL(数据库)。
+#
+# v2 修订（相对运行库 v1，25单元/23关系）：
+#   1. 水文事实修正：金沙江为长江干流上段（玉树—宜宾），非支流 → RiverSection；
+#      雅砻江汇入金沙江；大渡河汇入岷江。
+#   2. 湖泊水系显式化：新增洞庭湖水系/鄱阳湖水系 SubBasin；
+#      湘资沅澧 flows_into 洞庭湖，赣江 flows_into 鄱阳湖。
+#   3. 类型覆盖补全（§16.1）：Plain/Valley/Wetland/MountainRegion/
+#      WaterTransportCorridor 均为真实地理对象。
+# 受控骨架之外的水系对象由证据管线增长，不进入本文件。
+# ============================================================
+version: hydro_spatial_v2
+
+units:
+  # ----- Basin / MainStem -----
+  - name: 长江流域
+    type: Basin
+    parent: null
+    provinces: [青海, 西藏, 四川, 云南, 重庆, 湖北, 湖南, 江西, 安徽, 江苏, 上海, 贵州, 甘肃, 陕西, 河南]
+    description: 长江全流域，面积约180万平方公里
+  - name: 长江干流
+    type: MainStem
+    parent: 长江流域
+    provinces: [青海, 西藏, 四川, 云南, 重庆, 湖北, 湖南, 江西, 安徽, 江苏, 上海]
+    description: 长江干流，全长约6300公里
+
+  # ----- 干流分段 -----
+  - name: 金沙江
+    type: RiverSection
+    parent: 长江干流
+    provinces: [青海, 西藏, 云南, 四川]
+    description: 长江上游干流上段，青海玉树至宜宾，与岷江在宜宾汇合后始称长江
+  - name: 长江上游
+    type: RiverSection
+    parent: 长江干流
+    provinces: [青海, 西藏, 四川, 云南, 重庆, 湖北]
+    description: 宜昌以上河段，包括高原、峡谷段
+  - name: 长江中游
+    type: RiverSection
+    parent: 长江干流
+    provinces: [湖北, 湖南, 江西]
+    description: 宜昌至湖口河段，进入中下游平原
+  - name: 长江下游
+    type: RiverSection
+    parent: 长江干流
+    provinces: [江西, 安徽, 江苏, 上海]
+    description: 湖口以下河段，进入长江三角洲
+
+  # ----- 支流 -----
+  - name: 雅砻江
+    type: Tributary
+    parent: 金沙江
+    provinces: [青海, 四川]
+    description: 金沙江最大支流，在攀枝花汇入
+  - name: 大渡河
+    type: Tributary
+    parent: 岷江
+    provinces: [青海, 四川]
+    description: 岷江最大支流，在乐山汇入
+  - name: 岷江
+    type: Tributary
+    parent: 长江干流
+    provinces: [四川]
+    description: 四川境内最大支流，都江堰所在，在宜宾汇入长江
+  - name: 沱江
+    type: Tributary
+    parent: 长江干流
+    provinces: [四川]
+    description: 四川境内长江左岸支流，在泸州汇入
+  - name: 嘉陵江
+    type: Tributary
+    parent: 长江干流
+    provinces: [陕西, 甘肃, 四川, 重庆]
+    description: 长江上游最大支流，流经陕西甘肃四川重庆，在重庆汇入
+  - name: 乌江
+    type: Tributary
+    parent: 长江干流
+    provinces: [贵州, 重庆]
+    description: 贵州境内最大支流，在涪陵汇入
+  - name: 汉江
+    type: Tributary
+    parent: 长江干流
+    provinces: [陕西, 河南, 湖北]
+    description: 长江中游最大支流，丹江口水库所在，在武汉汇入
+  - name: 湘江
+    type: Tributary
+    parent: 洞庭湖水系
+    provinces: [湖南]
+    description: 洞庭湖水系最大河流，注入洞庭湖
+  - name: 资江
+    type: Tributary
+    parent: 洞庭湖水系
+    provinces: [湖南]
+    description: 洞庭湖水系河流，注入洞庭湖
+  - name: 沅江
+    type: Tributary
+    parent: 洞庭湖水系
+    provinces: [贵州, 湖南]
+    description: 洞庭湖水系河流，注入洞庭湖
+  - name: 澧水
+    type: Tributary
+    parent: 洞庭湖水系
+    provinces: [湖南, 湖北]
+    description: 洞庭湖水系河流，注入洞庭湖
+  - name: 赣江
+    type: Tributary
+    parent: 鄱阳湖水系
+    provinces: [江西]
+    description: 鄱阳湖水系最大河流，注入鄱阳湖
+  - name: 青弋江
+    type: Tributary
+    parent: 长江干流
+    provinces: [安徽]
+    description: 安徽境内长江南岸支流，在芜湖汇入
+  - name: 黄浦江
+    type: Tributary
+    parent: 长江干流
+    provinces: [上海, 江苏]
+    description: 上海境内最后一条支流，在吴淞口汇入
+
+  # ----- 湖泊 -----
+  - name: 洞庭湖
+    type: Lake
+    parent: 长江流域
+    provinces: [湖南, 湖北]
+    description: 中国第二大淡水湖，长江中游调蓄湖泊，城陵矶出口通长江
+  - name: 鄱阳湖
+    type: Lake
+    parent: 长江流域
+    provinces: [江西]
+    description: 中国第一大淡水湖，湖口通长江
+  - name: 太湖
+    type: Lake
+    parent: 长江流域
+    provinces: [江苏, 浙江]
+    description: 长江三角洲核心湖泊
+  - name: 巢湖
+    type: Lake
+    parent: 长江流域
+    provinces: [安徽]
+    description: 安徽省中部湖泊
+
+  # ----- 次级流域 -----
+  - name: 洞庭湖水系
+    type: SubBasin
+    parent: 长江流域
+    provinces: [湖南, 湖北, 贵州]
+    description: 湘资沅澧四水汇洞庭湖入长江的水系单元
+  - name: 鄱阳湖水系
+    type: SubBasin
+    parent: 长江流域
+    provinces: [江西]
+    description: 赣江等五河汇鄱阳湖入长江的水系单元
+
+  # ----- 三角洲 / 平原 -----
+  - name: 长江三角洲
+    type: Delta
+    parent: 长江流域
+    provinces: [上海, 江苏, 浙江]
+    description: 长江入海口三角洲，中国经济最发达区域
+  - name: 成都平原
+    type: Plain
+    parent: 长江流域
+    provinces: [四川]
+    description: 岷江冲积平原，都江堰灌区，古蜀文明核心区
+  - name: 江汉平原
+    type: Plain
+    parent: 长江流域
+    provinces: [湖北]
+    description: 长江与汉江冲积平原，楚文化核心区
+  - name: 洞庭湖平原
+    type: Plain
+    parent: 长江流域
+    provinces: [湖南, 湖北]
+    description: 洞庭湖冲积平原，重要稻作区
+
+  # ----- 峡谷 / 湿地 / 山地 / 水运走廊 -----
+  - name: 长江三峡
+    type: Valley
+    parent: 长江流域
+    provinces: [重庆, 湖北]
+    description: 瞿塘峡、巫峡、西陵峡，重庆至宜昌峡谷河段
+  - name: 鄱阳湖湿地
+    type: Wetland
+    parent: 长江流域
+    provinces: [江西]
+    description: 鄱阳湖湖滨湿地，国际重要湿地，候鸟越冬地
+  - name: 横断山区
+    type: MountainRegion
+    parent: 长江流域
+    provinces: [四川, 云南, 西藏]
+    description: 金沙江、澜沧江、怒江并流的高山峡谷区
+  - name: 长江黄金水道
+    type: WaterTransportCorridor
+    parent: 长江流域
+    provinces: [云南, 四川, 重庆, 湖北, 湖南, 江西, 安徽, 江苏, 上海]
+    description: 长江干线航运走廊，贯通上下游的水运通道
+
+# 拓扑关系（名称引用，类型受 hydro_spatial_relations CHECK 约束）
+relations:
+  # part_of_basin：全流域成员关系
+  - {from: 长江干流, relation: part_of_basin, to: 长江流域}
+  - {from: 金沙江, relation: part_of_basin, to: 长江流域}
+  - {from: 长江上游, relation: part_of_basin, to: 长江流域}
+  - {from: 长江中游, relation: part_of_basin, to: 长江流域}
+  - {from: 长江下游, relation: part_of_basin, to: 长江流域}
+  - {from: 洞庭湖水系, relation: part_of_basin, to: 长江流域}
+  - {from: 鄱阳湖水系, relation: part_of_basin, to: 长江流域}
+  - {from: 洞庭湖, relation: part_of_basin, to: 长江流域}
+  - {from: 鄱阳湖, relation: part_of_basin, to: 长江流域}
+  - {from: 太湖, relation: part_of_basin, to: 长江流域}
+  - {from: 巢湖, relation: part_of_basin, to: 长江流域}
+  - {from: 长江三角洲, relation: part_of_basin, to: 长江流域}
+  - {from: 成都平原, relation: part_of_basin, to: 长江流域}
+  - {from: 江汉平原, relation: part_of_basin, to: 长江流域}
+  - {from: 洞庭湖平原, relation: part_of_basin, to: 长江流域}
+  - {from: 长江三峡, relation: part_of_basin, to: 长江流域}
+  - {from: 鄱阳湖湿地, relation: part_of_basin, to: 长江流域}
+  - {from: 横断山区, relation: part_of_basin, to: 长江流域}
+  - {from: 长江黄金水道, relation: part_of_basin, to: 长江流域}
+  # tributary_of：支流汇入（含两级：大渡河→岷江，雅砻江→金沙江）
+  - {from: 岷江, relation: tributary_of, to: 长江干流}
+  - {from: 沱江, relation: tributary_of, to: 长江干流}
+  - {from: 嘉陵江, relation: tributary_of, to: 长江干流}
+  - {from: 乌江, relation: tributary_of, to: 长江干流}
+  - {from: 汉江, relation: tributary_of, to: 长江干流}
+  - {from: 青弋江, relation: tributary_of, to: 长江干流}
+  - {from: 黄浦江, relation: tributary_of, to: 长江干流}
+  - {from: 大渡河, relation: tributary_of, to: 岷江}
+  - {from: 雅砻江, relation: tributary_of, to: 金沙江}
+  # flows_into：注入湖泊 / 湖泊出口
+  - {from: 湘江, relation: flows_into, to: 洞庭湖}
+  - {from: 资江, relation: flows_into, to: 洞庭湖}
+  - {from: 沅江, relation: flows_into, to: 洞庭湖}
+  - {from: 澧水, relation: flows_into, to: 洞庭湖}
+  - {from: 赣江, relation: flows_into, to: 鄱阳湖}
+  - {from: 洞庭湖, relation: flows_into, to: 长江干流}
+  # hydrologically_connects：湖泊通江 / 走廊贯通
+  - {from: 鄱阳湖, relation: hydrologically_connects, to: 长江干流}
+  - {from: 长江黄金水道, relation: hydrologically_connects, to: 长江上游}
+  - {from: 长江黄金水道, relation: hydrologically_connects, to: 长江下游}
+  # upstream_of：干流方向链
+  - {from: 金沙江, relation: upstream_of, to: 长江上游}
+  - {from: 长江上游, relation: upstream_of, to: 长江中游}
+  - {from: 长江中游, relation: upstream_of, to: 长江下游}
+  # passes_through：河流穿越地文单元
+  - {from: 长江干流, relation: passes_through, to: 长江三峡}
+  - {from: 岷江, relation: passes_through, to: 成都平原}
+  - {from: 长江干流, relation: passes_through, to: 江汉平原}
+  - {from: 汉江, relation: passes_through, to: 江汉平原}
+  - {from: 金沙江, relation: passes_through, to: 横断山区}
+  - {from: 长江黄金水道, relation: passes_through, to: 长江三峡}
