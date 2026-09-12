@@ -1,0 +1,42 @@
+version: structural_predicates_v1
+predicates:
+  # 构成
+  constitutes: {domain: [any], range: [CulturalSystem], description: 构成文化系统的要素}
+  subsystem_of: {domain: [CulturalSystem], range: [CulturalSystem], description: 子系统隶属}
+  belongs_to_cultural_system: {domain: [any], range: [CulturalSystem]}
+  manifestation_of: {domain: [any], range: [CulturalTradition]}
+  representative_of: {domain: [any], range: [CulturalSystem]}
+  # 起源与演化
+  originated_in: {domain: [any], range: [HydroSpatialUnit]}
+  emerged_from: {domain: [any], range: [CulturalSystem, CulturalTradition]}
+  developed_from: {domain: [CulturalSystem, CulturalTradition], range: [CulturalSystem, CulturalTradition]}
+  inherited_from: {domain: [CulturalTradition, Practice], range: [CulturalTradition, Practice]}
+  continued_as: {domain: [CulturalTradition, Practice], range: [CulturalTradition, Practice]}
+  transformed_into: {domain: [CulturalTradition, CulturalSystem], range: [CulturalTradition, CulturalSystem]}
+  reconfigured_into: {domain: [CulturalSystem], range: [CulturalSystem]}
+  revived_as: {domain: [CulturalTradition, Practice], range: [CulturalTradition, Practice]}
+  localized_as: {domain: [CulturalTradition], range: [CulturalTradition]}
+  institutionalized_as: {domain: [CulturalTradition, CulturalProcess], range: [Institution]}
+  heritagized_as: {domain: [Practice, Artifact], range: [Heritage]}
+  modernized_as: {domain: [CulturalTradition], range: [CulturalTradition, Practice]}
+  # 传播与扩散
+  spread_to: {domain: [CulturalProcess, CulturalTradition], range: [Place, HydroSpatialUnit]}
+  spread_along: {domain: [CulturalProcess], range: [Route, HydroSpatialUnit]}
+  transmitted_via: {domain: [CulturalFlow], range: [TransmissionRoute]}
+  diffused_into: {domain: [CulturalTradition, Concept], range: [CulturalRegion]}
+  # 互动
+  interacted_with: {domain: [CulturalSystem, CulturalRegion], range: [CulturalSystem, CulturalRegion]}
+  exchanged_with: {domain: [CulturalSystem, CulturalRegion], range: [CulturalSystem, CulturalRegion]}
+  conflicted_with: {domain: [CulturalSystem], range: [CulturalSystem]}
+  absorbed_from: {domain: [CulturalSystem], range: [CulturalSystem]}
+  integrated_with: {domain: [CulturalSystem], range: [CulturalSystem]}
+  fused_with: {domain: [CulturalSystem, CulturalTradition], range: [CulturalSystem, CulturalTradition]}
+  hybridized_with: {domain: [CulturalTradition], range: [CulturalTradition]}
+  differentiated_from: {domain: [CulturalSystem, CulturalTradition], range: [CulturalSystem, CulturalTradition]}
+  # 条件
+  enabled_by: {domain: [CulturalProcess], range: [any]}
+  constrained_by: {domain: [CulturalProcess], range: [HydroSpatialUnit, Place]}
+  mediated_by: {domain: [CulturalProcess, CulturalFlow], range: [Organization, Institution, Person]}
+  # 贡献
+  contributed_to: {domain: [RegionalCulturalSystem], range: [ChineseCivilization]}
+  integrated_into: {domain: [CulturalSystem, Concept], range: [ChineseCivilization]}

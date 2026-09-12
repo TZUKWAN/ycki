@@ -1,0 +1,44 @@
+version: historical_phases_v1
+root: yangtze_culture
+phases:
+  - id: prehistoric
+    name: 史前时期
+    macro_phase: MULTI_ORIGIN
+    children: [旧石器时代, 新石器时代早期, 新石器时代中期, 新石器时代晚期]
+  - id: pre_qin
+    name: 先秦
+    macro_phase: MULTI_ORIGIN
+    children: [夏, 商, 西周, 春秋, 战国]
+  - id: qin_han
+    name: 秦汉
+    macro_phase: REGIONAL_DEVELOPMENT
+  - id: wei_jin_nan_beichao
+    name: 魏晋南北朝
+    macro_phase: BASIN_INTERACTION
+  - id: sui_tang
+    name: 隋唐
+    macro_phase: REGIONAL_DEVELOPMENT
+  - id: song_yuan
+    name: 宋元
+    macro_phase: BASIN_INTERACTION
+  - id: ming_qing
+    name: 明清
+    macro_phase: CONTINUOUS_INTEGRATION
+  - id: late_qing
+    name: 晚清
+    macro_phase: CONTINUOUS_INTEGRATION
+  - id: republic
+    name: 民国
+    macro_phase: CONTINUOUS_INTEGRATION
+  - id: revolutionary
+    name: 革命时期
+    macro_phase: CONTINUOUS_INTEGRATION
+  - id: socialist_construction
+    name: 社会主义建设时期
+    macro_phase: CONTINUOUS_INTEGRATION
+  - id: reform_opening
+    name: 改革开放时期
+    macro_phase: CONTINUOUS_INTEGRATION
+  - id: new_era
+    name: 新时代
+    macro_phase: CONTINUOUS_INTEGRATION

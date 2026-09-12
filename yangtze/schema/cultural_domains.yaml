@@ -1,0 +1,44 @@
+version: cultural_domains_v1
+domains:
+  - id: civilization_origins
+    name: 文明起源
+    children: [稻作起源, 史前聚落, 城址, 玉文化, 早期水利, 礼仪系统, 早期国家复杂化]
+  - id: water_culture
+    name: 水文化
+    children: [治水文化, 水利工程文化, 航运文化, 渡口码头文化, 渔业文化, 江河信仰, 龙舟传统, 滨水城市生活]
+  - id: production_culture
+    name: 生产文化
+    children: [稻作农业, 渔猎文化, 手工业, 盐业, 陶瓷业, 矿冶业, 纺织业]
+  - id: urban_culture
+    name: 城市文化
+    children: [古城格局, 市镇经济, 城市生活, 城市规划]
+  - id: trade_transport
+    name: 商贸交通文化
+    children: [长江航运, 茶马古道, 盐运, 漕运, 商帮, 会馆]
+  - id: intellectual_culture
+    name: 思想学术文化
+    children: [诸子思想, 经学传统, 理学, 实学, 西学东渐, 马克思主义传播]
+  - id: literary_arts
+    name: 文学艺术
+    children: [楚辞传统, 诗歌, 书法, 绘画, 戏曲, 小说, 音乐]
+  - id: religious_belief
+    name: 宗教信仰
+    children: [道教, 佛教, 民间信仰, 儒家祭祀, 外来宗教]
+  - id: folklore
+    name: 民俗
+    children: [节庆, 婚丧嫁娶, 民间传说, 生产习俗, 生活习俗]
+  - id: ethnic_culture
+    name: 民族文化
+    children: [土家族文化, 苗族文化, 彝族文化, 羌族文化, 藏族文化]
+  - id: revolutionary_culture
+    name: 革命文化
+    children: [辛亥革命, 大革命, 土地革命, 抗战文化, 解放战争]
+  - id: industrial_culture
+    name: 工业文化
+    children: [洋务企业, 民族工业, 战时工业, 三线建设, 工业遗产]
+  - id: ecological_culture
+    name: 生态文化
+    children: [长江大保护, 生态文明实践, 传统生态智慧, 生态修复]
+  - id: contemporary_culture
+    name: 当代文化
+    children: [长江经济带文化, 长三角文化, 长江国家文化公园, 当代艺术, 城市更新]
