@@ -107,6 +107,13 @@ def main() -> int:
                 SELECT count(*) FROM structural_relations WHERE status='ADMITTED'
                   AND COALESCE(evidence_policy_version,'')=''""")
             g["status"] = "PASS" if g["metrics"]["admitted_without_policy_version"] == 0 else "FAIL"
+            import yaml as _yaml
+            _pv2 = _yaml.safe_load((ROOT / "yangtze" / "schema" / "structural_predicates_v2.yaml")
+                                   .read_text(encoding="utf-8"))
+            _hrisk = [p for p in _pv2["predicates"] if p.get("minimum_independent_sources", 1) >= 2]
+            g["metrics"]["predicates_v2"] = len(_pv2["predicates"])
+            g["metrics"]["high_risk_predicates_min2src"] = len(_hrisk)
+            g["metrics"]["high_risk_missing"] = max(0, 11 - len(_hrisk))
 
             # G07 Tradition
             g = gate("G07", "Tradition")
