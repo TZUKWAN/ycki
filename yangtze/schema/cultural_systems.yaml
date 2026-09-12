@@ -1,0 +1,60 @@
+version: cultural_systems_v1
+root: YangtzeCulture
+description: 长江文化系统根节点及区域子系统
+systems:
+  - id: yangtze_culture
+    name: 长江文化
+    level: ROOT
+    parent: null
+    description: >
+      以长江流域为自然地理依托，在长期人地互动中持续生成的多层次文化体系，
+      是中华文明多元一体格局的重要组成部分。
+  - id: qiang_tibet
+    name: 羌藏文化系统
+    level: REGIONAL
+    parent: yangtze_culture
+    region: [西藏, 青海, 川西]
+    hydro_basis: [金沙江上游, 通天河, 沱沱河]
+    description: 长江源区藏族羌族文化系统，以游牧、藏传佛教、格萨尔史诗为核心。
+  - id: ba_shu
+    name: 巴蜀文化系统
+    level: REGIONAL
+    parent: yangtze_culture
+    region: [四川, 重庆]
+    hydro_basis: [岷江, 沱江, 嘉陵江, 乌江]
+    description: 以成都平原为核心的古蜀文明与巴文化融合体，从三星堆到湖广填四川。
+  - id: dian_qian
+    name: 滇黔文化系统
+    level: REGIONAL
+    parent: yangtze_culture
+    region: [云南, 贵州]
+    hydro_basis: [乌江上游, 金沙江中游, 三岔河]
+    description: 云贵高原多民族文化交汇区，彝族、苗族、布依族文化与红色文化交汇。
+  - id: jing_chu
+    name: 荆楚文化系统
+    level: REGIONAL
+    parent: yangtze_culture
+    region: [湖北, 湖南北部]
+    hydro_basis: [汉江, 长江中游, 洞庭湖]
+    description: 以楚文化为核心，从纪南城到武昌起义，荆楚大地的文化传统。
+  - id: hu_xiang
+    name: 湖湘文化系统
+    level: REGIONAL
+    parent: yangtze_culture
+    region: [湖南]
+    hydro_basis: [湘江, 资江, 沅江, 澧水, 洞庭湖]
+    description: 以湖湘学派为学术核心，从屈原到毛泽东的精神传统。
+  - id: gan_wan
+    name: 赣皖文化系统
+    level: REGIONAL
+    parent: yangtze_culture
+    region: [江西, 安徽南部]
+    hydro_basis: [赣江, 抚河, 信江, 青弋江, 鄱阳湖]
+    description: 江西安徽文化区，包含赣鄱文化和徽州文化。
+  - id: wu_yue
+    name: 吴越文化系统
+    level: REGIONAL
+    parent: yangtze_culture
+    region: [江苏南部, 上海, 浙江北部的吴越核心区]
+    hydro_basis: [太湖水系, 黄浦江, 大运河江南段]
+    description: 吴越文化从河姆渡到吴越争霸到江南文化的连续体。
