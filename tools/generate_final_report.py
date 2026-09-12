@@ -52,6 +52,10 @@ def main() -> int:
                 "flows": one("SELECT count(*) FROM cultural_flows"),
                 "structural_relations": one("SELECT count(*) FROM structural_relations"),
                 "interpretations": one("SELECT count(*) FROM interpretations"),
+                "interpretation_evidence": one("SELECT count(*) FROM interpretation_evidence"),
+                "interpretations_without_evidence": one(
+                    "SELECT count(*) FROM interpretations i WHERE NOT EXISTS "
+                    "(SELECT 1 FROM interpretation_evidence x WHERE x.interpretation_id=i.interpretation_id)"),
                 "fact_only_entities": one("""
                     SELECT count(*) FROM canonical_entities ce
                     WHERE ce.merged_into IS NULL
@@ -70,7 +74,8 @@ def main() -> int:
     if mb_path.exists():
         mb = json.loads(mb_path.read_text(encoding="utf-8"))
         membership_bench = {k: mb.get(k) for k in
-                            ("sample_size", "admitted_precision", "candidate_uphold_rate", "judge_errors")}
+                            ("sample_size", "rule_admitted", "admitted_precision",
+                             "candidate_uphold_rate", "judge_errors")}
 
     phase_status = {
         "REPRODUCIBILITY": gate["G01"]["status"],
@@ -81,7 +86,9 @@ def main() -> int:
         "TRADITION": gate["G07"]["status"],
         "PROCESS": gate["G08"]["status"],
         "FLOW": gate["G09"]["status"],
-        "INTERPRETATION": "NOT_MEASURED",  # 解释层表已建，内容层未填充
+        "INTERPRETATION": ("PASS" if counts.get("interpretations", 0) > 0
+                           and counts.get("interpretations_without_evidence", 1) == 0
+                           else ("FAIL" if counts.get("interpretations", 0) > 0 else "NOT_MEASURED")),
         "STRUCTURAL_GAP_ENGINE": "PASS" if gate["G12/G13"]["status"] == "PASS" else gate["G12/G13"]["status"],
         "RESEARCH_ENGINE": gate["G12/G13"]["status"],
         "DIGITAL_HUMANITIES_BENCHMARK": "PASS(questions_only)",
@@ -106,7 +113,7 @@ def main() -> int:
         "membership_benchmark": membership_bench,
         "counts": counts,
         "notes": [
-            "FINAL STATUS=FAIL 的未达项（§120）：INTERPRETATION 内容层、RED_TEAM、BURN_IN 2/3、SOAK_TEST、常驻自主增长——时间预算内诚实记录，不虚报。",
+            "未达 PASS 项（§120）：" + "; ".join(f"{k}={v}" for k, v in phase_status.items() if v != "PASS") or "无",
             "按 §0.4：代码完成/SQL成功/HTTP200/数据库有数据均不视为完成；完成只由验收门禁决定。",
         ],
     }

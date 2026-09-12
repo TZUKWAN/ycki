@@ -60,6 +60,28 @@ def main() -> int:
                 """, (stmt, "synthesis_engine", f"synthesis_rule_v2_0@{r.get('seed','')}",
                       r.get("name", ""), kind, oid, r.get("coverage")))
                 imported += 1
+        # §45 解释必须携带 supporting sources：从字段级证据表复制支持链
+        with conn.cursor() as cur:
+            cur.execute("""
+                INSERT INTO interpretation_evidence (interpretation_id, evidence_id, claim_id, resource_id, stance)
+                SELECT i.interpretation_id, te.evidence_id, te.claim_id, te.resource_id, 'SUPPORT'
+                FROM interpretations i
+                JOIN cultural_traditions t ON i.subject_kind='TRADITION' AND i.subject_id=t.tradition_id
+                JOIN tradition_evidence te ON te.tradition_id=t.tradition_id
+                WHERE NOT EXISTS (SELECT 1 FROM interpretation_evidence x
+                                  WHERE x.interpretation_id=i.interpretation_id
+                                    AND x.evidence_id IS NOT DISTINCT FROM te.evidence_id)
+            """)
+            cur.execute("""
+                INSERT INTO interpretation_evidence (interpretation_id, evidence_id, claim_id, resource_id, stance)
+                SELECT i.interpretation_id, pe.evidence_id, pe.claim_id, pe.resource_id, 'SUPPORT'
+                FROM interpretations i
+                JOIN cultural_processes p ON i.subject_kind='PROCESS' AND i.subject_id=p.process_id
+                JOIN process_evidence pe ON pe.process_id=p.process_id
+                WHERE NOT EXISTS (SELECT 1 FROM interpretation_evidence x
+                                  WHERE x.interpretation_id=i.interpretation_id
+                                    AND x.evidence_id IS NOT DISTINCT FROM pe.evidence_id)
+            """)
         conn.commit()
         cur_count = None
         with conn.cursor() as cur:
