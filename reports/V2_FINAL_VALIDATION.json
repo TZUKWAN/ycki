@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-13T04:51:35+0800",
-  "git_commit": "2352236",
+  "generated_at": "2026-09-13T05:05:40+0800",
+  "git_commit": "49798b6",
   "final_status": "FAIL",
   "phase_status": {
     "REPRODUCIBILITY": "PASS",
@@ -14,13 +14,13 @@
     "INTERPRETATION": "PASS",
     "STRUCTURAL_GAP_ENGINE": "PASS",
     "RESEARCH_ENGINE": "PASS",
-    "DIGITAL_HUMANITIES_BENCHMARK": "PARTIAL(questions_ready,answers_not_measured)",
+    "DIGITAL_HUMANITIES_BENCHMARK": "PASS(proxy_eval,mean=0.917)",
     "GOLDEN_TEN": "PARTIAL(structures_partial,flows=0)",
     "RED_TEAM": "PASS",
     "CLEAN_ROOM": "PASS(2026-09-13 twice)",
     "BURN_IN": "PASS_PARTIAL_GAIN",
     "SOAK_TEST": "PASS",
-    "CULTURAL_SYSTEM_AUTONOMOUS_GROWTH": "CYCLE_MODE(手动触发)NOT_DAEMON",
+    "CULTURAL_SYSTEM_AUTONOMOUS_GROWTH": "RUNNING(daemon cycle 1)",
     "CANONICAL_V1_REGRESSION": "PASS"
   },
   "gates": [
@@ -114,7 +114,7 @@
       "name": "Provenance",
       "status": "PASS",
       "metrics": {
-        "traditions_with_resource": 4,
+        "traditions_with_resource": 3,
         "traditions_total": 6,
         "processes_with_resource": 5,
         "processes_total": 6
@@ -138,7 +138,7 @@
       "name": "canonical_v1 regression guard",
       "status": "PASS",
       "metrics": {
-        "resources": 3733,
+        "resources": 3734,
         "admitted_claims": 4394,
         "entities": 27625,
         "claims_without_evidence": 0
@@ -155,7 +155,7 @@
     "interpretation": "单模型受限：同模型证据丰富判官=准入终审（自洽不可作金标）；本 precision 为信息饥饿盲判官一致率（诊断指标，系统性低于准入判官）；多模型金标 P/R/F1 因网关仅 1 稳定模型而 NOT_MEASURED"
   },
   "counts": {
-    "resources": 3733,
+    "resources": 3734,
     "entities": 27625,
     "claims_admitted": 4394,
     "evidence": 4820,
@@ -181,7 +181,7 @@
     "tasks_resolved": 0
   },
   "notes": [
-    "未达 PASS 项（§120）：DIGITAL_HUMANITIES_BENCHMARK=PARTIAL(questions_ready,answers_not_measured); GOLDEN_TEN=PARTIAL(structures_partial,flows=0); CLEAN_ROOM=PASS(2026-09-13 twice); BURN_IN=PASS_PARTIAL_GAIN; CULTURAL_SYSTEM_AUTONOMOUS_GROWTH=CYCLE_MODE(手动触发)NOT_DAEMON",
+    "未达 PASS 项（§120）：DIGITAL_HUMANITIES_BENCHMARK=PASS(proxy_eval,mean=0.917); GOLDEN_TEN=PARTIAL(structures_partial,flows=0); CLEAN_ROOM=PASS(2026-09-13 twice); BURN_IN=PASS_PARTIAL_GAIN; CULTURAL_SYSTEM_AUTONOMOUS_GROWTH=RUNNING(daemon cycle 1)",
     "按 §0.4：代码完成/SQL成功/HTTP200/数据库有数据均不视为完成；完成只由验收门禁决定。"
   ]
 }

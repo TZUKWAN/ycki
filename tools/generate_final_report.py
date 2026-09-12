@@ -87,6 +87,13 @@ def main() -> int:
     red_team = _json_report("V2_RED_TEAM_REPORT.json")
     soak = _json_report("V2_SOAK_REPORT.json")
     burn_in = _json_report("V2_BURN_IN_REPORT.json")
+    dh = _json_report("V2_DH_BENCHMARK_ANSWERS.json")
+    try:
+        daemon = json.loads((ROOT / "reports" / "V2_GROWTH_DAEMON_HEARTBEAT.json")
+                            .read_text(encoding="utf-8"))
+    except Exception:
+        daemon = {}
+    dh_ok = dh.get("answered") == 100 and (dh.get("mean_score") or 0) >= 0.85
 
     phase_status = {
         "REPRODUCIBILITY": gate["G01"]["status"],
@@ -102,7 +109,8 @@ def main() -> int:
                            else ("FAIL" if counts.get("interpretations", 0) > 0 else "NOT_MEASURED")),
         "STRUCTURAL_GAP_ENGINE": "PASS" if gate["G12/G13"]["status"] == "PASS" else gate["G12/G13"]["status"],
         "RESEARCH_ENGINE": gate["G12/G13"]["status"],
-        "DIGITAL_HUMANITIES_BENCHMARK": "PARTIAL(questions_ready,answers_not_measured)",
+        "DIGITAL_HUMANITIES_BENCHMARK": ("PASS(proxy_eval,mean=%.3f)" % dh["mean_score"]
+                                         if dh_ok else "PARTIAL(questions_ready,answers_not_measured)"),
         "GOLDEN_TEN": "PARTIAL(structures_partial,flows=0)",
         "RED_TEAM": ("PASS" if red_team.get("total_cases", 0) >= 500 and red_team.get("breaches") == 0
                      else ("FAIL" if red_team else "NOT_MEASURED")),
@@ -111,7 +119,9 @@ def main() -> int:
         "SOAK_TEST": ("PASS" if soak.get("cycles_completed", 0) >= 10
                       and soak.get("zero_violation_across_run") else
                       (f"PARTIAL({soak.get('cycles_completed', 0)}/10)" if soak else "NOT_MEASURED")),
-        "CULTURAL_SYSTEM_AUTONOMOUS_GROWTH": "CYCLE_MODE(手动触发)NOT_DAEMON",
+        "CULTURAL_SYSTEM_AUTONOMOUS_GROWTH": ("RUNNING(daemon cycle %s)" % daemon["cycle"]
+                                              if daemon.get("state") in ("RUNNING_CYCLE", "IDLE")
+                                              else "CYCLE_MODE(NOT_DAEMON)"),
         "CANONICAL_V1_REGRESSION": gate["V1REG"]["status"],
     }
     all_pass = all(v == "PASS" for v in phase_status.values())
