@@ -1,61 +1,29 @@
 {
-  "sample_size": 200,
-  "rule_admitted": 92,
-  "judge_admit_uphold": 23,
-  "admitted_precision": 0.25,
+  "sample_size": 131,
+  "rule_admitted": 23,
+  "judge_admit_uphold": 12,
+  "admitted_precision": 0.5217,
   "rule_candidate": 108,
-  "judge_candidate_uphold": 85,
-  "candidate_uphold_rate": 0.787,
-  "judge_errors": 0,
+  "judge_candidate_uphold": 86,
+  "candidate_uphold_rate": 0.7963,
+  "judge_errors": 1,
   "note": "单模型(Qwen3.6-35B-A3B)判官一致率，非多模型金标；分歧明细见 disputes",
   "disputes": [
     {
-      "mid": "ede1bd54-7168-42e1-90a2-d3da5358cd12",
-      "name": "恩施县",
+      "mid": "adc97523-2fa4-4390-8927-9da4cbd2fe3b",
+      "name": "铜绿山古铜矿遗址",
       "system": "荆楚文化系统",
       "rule": "ADMITTED",
       "judge": "REJECT",
-      "reason": "仅具地理隶属关系，缺乏文化创作或制度等实质关联证据。"
+      "reason": "仅地理关联湖北，缺乏荆楚文化实质联系证据。"
     },
     {
-      "mid": "b7cdbde7-05e0-4f08-8908-84e76dca46bd",
-      "name": "江苏省",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅地理关联，无独立文化锚点证明其属于吴越文化系统。"
-    },
-    {
-      "mid": "399938ad-1cfb-419d-bc83-011a9b831fb0",
-      "name": "南京市",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "南京属江淮文化区，非吴越文化区，地理与定义矛盾。"
-    },
-    {
-      "mid": "ff2a2d91-f45c-42f0-a391-80aa0a45fd36",
-      "name": "安徽省",
-      "system": "赣皖文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅地理关联，且江南贡院属江苏，无实质文化联系。"
-    },
-    {
-      "mid": "c6db9868-5455-47af-a06f-afe068f63859",
-      "name": "宜昌市",
+      "mid": "7e160950-1c62-4701-a26b-43258cb0e2ac",
+      "name": "沙市市",
       "system": "荆楚文化系统",
       "rule": "ADMITTED",
       "judge": "REJECT",
-      "reason": "仅具地理隶属关系，缺乏文化创作、事件或技艺等实质关联证据。"
-    },
-    {
-      "mid": "8062906c-fd98-41e0-86e2-4f9c0788f1ce",
-      "name": "四川敘永",
-      "system": "巴蜀文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理关联，缺乏与巴蜀文化实质互动的独立锚点证据。"
+      "reason": "仅具地理归属，缺乏文化创作或制度等实质关联证据。"
     },
     {
       "mid": "3e60c501-39ba-4f6a-9583-98802526ce3c",
@@ -66,348 +34,20 @@
       "reason": "仅具地理关联，缺乏创作、事件等实质文化锚点证明。"
     },
     {
-      "mid": "81f16d68-7bcb-4794-8c92-e71f961b2195",
-      "name": "南京",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "南京属江淮文化，非吴越文化区，地理与描述均不符。"
-    },
-    {
-      "mid": "88ea0678-09a1-48a0-9ffc-d966d609a2b4",
-      "name": "武汉",
+      "mid": "acd49382-5595-4379-9a65-6a233a16fd1f",
+      "name": "大冶铁矿",
       "system": "荆楚文化系统",
       "rule": "ADMITTED",
       "judge": "REJECT",
-      "reason": "仅体现地理归属，缺乏文化创作、事件或技艺等实质关联证据。"
+      "reason": "仅具地理关联，缺乏荆楚文化特有的创作、事件或技艺等实质文化锚点。"
     },
     {
-      "mid": "7432c8e2-6416-4708-9cc8-8d936e027463",
-      "name": "万州区",
-      "system": "巴蜀文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理关联，缺乏创作、事件等独立文化锚点证明。"
-    },
-    {
-      "mid": "eba8901b-01d5-489b-a2b4-90e1be58b079",
-      "name": "南京",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "南京属江淮文化，非吴越文化区，地理与描述均不符。"
-    },
-    {
-      "mid": "7189684c-f692-49c3-9277-a31d53ab92a0",
-      "name": "江苏海门",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "海门属苏北，地理上不属于吴越文化区核心范围，仅籍贯关联不足。"
-    },
-    {
-      "mid": "98abb219-badb-4257-8a16-037e38272ba3",
-      "name": "上海辣斐德路1288号",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理关联，无独立文化锚点证明其属于吴越文化系统。"
-    },
-    {
-      "mid": "3c8c2cea-655c-4172-83bc-22a8906a6c93",
-      "name": "湖北省",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理关联，缺乏创作、制度等独立文化锚点证明实质联系。"
-    },
-    {
-      "mid": "0b003dff-1d91-472d-8ae4-c9c4e5d11eb1",
-      "name": "湖北",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅地理关联，缺乏创作、事件等独立文化锚点证明实质联系。"
-    },
-    {
-      "mid": "5874a14a-d653-485d-8c76-1f9012c09730",
-      "name": "湖南",
+      "mid": "4d9efe33-ece3-4c08-abdf-95382ee414f9",
+      "name": "株洲博物馆",
       "system": "湖湘文化系统",
       "rule": "ADMITTED",
       "judge": "REJECT",
-      "reason": "仅体现地理包含关系，缺乏创作、事件等独立文化锚点证明实质联系。"
-    },
-    {
-      "mid": "0d43cd8d-4520-4fd3-8d51-fb4438fd73ed",
-      "name": "江苏海门",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅地理关联，属江淮文化区，与吴越文化区地理范围不符。"
-    },
-    {
-      "mid": "81fe05a9-8fe2-4609-b16f-546329fb07dc",
-      "name": "镇江",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "镇江属江淮文化区，非吴越文化区，地理与文化归属均不符。"
-    },
-    {
-      "mid": "3c35da41-4c99-4702-8572-38a137a463f2",
-      "name": "泰州",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "泰州属江淮文化区，非吴越文化区，地理与文化归属均不符。"
-    },
-    {
-      "mid": "a267a356-adbe-4035-8127-18dbf85c9bc4",
-      "name": "南京",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "南京属江淮文化区，非吴越文化区，地理与文化归属均不符。"
-    },
-    {
-      "mid": "d01eb765-1bb7-412e-a7d3-440e536cdd77",
-      "name": "安徽省",
-      "system": "赣皖文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅扬剧影响属地理关联，缺乏创作等实质文化锚点，不满足接纳标准。"
-    },
-    {
-      "mid": "083fa0bc-6f6c-428d-9ccd-5de4c6b9f4e3",
-      "name": "南昌",
-      "system": "赣皖文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理关联，缺乏文化实质联系证据。"
-    },
-    {
-      "mid": "2ff04e69-fea1-49ad-a302-3176d5249700",
-      "name": "安徽省",
-      "system": "赣皖文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅地理关联，无文化实质联系证据，不符合接纳标准。"
-    },
-    {
-      "mid": "082ea787-339a-45a9-b4c4-f50ef3210296",
-      "name": "九江",
-      "system": "赣皖文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅地理关联江西，缺乏与赣皖文化实质互动的独立锚点证据。"
-    },
-    {
-      "mid": "0233bd60-b754-4d56-9217-a28ee85c98f2",
-      "name": "无锡",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅描述商业地位，缺乏与吴越文化在技艺、信仰或制度上的实质关联证据。"
-    },
-    {
-      "mid": "70a5b2bf-ce1b-42e3-a8b5-dad7814f2f30",
-      "name": "湖北省",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅体现地理隶属关系，缺乏文化创作、事件或技艺等实质关联证据。"
-    },
-    {
-      "mid": "fd088853-8577-444f-96ee-6b3176f31107",
-      "name": "湖北省浠水县巴河",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅凭出生地地理关联，缺乏文化技艺或事件等实质锚点证明。"
-    },
-    {
-      "mid": "e0cabc9b-cddd-46c3-a291-4f78599b934f",
-      "name": "嘉兴南湖",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理关联，缺乏吴越文化特有的创作、技艺或信仰等实质文化锚点。"
-    },
-    {
-      "mid": "83871b66-a289-4824-aeea-1224ea5dbd3d",
-      "name": "江西",
-      "system": "赣皖文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅体现地理归属，缺乏创作、事件等独立文化锚点证明实质联系。"
-    },
-    {
-      "mid": "8d2adf4e-b3c2-4805-a311-a3ec8cf68889",
-      "name": "湖北江陵",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅凭出生地地理关联，缺乏与荆楚文化实质互动的独立锚点证据。"
-    },
-    {
-      "mid": "2878d975-3409-412e-8c76-bee4548e65f5",
-      "name": "湖北沔阳",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅陈友谅故乡属历史人物关联，缺乏荆楚文化技艺或信仰等实质锚点。"
-    },
-    {
-      "mid": "1d399186-4d5d-4895-992c-06b214fc54cb",
-      "name": "杭州",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅体现地理归属，缺乏吴越文化特有的技艺或制度等实质关联证据。"
-    },
-    {
-      "mid": "6be6a1b0-5846-4b1f-ba5f-c06c7758443b",
-      "name": "江苏省",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理关联，缺乏文化实质联系证据，不符合接纳标准。"
-    },
-    {
-      "mid": "db883283-342b-47b2-a7dc-d1e848508d57",
-      "name": "湖北省",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅体现地理归属，缺乏文化创作或事件等实质关联证据。"
-    },
-    {
-      "mid": "32780546-07c0-4340-af9c-a99de005f374",
-      "name": "景德镇",
-      "system": "赣皖文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理关联，缺乏技艺、事件等独立文化锚点证明。"
-    },
-    {
-      "mid": "46c5ef15-2601-459d-8f2e-05878bc9f308",
-      "name": "南京",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "南京属江淮文化，非吴越文化区，地理与归属均不符。"
-    },
-    {
-      "mid": "9ec74947-62e0-4f8e-b816-85efb5717559",
-      "name": "镇江",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理关联，缺乏文化实质联系证据，不符合接纳标准。"
-    },
-    {
-      "mid": "414fceff-92ff-4713-881d-80a9135e44a2",
-      "name": "青海省",
-      "system": "羌藏文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅地理关联，缺乏文化创作、事件或制度等实质锚点证明。"
-    },
-    {
-      "mid": "9cb841b8-00ec-4b27-b543-1ac5d99e8d37",
-      "name": "扬州",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "扬州属江淮文化区，非吴越文化区地理范围，且无实质文化关联证据。"
-    },
-    {
-      "mid": "3588c649-be24-40dd-a598-89559532e64a",
-      "name": "湖南省邵阳县",
-      "system": "湖湘文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "实体描述自相矛盾，魏源出生地实为隆回县，非邵阳县，且仅有地理关联。"
-    },
-    {
-      "mid": "bf424672-fcbf-42ef-924d-ae9c7f32f3e4",
-      "name": "湖北红安",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅体现籍贯地理关联，缺乏与荆楚文化实质互动的独立锚点证据。"
-    },
-    {
-      "mid": "34e82d3b-2fa5-4ac1-8931-328525dc0ae4",
-      "name": "湖南省",
-      "system": "湖湘文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅体现地理包含关系，缺乏创作、事件等独立文化锚点证明实质联系。"
-    },
-    {
-      "mid": "5bca9f0a-15db-46f5-a440-6c823afc95f0",
-      "name": "四川",
-      "system": "巴蜀文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅含地理关联，缺乏创作、事件等独立文化锚点证明。"
-    },
-    {
-      "mid": "e6f18746-b519-463c-b818-1f1dbd902c90",
-      "name": "甘孜藏族自治州德格县",
-      "system": "巴蜀文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅地理关联，缺乏巴蜀文化实质联系，属藏文化系统。"
-    },
-    {
-      "mid": "01004d8c-4aa7-4261-abe0-537e1c7decd7",
-      "name": "南京",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "南京属江淮文化区，非吴越文化区，地理与描述均不符。"
-    },
-    {
-      "mid": "b3f82fb1-b9ee-4b22-a66a-b15c7a11bb9c",
-      "name": "宜宾市",
-      "system": "巴蜀文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理关联，缺乏与巴蜀文化实质互动的独立锚点证据。"
-    },
-    {
-      "mid": "9a5ba904-1ffd-44c3-868a-ee2f94b77d7e",
-      "name": "四川敘州府",
-      "system": "巴蜀文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理行政归属，缺乏文化创作或信仰等实质关联证据。"
-    },
-    {
-      "mid": "79395c6c-2564-4a88-b320-a382f6807230",
-      "name": "湖北",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅体现地理关联，缺乏创作、事件等独立文化锚点证明实质联系。"
-    },
-    {
-      "mid": "4264405a-935a-415c-ac60-be2831f68f4f",
-      "name": "荆湖南路",
-      "system": "湖湘文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅为宋代行政区划，属地理概念，缺乏湖湘文化实质内容关联。"
-    },
-    {
-      "mid": "354a076e-9860-489f-bacc-9195d4de6b5e",
-      "name": "荆湖北路",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅为宋代行政区划，属地理概念，缺乏文化实质关联证据。"
+      "reason": "仅具地理关联，缺乏与湖湘文化思想、技艺等实质互动的独立证据。"
     },
     {
       "mid": "234f9410-6ea3-46cc-a922-d10240c36940",
@@ -418,36 +58,36 @@
       "reason": "仅具地理关联，缺乏文化创作或事件等实质锚点证明。"
     },
     {
-      "mid": "9544ed9b-d2e5-4bb9-a024-ab243220075b",
-      "name": "长沙国",
-      "system": "湖湘文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理关联，缺乏湖湘文化实质联系证据。"
-    },
-    {
-      "mid": "e3e1ffb2-7a42-4bfd-90e0-344134ab91a5",
-      "name": "黄石市",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理隶属关系，缺乏文化创作、事件或技艺等实质关联证据。"
-    },
-    {
-      "mid": "babf8d2e-4599-4c3a-a7a6-726596fb640a",
-      "name": "江苏南京",
+      "mid": "d99e6930-1a95-4086-a066-138fedc503d1",
+      "name": "尼泊尔馆",
       "system": "吴越文化系统",
       "rule": "ADMITTED",
       "judge": "REJECT",
-      "reason": "仅地理关联，南京属江淮文化，非吴越文化区，无实质文化联系。"
+      "reason": "仅地理关联上海，缺乏吴越文化实质联系，证据不足。"
     },
     {
-      "mid": "9dac15a1-aade-4a03-ba72-5b869b204064",
-      "name": "宜昌桃花岭饭店",
-      "system": "荆楚文化系统",
+      "mid": "7645ab4c-6da1-4d9d-a840-4c8e3d4cbda8",
+      "name": "韩殿甲",
+      "system": "赣皖文化系统",
       "rule": "ADMITTED",
       "judge": "REJECT",
-      "reason": "仅涉行政会议地点，属地理关联，缺乏与荆楚文化的实质文化锚点。"
+      "reason": "韩殿甲活动于上海，与赣皖地理无实质文化关联，仅地理不符。"
+    },
+    {
+      "mid": "419d8f65-b8e5-4554-9b22-95d7f1d8db52",
+      "name": "滕王阁",
+      "system": "赣皖文化系统",
+      "rule": "ADMITTED",
+      "judge": "REJECT",
+      "reason": "仅具地理关联，缺乏创作、事件等独立文化锚点证明其成员身份。"
+    },
+    {
+      "mid": "5343ded4-4a1f-4ba7-a62a-0d778b84d3a1",
+      "name": "白鹤梁水下博物馆",
+      "system": "巴蜀文化系统",
+      "rule": "ADMITTED",
+      "judge": "REJECT",
+      "reason": "仅具地理关联，隶属三峡博物馆，缺乏巴蜀文化实质联系。"
     },
     {
       "mid": "9fe8f52f-0e21-4002-824c-fd29d85abc8a",
@@ -458,260 +98,60 @@
       "reason": "扬州属江淮文化区，非吴越文化区，地理与文化归属均不符。"
     },
     {
-      "mid": "4f6fde0f-0cec-4bf9-9ce6-e6c8ab53ac77",
-      "name": "湖北省",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅体现行政归属，缺乏创作、技艺等实质文化关联证据。"
-    },
-    {
-      "mid": "f95db9d4-f780-4cee-bccf-124ce57afa9b",
-      "name": "安庆",
-      "system": "赣皖文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅地理关联，缺乏文化实质联系证据"
-    },
-    {
-      "mid": "1437256d-d736-4d4e-a3ce-81fbd4209423",
-      "name": "舒州安庆军",
-      "system": "赣皖文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理关联，缺乏文化实质联系证据。"
-    },
-    {
-      "mid": "934c2116-b5a7-4904-a8d7-a5611c338f30",
-      "name": "扬州",
-      "system": "吴越文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "扬州属江淮文化，地理上位于江北，与吴越文化区定义矛盾。"
-    },
-    {
-      "mid": "b022c168-c8f4-4796-a578-487aa648f1e8",
-      "name": "湖北枣阳鹿头镇",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅凭籍贯地理关联，缺乏文化技艺或事件等实质锚点证明。"
-    },
-    {
-      "mid": "f98feae9-4d82-47f3-8666-ee56a7660404",
-      "name": "荆州市",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅体现地理归属，缺乏文化创作、事件或技艺等实质关联证据。"
-    },
-    {
-      "mid": "9c165a95-1ae0-42b6-bd39-0746a07c9467",
-      "name": "芜湖市",
-      "system": "赣皖文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理关联，缺乏文化实质联系证据。"
-    },
-    {
-      "mid": "82cd5cc0-3f2c-4809-abf9-86f0934cfe8d",
-      "name": "长沙府",
-      "system": "湖湘文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅描述地理流经，缺乏文化创作、制度或信仰等实质关联证据。"
-    },
-    {
-      "mid": "11ee1765-9ea9-4199-8fce-4e84d79d68e6",
-      "name": "贵州",
-      "system": "滇黔文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅凭出生地地理关联，缺乏文化实质联系，不符合接纳标准。"
-    },
-    {
-      "mid": "a022956d-f527-40bc-a284-171aafb3fc11",
-      "name": "涪陵县",
-      "system": "巴蜀文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅体现行政隶属与地理关联，缺乏文化实质联系证据。"
-    },
-    {
-      "mid": "596e6862-8ea2-4c63-a90c-6de1e155c853",
-      "name": "重庆府",
-      "system": "巴蜀文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅地理关联，无文化实质联系证据，不符合接纳标准。"
-    },
-    {
-      "mid": "9a5f735b-6072-4657-87bd-836aaeb136f7",
-      "name": "长寿县",
-      "system": "巴蜀文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅具地理隶属关系，缺乏文化创作或制度等实质关联证据。"
-    },
-    {
-      "mid": "ff980f3f-bd40-454d-90c2-b6555fc4431e",
-      "name": "湖北省",
-      "system": "荆楚文化系统",
-      "rule": "ADMITTED",
-      "judge": "REJECT",
-      "reason": "仅地理关联，缺乏创作、事件等独立文化锚点证明。"
-    },
-    {
-      "mid": "06dc8767-64c7-4a88-b273-5392797e719c",
-      "name": "宜昌",
-      "system": "荆楚文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "宜昌属荆楚文化区，拥有屈原故里、楚辞发源地等核心文化锚点，非仅地理关联。"
-    },
-    {
-      "mid": "12335758-9024-41cd-8b29-ea57a51bbe40",
-      "name": "浙江杭州茅家埠村",
-      "system": "吴越文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "都锦生织锦技艺属吴越文化核心非遗，实体为其发源地，具实质文化关联。"
-    },
-    {
-      "mid": "bfffde6a-6b95-42d8-90e6-9b5551259ab9",
-      "name": "成都",
-      "system": "巴蜀文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "成都为巴蜀地理核心，且为上河帮川菜中心，兼具地理与饮食技艺双重文化锚点。"
-    },
-    {
-      "mid": "a3b9cf17-3de8-411e-923d-41c0d11870c3",
-      "name": "重庆",
-      "system": "巴蜀文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "重庆属巴蜀文化区，方言、饮食及文学创作均体现巴蜀文化特质，符合实质联系标准。"
-    },
-    {
-      "mid": "eb23ad16-7ed7-4207-b860-4340144474af",
-      "name": "重庆市",
-      "system": "巴蜀文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "重庆属巴蜀文化区，共享方言、饮食及历史渊源，具实质文化联系。"
-    },
-    {
-      "mid": "26ffcbb3-431e-4fc5-843a-3ff6db6e805d",
-      "name": "重庆",
-      "system": "巴蜀文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "重庆属巴蜀文化区，共享方言、饮食及历史脉络，具实质文化联系。"
-    },
-    {
-      "mid": "559b3a42-2078-4980-9d5f-7a4cbcfd4a88",
-      "name": "武汉",
-      "system": "荆楚文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "武汉为荆楚文化核心城市，具历史事件、地域信仰及技艺等多重实质文化关联。"
-    },
-    {
-      "mid": "95092cfd-45c1-4178-8f34-583966e72092",
-      "name": "乐山",
-      "system": "巴蜀文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "乐山大佛为巴蜀佛教艺术代表，体现地域信仰与技艺，具实质文化联系。"
-    },
-    {
-      "mid": "ea1e2e1f-23f6-43e2-b17e-be8e1ebdecff",
-      "name": "湖南长沙浏阳",
-      "system": "湖湘文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "谭嗣同为湖湘文化代表人物，其籍贯与安葬地构成实质文化关联。"
-    },
-    {
-      "mid": "2d220962-d227-4ac3-9445-3c6f41a9d6fb",
-      "name": "江西",
-      "system": "赣皖文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "江西为赣文化核心发源地，拥有独立的方言、戏曲及历史制度，符合文化成员标准。"
-    },
-    {
-      "mid": "2dfed9b2-4729-475b-85be-b299106a137e",
-      "name": "湖州市",
-      "system": "吴越文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "湖州属吴语区，南浔新市为典型江南水乡，具吴越文化地域与民俗实质联系。"
-    },
-    {
-      "mid": "acb0f5c5-432d-4f87-bf9e-2db4d82a4403",
-      "name": "泸州",
-      "system": "巴蜀文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "泸州属巴蜀地理范围，且为梁州建制，具历史制度关联，符合文化成员标准。"
-    },
-    {
-      "mid": "1db7e15a-243f-4999-a6c0-ffa0af6d6a75",
-      "name": "苏州",
-      "system": "吴越文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "苏州属吴越地理范围，苏绣为吴越核心技艺，满足地理与技艺双重锚点。"
-    },
-    {
-      "mid": "bbaa1cea-6553-400b-92cf-84c7627c6d8d",
-      "name": "随州",
-      "system": "荆楚文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "李白访道事件属荆楚文化圈历史记忆，具实质文化关联，非仅地理。"
-    },
-    {
-      "mid": "19375c96-665f-4ee2-9b2a-425bb3ea2855",
+      "mid": "4b70f4b8-1e3c-4e61-9962-a30e2c6b8081",
       "name": "上海",
       "system": "吴越文化系统",
       "rule": "CANDIDATE",
       "judge": "ADMIT",
-      "reason": "上海菜属吴越饮食文化，具技艺与地域实质联系，非仅地理关联。"
+      "reason": "上海属吴越文化区，具吴语、评弹等核心文化特征，符合实质联系标准。"
     },
     {
-      "mid": "0810a1e4-7661-488c-9fa5-02476b09bb7d",
-      "name": "长沙市",
-      "system": "湖湘文化系统",
+      "mid": "d65588ca-8a3f-4fe6-a187-5d7f09e4f7ff",
+      "name": "上海市",
+      "system": "吴越文化系统",
       "rule": "CANDIDATE",
       "judge": "ADMIT",
-      "reason": "岳麓书院为湖湘文化核心载体，体现教育制度与思想传承，具实质文化关联。"
+      "reason": "上海属吴语区，饮食、戏曲等具典型吴越文化特征，非仅地理关联。"
     },
     {
-      "mid": "28b68880-c6ce-41b4-8fdc-a948d6c23c4a",
+      "mid": "708a1b67-eac2-4dd6-9e1d-a559da8ea9a2",
       "name": "重庆市",
       "system": "巴蜀文化系统",
       "rule": "CANDIDATE",
       "judge": "ADMIT",
-      "reason": "重庆属巴蜀文化区，共享方言、饮食及历史渊源，具实质文化联系。"
+      "reason": "湖广会馆见证湖广填四川移民史，属巴蜀文化核心历史事件，具实质文化联系。"
     },
     {
-      "mid": "532e9168-3e22-4a43-bc17-a97d78e5c3f9",
-      "name": "重庆市",
+      "mid": "2e6c9678-cb04-41f8-a17a-94a3c06ce938",
+      "name": "苏州",
+      "system": "吴越文化系统",
+      "rule": "CANDIDATE",
+      "judge": "ADMIT",
+      "reason": "苏绣为吴越核心技艺，且苏州位于吴越地理范围，具技艺与地理双重锚点。"
+    },
+    {
+      "mid": "63e21e70-4ca3-44de-a6c0-c0378d13a0a7",
+      "name": "成都平原",
       "system": "巴蜀文化系统",
       "rule": "CANDIDATE",
       "judge": "ADMIT",
-      "reason": "重庆属巴蜀文化区，磁器口体现巴蜀民俗与建筑技艺，具实质文化联系。"
+      "reason": "李冰治水属巴蜀核心历史事件，奠定区域文明基础，具实质文化联系。"
     },
     {
-      "mid": "fb2407fa-2795-4826-8286-a93b459db5e0",
-      "name": "湘西土家族苗族自治州",
-      "system": "湖湘文化系统",
+      "mid": "7f69d282-9c03-43d7-a596-610fc586785e",
+      "name": "无锡",
+      "system": "吴越文化系统",
       "rule": "CANDIDATE",
       "judge": "ADMIT",
-      "reason": "属湖南地理范围，且土苗文化为湖湘文化多元构成之核心部分，具实质文化联系。"
+      "reason": "无锡属吴语太湖片，具锡剧、惠山泥人等典型吴越文化特征，非仅地理关联。"
+    },
+    {
+      "mid": "0f797d91-7cdf-4814-8c6c-91dd52014857",
+      "name": "荆州",
+      "system": "荆楚文化系统",
+      "rule": "CANDIDATE",
+      "judge": "ADMIT",
+      "reason": "楚国郢都属荆楚核心政治中心，具历史事件与制度实质联系。"
     },
     {
       "mid": "5167d94a-1bc8-405c-8932-300e2572bed7",
@@ -719,31 +159,111 @@
       "system": "吴越文化系统",
       "rule": "CANDIDATE",
       "judge": "ADMIT",
-      "reason": "上海属吴越文化区，具吴语、江南民俗等实质文化联系，非仅地理关联。"
+      "reason": "上海属吴越文化区，具吴语、越剧等核心文化特征，非仅地理关联。"
     },
     {
-      "mid": "52b4b473-8ea9-461c-bd2c-8eac0a9ba6b5",
-      "name": "湖州",
-      "system": "吴越文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "湖州属浙江北部，符合吴越文化区地理范围，且为丝绸产地，具实质文化联系。"
-    },
-    {
-      "mid": "75bf6e97-3bfb-4f28-8a11-c7aa47d5ba8c",
-      "name": "重庆市",
-      "system": "巴蜀文化系统",
-      "rule": "CANDIDATE",
-      "judge": "ADMIT",
-      "reason": "重庆属巴蜀文化区，共享方言、饮食及历史脉络，具实质文化联系。"
-    },
-    {
-      "mid": "3a59dae8-e8be-4136-994e-dff1d437eed7",
+      "mid": "45dbea6b-a4e2-4cd3-a3b1-4a9dbdb974fa",
       "name": "上海",
       "system": "吴越文化系统",
       "rule": "CANDIDATE",
       "judge": "ADMIT",
-      "reason": "上海属吴越文化区，方言、习俗及江南文化特征与系统实质契合。"
+      "reason": "江南制造总局为上海标志性近代工业事件，体现吴越地区近代化转型，具实质文化关联。"
+    },
+    {
+      "mid": "e981fe7f-1da4-4223-8f83-e32fe4e50d06",
+      "name": "湖州",
+      "system": "吴越文化系统",
+      "rule": "CANDIDATE",
+      "judge": "ADMIT",
+      "reason": "湖州属吴越核心区，具吴语、越窑青瓷等独立文化锚点，非仅地理关联。"
+    },
+    {
+      "mid": "febfe55d-9cec-4dc8-94f5-2a400338aef4",
+      "name": "重庆",
+      "system": "巴蜀文化系统",
+      "rule": "CANDIDATE",
+      "judge": "ADMIT",
+      "reason": "重庆属巴蜀文化区，拥有川剧、蜀绣等共同技艺及巴渝历史事件，具实质文化联系。"
+    },
+    {
+      "mid": "7675f1c6-dd0f-41a6-b062-8d681fc50a64",
+      "name": "攀枝花",
+      "system": "巴蜀文化系统",
+      "rule": "CANDIDATE",
+      "judge": "ADMIT",
+      "reason": "攀枝花位于四川，属巴蜀地理范围，且其工业移民文化融入巴蜀体系，具实质文化联系。"
+    },
+    {
+      "mid": "3385f74f-5859-47f1-adce-ffc94a4043f2",
+      "name": "上海",
+      "system": "吴越文化系统",
+      "rule": "CANDIDATE",
+      "judge": "ADMIT",
+      "reason": "上海属吴越文化区，具地理、历史及语言等多重实质文化关联。"
+    },
+    {
+      "mid": "b3540a47-308c-4c53-b673-80ae302bb214",
+      "name": "涪陵区",
+      "system": "巴蜀文化系统",
+      "rule": "CANDIDATE",
+      "judge": "ADMIT",
+      "reason": "属重庆辖区，深度融入巴蜀方言、饮食及民俗，具实质文化联系。"
+    },
+    {
+      "mid": "fedb61ca-613f-46a0-96ae-5f5471b79ece",
+      "name": "自贡",
+      "system": "巴蜀文化系统",
+      "rule": "CANDIDATE",
+      "judge": "ADMIT",
+      "reason": "具备地理锚点及盐帮菜技艺锚点，满足双锚点标准。"
+    },
+    {
+      "mid": "6a89ca2e-4801-4a4d-8a05-670bf69ad8ca",
+      "name": "常州宜兴县",
+      "system": "吴越文化系统",
+      "rule": "CANDIDATE",
+      "judge": "ADMIT",
+      "reason": "苏轼在此创作并定居，其文学活动与吴越文化区有实质联系。"
+    },
+    {
+      "mid": "4ee78181-4134-43be-9a6d-4da86ab1a398",
+      "name": "重庆市",
+      "system": "巴蜀文化系统",
+      "rule": "CANDIDATE",
+      "judge": "ADMIT",
+      "reason": "重庆为巴蜀文化核心区域，共享语言、饮食及历史制度，具实质文化联系。"
+    },
+    {
+      "mid": "bc0e332c-3557-4eb2-aa78-3bd2c7becf20",
+      "name": "湖北",
+      "system": "荆楚文化系统",
+      "rule": "CANDIDATE",
+      "judge": "ADMIT",
+      "reason": "湖北为荆楚文化核心发源地，拥有楚辞、编钟等独特文化标识，非仅地理关联。"
+    },
+    {
+      "mid": "183e0197-17a0-408c-88bb-aa950464a47c",
+      "name": "直隸常州府江陰縣",
+      "system": "吴越文化系统",
+      "rule": "CANDIDATE",
+      "judge": "ADMIT",
+      "reason": "徐霞客籍贯，其游记属吴越文化创作，具实质文化联系。"
+    },
+    {
+      "mid": "27cf04bb-e367-4e3e-82c5-3723ea1661d6",
+      "name": "杭州",
+      "system": "吴越文化系统",
+      "rule": "CANDIDATE",
+      "judge": "ADMIT",
+      "reason": "杭州为吴越文化核心，具吴语、越剧等独立文化锚点，非仅地理关联。"
+    },
+    {
+      "mid": "7d1ff8c4-a7b0-4604-a386-ca82672e0d6f",
+      "name": "衡阳县",
+      "system": "湖湘文化系统",
+      "rule": "CANDIDATE",
+      "judge": "ADMIT",
+      "reason": "王夫之作为湖湘文化核心代表人物，其出生地具有实质文化归属。"
     }
   ]
 }

@@ -76,6 +76,10 @@ def main() -> int:
         membership_bench = {k: mb.get(k) for k in
                             ("sample_size", "rule_admitted", "admitted_precision",
                              "candidate_uphold_rate", "judge_errors")}
+        membership_bench["interpretation"] = (
+            "单模型受限：同模型证据丰富判官=准入终审（自洽不可作金标）；"
+            "本 precision 为信息饥饿盲判官一致率（诊断指标，系统性低于准入判官）；"
+            "多模型金标 P/R/F1 因网关仅 1 稳定模型而 NOT_MEASURED")
 
     phase_status = {
         "REPRODUCIBILITY": gate["G01"]["status"],
