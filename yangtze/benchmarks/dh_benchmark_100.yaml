@@ -1,0 +1,814 @@
+version: dh_benchmark_v1
+description: 长江文化数字人文系统性研究问题基准（100题，10类×10题）
+total: 100
+questions:
+  # ============ STRUCTURE 结构（10题） ============
+  - id: DH-001
+    category: STRUCTURE
+    question: 长江文化由什么结构构成？
+    target_systems: [yangtze_culture]
+    required_object_types: [CulturalSystem, HydroSpatialUnit, CulturalDomain]
+    evidence_requirements: 必须给出系统成员关系、结构关系及每条的证据链
+    evaluation_dimensions: [structural_correctness, evidence_grounding, temporal_coherence, spatial_coherence, mechanism_explanation, uncertainty_honesty, citation_completeness]
+    difficulty: HARD
+  - id: DH-002
+    category: STRUCTURE
+    question: 长江水系怎样参与文化生成？
+    target_systems: [yangtze_culture]
+    required_object_types: [HydroSpatialUnit, CulturalSystem, HistoricalProcess]
+    evidence_requirements: 必须将水系单元与具体文化生成过程一一对应并给出文献或考古证据
+    evaluation_dimensions: [structural_correctness, evidence_grounding, spatial_coherence, mechanism_explanation, citation_completeness]
+    difficulty: HARD
+  - id: DH-003
+    category: STRUCTURE
+    question: 荆楚文化内部有哪些主要传统？
+    target_systems: [jing_chu]
+    required_object_types: [CulturalSystem, CulturalTradition, CulturalDomain]
+    evidence_requirements: 必须列出主要传统及其代表性载体与出处
+    evaluation_dimensions: [structural_correctness, evidence_grounding, citation_completeness]
+    difficulty: EASY
+  - id: DH-004
+    category: STRUCTURE
+    question: 长江文化的区域子系统如何依据水系与地理单元划分？
+    target_systems: [yangtze_culture]
+    required_object_types: [CulturalSystem, HydroSpatialUnit]
+    evidence_requirements: 必须给出每个子系统对应的水系单元与划分依据
+    evaluation_dimensions: [structural_correctness, spatial_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-005
+    category: STRUCTURE
+    question: 长江史前文明如何呈现多中心结构？
+    target_systems: [yangtze_culture]
+    required_object_types: [Site, CulturalSystem, HistoricalPhase]
+    evidence_requirements: 必须给出各史前中心的遗址证据及其并立关系
+    evaluation_dimensions: [structural_correctness, evidence_grounding, spatial_coherence, temporal_coherence, uncertainty_honesty]
+    difficulty: HARD
+  - id: DH-006
+    category: STRUCTURE
+    question: 巴蜀文化系统由哪些子区域文化与传统构成？
+    target_systems: [ba_shu]
+    required_object_types: [CulturalSystem, CulturalTradition, HydroSpatialUnit]
+    evidence_requirements: 必须区分巴文化与蜀文化的构成要素并给出证据
+    evaluation_dimensions: [structural_correctness, evidence_grounding, citation_completeness]
+    difficulty: EASY
+  - id: DH-007
+    category: STRUCTURE
+    question: 吴越文化与江南文化在结构上是什么关系？
+    target_systems: [wu_yue]
+    required_object_types: [CulturalSystem, CulturalDomain, HistoricalPhase]
+    evidence_requirements: 必须说明两者在时间层次与空间范围上的叠合关系
+    evaluation_dimensions: [structural_correctness, temporal_coherence, spatial_coherence, evidence_grounding]
+    difficulty: MEDIUM
+  - id: DH-008
+    category: STRUCTURE
+    question: 长江文化包含哪些核心文化领域及其载体？
+    target_systems: [yangtze_culture]
+    required_object_types: [CulturalDomain, CulturalTradition, Artifact]
+    evidence_requirements: 必须给出领域划分与代表性载体实例
+    evaluation_dimensions: [structural_correctness, evidence_grounding, citation_completeness]
+    difficulty: EASY
+  - id: DH-009
+    category: STRUCTURE
+    question: 湖湘文化系统由哪些学术传统与人物谱系构成？
+    target_systems: [hu_xiang]
+    required_object_types: [CulturalSystem, CulturalTradition, Person]
+    evidence_requirements: 必须给出人物及其著作或思想归属的证据
+    evaluation_dimensions: [structural_correctness, evidence_grounding, citation_completeness]
+    difficulty: EASY
+  - id: DH-010
+    category: STRUCTURE
+    question: 赣皖文化系统在长江下游文化格局中处于什么结构位置？
+    target_systems: [gan_wan, wu_yue]
+    required_object_types: [CulturalSystem, HydroSpatialUnit, CulturalFlow]
+    evidence_requirements: 必须说明赣皖与吴越、荆楚的连接机制
+    evaluation_dimensions: [structural_correctness, spatial_coherence, evidence_grounding, mechanism_explanation]
+    difficulty: MEDIUM
+  # ============ EVOLUTION 演进（10题） ============
+  - id: DH-011
+    category: EVOLUTION
+    question: 巴蜀文化如何形成并演进？
+    target_systems: [ba_shu]
+    required_object_types: [CulturalSystem, HistoricalPhase, HistoricalProcess]
+    evidence_requirements: 必须按分期给出形成与演进各阶段的证据链
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, mechanism_explanation, citation_completeness]
+    difficulty: HARD
+  - id: DH-012
+    category: EVOLUTION
+    question: 从河姆渡到良渚，长江下游史前稻作社会经历了怎样的演化阶段？
+    target_systems: [wu_yue]
+    required_object_types: [Site, HistoricalPhase, HistoricalProcess]
+    evidence_requirements: 必须给出各阶段遗址的稻作遗存与年代证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, mechanism_explanation, uncertainty_honesty]
+    difficulty: HARD
+  - id: DH-013
+    category: EVOLUTION
+    question: 楚国如何从早期方国发展为战国后期的区域强国？
+    target_systems: [jing_chu]
+    required_object_types: [Event, HistoricalPhase, Institution]
+    evidence_requirements: 必须给出疆域扩张与制度演进的关键节点证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, mechanism_explanation]
+    difficulty: MEDIUM
+  - id: DH-014
+    category: EVOLUTION
+    question: 六朝时期建康如何成为长江下游的政治文化中心？
+    target_systems: [wu_yue]
+    required_object_types: [Settlement, Event, CulturalDomain]
+    evidence_requirements: 必须说明政治重心南移与建康城市地位上升的过程证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, spatial_coherence]
+    difficulty: MEDIUM
+  - id: DH-015
+    category: EVOLUTION
+    question: 中国经济重心南移如何提升长江流域在全国格局中的地位？
+    target_systems: [yangtze_culture]
+    required_object_types: [HistoricalProcess, HydroSpatialUnit, CulturalDomain]
+    evidence_requirements: 必须给出南移的时段、指标与因果机制证据
+    evaluation_dimensions: [temporal_coherence, mechanism_explanation, evidence_grounding, uncertainty_honesty]
+    difficulty: HARD
+  - id: DH-016
+    category: EVOLUTION
+    question: 景德镇如何从宋元民窑演变为明清御窑厂与全球性瓷业中心？
+    target_systems: [gan_wan]
+    required_object_types: [Site, Institution, HistoricalProcess]
+    evidence_requirements: 必须给出窑址、御窑厂建制与外销规模证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-017
+    category: EVOLUTION
+    question: 上海如何从江海之间的县城演变为近代远东大都市？
+    target_systems: [wu_yue]
+    required_object_types: [Settlement, Event, Institution]
+    evidence_requirements: 必须给出开埠、人口与市政演进的关键数据来源
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, mechanism_explanation, citation_completeness]
+    difficulty: HARD
+  - id: DH-018
+    category: EVOLUTION
+    question: 重庆城市文化如何经历开埠、陪都与直辖三个阶段的演进？
+    target_systems: [ba_shu]
+    required_object_types: [Settlement, Event, HistoricalPhase]
+    evidence_requirements: 必须给出三个阶段各自的制度与城市形态证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-019
+    category: EVOLUTION
+    question: 徽州文化共同体如何形成并经历明清繁荣与近代转型？
+    target_systems: [gan_wan]
+    required_object_types: [CulturalSystem, HistoricalProcess, Institution]
+    evidence_requirements: 必须结合徽州文书与宗族制度给出过程证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, mechanism_explanation]
+    difficulty: MEDIUM
+  - id: DH-020
+    category: EVOLUTION
+    question: 湖湘学术从周敦颐、湖湘学派到近代经世思潮经历了怎样的演进？
+    target_systems: [hu_xiang]
+    required_object_types: [Person, CulturalTradition, Document]
+    evidence_requirements: 必须给出代表人物、著作与思想传承的证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  # ============ INTERACTION 互动（10题） ============
+  - id: DH-021
+    category: INTERACTION
+    question: 近代武汉工业文化与长江航运之间是什么关系？
+    target_systems: [jing_chu]
+    required_object_types: [Institution, HydroSpatialUnit, HistoricalProcess]
+    evidence_requirements: 必须给出工业选址、原料运输与航运能力之间的机制证据
+    evaluation_dimensions: [mechanism_explanation, evidence_grounding, spatial_coherence, citation_completeness]
+    difficulty: HARD
+  - id: DH-022
+    category: INTERACTION
+    question: 都江堰水利工程与成都平原农业文明如何互动？
+    target_systems: [ba_shu]
+    required_object_types: [HydraulicWork, HydroSpatialUnit, CulturalDomain]
+    evidence_requirements: 必须说明灌溉体系与农业产出、聚落发展的相互关系
+    evaluation_dimensions: [mechanism_explanation, evidence_grounding, spatial_coherence]
+    difficulty: MEDIUM
+  - id: DH-023
+    category: INTERACTION
+    question: 楚辞的创作与沅湘流域的巫祭文化之间是什么关系？
+    target_systems: [jing_chu, hu_xiang]
+    required_object_types: [Document, CulturalTradition, Person]
+    evidence_requirements: 必须结合楚辞文本与楚地祭祀民俗证据
+    evaluation_dimensions: [mechanism_explanation, evidence_grounding, uncertainty_honesty]
+    difficulty: MEDIUM
+  - id: DH-024
+    category: INTERACTION
+    question: 明清扬州如何依托运河与长江交汇的区位形成盐运与园林文化？
+    target_systems: [wu_yue]
+    required_object_types: [Settlement, Institution, CulturalTradition]
+    evidence_requirements: 必须给出盐运制度、盐商财富与园林营造的关联证据
+    evaluation_dimensions: [mechanism_explanation, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-025
+    category: INTERACTION
+    question: 长江流域的书院传统与学术思想发展如何互动？
+    target_systems: [yangtze_culture]
+    required_object_types: [Institution, CulturalTradition, Person]
+    evidence_requirements: 必须给出书院建制与学派活动的对应证据
+    evaluation_dimensions: [mechanism_explanation, evidence_grounding, temporal_coherence, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-026
+    category: INTERACTION
+    question: 长江流域的茶业生产与茶马古道贸易如何互动？
+    target_systems: [ba_shu, dian_qian]
+    required_object_types: [CulturalDomain, CulturalFlow, Institution]
+    evidence_requirements: 必须给出产区、商路线路与贸易规模的证据
+    evaluation_dimensions: [mechanism_explanation, spatial_coherence, evidence_grounding]
+    difficulty: MEDIUM
+  - id: DH-027
+    category: INTERACTION
+    question: 明清徽商网络与长江中下游市镇经济如何互动？
+    target_systems: [gan_wan, wu_yue]
+    required_object_types: [Institution, Settlement, CulturalFlow]
+    evidence_requirements: 必须结合徽州文书与市镇志给出商帮与市镇共生的证据
+    evaluation_dimensions: [mechanism_explanation, evidence_grounding, spatial_coherence, citation_completeness]
+    difficulty: HARD
+  - id: DH-028
+    category: INTERACTION
+    question: 长江口港口体系与太湖流域腹地经济如何互动？
+    target_systems: [wu_yue]
+    required_object_types: [Settlement, HydroSpatialUnit, CulturalFlow]
+    evidence_requirements: 必须说明港口吞吐与腹地商品化生产的联动机制
+    evaluation_dimensions: [spatial_coherence, mechanism_explanation, evidence_grounding]
+    difficulty: MEDIUM
+  - id: DH-029
+    category: INTERACTION
+    question: 三峡工程的建设与长江三峡文化如何互动？
+    target_systems: [ba_shu]
+    required_object_types: [HydraulicWork, CulturalTradition, Site]
+    evidence_requirements: 必须给出景观变迁与文物保护应对的证据
+    evaluation_dimensions: [mechanism_explanation, evidence_grounding, temporal_coherence, uncertainty_honesty]
+    difficulty: MEDIUM
+  - id: DH-030
+    category: INTERACTION
+    question: 长江流域戏曲声腔如何与地方语言及民俗互动形成多样剧种？
+    target_systems: [yangtze_culture]
+    required_object_types: [CulturalTradition, CulturalDomain, Settlement]
+    evidence_requirements: 必须给出声腔与方言、民俗对应的剧种实例证据
+    evaluation_dimensions: [mechanism_explanation, evidence_grounding, spatial_coherence]
+    difficulty: MEDIUM
+  # ============ FLOW 流动（10题） ============
+  - id: DH-031
+    category: FLOW
+    question: 湖广填四川带来了什么人口与文化流动？
+    target_systems: [ba_shu, jing_chu, hu_xiang]
+    required_object_types: [CulturalFlow, Event, CulturalDomain]
+    evidence_requirements: 必须给出移民规模、路线与语言民俗后果的证据链
+    evaluation_dimensions: [spatial_coherence, temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: HARD
+  - id: DH-032
+    category: FLOW
+    question: 抗战时期文化教育资源如何向长江上游迁移？
+    target_systems: [yangtze_culture, ba_shu, jing_chu, wu_yue]
+    required_object_types: [CulturalFlow, Institution, Event]
+    evidence_requirements: 必须给出机构、路线与迁入地安置的证据
+    evaluation_dimensions: [spatial_coherence, temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: HARD
+  - id: DH-033
+    category: FLOW
+    question: 徽班如何沿长江流动进京并与汉调合流促成京剧形成？
+    target_systems: [gan_wan, jing_chu, yangtze_culture]
+    required_object_types: [CulturalFlow, Institution, Person]
+    evidence_requirements: 必须给出徽班进京与徽汉合流的史料证据
+    evaluation_dimensions: [spatial_coherence, temporal_coherence, evidence_grounding, mechanism_explanation]
+    difficulty: HARD
+  - id: DH-034
+    category: FLOW
+    question: 景德镇青花瓷技术与外销瓷如何沿海上丝路传播并影响世界制瓷业？
+    target_systems: [gan_wan, wu_yue]
+    required_object_types: [CulturalFlow, Artifact, CulturalDomain]
+    evidence_requirements: 必须给出窑址、沉船与海外摹制品的证据链
+    evaluation_dimensions: [spatial_coherence, temporal_coherence, evidence_grounding, uncertainty_honesty]
+    difficulty: HARD
+  - id: DH-035
+    category: FLOW
+    question: 西晋永嘉之乱后的衣冠南渡带来了怎样的人口与文化南移？
+    target_systems: [yangtze_culture]
+    required_object_types: [CulturalFlow, Event, HistoricalPhase]
+    evidence_requirements: 必须给出南渡人口规模估计与侨置郡县等证据
+    evaluation_dimensions: [spatial_coherence, temporal_coherence, evidence_grounding, uncertainty_honesty]
+    difficulty: HARD
+  - id: DH-036
+    category: FLOW
+    question: 江西填湖广的移民潮如何改变长江中游的人口与文化格局？
+    target_systems: [gan_wan, jing_chu, hu_xiang]
+    required_object_types: [CulturalFlow, Event, Settlement]
+    evidence_requirements: 必须给出移民来源地与落籍地的方志族谱证据
+    evaluation_dimensions: [spatial_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-037
+    category: FLOW
+    question: 明清漕运如何组织江南财赋沿运河与长江的流动？
+    target_systems: [wu_yue]
+    required_object_types: [CulturalFlow, Institution, Settlement]
+    evidence_requirements: 必须给出漕运制度、运量与中转节点证据
+    evaluation_dimensions: [spatial_coherence, temporal_coherence, evidence_grounding]
+    difficulty: MEDIUM
+  - id: DH-038
+    category: FLOW
+    question: 近代沿江开埠如何重组长江流域的贸易流向与口岸体系？
+    target_systems: [yangtze_culture]
+    required_object_types: [CulturalFlow, Settlement, Event]
+    evidence_requirements: 必须给出各口岸开埠时间与贸易结构变化的数据来源
+    evaluation_dimensions: [spatial_coherence, temporal_coherence, evidence_grounding, uncertainty_honesty]
+    difficulty: HARD
+  - id: DH-039
+    category: FLOW
+    question: 太平天国时期的川盐济楚如何改变长江中上游的盐业流动？
+    target_systems: [ba_shu, jing_chu]
+    required_object_types: [CulturalFlow, Event, Institution]
+    evidence_requirements: 必须给出盐引制度变化与运销路线调整的证据
+    evaluation_dimensions: [spatial_coherence, temporal_coherence, evidence_grounding]
+    difficulty: MEDIUM
+  - id: DH-040
+    category: FLOW
+    question: 近代长江流域的报刊出版网络如何组织知识流动？
+    target_systems: [wu_yue, jing_chu]
+    required_object_types: [Institution, CulturalFlow, Document]
+    evidence_requirements: 必须给出报刊出版机构分布与发行网络证据
+    evaluation_dimensions: [spatial_coherence, temporal_coherence, evidence_grounding]
+    difficulty: MEDIUM
+  # ============ HUMAN_ENVIRONMENT 人地关系（10题） ============
+  - id: DH-041
+    category: HUMAN_ENVIRONMENT
+    question: 长江中下游的圩田与垸田开发如何重塑人水关系？
+    target_systems: [jing_chu, wu_yue]
+    required_object_types: [HydraulicWork, Settlement, HistoricalProcess]
+    evidence_requirements: 必须给出围垦规模与水环境响应的证据
+    evaluation_dimensions: [mechanism_explanation, spatial_coherence, evidence_grounding, uncertainty_honesty]
+    difficulty: HARD
+  - id: DH-042
+    category: HUMAN_ENVIRONMENT
+    question: 洞庭湖的调蓄功能与围湖造田之间经历了怎样的环境互动？
+    target_systems: [hu_xiang, jing_chu]
+    required_object_types: [HydroSpatialUnit, HistoricalProcess, Event]
+    evidence_requirements: 必须给出湖泊面积变化与洪涝响应的实测或文献证据
+    evaluation_dimensions: [mechanism_explanation, temporal_coherence, evidence_grounding, uncertainty_honesty]
+    difficulty: HARD
+  - id: DH-043
+    category: HUMAN_ENVIRONMENT
+    question: 大禹治水传说反映了怎样的早期治水与人地关系记忆？
+    target_systems: [yangtze_culture]
+    required_object_types: [CulturalTradition, Concept, Person]
+    evidence_requirements: 必须区分传说文本与考古证据并说明各自的解释边界
+    evaluation_dimensions: [mechanism_explanation, evidence_grounding, uncertainty_honesty]
+    difficulty: MEDIUM
+  - id: DH-044
+    category: HUMAN_ENVIRONMENT
+    question: 良渚古城与外围水利系统体现了怎样的人水适应能力？
+    target_systems: [wu_yue]
+    required_object_types: [Site, HydraulicWork, HistoricalProcess]
+    evidence_requirements: 必须给出水利系统结构、年代与功能的考古证据
+    evaluation_dimensions: [mechanism_explanation, evidence_grounding, spatial_coherence, uncertainty_honesty]
+    difficulty: HARD
+  - id: DH-045
+    category: HUMAN_ENVIRONMENT
+    question: 川江号子如何反映船工与长江激流险滩的关系？
+    target_systems: [ba_shu]
+    required_object_types: [CulturalTradition, HydroSpatialUnit, Person]
+    evidence_requirements: 必须结合航道险滩与劳动号子的功能证据
+    evaluation_dimensions: [mechanism_explanation, evidence_grounding, spatial_coherence]
+    difficulty: EASY
+  - id: DH-046
+    category: HUMAN_ENVIRONMENT
+    question: 三峡水库蓄水如何改变库区人居环境和文物遗存保护方式？
+    target_systems: [ba_shu]
+    required_object_types: [HydraulicWork, Site, Event]
+    evidence_requirements: 必须给出淹没区文物搬迁与保护工程的具体实例
+    evaluation_dimensions: [mechanism_explanation, evidence_grounding, temporal_coherence]
+    difficulty: MEDIUM
+  - id: DH-047
+    category: HUMAN_ENVIRONMENT
+    question: 长江源区的游牧文化如何适应高寒环境？
+    target_systems: [qiang_tibet]
+    required_object_types: [CulturalTradition, HydroSpatialUnit, Settlement]
+    evidence_requirements: 必须给出生计方式与环境约束的对应证据
+    evaluation_dimensions: [mechanism_explanation, spatial_coherence, evidence_grounding]
+    difficulty: EASY
+  - id: DH-048
+    category: HUMAN_ENVIRONMENT
+    question: 云贵高原的喀斯特环境如何塑造多民族山地生计与聚落？
+    target_systems: [dian_qian]
+    required_object_types: [Settlement, CulturalTradition, HydroSpatialUnit]
+    evidence_requirements: 必须给出喀斯特环境约束与民族生计类型的实例证据
+    evaluation_dimensions: [mechanism_explanation, spatial_coherence, evidence_grounding]
+    difficulty: EASY
+  - id: DH-049
+    category: HUMAN_ENVIRONMENT
+    question: 太湖流域的塘浦圩田与蚕桑经济如何适应水乡环境？
+    target_systems: [wu_yue]
+    required_object_types: [HydraulicWork, CulturalDomain, Settlement]
+    evidence_requirements: 必须给出圩田制度与水乡农业结构的文献证据
+    evaluation_dimensions: [mechanism_explanation, spatial_coherence, evidence_grounding]
+    difficulty: EASY
+  - id: DH-050
+    category: HUMAN_ENVIRONMENT
+    question: 长江十年禁渔如何调整人与长江渔业资源的关系？
+    target_systems: [yangtze_culture]
+    required_object_types: [Event, EcologicalUnit, HistoricalProcess]
+    evidence_requirements: 必须给出禁渔政策内容与资源恢复的公开数据来源
+    evaluation_dimensions: [mechanism_explanation, temporal_coherence, evidence_grounding, uncertainty_honesty]
+    difficulty: MEDIUM
+  # ============ CONTINUITY 连续（10题） ============
+  - id: DH-051
+    category: CONTINUITY
+    question: 端午/龙舟传统如何形成区域变体？
+    target_systems: [yangtze_culture, hu_xiang, jing_chu]
+    required_object_types: [CulturalTradition, Settlement, CulturalDomain]
+    evidence_requirements: 必须给出不同区域端午与龙舟习俗差异的民俗志证据
+    evaluation_dimensions: [temporal_coherence, spatial_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-052
+    category: CONTINUITY
+    question: 都江堰清明放水节如何延续古代岁修与治水传统？
+    target_systems: [ba_shu]
+    required_object_types: [CulturalTradition, HydraulicWork, Event]
+    evidence_requirements: 必须说明岁修制度与放水节仪式的历史延续证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: EASY
+  - id: DH-053
+    category: CONTINUITY
+    question: 岳麓书院如何从古代书院延续为现代大学教育机构？
+    target_systems: [hu_xiang]
+    required_object_types: [Institution, HistoricalPhase, Person]
+    evidence_requirements: 必须给出书院沿革与办学连续性的史料证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-054
+    category: CONTINUITY
+    question: 长江—运河的水运传统如何延续到近代轮船航运？
+    target_systems: [yangtze_culture]
+    required_object_types: [CulturalTradition, HydroSpatialUnit, Institution]
+    evidence_requirements: 必须给出传统水运技术与近代航运衔接的证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, spatial_coherence]
+    difficulty: MEDIUM
+  - id: DH-055
+    category: CONTINUITY
+    question: 楚地的漆器与丝织传统如何在汉代得到延续？
+    target_systems: [jing_chu]
+    required_object_types: [Artifact, CulturalTradition, HistoricalPhase]
+    evidence_requirements: 必须给出楚墓与汉墓出土器物的类型比较证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-056
+    category: CONTINUITY
+    question: 昆曲如何在当代实现传承与复兴？
+    target_systems: [wu_yue]
+    required_object_types: [CulturalTradition, Institution, Event]
+    evidence_requirements: 必须给出传承机制与代表性复兴项目的可查证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: EASY
+  - id: DH-057
+    category: CONTINUITY
+    question: 徽州文书与传统村落如何延续明清社会文化记忆？
+    target_systems: [gan_wan]
+    required_object_types: [Document, Settlement, CulturalTradition]
+    evidence_requirements: 必须给出文书类型与村落遗存的对应证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: EASY
+  - id: DH-058
+    category: CONTINUITY
+    question: 蜀锦蜀绣传统工艺如何在当代得到传承？
+    target_systems: [ba_shu]
+    required_object_types: [CulturalTradition, Artifact, Institution]
+    evidence_requirements: 必须给出技艺传承人与保护机构的公开证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: EASY
+  - id: DH-059
+    category: CONTINUITY
+    question: 黄鹤楼、岳阳楼、滕王阁的题咏传统如何延续为城市文化记忆？
+    target_systems: [yangtze_culture]
+    required_object_types: [Document, Settlement, CulturalTradition]
+    evidence_requirements: 必须给出名楼诗文序列与当代重建记忆的证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: EASY
+  - id: DH-060
+    category: CONTINUITY
+    question: 从大禹治水、李冰治水到当代水利，长江治水精神如何一脉相承？
+    target_systems: [yangtze_culture, ba_shu]
+    required_object_types: [Person, HydraulicWork, Concept]
+    evidence_requirements: 必须区分史实、传说与精神阐释的不同证据层次
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, uncertainty_honesty]
+    difficulty: MEDIUM
+  # ============ TRANSFORMATION 转型（10题） ============
+  - id: DH-061
+    category: TRANSFORMATION
+    question: 传统水文化与当代生态文明有哪些连续和转型？
+    target_systems: [yangtze_culture]
+    required_object_types: [CulturalTradition, Concept, HistoricalProcess]
+    evidence_requirements: 必须逐条区分连续性要素与转型性要素并各给证据
+    evaluation_dimensions: [temporal_coherence, mechanism_explanation, evidence_grounding, uncertainty_honesty, citation_completeness]
+    difficulty: HARD
+  - id: DH-062
+    category: TRANSFORMATION
+    question: 汉阳铁厂到汉冶萍公司体现了怎样的近代钢铁工业转型？
+    target_systems: [jing_chu]
+    required_object_types: [Institution, Event, HistoricalProcess]
+    evidence_requirements: 必须给出厂矿合并、资本结构与产能的档案证据
+    evaluation_dimensions: [temporal_coherence, mechanism_explanation, evidence_grounding, citation_completeness]
+    difficulty: HARD
+  - id: DH-063
+    category: TRANSFORMATION
+    question: 浦东开发开放如何推动长江下游的经济与文化转型？
+    target_systems: [wu_yue]
+    required_object_types: [Event, Settlement, HistoricalProcess]
+    evidence_requirements: 必须给出开发时间线与区域联动效应的证据
+    evaluation_dimensions: [temporal_coherence, mechanism_explanation, evidence_grounding]
+    difficulty: HARD
+  - id: DH-064
+    category: TRANSFORMATION
+    question: 三线建设如何改变长江上游地区的工业与城市格局？
+    target_systems: [ba_shu, dian_qian, jing_chu]
+    required_object_types: [Event, Settlement, Institution]
+    evidence_requirements: 必须给出重点迁建项目与新兴工业城市的实例证据
+    evaluation_dimensions: [temporal_coherence, spatial_coherence, evidence_grounding]
+    difficulty: MEDIUM
+  - id: DH-065
+    category: TRANSFORMATION
+    question: 上海开埠如何促成江南文化向海派文化的转型？
+    target_systems: [wu_yue]
+    required_object_types: [Event, CulturalDomain, Settlement]
+    evidence_requirements: 必须给出书画、报业等领域的转型实例证据
+    evaluation_dimensions: [temporal_coherence, mechanism_explanation, evidence_grounding, citation_completeness]
+    difficulty: HARD
+  - id: DH-066
+    category: TRANSFORMATION
+    question: 科举废除后长江流域的近代新式教育转型如何展开？
+    target_systems: [yangtze_culture]
+    required_object_types: [Institution, Event, HistoricalProcess]
+    evidence_requirements: 必须给出新式学堂建立与学制变化的制度证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-067
+    category: TRANSFORMATION
+    question: 南通与无锡如何从传统市镇转型为近代工商业城市？
+    target_systems: [jing_chu, wu_yue]
+    required_object_types: [Settlement, Person, Institution]
+    evidence_requirements: 必须给出张謇实业与荣氏企业等关键实例证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, mechanism_explanation]
+    difficulty: MEDIUM
+  - id: DH-068
+    category: TRANSFORMATION
+    question: 长江渔民生产生活方式在退捕政策下发生了怎样的转型？
+    target_systems: [yangtze_culture]
+    required_object_types: [Event, CulturalTradition, HistoricalProcess]
+    evidence_requirements: 必须区分政策文本与渔民生计变化的实证材料
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, uncertainty_honesty]
+    difficulty: MEDIUM
+  - id: DH-069
+    category: TRANSFORMATION
+    question: 三峡移民与重庆直辖如何推动库区社会文化转型？
+    target_systems: [ba_shu]
+    required_object_types: [Event, Settlement, HistoricalProcess]
+    evidence_requirements: 必须给出移民规模与安置方式的政策数据来源
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, uncertainty_honesty]
+    difficulty: MEDIUM
+  - id: DH-070
+    category: TRANSFORMATION
+    question: 数字技术正在如何改变长江文化的记录与传承方式？
+    target_systems: [yangtze_culture]
+    required_object_types: [CulturalDomain, Concept, HistoricalProcess]
+    evidence_requirements: 必须以可查的数字化项目为例说明转型方式
+    evaluation_dimensions: [mechanism_explanation, evidence_grounding, uncertainty_honesty]
+    difficulty: MEDIUM
+  # ============ CROSS_REGION 跨区域（10题） ============
+  - id: DH-071
+    category: CROSS_REGION
+    question: 长江文化与黄河文化如何在中华文明起源中互动互补？
+    target_systems: [yangtze_culture]
+    required_object_types: [CulturalSystem, Site, HistoricalProcess]
+    evidence_requirements: 必须给出两大流域文明要素交流的考古证据
+    evaluation_dimensions: [spatial_coherence, structural_correctness, evidence_grounding, uncertainty_honesty]
+    difficulty: HARD
+  - id: DH-072
+    category: CROSS_REGION
+    question: 巴蜀与荆楚在哪些历史过程中发生互动？
+    target_systems: [ba_shu, jing_chu]
+    required_object_types: [CulturalSystem, Event, CulturalFlow]
+    evidence_requirements: 必须给出各互动过程的时间、空间与机制证据链
+    evaluation_dimensions: [spatial_coherence, temporal_coherence, evidence_grounding, uncertainty_honesty, citation_completeness]
+    difficulty: HARD
+  - id: DH-073
+    category: CROSS_REGION
+    question: 茶马古道如何连接长江上游与云贵高原及藏彝走廊的跨区域贸易？
+    target_systems: [ba_shu, dian_qian, qiang_tibet]
+    required_object_types: [CulturalFlow, Settlement, CulturalDomain]
+    evidence_requirements: 必须给出线路走向、交易品与沿线节点城镇的证据
+    evaluation_dimensions: [spatial_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-074
+    category: CROSS_REGION
+    question: 三国时期长江流域的吴蜀联盟与荆州之争如何展开？
+    target_systems: [jing_chu, ba_shu, wu_yue]
+    required_object_types: [Event, Settlement, Person]
+    evidence_requirements: 必须给出联盟与冲突关键事件的时间地点证据
+    evaluation_dimensions: [spatial_coherence, temporal_coherence, evidence_grounding]
+    difficulty: MEDIUM
+  - id: DH-075
+    category: CROSS_REGION
+    question: 凌家滩、良渚与石家河等史前中心之间有哪些跨区域交流的证据？
+    target_systems: [wu_yue, jing_chu]
+    required_object_types: [Site, Artifact, CulturalFlow]
+    evidence_requirements: 必须给出玉礼器等交流媒介的器物比对证据
+    evaluation_dimensions: [spatial_coherence, evidence_grounding, uncertainty_honesty]
+    difficulty: HARD
+  - id: DH-076
+    category: CROSS_REGION
+    question: 春秋时期吴越与楚国之间的争霸与文化交流如何展开？
+    target_systems: [wu_yue, jing_chu]
+    required_object_types: [Event, Person, CulturalFlow]
+    evidence_requirements: 必须给出战争、人才与技术交流的文献证据
+    evaluation_dimensions: [spatial_coherence, temporal_coherence, evidence_grounding]
+    difficulty: MEDIUM
+  - id: DH-077
+    category: CROSS_REGION
+    question: 万里茶道如何串联长江中游茶区与北方边疆市场？
+    target_systems: [hu_xiang, jing_chu, gan_wan]
+    required_object_types: [CulturalFlow, Settlement, Institution]
+    evidence_requirements: 必须给出茶源产地、集散节点与商路走向的证据
+    evaluation_dimensions: [spatial_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-078
+    category: CROSS_REGION
+    question: 大运河如何沟通长江与黄河两大文化区域？
+    target_systems: [wu_yue, yangtze_culture]
+    required_object_types: [HydraulicWork, CulturalFlow, Settlement]
+    evidence_requirements: 必须给出运河线路与南北文化交流的证据
+    evaluation_dimensions: [spatial_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-079
+    category: CROSS_REGION
+    question: 长江流域各区域文化如何在中华文明多元一体格局中互动整合？
+    target_systems: [yangtze_culture]
+    required_object_types: [CulturalSystem, Concept, HistoricalProcess]
+    evidence_requirements: 必须给出区域整合的时段、机制与标志性证据
+    evaluation_dimensions: [structural_correctness, spatial_coherence, temporal_coherence, uncertainty_honesty]
+    difficulty: HARD
+  - id: DH-080
+    category: CROSS_REGION
+    question: 海上丝绸之路如何与长江下游港口和腹地联动？
+    target_systems: [wu_yue, gan_wan]
+    required_object_types: [CulturalFlow, Settlement, Artifact]
+    evidence_requirements: 必须给出港口、航线与外销商品结构的证据
+    evaluation_dimensions: [spatial_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  # ============ CROSS_PERIOD 跨期（10题） ============
+  - id: DH-081
+    category: CROSS_PERIOD
+    question: 从史前到当代，长江沿线的区域中心是如何转移的？
+    target_systems: [yangtze_culture]
+    required_object_types: [Settlement, HistoricalPhase, HistoricalProcess]
+    evidence_requirements: 必须给出各期中心城市的更替序列及转移动因
+    evaluation_dimensions: [temporal_coherence, spatial_coherence, evidence_grounding, uncertainty_honesty]
+    difficulty: HARD
+  - id: DH-082
+    category: CROSS_PERIOD
+    question: 从青龙镇到上海港，长江口港口如何跨期演进？
+    target_systems: [wu_yue]
+    required_object_types: [Site, Settlement, HydroSpatialUnit]
+    evidence_requirements: 必须给出青龙镇遗址考古与港口功能变迁的证据
+    evaluation_dimensions: [temporal_coherence, spatial_coherence, evidence_grounding]
+    difficulty: HARD
+  - id: DH-083
+    category: CROSS_PERIOD
+    question: 从都江堰到三峡工程，长江流域大型水利工程如何跨期演进？
+    target_systems: [ba_shu, yangtze_culture]
+    required_object_types: [HydraulicWork, HistoricalPhase, Concept]
+    evidence_requirements: 必须给出代表性工程的目标、技术与组织比较证据
+    evaluation_dimensions: [temporal_coherence, mechanism_explanation, evidence_grounding, uncertainty_honesty]
+    difficulty: HARD
+  - id: DH-084
+    category: CROSS_PERIOD
+    question: 楚地的巫祭传统从先秦到民间信仰经历了怎样的跨期演变？
+    target_systems: [jing_chu, hu_xiang]
+    required_object_types: [CulturalTradition, HistoricalPhase, CulturalDomain]
+    evidence_requirements: 必须给出各时期巫祭形态的文献与民俗证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, uncertainty_honesty]
+    difficulty: MEDIUM
+  - id: DH-085
+    category: CROSS_PERIOD
+    question: 长江流域书画传统从六朝到海派如何形成跨期谱系？
+    target_systems: [wu_yue, yangtze_culture]
+    required_object_types: [Person, Artifact, HistoricalPhase]
+    evidence_requirements: 必须给出流派传承与代表作品的证据链
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-086
+    category: CROSS_PERIOD
+    question: 长江中游防洪体系从荆江大堤到三峡水库如何跨期演进？
+    target_systems: [jing_chu]
+    required_object_types: [HydraulicWork, Event, HistoricalProcess]
+    evidence_requirements: 必须给出堤防修筑序列与防洪标准变化的证据
+    evaluation_dimensions: [temporal_coherence, mechanism_explanation, evidence_grounding]
+    difficulty: MEDIUM
+  - id: DH-087
+    category: CROSS_PERIOD
+    question: 长江流域的高等教育中心如何从书院跨期演变为现代大学？
+    target_systems: [yangtze_culture]
+    required_object_types: [Institution, HistoricalPhase, Settlement]
+    evidence_requirements: 必须给出书院—学堂—大学的沿革实例证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, spatial_coherence]
+    difficulty: MEDIUM
+  - id: DH-088
+    category: CROSS_PERIOD
+    question: 入蜀通道从古栈道到现代铁路经历了怎样的跨期变迁？
+    target_systems: [ba_shu]
+    required_object_types: [Site, Event, HistoricalPhase]
+    evidence_requirements: 必须给出古道线路与铁路建设的对照证据
+    evaluation_dimensions: [temporal_coherence, spatial_coherence, evidence_grounding]
+    difficulty: MEDIUM
+  - id: DH-089
+    category: CROSS_PERIOD
+    question: 长江上游航道治理从滩险整治到梯级枢纽如何跨期演进？
+    target_systems: [ba_shu, yangtze_culture]
+    required_object_types: [HydraulicWork, Event, HistoricalProcess]
+    evidence_requirements: 必须给出航道整治工程与通航能力变化的证据
+    evaluation_dimensions: [temporal_coherence, mechanism_explanation, evidence_grounding]
+    difficulty: MEDIUM
+  - id: DH-090
+    category: CROSS_PERIOD
+    question: 从《水经注》到现当代文学，长江书写如何跨期演变？
+    target_systems: [yangtze_culture]
+    required_object_types: [Document, Person, HistoricalPhase]
+    evidence_requirements: 必须给出各期代表性文本及其长江意象的证据
+    evaluation_dimensions: [temporal_coherence, evidence_grounding, citation_completeness]
+    difficulty: MEDIUM
+  # ============ INTERPRETATION 阐释（10题） ============
+  - id: DH-091
+    category: INTERPRETATION
+    question: 三星堆与金沙遗址的关系应当如何理解？
+    target_systems: [ba_shu]
+    required_object_types: [Site, Artifact, HistoricalProcess]
+    evidence_requirements: 必须基于地层、年代与器物证据说明都邑关系并标注不确定性
+    evaluation_dimensions: [uncertainty_honesty, evidence_grounding, mechanism_explanation, citation_completeness]
+    difficulty: HARD
+  - id: DH-092
+    category: INTERPRETATION
+    question: 如何依据良渚古城与水利系统评估其社会复杂化程度？
+    target_systems: [wu_yue]
+    required_object_types: [Site, HydraulicWork, Concept]
+    evidence_requirements: 必须给出城址规模、水利工程与社会组织推论的证据边界
+    evaluation_dimensions: [uncertainty_honesty, evidence_grounding, mechanism_explanation, citation_completeness]
+    difficulty: HARD
+  - id: DH-093
+    category: INTERPRETATION
+    question: 曾侯乙编钟如何体现礼乐制度与声学技术的成就？
+    target_systems: [jing_chu]
+    required_object_types: [Artifact, CulturalTradition, Concept]
+    evidence_requirements: 必须给出出土信息、铭文与音律实测的来源证据
+    evaluation_dimensions: [evidence_grounding, mechanism_explanation, citation_completeness]
+    difficulty: EASY
+  - id: DH-094
+    category: INTERPRETATION
+    question: 郭店楚简的出土对先秦思想史研究有何意义？
+    target_systems: [jing_chu]
+    required_object_types: [Document, Site, Concept]
+    evidence_requirements: 必须给出简牍内容、年代与学术影响的具体证据
+    evaluation_dimensions: [evidence_grounding, mechanism_explanation, uncertainty_honesty, citation_completeness]
+    difficulty: HARD
+  - id: DH-095
+    category: INTERPRETATION
+    question: 如何理解长江文化在中华文明多元一体格局中的地位？
+    target_systems: [yangtze_culture]
+    required_object_types: [CulturalSystem, Concept, HistoricalProcess]
+    evidence_requirements: 必须给出概念界定与长江区域贡献的证据支撑
+    evaluation_dimensions: [uncertainty_honesty, structural_correctness, evidence_grounding, citation_completeness]
+    difficulty: HARD
+  - id: DH-096
+    category: INTERPRETATION
+    question: 苏轼在黄州的作品如何体现长江与士人精神的交融？
+    target_systems: [jing_chu]
+    required_object_types: [Person, Document, Settlement]
+    evidence_requirements: 必须给出黄州时期作品文本与创作背景的证据
+    evaluation_dimensions: [evidence_grounding, mechanism_explanation, citation_completeness]
+    difficulty: MEDIUM
+  - id: DH-097
+    category: INTERPRETATION
+    question: 宜昌大撤退为何被称为中国实业史上的敦刻尔克？
+    target_systems: [ba_shu, jing_chu]
+    required_object_types: [Event, Person, Institution]
+    evidence_requirements: 必须给出撤退规模、时间与组织的史料证据
+    evaluation_dimensions: [evidence_grounding, mechanism_explanation, citation_completeness]
+    difficulty: HARD
+  - id: DH-098
+    category: INTERPRETATION
+    question: 武昌起义如何在长江中游城市空间中展开并被纪念？
+    target_systems: [jing_chu]
+    required_object_types: [Event, Settlement, Site]
+    evidence_requirements: 必须给出起义过程与纪念空间形成的证据
+    evaluation_dimensions: [evidence_grounding, temporal_coherence, spatial_coherence]
+    difficulty: MEDIUM
+  - id: DH-099
+    category: INTERPRETATION
+    question: 河姆渡遗址的稻作遗存对稻作起源研究有何意义？
+    target_systems: [wu_yue]
+    required_object_types: [Site, Artifact, Concept]
+    evidence_requirements: 必须给出遗存发现经过与后续研究推进的证据并标注不确定性
+    evaluation_dimensions: [evidence_grounding, uncertainty_honesty, citation_completeness]
+    difficulty: EASY
+  - id: DH-100
+    category: INTERPRETATION
+    question: 如何在长江上游革命文化脉络中阐释遵义会议与红岩精神？
+    target_systems: [dian_qian, ba_shu]
+    required_object_types: [Event, Concept, Settlement]
+    evidence_requirements: 必须给出事件经过与精神阐释的史实边界
+    evaluation_dimensions: [evidence_grounding, uncertainty_honesty, temporal_coherence, citation_completeness]
+    difficulty: MEDIUM

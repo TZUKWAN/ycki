@@ -1,0 +1,123 @@
+version: golden_ten_v1
+description: 长江文化知识图谱 Golden Ten 终极展示案例（系统必须能完整回答）
+cases:
+  - id: G1
+    title: 史前长江文明起源
+    anchor_systems: [yangtze_culture]
+    anchor_hydro: [长江流域, 长江中游, 长江下游]
+    anchor_phases: [史前时期]
+    required_components:
+      traditions: [稻作农业传统, 玉礼传统, 筑城与水利传统]
+      processes: [稻作农业扩散, 城址聚落演化, 史前中心兴衰与更替]
+      flows: [玉器技术与玉礼观念流动]
+      key_entities: [良渚, 石家河, 凌家滩, 河姆渡, 屈家岭]
+      interpretation_questions: [多中心起源如何反驳单线扩散论？]
+    acceptance: 系统回答必须包含 hydro空间基础/区域系统/历史发展/传统/过程/流动/跨区互动/连续转型/claims/证据/解释 全部要素
+  - id: G2
+    title: 巴蜀文化系统与历史演进
+    anchor_systems: [ba_shu]
+    anchor_hydro: [长江上游, 岷江, 嘉陵江, 成都平原]
+    anchor_phases: [史前时期, 夏商周, 秦汉, 清代, 近代]
+    required_components:
+      traditions: [三星堆与金沙祭祀传统, 都江堰治水传统, 蜀锦织造传统]
+      processes: [古蜀都邑从三星堆向金沙的迁移, 湖广填四川移民进程]
+      flows: [湖广填四川人口流动, 川盐与井盐贸易流动]
+      key_entities: [三星堆, 金沙, 都江堰, 李冰, 蜀锦, 重庆湖广会馆]
+      interpretation_questions: [三星堆与金沙的都邑关系应如何理解？湖广填四川如何重塑巴蜀文化？]
+    acceptance: 系统回答必须包含 hydro空间基础/区域系统/历史发展/传统/过程/流动/跨区互动/连续转型/claims/证据/解释 全部要素
+  - id: G3
+    title: 荆楚文化系统与历史演进
+    anchor_systems: [jing_chu]
+    anchor_hydro: [长江中游, 汉江, 洞庭湖]
+    anchor_phases: [史前时期, 夏商周, 秦汉, 近代]
+    required_components:
+      traditions: [楚辞与巫祭传统, 编钟礼乐传统, 楚式漆器与丝织传统]
+      processes: [楚国疆域扩张与都城迁移, 张之洞湖北新政与近代工业进程]
+      flows: [楚式漆器与丝织技术流动, 近代沿江技术与资本流动]
+      key_entities: [屈原, 楚辞, 曾侯乙编钟, 纪南城, 张之洞, 汉阳铁厂, 武昌起义]
+      interpretation_questions: [楚辞如何反映沅湘巫祭文化？湖北新政如何开启荆楚近代化？]
+    acceptance: 系统回答必须包含 hydro空间基础/区域系统/历史发展/传统/过程/流动/跨区互动/连续转型/claims/证据/解释 全部要素
+  - id: G4
+    title: 吴越—江南文化系统与历史演进
+    anchor_systems: [wu_yue]
+    anchor_hydro: [长江下游, 太湖, 长江口]
+    anchor_phases: [史前时期, 魏晋南北朝, 宋元, 明代, 近代]
+    required_components:
+      traditions: [水乡稻作与蚕桑传统, 园林与书画传统, 藏书与刻书传统]
+      processes: [经济重心南移, 近代开埠与上海城市化]
+      flows: [漕运与市镇商贸流动, 海派文化的人才与观念流动]
+      key_entities: [河姆渡, 良渚, 大运河, 苏州园林, 天一阁, 上海, 浦东]
+      interpretation_questions: [江南如何从文化后进变为全国文化重心之一？海派文化与江南文化是什么关系？]
+    acceptance: 系统回答必须包含 hydro空间基础/区域系统/历史发展/传统/过程/流动/跨区互动/连续转型/claims/证据/解释 全部要素
+  - id: G5
+    title: 长江水文化
+    anchor_systems: [yangtze_culture]
+    anchor_hydro: [长江流域, 长江上游, 长江中游, 长江下游]
+    anchor_phases: [秦汉, 宋元, 明代, 近代, 当代]
+    required_components:
+      traditions: [治水与水神祭祀传统, 龙舟竞渡传统, 川江号子航运民俗]
+      processes: [都江堰岁修与清明放水节, 荆江大堤修筑与加固]
+      flows: [漕运与川江航运流动]
+      key_entities: [大禹治水, 都江堰, 都江堰清明放水节, 荆江大堤, 川江号子, 三峡工程]
+      interpretation_questions: [大禹治水传说如何参与水文化认同建构？都江堰清明放水节如何延续治水传统？]
+    acceptance: 系统回答必须包含 hydro空间基础/区域系统/历史发展/传统/过程/流动/跨区互动/连续转型/claims/证据/解释 全部要素
+  - id: G6
+    title: 湖广填四川人口迁徙与文化重组
+    anchor_systems: [ba_shu, jing_chu, hu_xiang]
+    anchor_hydro: [长江中游, 长江上游, 嘉陵江]
+    anchor_phases: [明代, 清代]
+    required_components:
+      traditions: [移民会馆与原乡信仰传统, 川剧声腔融合传统]
+      processes: [湖广填四川移民进程, 清代四川农业恢复与美洲作物推广]
+      flows: [长江中游至四川的人口流动, 玉米红薯等作物与技术流动]
+      key_entities: [湖广填四川, 麻城孝感乡, 重庆湖广会馆, 川剧]
+      interpretation_questions: [麻城孝感乡传说为何成为移民祖籍记忆符号？移民如何重塑四川方言与民俗？]
+    acceptance: 系统回答必须包含 hydro空间基础/区域系统/历史发展/传统/过程/流动/跨区互动/连续转型/claims/证据/解释 全部要素
+  - id: G7
+    title: 抗战时期文化教育资源西迁
+    anchor_systems: [ba_shu, jing_chu, wu_yue]
+    anchor_hydro: [长江中游, 长江上游, 川江]
+    anchor_phases: [近代]
+    required_components:
+      traditions: [战时高校学术传统, 陪都抗战文艺传统]
+      processes: [高校与文教机构西迁, 宜昌大撤退工业与人员抢运]
+      flows: [沿江机构与人员西迁流动, 工业设备与物资内迁流动]
+      key_entities: [卢作孚, 民生公司, 西南联大, 中央大学, 宜昌大撤退, 李庄]
+      interpretation_questions: [宜昌大撤退为何被称为中国实业史上的敦刻尔克？西迁如何保存中国文化教育命脉？]
+    acceptance: 系统回答必须包含 hydro空间基础/区域系统/历史发展/传统/过程/流动/跨区互动/连续转型/claims/证据/解释 全部要素
+  - id: G8
+    title: 武汉—汉阳铁厂—汉冶萍—长江航运工业网络
+    anchor_systems: [jing_chu]
+    anchor_hydro: [长江中游, 汉江]
+    anchor_phases: [近代]
+    required_components:
+      traditions: [洋务工业传统, 汉口商埠码头传统]
+      processes: [张之洞湖北新政, 汉冶萍公司组建与经营]
+      flows: [大冶铁矿与萍乡煤矿的原料沿江流动, 近代钢铁工业技术人才流动]
+      key_entities: [张之洞, 汉阳铁厂, 汉冶萍公司, 大冶铁矿, 萍乡煤矿, 湖北枪炮厂]
+      interpretation_questions: [汉阳铁厂为何选址汉阳？长江航运如何支撑近代武汉工业网络？]
+    acceptance: 系统回答必须包含 hydro空间基础/区域系统/历史发展/传统/过程/流动/跨区互动/连续转型/claims/证据/解释 全部要素
+  - id: G9
+    title: 革命文化在长江流域的空间展开
+    anchor_systems: [jing_chu, hu_xiang, dian_qian, ba_shu]
+    anchor_hydro: [长江中游, 湘江, 乌江, 长江上游]
+    anchor_phases: [近代]
+    required_components:
+      traditions: [首义革命传统, 红色文化传统]
+      processes: [武昌起义与辛亥革命进程, 井冈山革命根据地建立, 遵义会议与红军长征]
+      flows: [革命组织与人员沿江流动, 红军长征路线流动]
+      key_entities: [武昌起义, 井冈山, 遵义, 红岩]
+      interpretation_questions: [革命文化的空间展开为何沿长江中上游推进？遵义会议如何在革命文化脉络中被阐释？]
+    acceptance: 系统回答必须包含 hydro空间基础/区域系统/历史发展/传统/过程/流动/跨区互动/连续转型/claims/证据/解释 全部要素
+  - id: G10
+    title: 传统水文化—现代生态文明连续与转型
+    anchor_systems: [yangtze_culture]
+    anchor_hydro: [长江流域, 长江中游, 洞庭湖, 长江口]
+    anchor_phases: [清代, 近代, 现代, 当代]
+    required_components:
+      traditions: [治水与水神祭祀传统, 渔家生产民俗传统]
+      processes: [长江十年禁渔与退捕渔民转产安置, 三峡工程与库区生态保护]
+      flows: [南水北调中线水资源调配流动]
+      key_entities: [三峡工程, 南水北调, 长江十年禁渔, 长江江豚, 长江保护法]
+      interpretation_questions: [传统水文化的哪些要素在生态文明建设中得以延续？人江关系从开发利用到保护修复如何转型？]
+    acceptance: 系统回答必须包含 hydro空间基础/区域系统/历史发展/传统/过程/流动/跨区互动/连续转型/claims/证据/解释 全部要素
