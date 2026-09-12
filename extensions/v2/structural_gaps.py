@@ -99,7 +99,7 @@ DETECTORS: list[dict[str, Any]] = [
         "resolution": "找到具体跨区过程/流动/事件及其证据",
         "sql": """
             SELECT a.system_name || '<->' || b.system_name,
-                   jsonb_build_object('systems', [a.system_name, b.system_name]) AS known,
+                   jsonb_build_object('systems', to_jsonb(ARRAY[a.system_name, b.system_name])) AS known,
                    jsonb_build_object('evidence_backed_relations', 0) AS missing,
                    0.65 AS priority
             FROM cultural_systems a
