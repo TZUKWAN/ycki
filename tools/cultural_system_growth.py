@@ -229,6 +229,12 @@ def run_cycle(max_gaps: int) -> dict[str, Any]:
                                timeout=2400, cwd=str(ROOT))
             except subprocess.TimeoutExpired:
                 pass
+            # 4.5) 成员锚点重推导（新实体获得锚点 → 缺口可能闭合）
+            try:
+                subprocess.run([sys.executable, str(ROOT / "tools" / "rebuild_memberships.py"),
+                                "--apply"], capture_output=True, text=True, timeout=600, cwd=str(ROOT))
+            except subprocess.TimeoutExpired:
+                pass
 
             # 5) 缺口复测（§62：缺口消失才 RESOLVED）
             with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
