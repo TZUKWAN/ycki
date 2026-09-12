@@ -1,0 +1,13 @@
+{
+ "baseline_commit": "8da7d2f",
+ "baseline_time": "2026-09-13T01:00:00",
+ "resources": 3655,
+ "canonical_entities": 25939,
+ "admitted_claims": 4394,
+ "evidence": 4820,
+ "events": 4878,
+ "system_memberships": 10004,
+ "structural_relations": 7,
+ "knowledge_gaps": 3570,
+ "research_tasks": 1564
+}
