@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-09-13T03:28:14+0800",
+  "total_cases": 500,
+  "breaches": 0,
+  "pass": true,
+  "by_family": {
+    "RT-A": {
+      "total": 120,
+      "blocked": 120
+    },
+    "RT-B": {
+      "total": 120,
+      "blocked": 120
+    },
+    "RT-C": {
+      "total": 80,
+      "blocked": 80
+    },
+    "RT-D": {
+      "total": 80,
+      "blocked": 80
+    },
+    "RT-E": {
+      "total": 40,
+      "blocked": 40
+    },
+    "RT-F": {
+      "total": 40,
+      "blocked": 40
+    },
+    "RT-G": {
+      "total": 10,
+      "blocked": 10
+    },
+    "RT-H": {
+      "total": 10,
+      "blocked": 10
+    }
+  },
+  "breach_details": [],
+  "note": "确定性对抗用例（模板生成）；LLM 层红队（判官欺骗/提示注入）单模型环境不可测，如实标注。"
+}

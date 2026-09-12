@@ -54,3 +54,10 @@ python tools/init_canonical_v2.py --apply --dsn "host=127.0.0.1 port=5433 dbname
 python tools/init_canonical_v2.py --verify --dsn "host=127.0.0.1 port=5433 dbname=ycki_cleanroom user=postgres password=ycki_pg_2026"
 docker exec ycki-postgres psql -U postgres -c "DROP DATABASE ycki_cleanroom"
 ```
+
+## 第二次验收（§96，2026-09-13 06:05）
+
+- 全新空库 → 001–008 全部幂等通过（含 008 合成约束）→ builder --apply → --verify **0 漂移**
+- 重复 --apply 两次后 --verify 仍 **0 漂移、manifest_hash 一致**（`49a6b71e…`，与生产一致）
+- 测试库已删除
+- **PASS**
