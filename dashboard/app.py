@@ -237,6 +237,10 @@ def canonical_page():
 from extensions.canonical.yangtze_api import mount as mount_yangtze
 mount_yangtze(app)
 
+# canonical_v2 受控本体只读 API（/yangtze/v2/*，13 端点）
+from dashboard.api_v2 import router as api_v2_router  # noqa: E402
+app.include_router(api_v2_router)
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=9622, log_level="warning")
