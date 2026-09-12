@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """gen_predicates_v2.py — 从 v1 compact 谓词表生成 §13 Schema 2.0 谓词 YAML。
 
 家族级默认 + 高风险谓词（§14）independent sources>=2。

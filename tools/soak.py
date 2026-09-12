@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """soak.py — 连续受控增长 Soak（goal §100-§102）。
 
 时间盒驱动：在 deadline 前连续执行 growth cycle（每轮重新检测缺口、非固定主题），

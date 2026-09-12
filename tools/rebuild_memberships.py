@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """rebuild_memberships.py — SystemMembership 全量重建（goal §18-§23 / G04）。
 
 背景：存量 10,004 条 membership 由未版本化的 legacy 地理规则生成，无锚点证明。
@@ -326,9 +325,7 @@ def adjudicate(conn: psycopg2.extensions.connection, force: bool = False) -> dic
                    OR %s)
         """)
         rows = [dict(r) for r in cur.fetchall()]
-    from extensions.llm import chat, parse_json
     for row in rows:
-        pass
         if _is_province_container(row["canonical_name"]):
             continue  # 省级容器硬门禁，判官不得推翻
         if (row["entity_type"] or "").upper() in NEVER_ADMIT_TYPES | CONTEXT_TYPES:
@@ -363,7 +360,7 @@ def adjudicate(conn: psycopg2.extensions.connection, force: bool = False) -> dic
                 # 判官失败：保守降级为 CANDIDATE（宁缺毋滥）
                 cur.execute("""UPDATE system_memberships SET status='CANDIDATE', model_version=%s,
                                derivation_reason=%s WHERE membership_id=%s""",
-                            (f"llm_adjudicator:{model_tag()}", f"judge_error; demoted", row["mid"]))
+                            (f"llm_adjudicator:{model_tag()}", "judge_error; demoted", row["mid"]))
                 stats["errors"] += 1
             else:
                 cur.execute("""UPDATE system_memberships SET status='CANDIDATE', model_version=%s,

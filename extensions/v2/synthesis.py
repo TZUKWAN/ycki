@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """synthesis.py — 高阶结构合成与准入（goal §32-§50 / G07-G09）。
 
 从证据束（跨文档、已验证引文）合成 CulturalTradition / CulturalProcess /

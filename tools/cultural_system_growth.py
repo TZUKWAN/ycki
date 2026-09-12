@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """cultural_system_growth.py — 文化系统自主增长引擎 v2（goal §57-§70 / §97）。
 
 严格闭环（§67）：
@@ -29,7 +28,7 @@ import psycopg2.extras
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from extensions.v2.structural_gaps import detect_gaps  # noqa: E402
+from extensions.v2.structural_gaps import detect_gaps
 
 REPORT_DIR = ROOT / "reports"
 

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """evidence_bundle.py — 证据束引擎（goal §29-§31）。
 
 围绕一个候选对象（CulturalTradition / CulturalProcess / CulturalFlow 种子或研究问题）

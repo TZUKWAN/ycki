@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """populate_interpretations.py — 解释层内容导入（goal §44-§45）。
 
 合成阶段产出的 why_yangtze 陈述属于 STRUCTURAL_INFERENCE（结构推断），

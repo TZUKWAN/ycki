@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """validate_canonical_v2.py — canonical_v2 全量验收（goal §91-§93）。
 
 门禁（G01-G13 中当前可程序化判定项）：

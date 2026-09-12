@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """membership_benchmark.py — Membership LLM 判官基准（goal §21-§23）。
 
 从 1959 条 system 成员行分层抽样（全部规则 ADMITTED + 随机 CANDIDATE），
@@ -16,7 +15,6 @@ from __future__ import annotations
 import json
 import random
 import sys
-import time
 from pathlib import Path
 from typing import Any
 
@@ -26,7 +24,7 @@ import psycopg2.extras
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from extensions.llm import chat, parse_json  # noqa: E402
+from extensions.llm import chat, parse_json
 
 REPORT = ROOT / "reports" / "V2_MEMBERSHIP_BENCHMARK.json"
 N_CANDIDATE_SAMPLE = 108
