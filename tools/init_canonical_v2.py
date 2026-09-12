@@ -94,6 +94,7 @@ class Seed:
     phases: list[dict[str, Any]] = field(default_factory=list)
     patterns: list[dict[str, Any]] = field(default_factory=list)
     phase_patterns: dict[str, list[str]] = field(default_factory=dict)  # phase_name -> [code]
+    reclassify: dict[str, str] = field(default_factory=dict)  # 旧领域名 -> 迁移目标领域名
     hydro_units: list[dict[str, Any]] = field(default_factory=list)
     hydro_relations: list[tuple[str, str, str]] = field(default_factory=list)
     # 期望的受控本体结构关系（system_name, predicate, system_name）
@@ -157,6 +158,11 @@ def load_seed() -> Seed:
         seed.domains.append({"name": d["name"], "parent": None})
         for child in d.get("children") or []:
             seed.domains.append({"name": child, "parent": d["name"]})
+    # §10.2 重新分类映射（旧名 -> 迁移目标领域名）
+    for old, target in (dom_y.get("reclassify") or {}).items():
+        seed.reclassify[str(old)] = str(target)
+        if str(target) not in {x["name"] for x in seed.domains}:
+            raise BuilderError(f"reclassify 目标领域不存在: {old} -> {target}")
 
     # --- 历史分期：仅顶层分期入库（children 为语义词表提示，非表行） ---
     for p in ph_y.get("phases") or []:
@@ -514,6 +520,29 @@ def apply_seed(conn, seed: Seed, dry_run: bool) -> None:
                     "(SELECT p.domain_id FROM cultural_domains p WHERE p.domain_name=%s) "
                     "WHERE d.domain_name=%s",
                     (item["parent"], item["name"]))
+
+        # 4.5 §10.2 重新分类：迁移存量挂载后删除受控层之外的事件/工程/复合概念领域
+        manifest_dom_names = {x["name"] for x in seed.domains}
+        cur.execute("SELECT domain_id, domain_name FROM cultural_domains")
+        stale = [(str(did), name) for did, name in cur.fetchall() if name not in manifest_dom_names]
+        for did, name in stale:
+            target = seed.reclassify.get(name)
+            if target:
+                cur.execute("SELECT domain_id FROM cultural_domains WHERE domain_name=%s", (target,))
+                row = cur.fetchone()
+                if row:
+                    cur.execute("UPDATE system_memberships SET domain_id=%s WHERE domain_id=%s",
+                                (row[0], did))
+                    cur.execute("UPDATE system_memberships SET domain=%s WHERE domain_id=%s",
+                                (target, did))
+            cur.execute("DELETE FROM cultural_domains WHERE domain_id=%s", (did,))
+        if stale:
+            cur.execute("SELECT count(*) FROM system_memberships m "
+                        "LEFT JOIN cultural_domains d ON m.domain_id=d.domain_id "
+                        "WHERE m.domain_id IS NOT NULL AND d.domain_id IS NULL")
+            (orphans,) = cur.fetchone()
+            if orphans:
+                raise BuilderError(f"重新分类后仍有 {orphans} 条 membership 挂载悬空")
 
         # 5. 历史分期
         for p in seed.phases:
