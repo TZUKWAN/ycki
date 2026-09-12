@@ -81,3 +81,11 @@
 - 判官基准方法论结论：单模型环境下 §23 P>=0.97 不可独立测量——同模型证据丰富判官自洽不可作金标；
   信息饥饿盲判官一致率(0.52)为系统性偏低的诊断指标。多模型金标 NOT_MEASURED（网关仅 1 稳定模型）。
 - 缺口闭合 reconcile 上线：3 条 RESOLVED；soak 时间盒启动（07:30 截止）
+
+## 2026-09-13 04:50-05:10 Soak/答题引擎/守护进程
+
+- Soak 10/10 轮完成，全程 §101 五项违规 = ZERO → SOAK_TEST PASS
+- tools/dh_answer.py 上线：结构先行装配（系统/水系/分期+模式/传统/过程/流动/成员/解释/证据束）
+  → 约束生成（仅可引用装配对象+EV标记）→ §87 七维确定性代理评估。首轮 100/100 mean=0.88；
+  格式约束收紧后重跑中
+- tools/growth_daemon.py 常驻启动：heartbeat=RUNNING_CYCLE → CULTURAL_SYSTEM_AUTONOMOUS_GROWTH=RUNNING

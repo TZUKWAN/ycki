@@ -1,0 +1,2234 @@
+{
+  "generated_at": "2026-09-13T04:58:14+0800",
+  "answered": 100,
+  "mean_score": 0.88,
+  "dimension_pass_rate": {
+    "structural_correctness": 0.66,
+    "evidence_grounding": 0.71,
+    "temporal_coherence": 1.0,
+    "spatial_coherence": 1.0,
+    "mechanism_explanation": 1.0,
+    "uncertainty_honesty": 1.0,
+    "citation_completeness": 0.79
+  },
+  "note": "评分为确定性代理指标（§87 七维），非人工金标；结构先行装配、证据标记校验为真实门禁",
+  "results": [
+    {
+      "id": "DH-001",
+      "category": "STRUCTURE",
+      "question": "长江文化由什么结构构成？",
+      "answer": "长江文化结构由历史分期、文化系统及成员关系构成。历史分期涵盖史前至新时代，演化模式包括多源起源、区域发展、流域互动及持续整合 [EV:历史分期]。文化系统包含吴越、荆楚、巴蜀、赣皖等子系统，通过成员关系（如城市、机构、人物）具体化，例如沙市市隶属荆楚文化系统，重庆隶属巴蜀文化系统 [EV:成员关系]。机制上，体现为水利智慧（如都江堰）、戏曲多样性（如川剧）及移民流动 [EV:结构推断]。\n\n不确定性声明：库中“文化系统”、“水系空间”、“文化传统”、“文化过程”及“文化流动”字段均为空，缺乏直接定义；证据引文部分为空，所有断言仅基于结构对象内部逻辑，缺乏外部文献佐证，部分细节证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-002",
+      "category": "STRUCTURE",
+      "question": "长江水系怎样参与文化生成？",
+      "answer": "长江文化生成呈现多阶段演化机制。先秦及史前时期呈“多源起源”模式 [EV:历史分期]；秦汉、隋唐时期侧重“区域发展” [EV:历史分期]；魏晋南北朝至宋元时期，通过“流域互动”强化联系，如湖广与四川移民沿水道流动 [EV:结构推断]；明清以降进入“持续整合”阶段 [EV:历史分期]。\n\n证据显示，水系空间塑造了具体文化形态：巴蜀文化系统以川剧为代表，体现多样性 [EV:结构推断]；荆楚文化系统孕育了屈原故里秭归的竞渡习俗及随州青铜礼乐文明 [EV:结构推断]；水利设施如岷江都江堰改善水患并灌溉成都平原，彰显流域智慧 [EV:结构推断]。成员关系表明重庆、沙市等地分别归属巴蜀与荆楚系统 [EV:成员关系]。\n\n不确定性声明：库中“文化系统”、“水系空间”、“文化传统”等核心对象数据缺失，且无直接证据引文，部分关联推断基于现有结构对象，证据链尚不完整。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "史前时期",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-003",
+      "category": "STRUCTURE",
+      "question": "荆楚文化内部有哪些主要传统？",
+      "answer": "荆楚文化系统内部主要传统表现为成员实体与历史演化模式。成员包括沙市市、湖北省人民政府、俞与、马伯援及大冶铁矿等 [EV:成员关系]。历史演化涵盖先秦、史前时期的“多源起源”模式，秦汉、隋唐的“区域发展”模式，宋元、魏晋南北朝的“盆地互动”模式，以及明清至新时代的“持续整合”模式 [EV:历史分期]。结构推断显示，楚国核心统治区位于长江中游江汉平原，深刻塑造了流域文化 [EV:结构推断]。屈原作为战国楚国诗人，其故里秭归位于湖北，竞渡习俗深厚传承 [EV:结构推断]。然而，关于荆楚文化具体的“文化传统”、“文化过程”及“文化流动”细节，库中暂无数据，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "史前时期",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-004",
+      "category": "STRUCTURE",
+      "question": "长江文化的区域子系统如何依据水系与地理单元划分？",
+      "answer": "长江文化区域子系统依据地理单元划分为巴蜀、荆楚、吴越、赣皖等系统，并随历史阶段呈现不同演化模式。先秦、史前时期呈“多元起源”；秦汉、隋唐呈“区域发展”；宋元、魏晋南北朝呈“流域互动”；明清至新时代则表现为“持续整合”[EV:历史分期]。\n\n证据显示，重庆、万县属巴蜀文化系统，沙市、湖北属荆楚文化系统，黄山属赣皖文化系统，尼泊尔馆、玉佛禅寺属吴越文化系统 [EV:成员关系]。机制上，屈原故里秭归体现荆楚文化，都江堰改善上游水患，川剧代表巴蜀戏曲多样性，楚国核心位于江汉平原 [EV:结构推断]。\n\n不确定性声明：库中“水系空间”、“文化系统”、“文化传统”等核心结构对象暂无数据，且无直接证据引文，上述划分主要基于成员归属与历史模式推断，具体水系边界及文化细节证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "史前时期",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-005",
+      "category": "STRUCTURE",
+      "question": "长江史前文明如何呈现多中心结构？",
+      "answer": "结构上，长江史前文明呈现“多中心起源”（MULTI_ORIGIN）的演化模式 [EV:历史分期-史前时期]。\n\n证据方面，虽无直接针对史前时期的独立证据引文，但结构推断显示长江中游荆楚地区在青铜铸造与礼乐文明上成就显著，出土文物如湖北随州相关遗存反映了该区域的高度发展 [EV:结构推断-随州出土]；同时，楚国核心统治区位于江汉平原，深刻塑造了流域文化，暗示了早期区域中心的形成 [EV:结构推断-楚国核心]。这些区域性文化高峰支持了多中心并存而非单一中心扩散的观点。\n\n不确定性声明：库中“文化系统”、“水系空间”及“证据引文”均为空，缺乏具体的史前遗址分布、考古地层数据及直接文献引证，无法精确界定各中心的具体地理边界与互动细节，故具体空间格局证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "史前时期"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-006",
+      "category": "STRUCTURE",
+      "question": "巴蜀文化系统由哪些子区域文化与传统构成？",
+      "answer": "巴蜀文化系统由地理实体与代表性文化成果构成。成员关系显示，重庆 [EV:成员关系] 和重庆市万县区 [EV:成员关系] 属于该系统；白鹤梁水下博物馆 [EV:成员关系] 作为系统成员，佐证了水利智慧传统。结构推断指出，川剧起源于四川（含今重庆），是巴蜀文化系统的重要代表 [EV:结构推断]。\n\n在演化机制上，先秦、史前时期呈现“多源起源”模式 [EV:历史分期]；秦汉、隋唐时期表现为“区域发展” [EV:历史分期]；宋元、魏晋南北朝时期体现“盆地互动” [EV:历史分期]；明清及以后则进入“持续整合”阶段 [EV:历史分期]。\n\n不确定性声明：库中“文化系统”、“文化传统”、“文化过程”及“文化流动”字段均为空，缺乏对具体子区域文化类型、非物质传统及动态流动机制的详细定义与证据，仅能依据现有成员与推断进行有限描述。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "史前时期",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-007",
+      "category": "STRUCTURE",
+      "question": "吴越文化与江南文化在结构上是什么关系？",
+      "answer": "结构上，吴越文化与江南文化的关系表现为“成员与系统”的从属关系，而非并列或对立关系。吴越文化被定义为江南文化系统（库中记为“吴越文化系统”）的组成部分，其内部包含玉佛禅寺等成员实体 [EV:成员关系]。在演化机制上，该区域文化经历了从先秦、史前的“多源并存”（MULTI_ORIGIN），到秦汉、隋唐的“区域发展”（REGIONAL_DEVELOPMENT），再经魏晋南北朝、宋元的“流域互动”（BASIN_INTERACTION），最终在明清至新时代进入“持续整合”（CONTINUOUS_INTEGRATION）阶段 [EV:历史分期]。\n\n证据支撑方面，库中明确将“吴越文化系统”列为独立系统实体，并列举了玉佛禅寺等 admitted 成员，证实了吴越文化作为子系统或核心构成部分的地位 [EV:成员关系]。历史分期数据表明，该区域文化通过长期的流域互动与持续整合，形成了稳定的结构特征 [EV:历史分期]。\n\n不确定性声明：库中无“江南文化系统”的直接定义或成员列表，仅存在“吴越文化系统”；因此，吴越文化与更广泛“江南文化”的完整边界及互动细节证据不足，无法确认二者是否完全等同或存在层级差异 [EV:证据不足]。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-008",
+      "category": "STRUCTURE",
+      "question": "长江文化包含哪些核心文化领域及其载体？",
+      "answer": "长江文化核心领域涵盖戏曲、水利、青铜礼乐及文学习俗，载体包括川剧、都江堰、曾侯乙编钟及屈原故里竞渡习俗。其演化呈现多阶段特征：先秦与史前时期呈“多源起源”模式；秦汉、隋唐及宋元、魏晋南北朝时期表现为“区域发展”与“流域互动”交替；明清至新时代则确立“持续整合”模式，体现流域内如湖广与四川间的移民与文化融合 [EV:历史分期, 结构推断]。\n\n具体而言，川剧作为巴蜀文化代表体现戏曲多样性 [EV:结构推断]；都江堰展示上游水利智慧 [EV:结构推断]；随州出土文物反映中游荆楚青铜文明 [EV:结构推断]；屈原故里竞渡习俗彰显文学与民俗传承 [EV:结构推断]。荆楚、巴蜀、吴越、赣皖等子系统通过成员关系（如沙市、重庆、黄山等）构成整体 [EV:成员关系]。\n\n不确定性声明：库中“文化系统”、“文化传统”、“文化过程”及“文化流动”字段均为空，缺乏对文化领域深层机制及动态流动的详细证据，部分领域构成及演化细节证据不足 [EV:文化系统, 文化传统, 文化过程, 文化流动]。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "史前时期",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-009",
+      "category": "STRUCTURE",
+      "question": "湖湘文化系统由哪些学术传统与人物谱系构成？",
+      "answer": "湖湘文化系统构成证据不足。\n\n结构方面，库中“文化系统”字段明确标注为“（库中暂无）”，未列出“湖湘文化系统”及其下属的学术传统、人物谱系或具体成员关系。虽然历史分期中列出了“宋元”、“明清”等阶段，且结构推断中提及“屈原”故里在湖北、“楚国核心统治区”在长江中游江汉平原，但这些信息归属于“长江文化知识基础设施”的通用背景或荆楚文化范畴，并未直接建立与“湖湘文化系统”的归属连接。\n\n证据支撑方面，缺乏直接指向湖湘文化系统内部构成（如特定学派、代表人物）的证据引文。现有证据仅能证明该区域在楚文化及长江流域中的地理与历史地位，无法推导其具体的学术传统与人物谱系构成。\n\n不确定性声明：由于核心数据缺失，无法回答湖湘文化系统的具体构成，相关结论均标记为证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "宋元",
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-010",
+      "category": "STRUCTURE",
+      "question": "赣皖文化系统在长江下游文化格局中处于什么结构位置？",
+      "answer": "赣皖文化系统在长江下游文化格局中的具体结构位置证据不足。\n\n首先，在构成与成员关系上，库中仅列出“韩殿甲”和“黄山”为赣皖文化系统的成员 [EV:成员关系]，缺乏该系统的其他构成要素或边界定义，无法描绘其内部结构。其次，在历史阶段与演化机制上，库中列出的历史分期（如先秦、宋元、明清等）及其演化模式（如MULTI_ORIGIN、CONTINUOUS_INTEGRATION）均未明确关联至“赣皖文化系统” [EV:历史分期]，无法推断其在不同时期的结构演变或互动机制。最后，在结构推断层面，提供的证据引文主要涉及巴蜀、荆楚等文化系统，未包含关于赣皖文化系统与长江下游其他系统（如吴越）关系的直接推断 [EV:结构推断]。因此，基于现有数据，无法确定其在长江下游文化格局中的具体结构位置。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-011",
+      "category": "EVOLUTION",
+      "question": "巴蜀文化如何形成并演进？",
+      "answer": "巴蜀文化形成于先秦及史前时期，呈现多源起源特征 [EV:历史分期]。秦汉至隋唐阶段，表现为区域发展 [EV:历史分期]。宋元及魏晋南北朝时期，通过盆地互动促进融合 [EV:历史分期]。明清以来，进入持续整合阶段 [EV:历史分期]。\n\n机制上，长江水系提供流动通道，如湖广与四川同属长江流域，移民沿水道迁徙 [EV:结构推断]。都江堰等水利设施改善成都平原环境，奠定文化基础 [EV:结构推断]。川剧作为重要代表，体现长江上游戏曲多样性 [EV:结构推断]。\n\n不确定性：库中暂无具体的文化系统、传统、过程及流动详细数据，亦无直接证据引文支撑上述断言，部分演化细节证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "史前时期",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-012",
+      "category": "EVOLUTION",
+      "question": "从河姆渡到良渚，长江下游史前稻作社会经历了怎样的演化阶段？",
+      "answer": "结构：研究聚焦先秦史前时期，演化模式为“多元起源”（MULTI_ORIGIN）。\n\n证据：库中“文化系统”、“水系空间”、“文化传统”、“文化过程”及“文化流动”均为空，无具体河姆渡或良渚遗址数据。证据引文部分明确标注“（无）”。现有结构推断仅涉及川剧、都江堰、屈原及楚国等历史时期内容，与史前稻作社会无关。\n\n不确定性声明：关于从河姆渡到良渚长江下游史前稻作社会的具体演化阶段、构成及机制，证据不足。无法提供相关事实支撑。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "先秦",
+        "史前时期"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-013",
+      "category": "EVOLUTION",
+      "question": "楚国如何从早期方国发展为战国后期的区域强国？",
+      "answer": "结构上，楚国属于荆楚文化系统，其核心统治区位于长江中游江汉平原 [EV:结构推断-6]。历史分期显示先秦时期呈现“多源起源”模式 [EV:历史分期-1]。\n\n证据方面，文献指出楚国核心统治区深刻塑造了长江流域文化 [EV:结构推断-6]。屈原作为战国楚国诗人，其故里秭归位于湖北长江三峡地区，且当地竞渡习俗深厚传承 [EV:结构推断-4]。此外，出土于湖北随州的文物反映了长江中游荆楚地区青铜铸造与礼乐文明的高度成就 [EV:结构推断-5]。\n\n不确定性声明：关于楚国从早期方国具体演变为战国后期区域强国的详细政治、军事或经济机制，当前证据不足。现有资料仅能确认其地理核心、文化属性及部分文明成就，缺乏对其国家形态演化过程的直接描述。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "先秦"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-014",
+      "category": "EVOLUTION",
+      "question": "六朝时期建康如何成为长江下游的政治文化中心？",
+      "answer": "结构：六朝（魏晋南北朝）时期长江流域演化模式为“流域互动” [EV:历史分期]。\n\n证据：库中“文化系统”、“水系空间”、“文化传统”、“文化过程”及“文化流动”均为空，无直接证据表明建康在此时期成为政治文化中心。现有“结构推断”仅涉及川剧、湖广四川移民、都江堰、屈原及楚国，均与六朝建康无关 [EV:结构推断]。成员关系仅列举吴越、荆楚、巴蜀、赣皖文化系统相关实体，未包含建康或六朝相关条目 [EV:成员关系]。\n\n不确定性声明：关于六朝时期建康如何成为长江下游政治文化中心的具体机制、构成要素及历史证据，库中信息缺失，证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "魏晋南北朝"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-015",
+      "category": "EVOLUTION",
+      "question": "中国经济重心南移如何提升长江流域在全国格局中的地位？",
+      "answer": "结构：中国经济重心南移通过“流域互动”与“持续整合”机制，推动长江流域从区域开发走向全国一体化。阶段上，秦汉至隋唐表现为“区域开发”，宋元及魏晋南北朝进入“流域互动”，明清至新时代确立“持续整合”格局。\n\n证据：先秦至史前呈“多源”特征 [EV:历史分期]；秦汉、隋唐处于“区域开发”阶段 [EV:历史分期]；魏晋南北朝、宋元通过“流域互动”强化联系 [EV:历史分期]；明清、晚清、民国、社会主义建设、改革开放及新时代均呈现“持续整合”模式 [EV:历史分期]。成员关系显示巴蜀、荆楚、吴越等子系统融入长江文化网络 [EV:成员关系]。\n\n不确定性：库中无“文化系统”、“水系空间”、“文化过程”及“文化流动”数据，且无具体证据引文，经济重心南移的具体量化指标及与全国格局地位提升的直接因果链条证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "晚清",
+        "民国",
+        "隋唐"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-016",
+      "category": "EVOLUTION",
+      "question": "景德镇如何从宋元民窑演变为明清御窑厂与全球性瓷业中心？",
+      "answer": "结构：景德镇瓷业演化属宋元“盆地互动”与明清“持续整合”阶段，体现从民窑到御窑及全球中心的连续集成模式。\n\n证据：证据不足。提供的结构对象中，历史分期仅列出宋元与明清的演化模式（BASIN_INTERACTION, CONTINUOUS_INTEGRATION），但未包含任何关于“景德镇”、“民窑”、“御窑厂”或“全球性瓷业中心”的具体实体、成员关系或结构推断。证据引文部分亦为空，缺乏支持上述具体历史变迁事实的直接证据。\n\n不确定性声明：由于知识库中完全缺失关于景德镇的具体文化系统、实体关系及历史细节证据，无法证实或证伪其从宋元民窑演变为明清御窑厂与全球性瓷业中心的具体路径与机制。所有相关断言均因证据不足而无法确立。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "宋元",
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-017",
+      "category": "EVOLUTION",
+      "question": "上海如何从江海之间的县城演变为近代远东大都市？",
+      "answer": "结构：上海位于长江流域，其演变涉及“江海之间”的空间互动。历史分期显示，上海所属区域在宋元时期呈现“盆地互动”模式，在明清、晚清及民国时期呈现“持续整合”模式，暗示其从区域节点向大都市的连续演化机制。\n\n证据：现有证据仅确认上海属于长江文化系统，且长江流域存在“湖广与四川同属长江流域，移民沿长江水道进行”的流动模式 [EV:结构推断-2]。上海在明清至民国经历“持续整合” [EV:历史分期-4,7,8]。\n\n不确定性：库中“水系空间”、“文化系统”及“文化过程”均为空，缺乏上海具体地理特征、行政地位变迁及近代化具体动因的直接证据。关于上海如何从“县城”演变为“远东大都市”的具体路径、关键事件及社会文化机制，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "宋元",
+        "明清",
+        "晚清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-018",
+      "category": "EVOLUTION",
+      "question": "重庆城市文化如何经历开埠、陪都与直辖三个阶段的演进？",
+      "answer": "结构上，重庆属巴蜀文化系统 [EV:成员关系]。历史分期中，先秦、史前呈多元起源 [EV:历史分期]；秦汉、隋唐及宋元、魏晋南北朝分别体现区域发展与盆地互动 [EV:历史分期]；明清、晚清、民国至新时代均表现为持续整合模式 [EV:历史分期]。机制上，川剧作为巴蜀文化代表，体现长江上游戏曲多样性 [EV:结构推断]；湖广与四川同属长江流域，移民沿水道流动 [EV:结构推断]。\n\n不确定性声明：关于“开埠”、“陪都”、“直辖”三个特定阶段的具体文化演进细节，库中无直接证据支撑，证据不足。现有数据仅能确认重庆在巴蜀文化系统中的地位及长时段的整合与互动模式，无法详细回答特定历史节点的文化变迁机制。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "晚清",
+        "民国",
+        "隋唐"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-019",
+      "category": "EVOLUTION",
+      "question": "徽州文化共同体如何形成并经历明清繁荣与近代转型？",
+      "answer": "结构上，徽州文化共同体形成于宋元时期的“盆地互动”模式 [EV:历史分期]，并在明清及近代（晚清、民国）通过“持续整合”机制实现繁荣与转型 [EV:历史分期]。\n\n证据方面，库中缺乏直接描述徽州文化系统、具体文化过程或流动的证据。仅能依据“黄山”被归类于“赣皖文化系统” [EV:成员关系]，间接佐证该区域在文化系统中的位置。关于“徽州”这一特定名称的文化共同体构建细节、明清繁荣的具体表现及近代转型的内在机制，现有数据未提供直接支撑。\n\n不确定性声明：由于“文化系统”、“文化过程”、“文化流动”等关键模块为空，且无直接证据引文，关于徽州文化共同体的具体形成路径、内部结构及转型细节均属于“证据不足”，无法进行详细的历史还原或机制分析。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "宋元",
+        "明清",
+        "晚清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-020",
+      "category": "EVOLUTION",
+      "question": "湖湘学术从周敦颐、湖湘学派到近代经世思潮经历了怎样的演进？",
+      "answer": "结构：湖湘学术演进缺乏直接证据。历史分期显示宋元期为“盆地互动”，明清至晚清、民国为“持续整合” [EV:历史分期]。机制上，长江流域整体呈现文化多样性与互动，如湖广与四川同属长江流域并存在移民流动 [EV:结构推断]。\n\n证据支撑：现有证据仅能证明湖广地区（含湖湘）处于长江水系空间内，且宋元时期存在盆地间互动 [EV:历史分期, EV:结构推断]。屈原故里秭归位于湖北，反映荆楚文化在长江中游的深厚传承 [EV:结构推断]。但关于周敦颐、湖湘学派具体人物、近代经世思潮及其与周敦颐的传承关系，库中无相关成员、文化传统或过程记录。\n\n不确定性声明：由于文化系统、文化传统、文化过程及证据引文均为空，无法构建从周敦颐到近代经世思潮的具体演进链条，关键断言证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "宋元",
+        "明清",
+        "晚清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-021",
+      "category": "INTERACTION",
+      "question": "近代武汉工业文化与长江航运之间是什么关系？",
+      "answer": "**结构**：近代武汉工业文化与长江航运的关系在库中无直接记录。历史分期显示晚清与民国均呈现“CONTINUOUS_INTEGRATION”模式，暗示该时期存在持续的文化或经济整合 [EV:历史分期]。\n\n**证据**：库中缺乏关于“武汉工业文化”、“近代”具体事件或“长江航运”互动的直接证据引文 [EV:证据引文]。虽有大冶铁矿隶属荆楚文化系统 [EV:成员关系]，但无法直接推导其与航运的互动机制。\n\n**不确定性**：证据不足。无法确定近代武汉工业文化具体如何受长江航运影响或与之互动，现有数据仅能提供宏观分期背景，缺乏微观互动细节。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "晚清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-022",
+      "category": "INTERACTION",
+      "question": "都江堰水利工程与成都平原农业文明如何互动？",
+      "answer": "结构上，都江堰水利工程通过无坝引水技术改善长江上游水患并灌溉成都平原，被视为长江流域水利智慧的典范 [EV:结构推断-3]。在历史演化中，秦汉时期呈现“区域发展”模式，隋唐时期亦为“区域发展”，而宋元及魏晋南北朝时期则体现为“流域互动” [EV:历史分期]。这表明该工程在早期奠定了区域农业基础，后期则融入更广泛的流域文化互动网络。\n\n证据支撑方面，直接证据仅来自结构推断中关于都江堰地理位置（岷江）、功能（灌溉成都平原、改善水患）及其文化地位（巴蜀文化系统代表）的描述 [EV:结构推断-3]。历史分期数据提供了宏观背景，但未直接描述都江堰与农业文明的具体互动细节。\n\n不确定性声明：关于都江堰与成都平原农业文明互动的具体机制、农业产出变化及社会影响，库中证据不足。现有信息仅能确认其工程属性及所属的历史阶段模式，缺乏微观层面的直接证据支撑。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "宋元",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-023",
+      "category": "INTERACTION",
+      "question": "楚辞的创作与沅湘流域的巫祭文化之间是什么关系？",
+      "answer": "结构：先秦时期长江流域呈现多源并发（MULTI_ORIGIN）演化模式 [EV:历史分期]。屈原作为战国楚国诗人，其故里秭归位于湖北长江三峡地区，该地竞渡习俗深厚传承 [EV:结构推断]。楚国核心统治区位于长江中游江汉平原，深刻塑造了长江流域文化 [EV:结构推断]。\n\n证据：现有证据仅确立了屈原的楚国诗人身份、地理归属及当地竞渡习俗的存在，并指出楚国对长江文化的塑造作用 [EV:结构推断]。\n\n不确定性：库中“文化系统”、“文化传统”、“文化过程”及“证据引文”均为空，缺乏关于“沅湘流域”、“巫祭文化”的具体定义、关联机制及直接文本证据。因此，无法证实楚辞创作与沅湘巫祭文化之间的具体互动关系，该部分关系证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "先秦"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-024",
+      "category": "INTERACTION",
+      "question": "明清扬州如何依托运河与长江交汇的区位形成盐运与园林文化？",
+      "answer": "结构：明清时期长江流域呈现“持续整合”演化模式 [EV:历史分期]。机制上，依托长江水系空间及文化互动，形成区域发展或流域交互网络 [EV:历史分期, 水系空间]。\n\n证据：现有证据仅确认明清处于“持续整合”阶段 [EV:历史分期]，且存在“湖广与四川同属长江流域，移民沿长江水道进行”的互动事实 [EV:结构推断]。然而，库中关于“文化系统”、“水系空间”、“文化过程”及“文化流动”均为空，且无具体证据引文 [EV:证据引文]。\n\n不确定性：证据不足。无法证实扬州在明清的具体区位特征、盐运与园林文化形成的具体因果链条，亦无证据表明扬州属于特定文化系统或存在相关成员关系 [EV:文化系统, 水系空间, 成员关系]。现有数据不足以支撑关于扬州盐运与园林文化形成的具体断言。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-025",
+      "category": "INTERACTION",
+      "question": "长江流域的书院传统与学术思想发展如何互动？",
+      "answer": "结构：长江流域书院传统与学术思想的互动机制，主要依托于“流域互动”与“持续整合”的历史演化模式。在宋元及魏晋南北朝时期，表现为“流域互动”模式，促进跨区域文化交流；在明清及以后时期，转向“持续整合”模式，强化文化系统的内在统一性。\n\n证据：现有证据仅支持宏观历史分期模式（如宋元的BASIN_INTERACTION、明清的CONTINUOUS_INTEGRATION）[EV:历史分期]，以及部分文化现象（如川剧、屈原故里）的空间分布 [EV:结构推断]。然而，库中“文化传统”、“文化过程”及“证据引文”均为空，缺乏关于“书院”、“学术思想”及其具体互动关系的直接事实或引文。\n\n不确定性：关于书院与学术思想互动的具体机制、代表人物及思想流派，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "宋元",
+        "明清",
+        "魏晋南北朝"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-026",
+      "category": "INTERACTION",
+      "question": "长江流域的茶业生产与茶马古道贸易如何互动？",
+      "answer": "结构：基于“宋元”及“魏晋南北朝”时期的“流域互动”模式，以及“明清”以来的“持续整合”模式，长江流域文化系统呈现从区域互动到深度整合的演化路径 [EV:历史分期]。\n\n证据：现有证据仅支持长江流域内部的文化多样性（如川剧、荆楚青铜文明）及水利智慧（都江堰），并确认了湖广与四川间的移民流动 [EV:结构推断]。然而，库中“文化系统”、“文化过程”及“文化流动”均为空，且无具体证据引文。\n\n不确定性：证据不足。当前知识库缺乏关于“茶业生产”的具体实体、技术细节或“茶马古道”贸易路线、商品流向的直接记录。无法证实茶业与古道贸易的具体互动机制，仅能推断在流域互动背景下可能存在相关文化交流，但具体茶业贸易事实缺失。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "宋元",
+        "明清",
+        "魏晋南北朝"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-027",
+      "category": "INTERACTION",
+      "question": "明清徽商网络与长江中下游市镇经济如何互动？",
+      "answer": "结构：明清时期长江流域演化模式为“持续整合” [EV:历史分期]。\n\n证据：现有证据未直接提及“徽商”或“长江中下游市镇经济”的具体互动细节。仅知明清处于持续整合阶段，且部分成员（如黄山、韩殿甲）归属赣皖文化系统，暗示该区域在文化系统内存在关联 [EV:成员关系]。\n\n不确定性声明：关于明清徽商网络与长江中下游市镇经济的具体互动机制、路径及影响，库中证据不足。无法提供具体的经济互动事实或过程描述。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-028",
+      "category": "INTERACTION",
+      "question": "长江口港口体系与太湖流域腹地经济如何互动？",
+      "answer": "结构上，长江口港口与太湖流域腹地的互动主要体现为“流域互动”与“持续整合”模式。历史分期显示，宋元及魏晋南北朝时期呈现“BASIN_INTERACTION”（流域互动）特征，表明该阶段流域内存在紧密的经济文化交流 [EV:历史分期]；明清、晚清、民国及改革开放后则进入“CONTINUOUS_INTEGRATION”（持续整合）阶段，暗示港口与腹地联系日益深化且稳定 [EV:历史分期]。\n\n证据支撑方面，现有资料仅通过历史演化模式间接反映互动关系的演变，缺乏关于长江口港口体系具体设施、太湖流域经济实体或两者间直接贸易、物流数据的具体证据 [EV:证据引文]。\n\n不确定性声明：由于缺乏具体的港口运作、货物吞吐及经济往来数据，无法详述互动的具体机制与规模，相关细节证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "宋元",
+        "明清",
+        "魏晋南北朝",
+        "晚清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-029",
+      "category": "INTERACTION",
+      "question": "三峡工程的建设与长江三峡文化如何互动？",
+      "answer": "结构：三峡工程属“社会主义建设时期”，该阶段长江文化演化模式为“CONTINUOUS_INTEGRATION”[EV:历史分期]。三峡地区（如秭归）属“巴蜀文化系统”或“荆楚文化系统”[EV:成员关系]，拥有屈原故里等深厚文化传统[EV:结构推断]。\n\n证据：现有证据仅显示三峡地区在历史上属于长江文化系统的一部分，且该时期文化呈连续整合态势。屈原故里秭归位于三峡地区，是巴蜀/荆楚文化的重要节点[EV:结构推断]。然而，库中“文化系统”、“水系空间”及“文化过程”均为空，且无直接关于“三峡工程”建设行为、具体互动机制或文化变迁影响的证据引文[EV:证据引文]。\n\n不确定性：证据不足。无法确定三峡工程建设对长江三峡文化的具体互动方式、影响程度及演变细节，仅能推断其处于文化连续整合的大背景下。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "社会主义建设时期"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-030",
+      "category": "INTERACTION",
+      "question": "长江流域戏曲声腔如何与地方语言及民俗互动形成多样剧种？",
+      "answer": "结构上，长江流域戏曲声腔的多样性形成于“区域发展”与“盆地互动”阶段，依托巴蜀、荆楚等文化系统，通过移民沿水道流动实现声腔与地方语言、民俗的持续整合。\n\n证据显示，川剧作为巴蜀文化系统代表，起源于四川并流行于长江上游及支流，体现多样性 [EV:结构推断-1]。湖广与四川同属长江流域，移民沿长江水道进行，促进了文化交融 [EV:结构推断-2]。此外，屈原故里秭归深厚的竞渡习俗传承，反映了地方民俗对文化形态的塑造 [EV:结构推断-4]。\n\n不确定性声明：库中暂无具体的“文化传统”、“文化过程”及“文化流动”详细数据，且无直接证据引文。关于声腔具体如何与语言、民俗互动的微观机制，以及除川剧外其他剧种的详细形成路径，证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-031",
+      "category": "FLOW",
+      "question": "湖广填四川带来了什么人口与文化流动？",
+      "answer": "**结构**：湖广填四川属于明清时期“持续整合”模式下的长江流域人口与文化流动。机制上，移民沿长江水道从湖广向四川迁移，促进了巴蜀文化系统的内部整合与多样性发展。\n\n**证据**：历史分期显示明清时期呈现“持续整合”特征 [EV:历史分期]。结构推断证实湖广与四川同属长江流域，且移民沿长江水道进行 [EV:结构推断]。川剧作为巴蜀文化系统代表，体现了该时期长江上游及支流地区戏曲文化的多样性与整合 [EV:结构推断]。\n\n**不确定性**：关于具体移民规模、详细文化融合过程及非戏曲类文化流动的具体细节，库中暂无相关证据，结论存在证据不足的情况。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-032",
+      "category": "FLOW",
+      "question": "抗战时期文化教育资源如何向长江上游迁移？",
+      "answer": "结构：库中缺乏“文化系统”、“水系空间”、“文化过程”及“文化流动”的具体数据，无法构建抗战时期教育资源迁移的完整机制模型。历史分期中仅标记“民国”为“CONTINUOUS_INTEGRATION”模式，未提供该时期文化资源流动的具体演化路径或阶段特征。\n\n证据支撑：现有证据仅涉及先秦至明清的历史文化特征（如巴蜀戏曲、楚文化、水利智慧等）及成员关系（如重庆属巴蜀文化系统），无任何关于抗战时期（民国晚期）文化教育资源迁移、机构内迁或人员流动的实证记录 [EV:无]。\n\n不确定性声明：由于证据引文为空，且结构对象中缺失抗战时期的具体文化流动数据，关于“抗战时期文化教育资源如何向长江上游迁移”的研究问题证据不足，无法得出具体结论。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "先秦",
+        "明清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-033",
+      "category": "FLOW",
+      "question": "徽班如何沿长江流动进京并与汉调合流促成京剧形成？",
+      "answer": "结构：明清时期长江流域呈现“连续整合”演化模式 [EV:历史分期]。机制上，湖广与四川同属长江流域，移民沿长江水道流动 [EV:结构推断]。\n\n证据：现有证据仅支持川剧作为巴蜀文化系统代表，体现长江流域戏曲多样性 [EV:结构推断]；以及屈原故里秭归位于湖北长江三峡地区，反映荆楚地区礼乐文明 [EV:结构推断]。\n\n不确定性：库中“文化系统”、“水系空间”、“文化传统”、“文化过程”、“文化流动”均为空，且无具体证据引文。关于“徽班”、“汉调”、“进京”、“合流”及“京剧形成”的具体路径、人物关系及历史细节，证据不足。无法依据现有数据回答徽班如何流动及促成京剧形成的具体过程。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-034",
+      "category": "FLOW",
+      "question": "景德镇青花瓷技术与外销瓷如何沿海上丝路传播并影响世界制瓷业？",
+      "answer": "结构：基于现有数据，无法构建景德镇青花瓷技术与外销瓷沿海上丝路传播的具体文化系统、文化过程或文化流动结构。历史分期中“明清”阶段虽标记为“CONTINUOUS_INTEGRATION”，但未关联具体制瓷技术或贸易路径。\n\n证据支撑：库中“文化系统”、“文化传统”、“文化过程”、“文化流动”均为空。成员关系仅涉及吴越、荆楚、巴蜀、赣皖等文化系统及相关人物地点，无景德镇、青花瓷或海上丝路相关实体。结构推断仅涉及川剧、都江堰、屈原等，与制瓷业无关。证据引文为空。\n\n不确定性声明：关于景德镇青花瓷技术起源、外销瓷贸易路线及其对世界制瓷业影响的具体事实证据不足，无法依据当前装配的结构对象与证据进行回答。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.571,
+      "cited_objects": [
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-035",
+      "category": "FLOW",
+      "question": "西晋永嘉之乱后的衣冠南渡带来了怎样的人口与文化南移？",
+      "answer": "结构：魏晋南北朝时期长江流域呈现“BASIN_INTERACTION”演化模式 [EV:历史分期]。\n\n证据：现有证据仅支持该时期存在流域互动，未直接记录永嘉之乱或衣冠南渡的具体人口与文化细节。虽有屈原故里秭归位于三峡、楚国核心在江汉平原等关于长江中游荆楚文化的断言，但这些属于先秦至战国时期的历史事实，无法直接证明西晋时期的人口迁移路径或文化南移的具体内容 [EV:结构推断]。\n\n不确定性：关于西晋永嘉之乱后衣冠南渡带来的人口与文化南移的具体机制、规模及影响，库中无相关文化流动、文化过程或成员关系记录，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "魏晋南北朝"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-036",
+      "category": "FLOW",
+      "question": "江西填湖广的移民潮如何改变长江中游的人口与文化格局？",
+      "answer": "结构上，江西填湖广属于明清时期“持续整合”模式 [EV:历史分期]。机制上，湖广与四川同属长江流域，移民沿长江水道流动 [EV:结构推断]。\n\n证据方面，库中无直接关于“江西填湖广”的具体文化系统、文化过程或文化流动记录。虽知沙市、湖北省政府属荆楚文化系统 [EV:成员关系]，且楚国核心在江汉平原塑造了流域文化 [EV:结构推断]，但缺乏该移民潮如何具体改变人口与文化格局的直接证据。先秦、魏晋等阶段虽有“多源”或“盆地互动”模式 [EV:历史分期]，但未明确关联江西至湖广的迁移路径。\n\n不确定性声明：关于江西填湖广对长江中游人口与文化格局的具体改变细节，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-037",
+      "category": "FLOW",
+      "question": "明清漕运如何组织江南财赋沿运河与长江的流动？",
+      "answer": "结构：明清时期长江流域文化演化模式为“连续整合” [EV:历史分期]。机制上，存在湖广与四川同属长江流域，移民沿长江水道进行的现象 [EV:结构推断]。\n\n证据支撑：目前库中关于“明清漕运”、“江南财赋”、“运河组织”的具体流程、管理机构或经济流动细节的证据引文为空 [EV:证据引文]。虽知明清属连续整合阶段，且存在长江水系内的移民流动，但缺乏直接描述漕运如何具体组织财赋沿运河与长江流动的结构性对象或事实陈述。\n\n不确定性声明：关于明清漕运组织江南财赋的具体运作机制、路线细节及制度安排，证据不足。现有信息仅能确认该时期的宏观演化模式及部分人口流动方向，无法回答财赋流动的具体组织方式。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-038",
+      "category": "FLOW",
+      "question": "近代沿江开埠如何重组长江流域的贸易流向与口岸体系？",
+      "answer": "**结构**：库中缺乏“文化系统”、“水系空间”及“文化流动”等直接关联近代贸易流向与口岸体系的结构对象，无法构建具体的重组机制或阶段演化模型。\n\n**证据支撑**：历史分期数据仅显示晚清与民国时期均呈现“CONTINUOUS_INTEGRATION”（持续整合）模式 [EV:历史分期]，成员关系仅列出重庆、沙市等地点归属，未涉及贸易功能 [EV:成员关系]。结构推断中关于移民沿长江水道进行的陈述 [EV:结构推断] 暗示了人员流动，但未提供货物贸易流向或口岸体系变化的具体证据。\n\n**不确定性声明**：关于近代开埠如何具体重组长江流域贸易流向与口岸体系，现有证据严重不足，无法回答。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "晚清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-039",
+      "category": "FLOW",
+      "question": "太平天国时期的川盐济楚如何改变长江中上游的盐业流动？",
+      "answer": "结构：晚清时期长江流域呈现“CONTINUOUS_INTEGRATION”演化模式 [EV:历史分期]。机制上，湖广与四川同属长江流域，移民沿长江水道流动 [EV:结构推断]。\n\n证据：现有证据仅确认晚清阶段的文化整合趋势及川湖间的水道联系，未提供太平天国时期“川盐济楚”的具体盐业流动数据、路线或经济影响细节。\n\n不确定性：关于“川盐济楚”如何具体改变盐业流动（如流量变化、贸易网络重构等），库中无相关文化流动或过程记录，证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "晚清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-040",
+      "category": "FLOW",
+      "question": "近代长江流域的报刊出版网络如何组织知识流动？",
+      "answer": "结构：近代长江流域报刊出版网络的知识流动机制在库中证据不足。历史分期中“晚清”与“民国”被标记为“CONTINUOUS_INTEGRATION”（持续整合）模式，暗示该时期存在文化整合过程，但未具体说明报刊网络的组织形式或知识流动路径。\n\n证据支撑：无直接证据。库中“文化系统”、“水系空间”、“文化过程”、“文化流动”及“证据引文”均为空。成员关系仅列出地理实体与机构归属，未涉及报刊出版主体。结构推断仅涉及戏曲、水利、移民等，与报刊网络无关。\n\n不确定性声明：关于近代长江流域报刊出版网络如何组织知识流动，当前知识库缺乏相关实体、过程描述及直接证据引文。历史分期的整合模式仅为宏观背景，无法支撑具体机制的断言。因此，该研究问题的具体组织机制和流动细节证据不足，无法构建有效回答。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "晚清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-041",
+      "category": "HUMAN_ENVIRONMENT",
+      "question": "长江中下游的圩田与垸田开发如何重塑人水关系？",
+      "answer": "结构：研究聚焦长江中下游圩田与垸田开发对人水关系重塑的影响。依据现有数据，该过程对应“宋元”及“明清”等历史分期，演化模式呈现“BASIN_INTERACTION”（流域互动）与“CONTINUOUS_INTEGRATION”（持续整合）特征。机制上，水利设施（如都江堰虽在支流，但体现流域水利智慧）与移民流动（湖广与四川同属长江流域，移民沿水道进行）共同作用，推动区域开发与文化系统整合。\n\n证据支撑：证据显示“湖广与四川同属长江流域，移民沿长江水道进行”[EV:2]，且“都江堰...是长江流域水利智慧的典范”[EV:3]，屈原故里秭归位于湖北长江三峡地区，竞渡习俗深厚[EV:4]。这些表明长江流域存在紧密的水利与人口互动网络。\n\n不确定性声明：库中“水系空间”、“文化系统”、“文化过程”及“证据引文”均为空，缺乏针对“圩田”、“垸田”的具体空间分布、开发时序及直接社会影响的证据。因此，关于圩田垸田具体如何重塑人水关系的细节，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "宋元",
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-042",
+      "category": "HUMAN_ENVIRONMENT",
+      "question": "洞庭湖的调蓄功能与围湖造田之间经历了怎样的环境互动？",
+      "answer": "结构：研究涉及洞庭湖调蓄功能与围湖造田的环境互动，需关联水系空间、文化过程及历史分期。\n\n证据：提供的结构对象中，水系空间与文化过程均为空，无直接描述洞庭湖或围湖造田的实体。历史分期仅列出“宋元”、“明清”等阶段及其演化模式（如BASIN_INTERACTION、CONTINUOUS_INTEGRATION），未具体说明这些模式在洞庭湖的具体表现。结构推断中提及长江流域水利智慧（如都江堰）及移民流动，但未涉及洞庭湖特有的围垦历史或生态反馈机制。证据引文为空。\n\n不确定性声明：证据不足。当前知识库缺乏关于洞庭湖具体水文变化、围湖造田历史进程及其与调蓄功能相互作用的具体事实描述，无法构建完整的环境互动链条。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "宋元",
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-043",
+      "category": "HUMAN_ENVIRONMENT",
+      "question": "大禹治水传说反映了怎样的早期治水与人地关系记忆？",
+      "answer": "结构：先秦时期呈现“多源起源”演化模式 [EV:历史分期]。机制：大禹治水作为早期人地关系记忆，体现为对水患的治理与适应。\n\n证据：现有结构推断中，都江堰位于长江支流岷江，通过无坝引水改善上游水患并灌溉成都平原，被视为长江流域水利智慧的典范 [EV:结构推断]。这反映了早期人类通过工程技术干预自然、协调人地关系的实践。\n\n不确定性：关于“大禹治水”传说本身的具体细节、直接关联的文化系统或特定人地关系记忆的描述，库中文化系统、文化传统及证据引文均为空，且无直接证据将大禹传说与上述水利设施或特定文化系统建立明确关联。因此，大禹传说反映的具体早期记忆内容证据不足 [EV:证据不足]。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "先秦"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-044",
+      "category": "HUMAN_ENVIRONMENT",
+      "question": "良渚古城与外围水利系统体现了怎样的人水适应能力？",
+      "answer": "结构：良渚古城与外围水利系统属于史前时期，该阶段演化模式为“多元起源”（MULTI_ORIGIN）。\n\n证据：提供的结构对象中，“水系空间”、“文化系统”、“文化传统”、“文化过程”及“文化流动”均为空，无直接关联证据。成员关系与结构推断中，虽提及都江堰、楚国等长江流域案例，但未包含良渚古城或水利系统的具体描述。证据引文部分为空。因此，无法从给定数据中提取良渚人水适应能力的具体机制或构成细节。\n\n不确定性声明：证据不足。现有知识库缺乏关于良渚古城及其水利系统的直接事实描述，无法回答其体现的具体人水适应能力，仅能确认其历史分期属性。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.571,
+      "cited_objects": [
+        "史前时期"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-045",
+      "category": "HUMAN_ENVIRONMENT",
+      "question": "川江号子如何反映船工与长江激流险滩的关系？",
+      "answer": "结构：库中无“川江号子”、“船工”或“激流险滩”相关实体，无法构建反映其关系的具体文化系统、传统或过程。\n\n证据：现有证据仅涉及川剧起源、湖广四川移民、都江堰水利、屈原故里及楚国统治区等事实 [EV:结构推断]。未提供关于川江号子及其与长江险滩互动关系的任何记录或描述。\n\n不确定性声明：关于川江号子如何反映船工与长江激流险滩关系的问题，因知识库中缺乏相关实体与关联数据，证据不足，无法作答。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.714,
+      "cited_objects": [],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-046",
+      "category": "HUMAN_ENVIRONMENT",
+      "question": "三峡水库蓄水如何改变库区人居环境和文物遗存保护方式？",
+      "answer": "结构：三峡水库蓄水对库区人居环境和文物遗存保护方式的具体改变机制，在当前知识库中未直接定义。现有结构仅包含历史分期（如先秦、明清等）及泛化的文化流动推断（如移民沿长江水道），缺乏针对“蓄水”这一特定工程行为的环境与社会影响分析框架。\n\n证据支撑：证据引文部分为空，无任何直接证据支持蓄水对人居环境或文物保护的具体改变。虽存在“白鹤梁水下博物馆”作为巴蜀文化系统成员的记录，暗示了文物应对水位的某种存在形式，但未提供其保护方式因蓄水而改变的详细过程或机制描述。\n\n不确定性声明：关于三峡水库蓄水如何具体改变库区人居环境及文物遗存保护方式，证据不足。现有数据不足以构建完整的因果链条或描述具体的适应性措施。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "先秦",
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-047",
+      "category": "HUMAN_ENVIRONMENT",
+      "question": "长江源区的游牧文化如何适应高寒环境？",
+      "answer": "结构：库中“文化系统”、“文化传统”、“文化过程”及“文化流动”均为空，缺乏直接描述长江源区游牧文化及其适应机制的具体条目。历史分期仅列出宏观演化模式（如先秦的MULTI_ORIGIN、宋元的BASIN_INTERACTION），未涉及源区特定文化细节。结构推断中的证据（如川剧、都江堰、楚国）均指向长江上游、中游或巴蜀、荆楚地区，与“长江源区”地理范围不符，无法支撑源区游牧文化适应高寒环境的论点。\n\n证据支撑：无直接证据。现有证据引文为空。结构推断中关于屈原、楚国、川剧的内容均不相关。\n\n不确定性声明：关于长江源区游牧文化如何适应高寒环境，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "先秦",
+        "宋元"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-048",
+      "category": "HUMAN_ENVIRONMENT",
+      "question": "云贵高原的喀斯特环境如何塑造多民族山地生计与聚落？",
+      "answer": "结构：云贵高原喀斯特环境对多民族山地生计与聚落的具体塑造机制、相关文化系统及传统在库中暂无记录。历史分期显示该区域经历先秦、魏晋南北朝、隋唐的“多源起源”与“盆地互动”，以及秦汉的“区域发展”，宋元后进入“持续整合”阶段 [EV:历史分期]。\n\n证据：现有证据仅支持长江流域整体（如巴蜀、荆楚）的文化互动与水利智慧，如川剧起源、都江堰灌溉及湖广四川移民沿水道流动 [EV:结构推断]。但无直接证据表明这些机制具体作用于云贵高原的喀斯特地貌或特定民族生计。\n\n不确定性：关于云贵高原喀斯特环境如何具体塑造多民族山地生计与聚落，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-049",
+      "category": "HUMAN_ENVIRONMENT",
+      "question": "太湖流域的塘浦圩田与蚕桑经济如何适应水乡环境？",
+      "answer": "结构：太湖流域塘浦圩田与蚕桑经济适应水乡环境的机制、构成及历史阶段在库中均无直接记录。\n\n证据支撑：现有证据仅涉及巴蜀、荆楚、吴越等文化系统的成员关系及川剧、都江堰、楚国等长江上游或中游案例，未包含太湖流域（江南地区）的水利工程、农业经济或蚕桑产业的具体信息。虽然“宋元”、“明清”等历史分期存在，但缺乏与太湖流域特定经济形态关联的演化模式描述。\n\n不确定性声明：关于太湖流域塘浦圩田与蚕桑经济如何适应水乡环境，证据不足。无法基于当前知识库构建相关结构推断或提供事实支撑。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "宋元",
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-050",
+      "category": "HUMAN_ENVIRONMENT",
+      "question": "长江十年禁渔如何调整人与长江渔业资源的关系？",
+      "answer": "结构：长江十年禁渔旨在调整人与渔业资源关系，属于“新时代”历史分期，其演化模式为“CONTINUOUS_INTEGRATION”[EV:历史分期]。\n\n证据：现有知识库中“文化系统”、“水系空间”、“文化传统”、“文化过程”及“文化流动”均为空，且“证据引文”部分明确标注为“无”[EV:证据引文]。虽然“结构推断”中提及长江流域的移民、水利及戏曲文化，但均未涉及渔业资源管理、禁渔政策或人鱼关系的具体调整机制[EV:结构推断]。\n\n不确定性声明：关于长江十年禁渔如何具体调整人与渔业资源关系，当前证据不足，无法提供基于给定结构对象与证据的具体事实支撑。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-051",
+      "category": "CONTINUITY",
+      "question": "端午/龙舟传统如何形成区域变体？",
+      "answer": "端午竞渡传统形成区域变体的结构表现为：先秦及史前时期呈“多源发生”模式 [EV:历史分期]；秦汉、隋唐时期进入“区域发展”阶段 [EV:历史分期]；宋元、魏晋南北朝时期通过“流域互动”促进交流 [EV:历史分期]；明清至新时代则呈现“持续整合”特征 [EV:历史分期]。\n\n证据显示，端午习俗源于纪念屈原，主要流传于南方吴越及荆楚一带 [EV:文化传统]。早期主要流传于吴越一带 [EV0]，后与纪念屈原结合，形成龙舟竞渡与食粽习俗 [EV1][EV2][EV3]。屈原故里秭归位于湖北三峡地区，竞渡习俗在此深厚传承 [EV:结构推断]。\n\n不确定性声明：关于具体区域变体的详细演化路径及不同文化系统间的互动细节证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "端午竞渡",
+        "先秦",
+        "宋元",
+        "史前时期",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-052",
+      "category": "CONTINUITY",
+      "question": "都江堰清明放水节如何延续古代岁修与治水传统？",
+      "answer": "结构：基于“CONTINUOUS_INTEGRATION”演化模式，通过历史分期延续传统。\n证据：结构推断指出都江堰位于岷江，是无坝引水典范，改善水患并灌溉成都平原，体现长江流域水利智慧 [EV:结构推断-3]。历史分期显示，从晚清、民国至社会主义建设时期及新时代，均呈现“CONTINUOUS_INTEGRATION”（持续整合）模式，表明该区域文化实践具有长期连续性 [EV:历史分期-8,9,10,11,12,13]。\n不确定性：库中“文化传统”、“文化过程”及“证据引文”均为空，缺乏关于“清明放水节”具体仪式细节、岁修操作机制及直接历史文献的直接证据。因此，关于该节日如何具体操作以延续传统，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "晚清",
+        "民国",
+        "社会主义建设时期",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-053",
+      "category": "CONTINUITY",
+      "question": "岳麓书院如何从古代书院延续为现代大学教育机构？",
+      "answer": "结构：岳麓书院延续为现代大学的过程，在历史分期上表现为“连续整合”模式，贯穿明清、晚清、民国、社会主义建设、改革开放及新时代 [EV:历史分期]。\n\n证据：现有证据库中无关于岳麓书院的具体实体记录、成员关系或文化过程描述，亦无直接引文支持其机构演变细节。虽存在“明清”至“新时代”均为“CONTINUOUS_INTEGRATION”的宏观模式定义，但缺乏将岳麓书院与该模式关联的具体事实链接。\n\n不确定性声明：证据不足。无法依据当前提供的结构对象与证据，具体说明岳麓书院从古代书院到现代大学教育机构的具体延续路径、关键节点或机制，仅能确认其所属历史阶段符合连续整合特征，但缺乏实证支撑。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "明清",
+        "晚清",
+        "民国",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-054",
+      "category": "CONTINUITY",
+      "question": "长江—运河的水运传统如何延续到近代轮船航运？",
+      "answer": "结构：晚清、民国及社会主义建设时期均呈现“CONTINUOUS_INTEGRATION”（持续整合）模式，表明长江—运河水运传统在近代及以后得以延续 [EV:历史分期]。\n\n证据：现有证据仅列出上述历史分期的演化模式，未提供具体的文化系统、文化传统、文化过程或文化流动数据，亦无直接证据引文说明轮船航运如何具体继承传统水运 [EV:文化系统, 文化传统, 文化过程, 文化流动, 证据引文]。\n\n不确定性：关于“水运传统如何延续到近代轮船航运”的具体机制、载体及演变细节，库中信息缺失，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "晚清",
+        "民国",
+        "社会主义建设时期"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-055",
+      "category": "CONTINUITY",
+      "question": "楚地的漆器与丝织传统如何在汉代得到延续？",
+      "answer": "结构：基于“秦汉”阶段的“区域发展”模式，楚地文化传统在汉代得以延续。机制上，楚国核心统治区位于长江中游江汉平原，深刻塑造了该区域文化 [EV:结构推断-6]。\n\n证据：现有证据仅能确认楚国在地理和文化上的核心地位及其对长江流域文化的塑造作用 [EV:结构推断-6]。关于“漆器”与“丝织”具体技艺在汉代如何延续的直接证据（如出土文物、工艺记载或专门的文化传统记录）在库中均为空 [EV:文化传统-空, 证据引文-空]。\n\n不确定性：由于缺乏具体的物质文化证据链及“文化传统”、“文化过程”等关键结构对象，无法证实漆器与丝织传统在汉代的具体延续路径、工艺演变或社会功能变化。现有信息不足以支撑关于特定手工业传统延续性的详细断言，相关部分证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "秦汉"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-056",
+      "category": "CONTINUITY",
+      "question": "昆曲如何在当代实现传承与复兴？",
+      "answer": "结构：依据历史分期，昆曲传承处于“新时代”与“改革开放时期”，演化模式均为“CONTINUOUS_INTEGRATION”（持续整合）。机制上，文化系统通过持续整合模式实现传统在当代的延续。\n\n证据：历史分期数据明确显示，改革开放时期与新时代均适用“CONTINUOUS_INTEGRATION”模式 [EV:历史分期]。结构推断中虽提及长江流域戏曲多样性（如川剧），但未直接提供昆曲的具体传承案例或当代复兴措施 [EV:结构推断]。\n\n不确定性：库中“文化系统”、“文化传统”及“文化过程”均为空，且无具体证据引文。因此，关于昆曲具体的传承路径、复兴手段及当代实践细节，证据不足。无法确认昆曲在“持续整合”模式下的具体运作机制。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "改革开放时期",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-057",
+      "category": "CONTINUITY",
+      "question": "徽州文书与传统村落如何延续明清社会文化记忆？",
+      "answer": "结构上，明清时期呈现“连续整合”演化模式 [EV:历史分期]。机制上，通过长江流域及支流的移民流动与水利智慧（如都江堰）促进区域互动 [EV:结构推断]。\n\n证据方面，库中明确列出“韩殿甲”隶属“赣皖文化系统” [EV:成员关系]，且“黄山”亦属该系统 [EV:成员关系]，暗示徽州（赣皖）与长江文化系统的关联。然而，关于“徽州文书”的具体内容、传统村落的空间形态及其与明清社会文化记忆延续的直接因果链条，库中“文化系统”、“文化传统”、“文化过程”及“证据引文”均为空或无相关记录 [EV:文化系统, 证据引文]。\n\n不确定性声明：由于缺乏徽州文书与传统村落的具体实证数据及直接关联证据，无法确切回答其如何延续记忆，该部分结论证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "明清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-058",
+      "category": "CONTINUITY",
+      "question": "蜀锦蜀绣传统工艺如何在当代得到传承？",
+      "answer": "结构：关于蜀锦蜀绣在当代的传承，库中缺乏直接关联的文化传统、文化过程或具体成员关系证据。历史分期显示“改革开放时期”、“社会主义建设时期”及“新时代”均呈现“CONTINUOUS_INTEGRATION”（持续整合）模式，暗示该时期存在文化延续机制 [EV:历史分期]。\n\n证据：目前无直接证据表明蜀锦蜀绣的具体传承方式。仅能依据宏观历史分期推断，在当代（改革开放至新时代）背景下，巴蜀文化系统内的文化实践可能通过持续整合模式得以保留或发展 [EV:历史分期]。\n\n不确定性：证据不足。库中未列出蜀锦蜀绣的具体传承人、机构或当代保护项目，无法确认其具体传承路径、现状或面临的挑战，上述推断仅基于宏观时代模式的逻辑关联，缺乏实证支持。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "改革开放时期",
+        "社会主义建设时期",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-059",
+      "category": "CONTINUITY",
+      "question": "黄鹤楼、岳阳楼、滕王阁的题咏传统如何延续为城市文化记忆？",
+      "answer": "结构上，题咏传统通过“建筑重修-文学创作-景观固化”机制延续。黄鹤楼与岳阳楼作为核心载体，依托长江水系空间（如鹦鹉洲、洞庭湖）形成文化地标 [EV1][EV7][EV10]。机制体现为文学互文与仿作，如《岳阳楼记》引发欧阳修《偃虹堤记》等继作，强化文本记忆 [EV2][EV3]。\n\n证据显示，岳阳楼经滕子京重修后，范仲淹应请作记，确立其文化地位 [EV5][EV17]。黄鹤楼因崔颢诗作闻名，其景观（如鹦鹉洲）与诗文紧密绑定 [EV6][EV16]。岳阳楼位于岳阳市古城，其物理存在与《岳阳楼记》诞生地身份共同支撑记忆 [EV4][EV14]。\n\n不确定性：库中无滕王阁相关证据，无法分析其题咏传统；黄鹤楼具体题咏如何转化为城市记忆的细节证据不足 [EV:无]。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.714,
+      "cited_objects": [],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-060",
+      "category": "CONTINUITY",
+      "question": "从大禹治水、李冰治水到当代水利，长江治水精神如何一脉相承？",
+      "answer": "结构上，长江治水精神体现为从先秦“MULTI_ORIGIN”到宋元“BASIN_INTERACTION”，再至明清、晚清、民国及社会主义建设时期、新时代等阶段的“CONTINUOUS_INTEGRATION”（持续整合）演化模式 [EV:历史分期]。机制上，通过流域内的区域互动与持续整合，形成统一的文化治理逻辑。\n\n证据方面，都江堰位于长江支流岷江，通过无坝引水改善上游水患并灌溉成都平原，被视为长江流域水利智慧的典范 [EV:结构推断]。屈原故里秭归位于湖北长江三峡地区，竞渡习俗深厚传承，反映了长江中游荆楚地区对水文化的深刻塑造 [EV:结构推断]。\n\n不确定性声明：关于大禹治水及当代具体水利工程的直接证据不足，无法详细论证从大禹到当代的具体一脉相承细节 [EV:证据不足]。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "明清",
+        "晚清",
+        "民国",
+        "社会主义建设时期",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-061",
+      "category": "TRANSFORMATION",
+      "question": "传统水文化与当代生态文明有哪些连续和转型？",
+      "answer": "结构上，长江文化呈现从史前至先秦的“多元起源”，经秦汉、隋唐的“区域发展”，至宋元、魏晋南北朝的“流域互动”，最终在明清、晚清、民国及社会主义建设时期形成“持续整合”的演化模式 [EV:历史分期]。机制上，通过水系空间互动与成员关系（如巴蜀、荆楚、吴越等文化系统）实现文化流动与整合 [EV:成员关系]。\n\n证据方面，都江堰作为水利智慧典范，体现对长江上游水患的治理与利用 [EV:结构推断]；川剧、屈原故里及编钟出土等案例，佐证了流域内戏曲、礼乐及移民文化的多样性与互动 [EV:结构推断]。\n\n不确定性声明：由于“文化系统”、“文化传统”、“文化过程”及“文化流动”库中暂无数据，且无具体证据引文，关于传统水文化与当代生态文明的具体连续性与转型细节证据不足，无法深入分析其当代转化机制。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "晚清",
+        "民国",
+        "隋唐"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-062",
+      "category": "TRANSFORMATION",
+      "question": "汉阳铁厂到汉冶萍公司体现了怎样的近代钢铁工业转型？",
+      "answer": "基于提供的知识库，无法回答汉阳铁厂到汉冶萍公司的转型问题。\n\n**结构**：库中无“汉阳铁厂”、“汉冶萍公司”或相关近代工业实体记录，亦无对应文化系统或过程描述。\n\n**证据支撑**：证据引文部分明确标注为“（无）”。历史分期中仅列出“晚清”为“CONTINUOUS_INTEGRATION”模式，但未提供该时期具体工业实体演变的细节证据。成员关系与文化传统等模块均为空或无相关条目。\n\n**不确定性声明**：关于汉阳铁厂至汉冶萍公司的具体转型路径、组织变革及工业特征，当前知识库证据不足，无法构建有效断言。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.571,
+      "cited_objects": [
+        "晚清"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-063",
+      "category": "TRANSFORMATION",
+      "question": "浦东开发开放如何推动长江下游的经济与文化转型？",
+      "answer": "结构：研究问题聚焦“浦东开发开放”对长江下游的影响，该事件属于“改革开放时期”。依据历史分期数据，此阶段演化模式为“CONTINUOUS_INTEGRATION”（持续整合）[EV:历史分期]。\n\n证据：库中“文化系统”、“水系空间”、“文化过程”、“文化流动”及“证据引文”均为空或无具体数据。虽“结构推断”提及长江流域整体互动，但未包含浦东、上海或改革开放时期的具体经济文化转型细节。现有成员关系与推断均指向先秦至民国或上游/中游地区，无法直接支撑浦东开发开放的具体作用机制。\n\n不确定性：证据不足。缺乏关于浦东开发开放的具体事实、数据或关联记录，无法回答其如何推动经济与文化转型。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "先秦",
+        "民国",
+        "改革开放时期"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-064",
+      "category": "TRANSFORMATION",
+      "question": "三线建设如何改变长江上游地区的工业与城市格局？",
+      "answer": "结构：研究“三线建设”属社会主义建设时期，该阶段演化模式为“CONTINUOUS_INTEGRATION” [EV:历史分期]。机制上，长江上游属巴蜀文化系统，核心成员包括重庆 [EV:成员关系]。\n\n证据：库中关于“三线建设”的具体工业布局、城市变迁及长江上游工业格局改变的直接证据引文为“无” [EV:证据引文]。现有结构推断仅涉及川剧、都江堰、屈原等历史或文化现象，未涵盖三线建设时期的工业与城市演变 [EV:结构推断]。\n\n不确定性声明：由于缺乏针对“三线建设”在长江上游地区具体工业与城市格局改变的事实性证据，无法回答该问题，相关部分证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "社会主义建设时期"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-065",
+      "category": "TRANSFORMATION",
+      "question": "上海开埠如何促成江南文化向海派文化的转型？",
+      "answer": "结构：库中无“江南文化”与“海派文化”系统定义，亦无“上海开埠”相关事件记录，无法构建转型机制。\n\n证据：现有证据仅涉及先秦至新时代的历史分期模式（如明清、晚清的“CONTINUOUS_INTEGRATION”），以及巴蜀、荆楚、吴越等文化系统的成员关系（如玉佛禅寺属吴越文化系统）和长江上游/中游的文化现象（如川剧、都江堰、屈原故里）。无任何证据直接关联上海开埠与海派文化形成。\n\n不确定性声明：关于上海开埠如何促成江南文化向海派文化转型的具体过程、关键节点及文化融合机制，证据不足。现有数据无法支撑对该特定历史转型问题的回答。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "先秦",
+        "明清",
+        "晚清",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-066",
+      "category": "TRANSFORMATION",
+      "question": "科举废除后长江流域的近代新式教育转型如何展开？",
+      "answer": "**结构**：库中缺乏关于“科举废除后”及“近代新式教育转型”的具体文化过程、流动或成员关系记录。历史分期中虽包含“晚清”与“民国”，但仅标注演化模式为“CONTINUOUS_INTEGRATION”，未关联教育变革细节。\n\n**证据支撑**：现有证据仅涉及先秦至明清的历史阶段划分、巴蜀/荆楚/吴越等文化系统的成员关系，以及川剧、都江堰、屈原等特定文化现象或地理事实 [EV:结构推断]。无任何证据直接描述科举废除后的教育制度变迁、新式学堂建立或课程转型。\n\n**不确定性声明**：关于科举废除后长江流域近代新式教育转型的具体展开方式、路径及影响，证据不足。无法基于当前知识库构建该历史时期的教育转型机制。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "先秦",
+        "明清",
+        "晚清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-067",
+      "category": "TRANSFORMATION",
+      "question": "南通与无锡如何从传统市镇转型为近代工商业城市？",
+      "answer": "**结构**：现有知识库未包含南通与无锡的具体转型路径、产业演变或社会结构数据，无法构建从传统市镇到近代工商业城市的演化模型或机制分析。\n\n**证据支撑**：库中“历史分期”仅列出南通、无锡所属区域（如吴越文化系统隐含的江南地区）在明清、晚清、民国等时期的宏观演化模式为“CONTINUOUS_INTEGRATION”（持续整合）[EV:历史分期]，但未提供两地具体的工商业发展事实、关键人物或事件证据。成员关系与文化流动数据均指向其他区域（如巴蜀、荆楚），无南通、无锡相关记录 [EV:成员关系, 文化流动]。\n\n**不确定性声明**：关于南通与无锡如何具体转型为近代工商业城市，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "明清",
+        "晚清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-068",
+      "category": "TRANSFORMATION",
+      "question": "长江渔民生产生活方式在退捕政策下发生了怎样的转型？",
+      "answer": "结构：长江渔民生产生活方式在退捕政策下的转型机制、阶段及构成要素在现有数据中未定义。\n\n证据支撑：提供的结构对象中，“文化系统”、“文化传统”、“文化过程”及“文化流动”均为空；“历史分期”仅列出各时期演化模式（如先秦的MULTI_ORIGIN、宋元的BASIN_INTERACTION等），未涉及“退捕政策”或“渔民转型”相关阶段；“成员关系”仅包含地理实体、机构及人物与特定文化系统的隶属关系，无渔民群体信息；“结构推断”仅涉及川剧、都江堰、屈原等文化现象，未提及渔业政策或生计转型；“证据引文”为空。因此，无任何证据支持关于渔民转型的具体断言。\n\n不确定性声明：关于长江渔民在退捕政策下的生产生活方式转型，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "先秦",
+        "宋元"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-069",
+      "category": "TRANSFORMATION",
+      "question": "三峡移民与重庆直辖如何推动库区社会文化转型？",
+      "answer": "结构上，三峡移民与重庆直辖属于“改革开放时期”及“新时代”的“CONTINUOUS_INTEGRATION”演化模式 [EV:历史分期]。机制上，移民沿长江水道流动，促进湖广与四川（含重庆）的文化互动 [EV:结构推断]。重庆作为巴蜀文化系统核心，其直辖强化了区域整合 [EV:成员关系]。\n\n证据支撑方面，现有证据仅能证明移民沿长江进行及川剧等巴蜀文化特征 [EV:结构推断]，且重庆隶属巴蜀文化系统 [EV:成员关系]。但关于“三峡移民”具体事件、“重庆直辖”行政过程及其对“社会文化转型”的具体推动机制，库中无直接证据。\n\n不确定性声明：证据不足。无法证实三峡移民与重庆直辖如何具体推动库区社会文化转型，仅知二者处于持续整合的历史阶段。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "改革开放时期",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-070",
+      "category": "TRANSFORMATION",
+      "question": "数字技术正在如何改变长江文化的记录与传承方式？",
+      "answer": "结构：库中暂无“文化系统”、“文化传统”、“文化过程”及“文化流动”等直接关联数字技术记录与传承的结构对象。历史分期仅列出各时期演化模式（如先秦的MULTI_ORIGIN、宋元的BASIN_INTERACTION等），未涉及技术变革机制。成员关系仅展示实体归属，无数字化记录关联。\n\n证据支撑：证据引文部分明确标注“（无）”，且所有结构推断语句均聚焦于地理起源、历史渊源或文化属性（如川剧起源、屈原故里、都江堰功能等），未包含任何关于数字技术、记录方式或传承手段变化的事实描述。\n\n不确定性声明：由于缺乏关于数字技术、记录载体演变及传承方式变化的直接证据，且相关文化过程与流动结构为空，关于“数字技术如何改变长江文化记录与传承”的研究问题证据不足，无法基于当前知识库进行有效回答。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "先秦",
+        "宋元"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-071",
+      "category": "CROSS_REGION",
+      "question": "长江文化与黄河文化如何在中华文明起源中互动互补？",
+      "answer": "结构上，长江与黄河文化在中华文明起源中呈现“多元起源”与“流域互动”特征。先秦及史前时期表现为“多元起源”模式，奠定各自文化根基；魏晋南北朝及宋元时期进入“流域互动”阶段，通过人口与资源流动促进融合；秦汉、隋唐侧重区域发展，而明清至新时代则呈现“持续整合”态势，体现文化系统的深度交融。\n\n证据方面，库中缺乏直接描述长江与黄河文化互动的具体事实或引文。现有证据仅支持长江内部各子系统（如巴蜀、荆楚、吴越）的多样性、水利智慧（都江堰）、移民流动及政治中心塑造等局部特征，未涉及跨流域互动细节。\n\n不确定性声明：关于长江文化与黄河文化在中华文明起源中具体如何互动互补，当前知识库证据不足，无法提供确切支撑。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "史前时期",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-072",
+      "category": "CROSS_REGION",
+      "question": "巴蜀与荆楚在哪些历史过程中发生互动？",
+      "answer": "结构上，巴蜀与荆楚的互动主要依托长江水系空间，在历史分期中呈现不同演化模式。先秦及史前时期表现为“多源起源”，秦汉及隋唐时期侧重“区域发展”，而魏晋南北朝与宋元时期则进入“盆地互动”阶段，明清至现代则呈现“持续整合”态势 [EV:历史分期]。\n\n证据方面，湖广（荆楚）与四川（巴蜀）同属长江流域，移民沿长江水道进行流动，构成了互动的物理基础 [EV:结构推断]。同时，两地文化系统独立存在，如巴蜀文化系统包含重庆、白鹤梁等，荆楚文化系统包含湖北、沙市等，二者通过长江这一共同地理单元发生联系 [EV:成员关系]。\n\n不确定性声明：库中“文化过程”、“文化流动”及“水系空间”均为空，缺乏具体的互动事件、路径细节及直接证据引文，故除宏观分期与水系归属外，具体互动机制证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "史前时期",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-073",
+      "category": "CROSS_REGION",
+      "question": "茶马古道如何连接长江上游与云贵高原及藏彝走廊的跨区域贸易？",
+      "answer": "**结构**：现有知识库未包含“茶马古道”、“云贵高原”、“藏彝走廊”或“跨区域贸易”相关的文化系统、水系空间或文化流动实体。历史分期中虽有“宋元”及“魏晋南北朝”标记为“BASIN_INTERACTION”（流域互动），但缺乏具体指向茶马古道的机制描述。\n\n**证据支撑**：证据引文部分为空 [EV:无]。结构推断中仅涉及川剧、都江堰、屈原及楚国等长江中上游特定文化现象，未提及茶马古道的贸易路线、商品交换或民族互动细节。\n\n**不确定性声明**：关于茶马古道如何连接长江上游与云贵高原及藏彝走廊的跨区域贸易，库中暂无相关数据，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "宋元",
+        "魏晋南北朝"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-074",
+      "category": "CROSS_REGION",
+      "question": "三国时期长江流域的吴蜀联盟与荆州之争如何展开？",
+      "answer": "结构：三国时期属“魏晋南北朝”阶段，演化模式为“流域互动” [EV:历史分期]。机制上，吴蜀联盟与荆州之争涉及“荆楚文化系统”与“巴蜀文化系统”的互动 [EV:成员关系]。\n\n证据：库中明确列出沙市、湖北省人民政府等属荆楚系统，重庆等属巴蜀系统，且该时期存在流域互动模式 [EV:历史分期, 成员关系]。\n\n不确定性：库中无“三国”、“吴蜀联盟”、“荆州之争”的具体事件记录，无相关人物或文化过程证据 [EV:证据不足]。无法依据现有数据还原联盟建立、破裂及荆州争夺的具体历史细节与因果机制，仅能确认其地理文化归属及宏观互动背景。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "魏晋南北朝"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-075",
+      "category": "CROSS_REGION",
+      "question": "凌家滩、良渚与石家河等史前中心之间有哪些跨区域交流的证据？",
+      "answer": "结构上，史前时期呈现“多元起源”模式 [EV:历史分期]。凌家滩、良渚与石家河等中心间存在以玉器为核心的跨区域交流机制。\n\n证据显示，凌家滩遗址位于安徽巢湖地区，地处裕溪河中段 [EV:3]。该文化与太湖附近的崧泽文化形成雏形，体现长江文明内部的互动 [EV:4]。此外，凌家滩与红山、良渚并称为“史前三大玉文化中心”，表明不同区域间存在高度一致的礼制或审美标准，暗示了远距离的文化联系 [EV:8]。\n\n不确定性声明：现有证据仅证实凌家滩与崧泽、良渚、红山在玉器文化上的关联，未提供凌家滩与石家河之间直接交流的具体证据，二者间的互动关系证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "史前时期"
+      ],
+      "cited_evidence": [
+        "EV3",
+        "EV4",
+        "EV8"
+      ]
+    },
+    {
+      "id": "DH-076",
+      "category": "CROSS_REGION",
+      "question": "春秋时期吴越与楚国之间的争霸与文化交流如何展开？",
+      "answer": "结构：先秦时期呈现“MULTI_ORIGIN”演化模式 [EV:历史分期]。楚国核心统治区位于长江中游江汉平原，深刻塑造了长江流域文化 [EV:结构推断]。吴越文化系统与荆楚、巴蜀等系统存在成员关联，如沙市市隶属荆楚文化系统 [EV:成员关系]。\n\n证据：现有证据仅确认楚国在长江中游的文化主导地位及先秦多源起源特征，未直接提供吴越与楚国之间具体的争霸战争细节或文化交流路径 [EV:历史分期, 结构推断, 成员关系]。\n\n不确定性声明：关于春秋时期吴越与楚国之间具体的争霸过程及文化交流机制，库中证据不足，无法展开详细论述。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "先秦"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-077",
+      "category": "CROSS_REGION",
+      "question": "万里茶道如何串联长江中游茶区与北方边疆市场？",
+      "answer": "结构：万里茶道串联长江中游茶区与北方边疆市场的机制、阶段及构成要素在库中均缺失。\n\n证据支撑：现有证据仅涉及先秦至新时代的历史演化模式（如明清的“CONTINUOUS_INTEGRATION”）[EV:历史分期]，以及巴蜀、荆楚、吴越等文化系统的成员关系 [EV:成员关系] 和局部文化现象（如川剧、屈原、都江堰） [EV:结构推断]。无任何关于“万里茶道”、“长江中游茶区”、“北方边疆市场”或具体贸易路线、物流机制的记录 [EV:证据引文]。\n\n不确定性声明：由于知识库中“文化系统”、“水系空间”、“文化过程”、“文化流动”及“证据引文”均为空，且无相关实体或陈述，关于万里茶道如何具体串联两地市场的关键事实证据不足，无法回答该研究问题。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "明清",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-078",
+      "category": "CROSS_REGION",
+      "question": "大运河如何沟通长江与黄河两大文化区域？",
+      "answer": "结构：大运河作为连接长江与黄河文化区域的线性基础设施，其沟通机制依赖于不同历史时期的演化模式。先秦及史前时期呈现“多源起源”特征；秦汉至隋唐表现为“区域发展”；魏晋南北朝与宋元时期进入“流域互动”阶段，促进南北交流；明清及以后则进入“持续整合”阶段，实现文化深度融合。\n\n证据：库中无直接关于大运河沟通两大流域的具体证据引文。仅能依据历史分期中的模式演变推断其作用：魏晋南北朝与宋元的“流域互动”模式 [EV:魏晋南北朝, 宋元] 以及明清以来的“持续整合”模式 [EV:明清, 晚清] 提供了宏观背景。\n\n不确定性：证据不足。库中缺乏关于大运河具体工程、漕运路线、物资交换或文化融合的直接事实描述，无法证实具体的沟通机制与过程。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "史前时期",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "晚清",
+        "隋唐"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-079",
+      "category": "CROSS_REGION",
+      "question": "长江流域各区域文化如何在中华文明多元一体格局中互动整合？",
+      "answer": "长江流域文化互动整合呈现阶段性演化特征。先秦及史前时期呈“多元起源”格局 [EV:历史分期]；秦汉、隋唐侧重“区域发展” [EV:历史分期]；魏晋南北朝至宋元进入“流域互动”阶段，如湖广与四川通过长江水道移民互动 [EV:结构推断]；明清以降及近现代则确立“持续整合”模式 [EV:历史分期]。\n\n机制上，水系空间提供基础，如都江堰改善上游水患 [EV:结构推断]；文化成员在特定系统中集聚，如荆楚系统包含沙市、湖北省政府等 [EV:成员关系]；巴蜀文化通过川剧体现多样性 [EV:结构推断]；楚国核心统治区深刻塑造中游文化 [EV:结构推断]。\n\n不确定性声明：库中“文化系统”、“水系空间”、“文化传统”、“文化过程”及“文化流动”数据为空，且无具体证据引文，部分宏观断言缺乏直接文献支撑，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "史前时期",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-080",
+      "category": "CROSS_REGION",
+      "question": "海上丝绸之路如何与长江下游港口和腹地联动？",
+      "answer": "**结构**：现有知识库未包含“文化系统”、“水系空间”及“文化流动”等直接关联海上丝绸之路与长江下游港口联动的实体或过程数据。历史分期中仅显示宋元时期存在“BASIN_INTERACTION”（流域互动）模式，但未指明具体形式。\n\n**证据支撑**：证据引文部分为空，无任何文本证据支持海上丝绸之路与长江下游的具体联动机制。成员关系与结构推断中，虽有“湖广与四川同属长江流域，移民沿长江水道进行”等推断，但均指向内陆流域互动或特定文化现象，未涉及海上丝绸之路或下游港口腹地联动。\n\n**不确定性声明**：关于海上丝绸之路如何与长江下游港口和腹地联动，库中证据不足，无法提供具体事实依据。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.571,
+      "cited_objects": [
+        "宋元"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-081",
+      "category": "CROSS_PERIOD",
+      "question": "从史前到当代，长江沿线的区域中心是如何转移的？",
+      "answer": "结构上，长江区域中心演变呈现从史前至先秦的“多元起源”模式，经秦汉、隋唐的“区域发展”及魏晋南北朝、宋元的“流域互动”，最终进入明清至新时代的“持续整合”阶段 [EV:历史分期]。机制上，文化系统通过成员关系确立中心，如重庆、沙市分别作为巴蜀与荆楚系统的核心 [EV:成员关系]；水利设施（如都江堰）与移民流动（湖广入川）强化了上游与中游的互动 [EV:结构推断]。证据支撑方面，屈原故里秭归及随州编钟反映了荆楚文化在中游的早期成就 [EV:结构推断]；川剧流行体现巴蜀文化在上游的多样性 [EV:结构推断]。不确定性声明：由于“文化系统”、“水系空间”及“文化过程”库中暂无数据，且无具体证据引文，关于各阶段中心具体地理坐标的精确转移路径及量化演变细节证据不足，无法构建完整的时空连续体。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-082",
+      "category": "CROSS_PERIOD",
+      "question": "从青龙镇到上海港，长江口港口如何跨期演进？",
+      "answer": "结构上，长江口港口演进缺乏直接证据。历史分期显示，宋元时期呈现“流域互动”模式，明清至晚清、民国及改革开放后均表现为“持续整合”模式，暗示港口功能随区域一体化深化而演变。机制上，虽无直接港口记录，但“湖广与四川同属长江流域，移民沿长江水道进行”及“都江堰改善上游水患”等证据，表明水系连通性与水利治理是支撑流域内人员物资流动的基础，间接影响下游港口发展。\n\n证据支撑方面，库中无关于“青龙镇”或“上海港”的具体实体、文化过程或流动记录。仅能依据历史分期的模式变化推断宏观趋势，且成员关系库中未包含上海相关实体。\n\n不确定性声明：关于青龙镇到上海港的具体演进路径、关键节点及直接驱动因素，证据不足，无法提供确切历史细节。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "宋元",
+        "明清",
+        "晚清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-083",
+      "category": "CROSS_PERIOD",
+      "question": "从都江堰到三峡工程，长江流域大型水利工程如何跨期演进？",
+      "answer": "结构上，长江流域大型水利工程演进呈现从区域开发到持续整合的模式。先秦及史前时期为多源起源，秦汉、隋唐侧重区域发展，宋元、魏晋南北朝体现流域互动，而明清、晚清、民国、社会主义建设、改革开放及新时代均表现为持续整合 [EV:历史分期]。\n\n证据方面，都江堰位于长江支流岷江，通过无坝引水改善上游水患并灌溉成都平原，是水利智慧典范 [EV:结构推断]。屈原故里秭归位于三峡地区，反映该区域深厚的文化传承 [EV:结构推断]。\n\n不确定性声明：库中无具体水利工程名录及“三峡工程”的直接证据，无法详述其具体技术细节或跨期对比数据，相关演进细节证据不足 [EV:证据不足]。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "史前时期",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "晚清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-084",
+      "category": "CROSS_PERIOD",
+      "question": "楚地的巫祭传统从先秦到民间信仰经历了怎样的跨期演变？",
+      "answer": "结构：楚地巫祭传统的跨期演变缺乏直接证据。历史分期显示先秦为“多源起源”，秦汉至明清呈现“区域发展”至“持续整合”模式，暗示文化形态随政治整合而演变。机制上，楚国核心位于江汉平原，深刻塑造流域文化 [EV:结构推断-6]，且屈原故里秭归竞渡习俗深厚传承 [EV:结构推断-4]，表明先秦巫祭传统与地域认同紧密绑定。\n\n证据：现有证据仅能确认楚国地理核心及其对长江流域文化的塑造作用 [EV:结构推断-6]，以及屈原故里保留竞渡习俗 [EV:结构推断-4]。无直接文献或考古证据描述巫祭传统从先秦到民间信仰的具体演变路径、仪式变化或信仰内容转化。\n\n不确定性：证据不足。无法确定巫祭传统在宋元“流域互动”或明清“持续整合”期间的具体演变细节，亦无法证实先秦巫祭与后世民间信仰的直接连续性或断裂点。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "明清",
+        "秦汉"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-085",
+      "category": "CROSS_PERIOD",
+      "question": "长江流域书画传统从六朝到海派如何形成跨期谱系？",
+      "answer": "**结构**：跨期谱系由“先秦/魏晋南北朝/隋唐”的多元起源与区域发展，经“宋元”的流域互动，至“明清/晚清/民国”的持续整合形成。\n\n**证据**：历史分期数据显示，先秦、魏晋南北朝及史前时期呈现“MULTI_ORIGIN”模式 [EV:历史分期]；秦汉与隋唐侧重“REGIONAL_DEVELOPMENT” [EV:历史分期]；宋元时期进入“BASIN_INTERACTION”阶段 [EV:历史分期]；明清、晚清及民国则确立“CONTINUOUS_INTEGRATION”模式 [EV:历史分期]。结构推断证实长江流域存在深层的文化互动与整合机制 [EV:结构推断]。\n\n**不确定性**：库中“文化传统”、“文化过程”及“文化流动”字段均为空，且无具体证据引文。因此，无法提供六朝至海派书画传统形成的具体人物、作品或技法演变细节，相关微观机制证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "史前时期",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "晚清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-086",
+      "category": "CROSS_PERIOD",
+      "question": "长江中游防洪体系从荆江大堤到三峡水库如何跨期演进？",
+      "answer": "结构：现有数据未直接记录“荆江大堤”至“三峡水库”的防洪工程演进路径。仅能依据历史分期推断长江中游（荆楚文化系统）在明清、民国及社会主义建设时期呈现“CONTINUOUS_INTEGRATION”（持续整合）模式 [EV:历史分期]。成员关系显示沙市市（荆江大堤所在地）属荆楚文化系统 [EV:成员关系]，但缺乏具体水利设施的时间序列证据。\n\n证据支撑：无直接证据表明防洪体系从荆江大堤到三峡水库的具体技术或管理演进过程。仅知屈原故里秭归位于三峡地区，且楚国核心在江汉平原，暗示该区域长期受水患影响并塑造文化 [EV:结构推断]。\n\n不确定性声明：证据不足。库中无关于荆江大堤建设年代、三峡水库防洪功能及其与前者演进关系的具体事实或引文，无法回答跨期演进细节。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "明清",
+        "民国",
+        "社会主义建设时期"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-087",
+      "category": "CROSS_PERIOD",
+      "question": "长江流域的高等教育中心如何从书院跨期演变为现代大学？",
+      "answer": "结构：证据不足。\n\n证据支撑：提供的知识库中，文化系统、文化传统、文化过程及文化流动均为空，且无具体证据引文。历史分期仅列出各时期演化模式（如先秦的MULTI_ORIGIN、宋元的BASIN_INTERACTION等），未涉及教育机构演变。成员关系列举了人物（如马伯援、俞与）和机构（如湖北省人民政府），但未建立其与书院或现代大学演变的逻辑关联。结构推断仅涉及川剧、都江堰、屈原及楚国地理，与高等教育中心演变无关。\n\n不确定性声明：关于长江流域高等教育中心从书院到现代大学的跨期演变，现有数据完全缺失，无法构建任何构成、阶段或机制模型，结论为证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "先秦",
+        "宋元"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-088",
+      "category": "CROSS_PERIOD",
+      "question": "入蜀通道从古栈道到现代铁路经历了怎样的跨期变迁？",
+      "answer": "入蜀通道变迁证据不足。\n\n结构方面，库中缺乏关于“古栈道”与“现代铁路”的具体实体、连接关系或演化阶段定义，无法构建从古代到现代的通道形态演变链条。\n\n证据支撑方面，提供的证据引文为空。虽历史分期显示秦汉至新时代均存在“REGIONAL_DEVELOPMENT”或“CONTINUOUS_INTEGRATION”模式，且结构推断提及“湖广与四川同属长江流域，移民沿长江水道进行”，但这仅佐证了长江水道的连通性，未涉及陆路栈道或现代铁路的具体建设、替代或变迁过程。\n\n不确定性声明：由于缺乏针对入蜀通道（特别是栈道与铁路）的直接证据，无法回答其跨期变迁的具体路径与机制，结论为证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "秦汉",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-089",
+      "category": "CROSS_PERIOD",
+      "question": "长江上游航道治理从滩险整治到梯级枢纽如何跨期演进？",
+      "answer": "结构：库中无“长江上游航道治理”相关文化系统、水系空间或文化过程数据，无法构建从滩险整治到梯级枢纽的跨期演进机制或阶段划分。\n\n证据支撑：现有证据仅涉及先秦至新时代的历史分期模式（如MULTI_ORIGIN、CONTINUOUS_INTEGRATION等）[EV:历史分期]，以及都江堰改善上游水患、川剧流行于上游、屈原故里在三峡等孤立事实 [EV:结构推断]。这些证据未建立航道治理技术演进与梯级枢纽建设之间的逻辑链条或时间序列关联。\n\n不确定性声明：关于长江上游航道治理从滩险整治到梯级枢纽的具体演进路径、关键节点及驱动机制，证据不足。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-090",
+      "category": "CROSS_PERIOD",
+      "question": "从《水经注》到现当代文学，长江书写如何跨期演变？",
+      "answer": "结构上，长江文化呈现从先秦、魏晋至宋元的“多源”与“流域互动”，经秦汉、隋唐的“区域发展”，最终在明清至新时代确立“持续整合”模式 [EV:历史分期]。机制上，依托长江水系实现空间整合，如川剧体现巴蜀文化多样性，屈原故里反映荆楚传统，都江堰展示水利智慧，移民沿水道流动促进湖广与四川联系 [EV:结构推断]。然而，关于《水经注》及现当代文学的具体书写演变、文化系统细节、文化过程及流动路径，库中暂无相关数据 [EV:文化系统, 文化过程, 文化流动]。证据引文亦为空 [EV:证据引文]。因此，跨期文学书写的具体演变路径及细节证据不足，无法构建完整的文学演变叙事。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "明清",
+        "秦汉",
+        "隋唐",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-091",
+      "category": "INTERPRETATION",
+      "question": "三星堆与金沙遗址的关系应当如何理解？",
+      "answer": "三星堆与金沙遗址的关系在现有知识库中证据不足。\n\n结构层面：\n1. 构成：库中“文化系统”、“文化传统”及“成员关系”均为空，未建立三星堆或金沙遗址与任何特定文化系统（如巴蜀文化系统）的隶属或关联记录。\n2. 阶段：虽有“先秦”时期“MULTI_ORIGIN”（多元起源）模式，但未将三星堆或金沙遗址纳入该阶段的具体演化链条中。\n3. 机制：缺乏描述两地间文化流动、互动或继承关系的具体证据引文。\n\n证据支撑：\n无直接证据。库中仅有关于川剧、都江堰、楚国等长江流域其他文化现象的支持性陈述，未涉及古蜀文明核心遗址。\n\n不确定性声明：\n由于知识库中关于三星堆与金沙遗址的具体数据缺失，无法基于当前装配对象判断二者关系，结论为证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.571,
+      "cited_objects": [
+        "先秦"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-092",
+      "category": "INTERPRETATION",
+      "question": "如何依据良渚古城与水利系统评估其社会复杂化程度？",
+      "answer": "结构：良渚古城与水利系统属于史前时期，该阶段演化模式为“多源起源” [EV:历史分期]。\n\n证据：提供的结构对象与证据列表中，未包含关于良渚古城、水利系统的具体描述，也未包含任何能直接反映其社会复杂化程度（如权力结构、资源动员能力）的证据引文 [EV:证据引文]。现有证据仅涉及川剧、都江堰、楚国等后世或不同区域的文化现象，无法支撑对良渚社会复杂化的评估。\n\n不确定性声明：证据不足。无法依据当前库中数据回答该研究问题。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "史前时期"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-093",
+      "category": "INTERPRETATION",
+      "question": "曾侯乙编钟如何体现礼乐制度与声学技术的成就？",
+      "answer": "结构：曾侯乙编钟体现先秦时期长江中游荆楚地区在青铜铸造与礼乐文明方面的成就，属于“MULTI_ORIGIN”演化模式下的区域文化发展。\n\n证据：结构推断明确指出该文物“出土于湖北随州，反映长江中游荆楚地区青铜铸造与礼乐文明的高度成就”[EV:结构推断-5]。历史分期将其置于先秦阶段，该阶段呈现多源起源特征 [EV:历史分期-1]。\n\n不确定性：库中无关于编钟具体声学技术参数、音律体系或礼乐制度运作机制的详细证据，亦无直接引文支持其声学技术细节。关于其如何具体体现“声学技术成就”及礼乐制度的具体互动关系，证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "先秦"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-094",
+      "category": "INTERPRETATION",
+      "question": "郭店楚简的出土对先秦思想史研究有何意义？",
+      "answer": "结构：先秦时期呈现“多源起源”演化模式 [EV:历史分期]。\n\n证据：库中无关于“郭店楚简”的具体证据引文 [EV:证据引文]。虽有证据表明楚国核心统治区位于长江中游江汉平原，深刻塑造了长江流域文化 [EV:结构推断]，且荆楚文化系统存在相关成员关系 [EV:成员关系]，但缺乏直接连接郭店楚简出土与先秦思想史研究意义的文本或数据支持。\n\n不确定性声明：关于郭店楚简的具体内容、出土背景及其对思想史的具体修正或补充作用，证据不足。无法基于当前知识库断言其学术意义。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "先秦"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-095",
+      "category": "INTERPRETATION",
+      "question": "如何理解长江文化在中华文明多元一体格局中的地位？",
+      "answer": "长江文化在中华文明多元一体格局中，呈现从“多元起源”向“连续整合”演进的动态过程。先秦及史前时期表现为“多元起源”，奠定文化多样性基础 [EV:历史分期]。秦汉、隋唐时期侧重“区域发展”，魏晋南北朝、宋元时期通过“流域互动”加强联系 [EV:历史分期]。明清至新时代则进入“连续整合”阶段，体现一体化趋势 [EV:历史分期]。\n\n机制上，长江流域通过水系互动促进文化融合。如湖广与四川移民沿水道流动，促进区域交流 [EV:结构推断]。荆楚、巴蜀、吴越等子系统各具特色，如屈原故里秭归体现荆楚文化，川剧代表巴蜀戏曲多样性，曾侯乙编钟反映荆楚青铜文明 [EV:结构推断]。这些子系统在互动中共同塑造了长江流域文化整体性。\n\n不确定性：库中文化系统、传统、过程及流动数据缺失，证据不足，无法全面评估各子系统具体互动细节及深层机制。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "先秦",
+        "宋元",
+        "史前时期",
+        "明清",
+        "魏晋南北朝",
+        "秦汉",
+        "隋唐",
+        "新时代"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-096",
+      "category": "INTERPRETATION",
+      "question": "苏轼在黄州的作品如何体现长江与士人精神的交融？",
+      "answer": "结构：基于“宋元”历史分期及“BASIN_INTERACTION”演化模式，长江流域呈现流域互动特征。机制上，士人精神与水系空间通过文化流动与成员关系进行交融。\n\n证据：现有证据库中无苏轼、黄州或相关作品的具体记录。虽知屈原故里秭归位于湖北长江三峡地区且竞渡习俗深厚 [EV:4]，且楚国核心统治区位于长江中游江汉平原 [EV:6]，但无法直接建立苏轼与长江士人精神交融的实证链条。库中暂无文化系统、水系空间及文化过程的具体数据支持该特定历史人物的行为分析。\n\n不确定性声明：关于苏轼在黄州作品如何体现长江与士人精神交融的具体细节，因缺乏直接证据，判定为证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "宋元"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-097",
+      "category": "INTERPRETATION",
+      "question": "宜昌大撤退为何被称为中国实业史上的敦刻尔克？",
+      "answer": "结构：库中无“宜昌大撤退”或“敦刻尔克”相关实体、过程或文化流动记录，无法构建其历史背景、工业迁移机制或类比逻辑。\n\n证据：证据不足。提供的结构推断仅涉及川剧起源、都江堰水利、屈原故里及楚国统治区等先秦至明清时期的文化地理特征，未包含民国时期（1938年）的工业内迁事件、卢作孚或民生公司的行动细节，亦无与欧洲敦刻尔克撤退的对比数据。成员关系及历史分期中虽列出“民国”阶段，但缺乏具体事件支撑。\n\n不确定性声明：由于知识库中完全缺失关于宜昌大撤退的具体事实、人物关联及历史评价，无法回答其为何被称为中国实业史上的敦刻尔克。任何关于该事件意义、规模或影响的断言均属于证据不足，需引入外部史料方可验证。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": false
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "先秦",
+        "明清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-098",
+      "category": "INTERPRETATION",
+      "question": "武昌起义如何在长江中游城市空间中展开并被纪念？",
+      "answer": "结构：武昌起义发生于晚清至民国过渡期，该阶段长江中游文化演化模式为“持续整合” [EV:历史分期]。武昌隶属荆楚文化系统，该区域在战国时期由楚国核心统治区奠定文化基础，深刻塑造了流域文化特征 [EV:结构推断]。\n\n证据：现有证据仅能确认武昌在地理与文化系统上属于荆楚文化系统，且处于晚清/民国历史分期。关于起义具体如何在城市空间中展开（如街道、建筑、人群流动）及后续纪念仪式的细节，库中无相关文化过程、文化流动或具体事件记录。\n\n不确定性声明：证据不足。无法回答起义的具体空间展开机制及纪念方式，仅能确认其所属的文化系统与历史阶段背景。",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 1.0,
+      "cited_objects": [
+        "晚清",
+        "民国"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-099",
+      "category": "INTERPRETATION",
+      "question": "河姆渡遗址的稻作遗存对稻作起源研究有何意义？",
+      "answer": "结构：河姆渡遗址所属的史前时期，其文化演化模式被标记为“MULTI_ORIGIN”（多元起源）[EV:历史分期]。\n\n证据：该时期模式表明长江流域存在多中心的文化发展路径，河姆渡稻作遗存作为史前文化的一部分，支持了稻作农业并非单一中心起源，而是多元独立发展的观点。\n\n不确定性：库中“文化系统”、“文化过程”及“证据引文”均为空，缺乏河姆渡遗址的具体年代、稻作遗存特征及其与“MULTI_ORIGIN”模式直接关联的实证描述。因此，无法提供关于稻作起源具体机制或影响的详细证据支撑，相关细节证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": false,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.714,
+      "cited_objects": [
+        "史前时期"
+      ],
+      "cited_evidence": []
+    },
+    {
+      "id": "DH-100",
+      "category": "INTERPRETATION",
+      "question": "如何在长江上游革命文化脉络中阐释遵义会议与红岩精神？",
+      "answer": "结构：遵义会议与红岩精神属于民国时期（演化模式：CONTINUOUS_INTEGRATION），地理上隶属巴蜀文化系统 [EV:民国,重庆]。机制上，二者依托长江上游水系空间，体现该区域在近代历史中的连续整合特征。\n\n证据：库中明确重庆隶属于巴蜀文化系统 [EV:重庆]，且民国时期长江流域演化模式为连续整合 [EV:民国]。\n\n不确定性：库中“文化系统”、“文化过程”及“证据引文”均为空，缺乏关于遵义会议、红岩精神的具体定义、发生过程及直接关联证据。因此，无法提供具体的阐释细节，相关历史脉络与精神内涵的具体构成证据不足。",
+      "checks": {
+        "structural_correctness": false,
+        "evidence_grounding": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true,
+        "citation_completeness": true
+      },
+      "score": 0.857,
+      "cited_objects": [
+        "民国"
+      ],
+      "cited_evidence": []
+    }
+  ]
+}
