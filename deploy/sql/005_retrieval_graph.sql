@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
-"""005_retrieval_graph.sql —— Retrieval Graph 持久化到 PostgreSQL（逐条写入，永不全量序列化）
-
-设计原则：
-- 每次 upsert/delete 只触及单行，绝不读取或重写整个图
-- 与 GraphML 文件完全解耦——GraphML 只做冷备份，不再参与运行时
-- 利用 PostgreSQL 事务保证原子性——异常中断时已提交的写入永久保留
-"""
+-- 005_retrieval_graph.sql —— Retrieval Graph 持久化到 PostgreSQL（逐条写入，永不全量序列化）
+--
+-- 设计原则：
+-- - 每次 upsert/delete 只触及单行，绝不读取或重写整个图
+-- - 与 GraphML 文件完全解耦——GraphML 只做冷备份，不再参与运行时
+-- - 利用 PostgreSQL 事务保证原子性——异常中断时已提交的写入永久保留
 CREATE TABLE IF NOT EXISTS retrieval_nodes (
   node_id      TEXT PRIMARY KEY,
   entity_type  TEXT NOT NULL,
