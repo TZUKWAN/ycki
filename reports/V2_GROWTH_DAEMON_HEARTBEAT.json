@@ -1,7 +1,7 @@
 {
-  "state": "RUNNING_CYCLE",
+  "state": "IDLE",
   "cycle": 1,
-  "updated_at": "2026-09-13T04:56:42",
+  "updated_at": "2026-09-13T04:59:56",
   "pid": 41920,
   "extra": {}
 }
