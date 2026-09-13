@@ -1,0 +1,872 @@
+{
+  "generated_at": "2026-09-14T03:43:47+0800",
+  "cases": [
+    {
+      "id": "G1",
+      "title": "史前长江文明起源",
+      "components": {
+        "traditions": [
+          {
+            "name": "稻作农业传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "玉礼传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "筑城与水利传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "processes": [
+          {
+            "name": "稻作农业扩散",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "城址聚落演化",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "史前中心兴衰与更替",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "flows": [
+          {
+            "name": "玉器技术与玉礼观念流动",
+            "ok": false
+          }
+        ],
+        "key_entities": [
+          {
+            "name": "良渚",
+            "ok": true
+          },
+          {
+            "name": "石家河",
+            "ok": true
+          },
+          {
+            "name": "凌家滩",
+            "ok": false
+          },
+          {
+            "name": "河姆渡",
+            "ok": false
+          },
+          {
+            "name": "屈家岭",
+            "ok": false
+          }
+        ],
+        "interpretations": [
+          {
+            "question": "多中心起源如何反驳单线扩散论？",
+            "ok": false
+          }
+        ]
+      },
+      "coverage": {
+        "traditions": 0.0,
+        "processes": 0.0,
+        "flows": 0.0,
+        "key_entities": 0.4,
+        "interpretations": 0.0
+      },
+      "ratio": 0.154,
+      "gate": "FAIL"
+    },
+    {
+      "id": "G2",
+      "title": "巴蜀文化系统与历史演进",
+      "components": {
+        "traditions": [
+          {
+            "name": "三星堆与金沙祭祀传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "都江堰治水传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "蜀锦织造传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "processes": [
+          {
+            "name": "古蜀都邑从三星堆向金沙的迁移",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "湖广填四川移民进程",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "flows": [
+          {
+            "name": "湖广填四川人口流动",
+            "ok": false
+          },
+          {
+            "name": "川盐与井盐贸易流动",
+            "ok": false
+          }
+        ],
+        "key_entities": [
+          {
+            "name": "三星堆",
+            "ok": true
+          },
+          {
+            "name": "金沙",
+            "ok": false
+          },
+          {
+            "name": "都江堰",
+            "ok": true
+          },
+          {
+            "name": "李冰",
+            "ok": true
+          },
+          {
+            "name": "蜀锦",
+            "ok": true
+          },
+          {
+            "name": "重庆湖广会馆",
+            "ok": true
+          }
+        ],
+        "interpretations": [
+          {
+            "question": "三星堆与金沙的都邑关系应如何理解？湖广填四川如何重塑巴蜀文化？",
+            "ok": false
+          }
+        ]
+      },
+      "coverage": {
+        "traditions": 0.0,
+        "processes": 0.0,
+        "flows": 0.0,
+        "key_entities": 0.833,
+        "interpretations": 0.0
+      },
+      "ratio": 0.357,
+      "gate": "FAIL"
+    },
+    {
+      "id": "G3",
+      "title": "荆楚文化系统与历史演进",
+      "components": {
+        "traditions": [
+          {
+            "name": "楚辞与巫祭传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "编钟礼乐传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "楚式漆器与丝织传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "processes": [
+          {
+            "name": "楚国疆域扩张与都城迁移",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "张之洞湖北新政与近代工业进程",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "flows": [
+          {
+            "name": "楚式漆器与丝织技术流动",
+            "ok": false
+          },
+          {
+            "name": "近代沿江技术与资本流动",
+            "ok": false
+          }
+        ],
+        "key_entities": [
+          {
+            "name": "屈原",
+            "ok": true
+          },
+          {
+            "name": "楚辞",
+            "ok": true
+          },
+          {
+            "name": "曾侯乙编钟",
+            "ok": true
+          },
+          {
+            "name": "纪南城",
+            "ok": true
+          },
+          {
+            "name": "张之洞",
+            "ok": true
+          },
+          {
+            "name": "汉阳铁厂",
+            "ok": true
+          },
+          {
+            "name": "武昌起义",
+            "ok": true
+          }
+        ],
+        "interpretations": [
+          {
+            "question": "楚辞如何反映沅湘巫祭文化？湖北新政如何开启荆楚近代化？",
+            "ok": false
+          }
+        ]
+      },
+      "coverage": {
+        "traditions": 0.0,
+        "processes": 0.0,
+        "flows": 0.0,
+        "key_entities": 1.0,
+        "interpretations": 0.0
+      },
+      "ratio": 0.467,
+      "gate": "FAIL"
+    },
+    {
+      "id": "G4",
+      "title": "吴越—江南文化系统与历史演进",
+      "components": {
+        "traditions": [
+          {
+            "name": "水乡稻作与蚕桑传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "园林与书画传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "藏书与刻书传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "processes": [
+          {
+            "name": "经济重心南移",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "近代开埠与上海城市化",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "flows": [
+          {
+            "name": "漕运与市镇商贸流动",
+            "ok": true
+          },
+          {
+            "name": "海派文化的人才与观念流动",
+            "ok": false
+          }
+        ],
+        "key_entities": [
+          {
+            "name": "河姆渡",
+            "ok": false
+          },
+          {
+            "name": "良渚",
+            "ok": true
+          },
+          {
+            "name": "大运河",
+            "ok": true
+          },
+          {
+            "name": "苏州园林",
+            "ok": true
+          },
+          {
+            "name": "天一阁",
+            "ok": true
+          },
+          {
+            "name": "上海",
+            "ok": true
+          },
+          {
+            "name": "浦东",
+            "ok": false
+          }
+        ],
+        "interpretations": [
+          {
+            "question": "江南如何从文化后进变为全国文化重心之一？海派文化与江南文化是什么关系？",
+            "ok": false
+          }
+        ]
+      },
+      "coverage": {
+        "traditions": 0.0,
+        "processes": 0.0,
+        "flows": 0.5,
+        "key_entities": 0.714,
+        "interpretations": 0.0
+      },
+      "ratio": 0.4,
+      "gate": "FAIL"
+    },
+    {
+      "id": "G5",
+      "title": "长江水文化",
+      "components": {
+        "traditions": [
+          {
+            "name": "治水与水神祭祀传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "龙舟竞渡传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "川江号子航运民俗",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "processes": [
+          {
+            "name": "都江堰岁修与清明放水节",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "荆江大堤修筑与加固",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "flows": [
+          {
+            "name": "漕运与川江航运流动",
+            "ok": true
+          }
+        ],
+        "key_entities": [
+          {
+            "name": "大禹治水",
+            "ok": true
+          },
+          {
+            "name": "都江堰",
+            "ok": true
+          },
+          {
+            "name": "都江堰清明放水节",
+            "ok": false
+          },
+          {
+            "name": "荆江大堤",
+            "ok": true
+          },
+          {
+            "name": "川江号子",
+            "ok": true
+          },
+          {
+            "name": "三峡工程",
+            "ok": true
+          }
+        ],
+        "interpretations": [
+          {
+            "question": "大禹治水传说如何参与水文化认同建构？都江堰清明放水节如何延续治水传统？",
+            "ok": false
+          }
+        ]
+      },
+      "coverage": {
+        "traditions": 0.0,
+        "processes": 0.0,
+        "flows": 1.0,
+        "key_entities": 0.833,
+        "interpretations": 0.0
+      },
+      "ratio": 0.462,
+      "gate": "FAIL"
+    },
+    {
+      "id": "G6",
+      "title": "湖广填四川人口迁徙与文化重组",
+      "components": {
+        "traditions": [
+          {
+            "name": "移民会馆与原乡信仰传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "川剧声腔融合传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "processes": [
+          {
+            "name": "湖广填四川移民进程",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "清代四川农业恢复与美洲作物推广",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "flows": [
+          {
+            "name": "长江中游至四川的人口流动",
+            "ok": true
+          },
+          {
+            "name": "玉米红薯等作物与技术流动",
+            "ok": false
+          }
+        ],
+        "key_entities": [
+          {
+            "name": "湖广填四川",
+            "ok": true
+          },
+          {
+            "name": "麻城孝感乡",
+            "ok": true
+          },
+          {
+            "name": "重庆湖广会馆",
+            "ok": true
+          },
+          {
+            "name": "川剧",
+            "ok": true
+          }
+        ],
+        "interpretations": [
+          {
+            "question": "麻城孝感乡传说为何成为移民祖籍记忆符号？移民如何重塑四川方言与民俗？",
+            "ok": false
+          }
+        ]
+      },
+      "coverage": {
+        "traditions": 0.0,
+        "processes": 0.0,
+        "flows": 0.5,
+        "key_entities": 1.0,
+        "interpretations": 0.0
+      },
+      "ratio": 0.455,
+      "gate": "FAIL"
+    },
+    {
+      "id": "G7",
+      "title": "抗战时期文化教育资源西迁",
+      "components": {
+        "traditions": [
+          {
+            "name": "战时高校学术传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "陪都抗战文艺传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "processes": [
+          {
+            "name": "高校与文教机构西迁",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "宜昌大撤退工业与人员抢运",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "flows": [
+          {
+            "name": "沿江机构与人员西迁流动",
+            "ok": false
+          },
+          {
+            "name": "工业设备与物资内迁流动",
+            "ok": false
+          }
+        ],
+        "key_entities": [
+          {
+            "name": "卢作孚",
+            "ok": true
+          },
+          {
+            "name": "民生公司",
+            "ok": true
+          },
+          {
+            "name": "西南联大",
+            "ok": false
+          },
+          {
+            "name": "中央大学",
+            "ok": true
+          },
+          {
+            "name": "宜昌大撤退",
+            "ok": true
+          },
+          {
+            "name": "李庄",
+            "ok": true
+          }
+        ],
+        "interpretations": [
+          {
+            "question": "宜昌大撤退为何被称为中国实业史上的敦刻尔克？西迁如何保存中国文化教育命脉？",
+            "ok": false
+          }
+        ]
+      },
+      "coverage": {
+        "traditions": 0.0,
+        "processes": 0.0,
+        "flows": 0.0,
+        "key_entities": 0.833,
+        "interpretations": 0.0
+      },
+      "ratio": 0.385,
+      "gate": "FAIL"
+    },
+    {
+      "id": "G8",
+      "title": "武汉—汉阳铁厂—汉冶萍—长江航运工业网络",
+      "components": {
+        "traditions": [
+          {
+            "name": "洋务工业传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "汉口商埠码头传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "processes": [
+          {
+            "name": "张之洞湖北新政",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "汉冶萍公司组建与经营",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "flows": [
+          {
+            "name": "大冶铁矿与萍乡煤矿的原料沿江流动",
+            "ok": true
+          },
+          {
+            "name": "近代钢铁工业技术人才流动",
+            "ok": false
+          }
+        ],
+        "key_entities": [
+          {
+            "name": "张之洞",
+            "ok": true
+          },
+          {
+            "name": "汉阳铁厂",
+            "ok": true
+          },
+          {
+            "name": "汉冶萍公司",
+            "ok": true
+          },
+          {
+            "name": "大冶铁矿",
+            "ok": true
+          },
+          {
+            "name": "萍乡煤矿",
+            "ok": true
+          },
+          {
+            "name": "湖北枪炮厂",
+            "ok": true
+          }
+        ],
+        "interpretations": [
+          {
+            "question": "汉阳铁厂为何选址汉阳？长江航运如何支撑近代武汉工业网络？",
+            "ok": false
+          }
+        ]
+      },
+      "coverage": {
+        "traditions": 0.0,
+        "processes": 0.0,
+        "flows": 0.5,
+        "key_entities": 1.0,
+        "interpretations": 0.0
+      },
+      "ratio": 0.538,
+      "gate": "FAIL"
+    },
+    {
+      "id": "G9",
+      "title": "革命文化在长江流域的空间展开",
+      "components": {
+        "traditions": [
+          {
+            "name": "首义革命传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "红色文化传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "processes": [
+          {
+            "name": "武昌起义与辛亥革命进程",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "井冈山革命根据地建立",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "遵义会议与红军长征",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "flows": [
+          {
+            "name": "革命组织与人员沿江流动",
+            "ok": false
+          },
+          {
+            "name": "红军长征路线流动",
+            "ok": false
+          }
+        ],
+        "key_entities": [
+          {
+            "name": "武昌起义",
+            "ok": true
+          },
+          {
+            "name": "井冈山",
+            "ok": true
+          },
+          {
+            "name": "遵义",
+            "ok": true
+          },
+          {
+            "name": "红岩",
+            "ok": true
+          }
+        ],
+        "interpretations": [
+          {
+            "question": "革命文化的空间展开为何沿长江中上游推进？遵义会议如何在革命文化脉络中被阐释？",
+            "ok": false
+          }
+        ]
+      },
+      "coverage": {
+        "traditions": 0.0,
+        "processes": 0.0,
+        "flows": 0.0,
+        "key_entities": 1.0,
+        "interpretations": 0.0
+      },
+      "ratio": 0.333,
+      "gate": "FAIL"
+    },
+    {
+      "id": "G10",
+      "title": "传统水文化—现代生态文明连续与转型",
+      "components": {
+        "traditions": [
+          {
+            "name": "治水与水神祭祀传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "渔家生产民俗传统",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "processes": [
+          {
+            "name": "长江十年禁渔与退捕渔民转产安置",
+            "exists": false,
+            "status": null,
+            "ok": false
+          },
+          {
+            "name": "三峡工程与库区生态保护",
+            "exists": false,
+            "status": null,
+            "ok": false
+          }
+        ],
+        "flows": [
+          {
+            "name": "南水北调中线水资源调配流动",
+            "ok": false
+          }
+        ],
+        "key_entities": [
+          {
+            "name": "三峡工程",
+            "ok": true
+          },
+          {
+            "name": "南水北调",
+            "ok": true
+          },
+          {
+            "name": "长江十年禁渔",
+            "ok": true
+          },
+          {
+            "name": "长江江豚",
+            "ok": true
+          },
+          {
+            "name": "长江保护法",
+            "ok": true
+          }
+        ],
+        "interpretations": [
+          {
+            "question": "传统水文化的哪些要素在生态文明建设中得以延续？人江关系从开发利用到保护修复如何转型？",
+            "ok": false
+          }
+        ]
+      },
+      "coverage": {
+        "traditions": 0.0,
+        "processes": 0.0,
+        "flows": 0.0,
+        "key_entities": 1.0,
+        "interpretations": 0.0
+      },
+      "ratio": 0.455,
+      "gate": "FAIL"
+    }
+  ],
+  "passed": 0,
+  "total": 10,
+  "gate": "FAIL"
+}

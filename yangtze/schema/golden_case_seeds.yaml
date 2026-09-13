@@ -1423,3 +1423,365 @@ candidates:
     fields: [time, origin, destination, carriers, mechanism, outcomes]
     cross_region: false
 
+
+  # ---------- §18 Golden Ten 组件种子（自动派生，2026-09-14） ----------
+  - id: gt_2878986579
+    kind: TRADITION
+    name: 稻作农业传统
+    system: 吴越文化系统
+    terms: [稻作农业传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_9261628460
+    kind: TRADITION
+    name: 玉礼传统
+    system: 吴越文化系统
+    terms: [玉礼传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_3658304195
+    kind: TRADITION
+    name: 筑城与水利传统
+    system: 吴越文化系统
+    terms: [筑城与水利传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_7701334932
+    kind: PROCESS
+    name: 稻作农业扩散
+    system: 吴越文化系统
+    terms: [稻作农业扩散]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_7373946268
+    kind: PROCESS
+    name: 城址聚落演化
+    system: 吴越文化系统
+    terms: [城址聚落演化]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_8953941546
+    kind: PROCESS
+    name: 史前中心兴衰与更替
+    system: 吴越文化系统
+    terms: [史前中心兴衰与更替]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_461633741
+    kind: TRADITION
+    name: 三星堆与金沙祭祀传统
+    system: 巴蜀文化系统
+    terms: [三星堆与金沙祭祀传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_4008260375
+    kind: TRADITION
+    name: 都江堰治水传统
+    system: 巴蜀文化系统
+    terms: [都江堰治水传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_7854628407
+    kind: TRADITION
+    name: 蜀锦织造传统
+    system: 巴蜀文化系统
+    terms: [蜀锦织造传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_6946939980
+    kind: PROCESS
+    name: 古蜀都邑从三星堆向金沙的迁移
+    system: 巴蜀文化系统
+    terms: [古蜀都邑从三星堆向金沙的迁移]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_3430917193
+    kind: PROCESS
+    name: 湖广填四川移民进程
+    system: 巴蜀文化系统
+    terms: [湖广填四川移民进程]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_478594547
+    kind: TRADITION
+    name: 楚辞与巫祭传统
+    system: 荆楚文化系统
+    terms: [楚辞与巫祭传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_7682538166
+    kind: TRADITION
+    name: 编钟礼乐传统
+    system: 荆楚文化系统
+    terms: [编钟礼乐传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_5304737654
+    kind: TRADITION
+    name: 楚式漆器与丝织传统
+    system: 荆楚文化系统
+    terms: [楚式漆器与丝织传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_2065868487
+    kind: PROCESS
+    name: 楚国疆域扩张与都城迁移
+    system: 荆楚文化系统
+    terms: [楚国疆域扩张与都城迁移]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_1932548289
+    kind: PROCESS
+    name: 张之洞湖北新政与近代工业进程
+    system: 荆楚文化系统
+    terms: [张之洞湖北新政与近代工业进程]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_313657528
+    kind: TRADITION
+    name: 水乡稻作与蚕桑传统
+    system: 吴越文化系统
+    terms: [水乡稻作与蚕桑传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_1489891999
+    kind: TRADITION
+    name: 园林与书画传统
+    system: 吴越文化系统
+    terms: [园林与书画传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_9021865550
+    kind: TRADITION
+    name: 藏书与刻书传统
+    system: 吴越文化系统
+    terms: [藏书与刻书传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_7750143862
+    kind: PROCESS
+    name: 经济重心南移
+    system: 吴越文化系统
+    terms: [经济重心南移]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_9350968265
+    kind: PROCESS
+    name: 近代开埠与上海城市化
+    system: 吴越文化系统
+    terms: [近代开埠与上海城市化]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_399353071
+    kind: TRADITION
+    name: 治水与水神祭祀传统
+    system: 荆楚文化系统
+    terms: [治水与水神祭祀传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_3506307479
+    kind: TRADITION
+    name: 龙舟竞渡传统
+    system: 荆楚文化系统
+    terms: [龙舟竞渡传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_2737037086
+    kind: TRADITION
+    name: 川江号子航运民俗
+    system: 荆楚文化系统
+    terms: [川江号子航运民俗]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_2173588221
+    kind: PROCESS
+    name: 都江堰岁修与清明放水节
+    system: 荆楚文化系统
+    terms: [都江堰岁修与清明放水节]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_7050379613
+    kind: PROCESS
+    name: 荆江大堤修筑与加固
+    system: 荆楚文化系统
+    terms: [荆江大堤修筑与加固]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_7350341720
+    kind: TRADITION
+    name: 移民会馆与原乡信仰传统
+    system: 巴蜀文化系统
+    terms: [移民会馆与原乡信仰传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_5314530629
+    kind: TRADITION
+    name: 川剧声腔融合传统
+    system: 巴蜀文化系统
+    terms: [川剧声腔融合传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_8671486955
+    kind: PROCESS
+    name: 清代四川农业恢复与美洲作物推广
+    system: 巴蜀文化系统
+    terms: [清代四川农业恢复与美洲作物推广]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_7867716049
+    kind: TRADITION
+    name: 战时高校学术传统
+    system: 巴蜀文化系统
+    terms: [战时高校学术传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_5971778838
+    kind: TRADITION
+    name: 陪都抗战文艺传统
+    system: 巴蜀文化系统
+    terms: [陪都抗战文艺传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_359374698
+    kind: PROCESS
+    name: 高校与文教机构西迁
+    system: 巴蜀文化系统
+    terms: [高校与文教机构西迁]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_3420917511
+    kind: PROCESS
+    name: 宜昌大撤退工业与人员抢运
+    system: 巴蜀文化系统
+    terms: [宜昌大撤退工业与人员抢运]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_5080863953
+    kind: TRADITION
+    name: 洋务工业传统
+    system: 荆楚文化系统
+    terms: [洋务工业传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_2652235573
+    kind: TRADITION
+    name: 汉口商埠码头传统
+    system: 荆楚文化系统
+    terms: [汉口商埠码头传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_5656422062
+    kind: PROCESS
+    name: 张之洞湖北新政
+    system: 荆楚文化系统
+    terms: [张之洞湖北新政]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_3966832576
+    kind: PROCESS
+    name: 汉冶萍公司组建与经营
+    system: 荆楚文化系统
+    terms: [汉冶萍公司组建与经营]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_7295784505
+    kind: TRADITION
+    name: 首义革命传统
+    system: 湖湘文化系统
+    terms: [首义革命传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_2454263790
+    kind: TRADITION
+    name: 红色文化传统
+    system: 湖湘文化系统
+    terms: [红色文化传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_5079025536
+    kind: PROCESS
+    name: 武昌起义与辛亥革命进程
+    system: 湖湘文化系统
+    terms: [武昌起义与辛亥革命进程]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_7056410017
+    kind: PROCESS
+    name: 井冈山革命根据地建立
+    system: 湖湘文化系统
+    terms: [井冈山革命根据地建立]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_6181229529
+    kind: PROCESS
+    name: 遵义会议与红军长征
+    system: 湖湘文化系统
+    terms: [遵义会议与红军长征]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_1915034596
+    kind: TRADITION
+    name: 渔家生产民俗传统
+    system: 荆楚文化系统
+    terms: [渔家生产民俗传统]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: gt_4208158189
+    kind: PROCESS
+    name: 长江十年禁渔与退捕渔民转产安置
+    system: 荆楚文化系统
+    terms: [长江十年禁渔与退捕渔民转产安置]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: gt_6273588428
+    kind: PROCESS
+    name: 三峡工程与库区生态保护
+    system: 荆楚文化系统
+    terms: [三峡工程与库区生态保护]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
