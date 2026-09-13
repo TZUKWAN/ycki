@@ -1,0 +1,6 @@
+{"themes":[
+ {"topic":"flow3:佛教沿江传播","gap_type":"MISSING_CROSS_REGION_LINK","queries":["佛教 传入 湖北 湖南 历史","南朝 佛教 长江 寺院","蜀地 佛教 传播 唐代"]},
+ {"topic":"flow3:技术传播","gap_type":"MISSING_CROSS_REGION_LINK","queries":["景德镇 制瓷技术 传播","江南 造船技术 传播 历史","都江堰 水利技术 传播"]},
+ {"topic":"flow3:知识传播","gap_type":"MISSING_CROSS_REGION_LINK","queries":["书院 长江流域 讲学 传播","科举 江南 文人 流动","雕版印刷 传播 长江"]},
+ {"topic":"flow3:制度传播","gap_type":"MISSING_CROSS_REGION_LINK","queries":["盐铁制度 传播 长江流域","漕运制度 沿江 实施","府州县制 巴蜀 推行"]}
+]}

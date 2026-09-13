@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-14T07:17:55+0800",
-  "head_commit": "a74c0d96a97f77141846eca9a5374585a2662414",
+  "generated_at": "2026-09-14T07:39:36+0800",
+  "head_commit": "c303056952b07a2b72111650f9f46840da9d06b6",
   "overall": "FAIL",
   "failed": [
     "G04_MEMBERSHIP",
@@ -33,7 +33,7 @@
     "G03_CANONICAL_V1_REGRESSION": {
       "status": "PASS",
       "detail": {
-        "claims_admitted": 4537
+        "claims_admitted": 4540
       }
     },
     "G04_MEMBERSHIP": {
@@ -58,7 +58,7 @@
     "G06_PROCESS": {
       "status": "FAIL",
       "detail": {
-        "admitted": 15,
+        "admitted": 14,
         "target": 80,
         "integrity": "PASS"
       }
@@ -66,7 +66,7 @@
     "G07_FLOW": {
       "status": "FAIL",
       "detail": {
-        "flows": 23,
+        "flows": 26,
         "flow_types": 3,
         "target": 30
       }
@@ -141,15 +141,15 @@
     }
   },
   "counts": {
-    "resources": 4348,
-    "sources": 968,
-    "source_domains": 962,
+    "resources": 4358,
+    "sources": 970,
+    "source_domains": 964,
     "entities": 21978,
-    "claims_admitted": 4537,
-    "evidence": 4979,
+    "claims_admitted": 4540,
+    "evidence": 4982,
     "traditions_admitted": 17,
-    "processes_admitted": 15,
-    "flows_total": 23,
+    "processes_admitted": 14,
+    "flows_total": 26,
     "flow_types": 3,
     "structural_relations": 7,
     "interpretations": 9,
