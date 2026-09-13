@@ -1,0 +1,18 @@
+{
+  "started_at": "2026-09-14T02:22:15+0800",
+  "tasks": [],
+  "circuit_audit": {
+    "checks": {
+      "evidence_less_admitted_relations": 0,
+      "geo_only_admitted": 5,
+      "admitted_traditions_without_evidence": 0,
+      "admitted_processes_without_time_evidence": 0,
+      "flows_missing_hard_fields": 0,
+      "broken_evidence_links": 0
+    },
+    "hard_failures": {
+      "geo_only_admitted": 5
+    },
+    "circuit": "PAUSE_GROWTH"
+  }
+}

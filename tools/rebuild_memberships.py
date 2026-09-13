@@ -322,9 +322,9 @@ def adjudicate(conn: psycopg2.extensions.connection, force: bool = False) -> dic
             LEFT JOIN cultural_regions r ON r.entity_id=s.system_id
             WHERE m.system_id IS NOT NULL AND m.anchor_count>=2
               AND e.merged_into IS NULL
-              AND (m.model_version IS NULL OR m.model_version NOT LIKE 'llm_adjudicator:%'
-                   OR %s)
-        """)
+              AND (m.model_version IS NULL OR m.model_version NOT LIKE 'llm_adjudicator:%%'
+                   OR %s::boolean)
+        """, (bool(force),))
         rows = [dict(r) for r in cur.fetchall()]
     for row in rows:
         if _is_province_container(row["canonical_name"]):

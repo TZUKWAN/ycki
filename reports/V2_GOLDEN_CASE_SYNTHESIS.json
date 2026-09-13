@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T13:42:54+0800",
+  "generated_at": "2026-09-14T02:31:04+0800",
   "results": [
     {
       "seed": "seed_ba_shu_fangshui",
@@ -9,36 +9,96 @@
         "seed": "seed_ba_shu_fangshui",
         "kind": "TRADITION",
         "entities": 25,
-        "events": 30,
-        "quotes": 21,
-        "distinct_resources": 12,
-        "distinct_source_domains": 8
+        "events": 0,
+        "quotes": 40,
+        "distinct_resources": 18,
+        "distinct_source_domains": 10,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": true,
+            "core_practices": true,
+            "carriers": false,
+            "time": true
+          },
+          "field_coverage_ratio": 0.75,
+          "independent_clusters": 23,
+          "authority_distribution": {
+            "UNKNOWN": 23,
+            "B": 7,
+            "S": 6,
+            "C": 4
+          },
+          "temporal_coverage": [
+            256,
+            2025
+          ],
+          "spatial_coverage": [
+            "杩槎",
+            "都江堰"
+          ],
+          "contradiction_coverage": 0
+        }
       },
       "why_yangtze": {
-        "value": "都江堰位于岷江，属长江支流，是巴蜀文化代表工程，体现天人合一理念。",
+        "value": "位于岷江，属长江上游水系，彰显天人合一治水理念。",
         "quotes": [
-          "Q1",
-          "Q7",
-          "Q11",
-          "Q12"
+          "Q23",
+          "Q30"
         ]
       },
       "uncertainty": [
-        "证据束中未提及“放水节”这一特定民俗活动或节日的名称、起源时间及核心仪式。",
-        "证据主要描述都江堰水利工程本身、李冰治水历史及地理分布，缺乏关于“节”的直接证据。"
+        "证据未明确提及“放水节”这一特定名称的历史起源时间，仅提及清明放水典礼。"
       ],
-      "decision": "CANDIDATE",
-      "reason": "key fields without evidence: ['core_practices']",
-      "coverage": 0.0,
+      "decision": "ADMITTED",
+      "reason": "coverage=1.00 cited_resources=8 supported=['origin_time_place', 'core_practices', 'carriers', 'development']",
+      "coverage": 1.0,
       "cited_resources": [
+        "res-073c74ab307dfc85",
+        "res-1d59ebaa6b9682c2",
         "res-36f326cc2c38fd03",
-        "res-690d2fc255c1036d",
+        "res-84ba6785c1187795",
         "res-905fc03c41b94f44",
-        "res-b8c1ecd5594f6a9b"
+        "res-a6e88847baaa8fc6",
+        "res-b8c1ecd5594f6a9b",
+        "res-de1cab9c7e4d3709"
       ],
-      "supported_fields": [],
+      "supported_fields": [
+        "origin_time_place",
+        "core_practices",
+        "carriers",
+        "development"
+      ],
+      "used_quotes": {
+        "origin_time_place": [
+          "Q2",
+          "Q7",
+          "Q12"
+        ],
+        "core_practices": [
+          "Q0",
+          "Q1",
+          "Q5"
+        ],
+        "carriers": [
+          "Q1",
+          "Q5"
+        ],
+        "development": [
+          "Q15",
+          "Q29"
+        ],
+        "modern_forms": [
+          "Q0",
+          "Q21",
+          "Q22"
+        ],
+        "why_yangtze": [
+          "Q23",
+          "Q30"
+        ]
+      },
       "object_id": "8e9c2d37-0a6f-4aef-b521-63a0f0282ce1",
-      "elapsed_s": 3.1
+      "elapsed_s": 4.0
     },
     {
       "seed": "seed_ba_shu_chuanju",
@@ -48,24 +108,61 @@
         "seed": "seed_ba_shu_chuanju",
         "kind": "TRADITION",
         "entities": 25,
-        "events": 8,
-        "quotes": 30,
-        "distinct_resources": 4,
-        "distinct_source_domains": 4
+        "events": 0,
+        "quotes": 32,
+        "distinct_resources": 12,
+        "distinct_source_domains": 4,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": true,
+            "core_practices": true,
+            "carriers": true,
+            "time": true
+          },
+          "field_coverage_ratio": 1.0,
+          "independent_clusters": 15,
+          "authority_distribution": {
+            "UNKNOWN": 14,
+            "B": 9,
+            "C": 9
+          },
+          "temporal_coverage": [
+            1661,
+            2026
+          ],
+          "spatial_coverage": [
+            "变脸",
+            "川剧",
+            "高腔"
+          ],
+          "contradiction_coverage": 0
+        }
       },
-      "why_yangtze": "川剧起源于四川（含今重庆），流行于长江上游及中游部分地区，是巴蜀文化系统的重要代表，体现长江流域戏曲艺术多样性。",
+      "why_yangtze": {
+        "value": "川剧发源于巴蜀文化系统，流行于长江上游四川盆地及周边，是长江流域重要戏曲形态。",
+        "quotes": [
+          "Q3",
+          "Q4",
+          "Q6",
+          "Q13",
+          "Q14"
+        ]
+      },
       "uncertainty": [
-        "具体起源时间证据不足",
-        "声腔分类细节需结合更多史料确认"
+        "具体起源时间存在清代乾隆年间或中叶等不同表述，但证据均指向清代中期。",
+        "部分早期历史细节如“花部”勃兴具体年份证据未提供确切时间戳。"
       ],
       "decision": "ADMITTED",
-      "reason": "coverage=1.25 cited_resources=4 supported=['origin_time_place', 'core_practices', 'carriers', 'development', 'regional_variants']",
+      "reason": "coverage=1.25 cited_resources=7 supported=['origin_time_place', 'core_practices', 'carriers', 'development', 'regional_variants']",
       "coverage": 1.25,
       "cited_resources": [
+        "res-15a16f37fb28d1db",
         "res-346df1e27d171465",
         "res-4a90bf7fcb49d66d",
-        "res-7671996f56b26fa8",
-        "res-b3eeaed39c60e646"
+        "res-b3eeaed39c60e646",
+        "res-b70b2a7391a3ef7e",
+        "res-ca69af3f91acd397",
+        "res-e946989e05656291"
       ],
       "supported_fields": [
         "origin_time_place",
@@ -76,37 +173,72 @@
       ],
       "used_quotes": {
         "origin_time_place": [
-          "Q20",
-          "Q25"
-        ],
-        "core_practices": [
-          "Q18",
-          "Q23",
-          "Q24",
-          "Q27"
-        ],
-        "carriers": [
-          "Q0",
-          "Q1",
-          "Q2",
-          "Q7"
-        ],
-        "development": [
-          "Q18",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q8",
+          "Q15",
           "Q19"
         ],
-        "regional_variants": [
+        "core_practices": [
+          "Q1",
+          "Q12",
+          "Q17",
           "Q20",
-          "Q21",
-          "Q22",
-          "Q25",
-          "Q26",
-          "Q28",
-          "Q29"
+          "Q28"
+        ],
+        "carriers": [
+          "Q6",
+          "Q11",
+          "Q13"
+        ],
+        "development": [
+          "Q0",
+          "Q8",
+          "Q10",
+          "Q12",
+          "Q17"
+        ],
+        "name": [
+          "Q4",
+          "Q6",
+          "Q14"
+        ],
+        "summary": [
+          "Q4",
+          "Q6",
+          "Q13",
+          "Q17",
+          "Q20"
+        ],
+        "modern_forms": [
+          "Q0",
+          "Q10",
+          "Q29",
+          "Q30"
+        ],
+        "why_yangtze": [
+          "Q3",
+          "Q4",
+          "Q6",
+          "Q13",
+          "Q14"
+        ],
+        "regional_variants": [
+          "Q4",
+          "Q6",
+          "Q13",
+          "Q14",
+          "Q16",
+          "Q24",
+          "Q4",
+          "Q13",
+          "Q16",
+          "Q24"
         ]
       },
       "object_id": "807c344c-957a-4d31-9d56-4cd2d44d34c1",
-      "elapsed_s": 4.5
+      "elapsed_s": 6.5
     },
     {
       "seed": "seed_huguang_tian_sichuan",
@@ -115,23 +247,51 @@
       "bundle": {
         "seed": "seed_huguang_tian_sichuan",
         "kind": "PROCESS",
-        "entities": 11,
-        "events": 13,
-        "quotes": 3,
-        "distinct_resources": 2,
-        "distinct_source_domains": 1
+        "entities": 7,
+        "events": 0,
+        "quotes": 19,
+        "distinct_resources": 7,
+        "distinct_source_domains": 2,
+        "sufficiency": {
+          "field_coverage": {
+            "time": true,
+            "origin": true,
+            "destination": true,
+            "carriers": true,
+            "mechanism": true,
+            "outcomes": false
+          },
+          "field_coverage_ratio": 0.833,
+          "independent_clusters": 11,
+          "authority_distribution": {
+            "UNKNOWN": 10,
+            "B": 9
+          },
+          "temporal_coverage": null,
+          "spatial_coverage": [
+            "江西填湖广",
+            "湖广填四川",
+            "移民四川",
+            "麻城孝感"
+          ],
+          "contradiction_coverage": 1
+        }
       },
-      "why_yangtze": "湖广与四川同属长江流域，移民沿长江水道进行",
+      "why_yangtze": "移民沿长江水系进入四川，重庆湖广会馆等建筑见证移民历史，属巴蜀文化系统",
       "uncertainty": [
-        "具体结束时间不明确",
-        "除湖广外其他来源地细节未详述"
+        "部分来源提及元末明初亦有移民，但主流证据聚焦明末清初",
+        "具体移民省份范围在不同来源中略有差异"
       ],
       "decision": "ADMITTED",
-      "reason": "coverage=1.17 cited_resources=2 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
+      "reason": "coverage=1.17 cited_resources=6 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
       "coverage": 1.167,
       "cited_resources": [
+        "res-0f5aaaaf14c01688",
+        "res-1bb3665484deef93",
+        "res-2a80bd45d9866a63",
+        "res-5e0d788600789951",
         "res-9f8a1d4f83145afb",
-        "res-fcf88cc207fea5d1"
+        "res-e946989e05656291"
       ],
       "supported_fields": [
         "time",
@@ -144,39 +304,42 @@
       ],
       "used_quotes": {
         "time": [
-          "Q0",
-          "Q1"
+          "Q0"
         ],
         "origin": [
           "Q0"
         ],
         "destination": [
-          "Q0",
-          "Q1"
+          "Q0"
         ],
         "actors": [
-          "Q0",
-          "Q1"
+          "Q0"
         ],
         "mechanism": [
-          "Q1"
+          "Q0",
+          "Q9"
         ],
         "outcomes": [
-          "Q0"
+          "Q9",
+          "Q11",
+          "Q12"
         ],
         "causes": [
           "Q0"
         ],
         "long_term_impacts": [
-          "Q2"
+          "Q2",
+          "Q6"
         ],
         "stages": [
-          "Q1",
-          "Q0"
+          "Q3",
+          "Q13",
+          "Q7",
+          "Q9"
         ]
       },
       "object_id": "52b94d36-ca90-4333-b624-80843fa610e1",
-      "elapsed_s": 5.8
+      "elapsed_s": 5.2
     },
     {
       "seed": "seed_dujiangyan_construction",
@@ -186,25 +349,58 @@
         "seed": "seed_dujiangyan_construction",
         "kind": "PROCESS",
         "entities": 25,
-        "events": 30,
-        "quotes": 29,
-        "distinct_resources": 12,
-        "distinct_source_domains": 8
+        "events": 0,
+        "quotes": 40,
+        "distinct_resources": 15,
+        "distinct_source_domains": 8,
+        "sufficiency": {
+          "field_coverage": {
+            "time": true,
+            "origin": true,
+            "destination": true,
+            "carriers": true,
+            "mechanism": true,
+            "outcomes": false
+          },
+          "field_coverage_ratio": 0.833,
+          "independent_clusters": 20,
+          "authority_distribution": {
+            "B": 4,
+            "UNKNOWN": 26,
+            "S": 7,
+            "C": 3
+          },
+          "temporal_coverage": [
+            256,
+            2025
+          ],
+          "spatial_coverage": [
+            "李冰",
+            "都江堰"
+          ],
+          "contradiction_coverage": 0
+        }
       },
-      "why_yangtze": "都江堰位于长江支流岷江，是长江上游关键水利设施，体现长江流域治水智慧。",
+      "why_yangtze": "都江堰位于岷江（长江上游支流），是无坝引水典范，体现长江流域治水智慧，属巴蜀文化系统。",
       "uncertainty": [
-        "李冰之子是否直接参与施工存神话色彩",
-        "具体完工年份证据略有差异"
+        "李冰是否亲自率子施工及具体年份存在不同记载（如Q15、Q16、Q30提及不同背景）。",
+        "部分传说（如斗江神、李二郎）与史实界限模糊。"
       ],
       "decision": "ADMITTED",
-      "reason": "coverage=1.17 cited_resources=7 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
+      "reason": "coverage=1.17 cited_resources=13 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
       "coverage": 1.167,
       "cited_resources": [
-        "res-355ee5038288aa6f",
+        "res-073c74ab307dfc85",
+        "res-1d59ebaa6b9682c2",
         "res-36f326cc2c38fd03",
         "res-690d2fc255c1036d",
         "res-6d094b4cc7da07d7",
+        "res-750c6af3b1caa6d4",
+        "res-84ba6785c1187795",
+        "res-8a94671081bc0848",
         "res-905fc03c41b94f44",
+        "res-930d317daa70768a",
+        "res-a6e88847baaa8fc6",
         "res-b8c1ecd5594f6a9b",
         "res-de1cab9c7e4d3709"
       ],
@@ -219,47 +415,70 @@
       ],
       "used_quotes": {
         "time": [
-          "Q0"
+          "Q0",
+          "Q6",
+          "Q9",
+          "Q23",
+          "Q32",
+          "Q34"
         ],
         "origin": [
-          "Q10"
+          "Q8",
+          "Q15",
+          "Q38"
         ],
         "destination": [
-          "Q0"
+          "Q12",
+          "Q33"
         ],
         "actors": [
-          "Q0",
-          "Q10",
-          "Q18"
+          "Q3",
+          "Q8",
+          "Q16",
+          "Q19",
+          "Q22",
+          "Q28"
         ],
         "mechanism": [
           "Q6",
-          "Q9",
-          "Q14",
-          "Q26",
-          "Q27"
-        ],
-        "outcomes": [
-          "Q0",
+          "Q7",
+          "Q10",
           "Q11",
+          "Q14",
           "Q18"
         ],
+        "outcomes": [
+          "Q12",
+          "Q33"
+        ],
         "causes": [
-          "Q10",
-          "Q26",
-          "Q28"
+          "Q15",
+          "Q38"
         ],
         "long_term_impacts": [
-          "Q11",
-          "Q17"
+          "Q6",
+          "Q26",
+          "Q32",
+          "Q33",
+          "Q36"
         ],
         "stages": [
-          "Q10",
-          "Q0"
+          "Q0",
+          "Q3",
+          "Q6",
+          "Q9",
+          "Q23",
+          "Q19",
+          "Q28",
+          "Q31",
+          "Q1",
+          "Q2",
+          "Q32",
+          "Q34"
         ]
       },
       "object_id": "8203afdb-36af-4920-b1bd-3d6abaa977a1",
-      "elapsed_s": 8.6
+      "elapsed_s": 7.7
     },
     {
       "seed": "seed_chuan_yan_ji_chu",
@@ -270,13 +489,79 @@
         "kind": "FLOW",
         "entities": 12,
         "events": 0,
-        "quotes": 0,
-        "distinct_resources": 0,
-        "distinct_source_domains": 0
+        "quotes": 6,
+        "distinct_resources": 3,
+        "distinct_source_domains": 2,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": true,
+            "destination": true,
+            "content": true,
+            "time": true,
+            "route": false,
+            "mechanism": false
+          },
+          "field_coverage_ratio": 0.667,
+          "independent_clusters": 3,
+          "authority_distribution": {
+            "C": 2,
+            "B": 4
+          },
+          "temporal_coverage": [
+            1938,
+            2009
+          ],
+          "spatial_coverage": [
+            "川盐",
+            "川盐济楚",
+            "盐运",
+            "自贡盐"
+          ],
+          "contradiction_coverage": 0
+        }
       },
-      "decision": "SKIP_INSUFFICIENT_EVIDENCE",
-      "reason": "distinct_resources=0 < 2",
-      "elapsed_s": 0.1
+      "why_yangtze": "川盐经水路运抵两湖，依托长江水系实现大规模物资调配。",
+      "uncertainty": [
+        "具体运输路线未明确提及",
+        "承运主体或具体运输工具信息缺失"
+      ],
+      "decision": "SUPPORTED",
+      "reason": "coverage=1.00 cited_resources=1 supported=['origin', 'destination', 'content']",
+      "coverage": 1.0,
+      "cited_resources": [
+        "res-fd67de85725734bc"
+      ],
+      "supported_fields": [
+        "origin",
+        "destination",
+        "content"
+      ],
+      "used_quotes": {
+        "origin": [
+          "Q4",
+          "Q5"
+        ],
+        "destination": [
+          "Q4",
+          "Q5"
+        ],
+        "content": [
+          "Q4",
+          "Q5"
+        ],
+        "time": [
+          "Q4",
+          "Q5"
+        ],
+        "mechanism": [
+          "Q5"
+        ],
+        "impact": [
+          "Q5"
+        ]
+      },
+      "object_id": "19688be3-7d40-4978-aa50-367eec43b568",
+      "elapsed_s": 3.4
     },
     {
       "seed": "seed_jing_chu_duanwu",
@@ -286,54 +571,96 @@
         "seed": "seed_jing_chu_duanwu",
         "kind": "TRADITION",
         "entities": 25,
-        "events": 29,
-        "quotes": 15,
-        "distinct_resources": 7,
-        "distinct_source_domains": 6
+        "events": 0,
+        "quotes": 40,
+        "distinct_resources": 17,
+        "distinct_source_domains": 10,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": true,
+            "core_practices": true,
+            "carriers": false,
+            "time": true
+          },
+          "field_coverage_ratio": 0.75,
+          "independent_clusters": 24,
+          "authority_distribution": {
+            "UNKNOWN": 31,
+            "B": 8,
+            "C": 1
+          },
+          "temporal_coverage": [
+            223,
+            2025
+          ],
+          "spatial_coverage": [
+            "屈原",
+            "竞渡",
+            "端午",
+            "粽子",
+            "龙舟"
+          ],
+          "contradiction_coverage": 0
+        }
       },
-      "why_yangtze": "屈原为战国楚国诗人，其故里秭归位于长江三峡地区，竞渡习俗由此发源并流传。",
+      "why_yangtze": "屈原为楚国诗人，投汨罗江（长江支流），竞渡习俗发源于荆楚文化圈。",
       "uncertainty": [
-        "起源具体地域除吴越外是否包含荆楚需更多证据",
-        "早期流传范围细节不明"
+        "竞渡具体起源时间存在上古祭祀与纪念屈原两种说法，证据显示二者融合。",
+        "宋代赛龙舟是否完全违法及处罚细节证据有限。"
       ],
       "decision": "ADMITTED",
-      "reason": "coverage=1.00 cited_resources=5 supported=['origin_time_place', 'core_practices', 'carriers', 'development']",
-      "coverage": 1.0,
+      "reason": "coverage=1.25 cited_resources=6 supported=['origin_time_place', 'core_practices', 'carriers', 'development', 'regional_variants']",
+      "coverage": 1.25,
       "cited_resources": [
-        "res-3f3611e9b5156617",
+        "res-726fce9fa2ca96b4",
+        "res-7bd34d21134924c8",
         "res-8fed1110b8d087af",
-        "res-98fc96649c88caf5",
         "res-bdac1ff2d89e691e",
+        "res-cfc0c05973e075a4",
         "res-da89d79b522a17cc"
       ],
       "supported_fields": [
         "origin_time_place",
         "core_practices",
         "carriers",
-        "development"
+        "development",
+        "regional_variants"
       ],
       "used_quotes": {
         "origin_time_place": [
+          "Q0",
           "Q4",
-          "Q10"
+          "Q31"
         ],
         "core_practices": [
-          "Q8",
-          "Q11",
-          "Q12"
+          "Q0",
+          "Q3"
         ],
         "carriers": [
-          "Q5",
-          "Q6",
-          "Q7"
+          "Q0",
+          "Q3",
+          "Q13"
         ],
         "development": [
-          "Q3",
+          "Q0",
+          "Q1",
+          "Q6",
           "Q12"
+        ],
+        "modern_forms": [
+          "Q15"
+        ],
+        "regional_variants": [
+          "Q1",
+          "Q3",
+          "Q5",
+          "Q0",
+          "Q4",
+          "Q31"
         ]
       },
       "object_id": "e097907f-95a0-4025-97a7-aa89411934be",
-      "elapsed_s": 4.0
+      "elapsed_s": 4.6
     },
     {
       "seed": "seed_jing_chu_bianzhong",
@@ -343,61 +670,108 @@
         "seed": "seed_jing_chu_bianzhong",
         "kind": "TRADITION",
         "entities": 25,
-        "events": 17,
-        "quotes": 13,
-        "distinct_resources": 4,
-        "distinct_source_domains": 2
+        "events": 0,
+        "quotes": 36,
+        "distinct_resources": 6,
+        "distinct_source_domains": 2,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": true,
+            "core_practices": false,
+            "carriers": false,
+            "time": true
+          },
+          "field_coverage_ratio": 0.5,
+          "independent_clusters": 9,
+          "authority_distribution": {
+            "UNKNOWN": 9,
+            "B": 21,
+            "C": 6
+          },
+          "temporal_coverage": [
+            208,
+            2018
+          ],
+          "spatial_coverage": [
+            "曾侯乙",
+            "编钟"
+          ],
+          "contradiction_coverage": 0
+        }
       },
       "why_yangtze": {
-        "value": "出土于湖北随州，反映楚国势力范围内曾国礼乐文化。",
+        "value": "曾侯乙编钟出土于湖北随州，楚王赠钟体现荆楚政治文化联系，铜料或来自湖北铜绿山，是荆楚文化核心载体。",
         "quotes": [
-          "Q7",
-          "Q8"
+          "Q3",
+          "Q10",
+          "Q2",
+          "Q35"
         ]
       },
       "uncertainty": [
-        "编钟乐舞的具体舞蹈形式证据不足",
-        "铜绿山矿源为推测",
-        "曾侯乙生年不详"
+        "证据未直接提及“乐舞”具体舞蹈动作，仅涉及乐器演奏。",
+        "铜绿山矿为编钟铜料来源仅为推测（Q2）。",
+        "编钟起源时间不同证据有商朝或西周叶家山墓地之分。"
       ],
       "decision": "ADMITTED",
-      "reason": "coverage=1.00 cited_resources=4 supported=['origin_time_place', 'core_practices', 'carriers', 'development']",
-      "coverage": 1.0,
+      "reason": "coverage=1.25 cited_resources=6 supported=['origin_time_place', 'core_practices', 'carriers', 'development', 'regional_variants']",
+      "coverage": 1.25,
       "cited_resources": [
+        "res-4392b57a8e20789f",
         "res-4baafb12690d76a2",
         "res-8927884107f89998",
         "res-9cf6474f322696db",
+        "res-ea8ead028846fdf6",
         "res-f01d9ad11891be77"
       ],
       "supported_fields": [
         "origin_time_place",
         "core_practices",
         "carriers",
-        "development"
+        "development",
+        "regional_variants"
       ],
       "used_quotes": {
         "origin_time_place": [
-          "Q7",
-          "Q11"
+          "Q29",
+          "Q24",
+          "Q3",
+          "Q14"
         ],
         "core_practices": [
-          "Q0",
-          "Q6"
+          "Q10",
+          "Q15",
+          "Q17",
+          "Q0"
         ],
         "carriers": [
-          "Q2",
-          "Q7"
-        ],
-        "development": [
-          "Q10",
+          "Q4",
+          "Q15",
+          "Q16",
           "Q11"
         ],
+        "development": [
+          "Q14",
+          "Q13",
+          "Q0",
+          "Q1"
+        ],
         "modern_forms": [
-          "Q6"
+          "Q1",
+          "Q13",
+          "Q9"
         ],
         "why_yangtze": [
-          "Q7",
-          "Q8"
+          "Q3",
+          "Q10",
+          "Q2",
+          "Q35"
+        ],
+        "regional_variants": [
+          "Q3",
+          "Q10",
+          "Q12",
+          "Q22"
         ]
       },
       "object_id": "8e18c5fc-471d-47e6-927e-c1ac8681fcc4",
@@ -411,24 +785,58 @@
         "seed": "seed_chu_southward",
         "kind": "PROCESS",
         "entities": 25,
-        "events": 30,
-        "quotes": 15,
-        "distinct_resources": 10,
-        "distinct_source_domains": 6
+        "events": 0,
+        "quotes": 40,
+        "distinct_resources": 30,
+        "distinct_source_domains": 9,
+        "sufficiency": {
+          "field_coverage": {
+            "time": true,
+            "origin": true,
+            "destination": true,
+            "carriers": false,
+            "mechanism": true,
+            "outcomes": false
+          },
+          "field_coverage_ratio": 0.667,
+          "independent_clusters": 31,
+          "authority_distribution": {
+            "UNKNOWN": 27,
+            "S": 2,
+            "B": 8,
+            "C": 3
+          },
+          "temporal_coverage": [
+            223,
+            2025
+          ],
+          "spatial_coverage": [
+            "楚人",
+            "楚国",
+            "纪南城",
+            "郢都"
+          ],
+          "contradiction_coverage": 0
+        }
       },
-      "why_yangtze": "楚国核心在江汉，经略两湖，影响长江中游。",
+      "why_yangtze": "依托长江水系建都江汉，并沿江东进灭越",
       "uncertainty": [
-        "上海曾为春申君封地说法存疑"
+        "建国初期定都丹阳具体位置存在争议",
+        "南进具体路线细节证据不足"
       ],
       "decision": "ADMITTED",
-      "reason": "coverage=1.17 cited_resources=6 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
+      "reason": "coverage=1.17 cited_resources=10 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
       "coverage": 1.167,
       "cited_resources": [
-        "res-277b86df897b6b0d",
+        "res-0795b1a5594f2a2b",
+        "res-0cdf802d173ebcaf",
+        "res-0f904a6df8667c61",
+        "res-2323d59bc56c2b9b",
         "res-3c506fe21b0c8e15",
-        "res-412a2ab946491181",
+        "res-4aa8c98a3abac8b1",
+        "res-4bb77a69d6029d73",
         "res-85ce924b24a83ae6",
-        "res-da89d79b522a17cc",
+        "res-97e0e22a8fc6e2af",
         "res-f08b1b0ca1944611"
       ],
       "supported_fields": [
@@ -442,43 +850,49 @@
       ],
       "used_quotes": {
         "time": [
-          "Q5",
-          "Q2"
+          "Q29",
+          "Q27"
         ],
         "origin": [
-          "Q0",
-          "Q5"
+          "Q37"
         ],
         "destination": [
-          "Q2"
+          "Q7",
+          "Q17",
+          "Q1"
         ],
         "actors": [
-          "Q5"
+          "Q29",
+          "Q27",
+          "Q21"
         ],
         "mechanism": [
-          "Q0",
-          "Q2"
+          "Q9",
+          "Q17",
+          "Q33",
+          "Q21"
         ],
         "outcomes": [
-          "Q2",
-          "Q10"
+          "Q21",
+          "Q27"
         ],
         "causes": [
-          "Q3",
-          "Q10",
-          "Q13"
+          "Q1",
+          "Q17",
+          "Q33"
         ],
         "long_term_impacts": [
-          "Q9"
+          "Q18",
+          "Q10"
         ],
         "stages": [
-          "Q0",
-          "Q5",
-          "Q2"
+          "Q7",
+          "Q17",
+          "Q21"
         ]
       },
       "object_id": "cf3e0a91-1c4f-4416-8afd-6d67273fe5a7",
-      "elapsed_s": 6.5
+      "elapsed_s": 5.3
     },
     {
       "seed": "seed_wuhan_openport",
@@ -488,24 +902,56 @@
         "seed": "seed_wuhan_openport",
         "kind": "PROCESS",
         "entities": 25,
-        "events": 30,
-        "quotes": 14,
-        "distinct_resources": 9,
-        "distinct_source_domains": 2
+        "events": 0,
+        "quotes": 40,
+        "distinct_resources": 19,
+        "distinct_source_domains": 2,
+        "sufficiency": {
+          "field_coverage": {
+            "time": true,
+            "origin": true,
+            "destination": true,
+            "carriers": false,
+            "mechanism": false,
+            "outcomes": false
+          },
+          "field_coverage_ratio": 0.5,
+          "independent_clusters": 23,
+          "authority_distribution": {
+            "B": 19,
+            "UNKNOWN": 19,
+            "C": 2
+          },
+          "temporal_coverage": [
+            128,
+            1943
+          ],
+          "spatial_coverage": [
+            "张之洞",
+            "汉口开埠",
+            "汉阳铁厂",
+            "自强学堂"
+          ],
+          "contradiction_coverage": 0
+        }
       },
-      "why_yangtze": "依托长江水运与汉阳、汉口地理优势，构建沿江工业带",
+      "why_yangtze": "汉口位于长江中游，开埠后依托长江水运成为近代工业与贸易中心，张之洞新政深刻改变了长江中游城市面貌。",
       "uncertainty": [
-        "开埠具体起始时间证据不足",
-        "部分事件确切年份存在差异"
+        "张之洞具体生卒年与早期仕途细节在部分证据中表述模糊",
+        "部分工业项目具体建成时间与初期运营细节证据链不完整"
       ],
       "decision": "ADMITTED",
-      "reason": "coverage=1.17 cited_resources=7 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
+      "reason": "coverage=1.17 cited_resources=11 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
       "coverage": 1.167,
       "cited_resources": [
-        "res-1103b585d8bc0707",
         "res-15443b2a545a88f0",
         "res-85ce924b24a83ae6",
+        "res-86e0ff586ab584a8",
         "res-932be2a896c283c3",
+        "res-aa485f5d08373737",
+        "res-bcbabf65b93e8110",
+        "res-cd8830f58575b427",
+        "res-d56e910a968e829d",
         "res-df9da891dca799ae",
         "res-e589dd1e8fd162d0",
         "res-ff7eae4933b73848"
@@ -521,45 +967,48 @@
       ],
       "used_quotes": {
         "time": [
-          "Q7",
-          "Q10"
+          "Q26",
+          "Q31"
         ],
         "origin": [
-          "Q7",
-          "Q9"
+          "Q26"
         ],
         "destination": [
-          "Q6",
-          "Q11"
+          "Q7",
+          "Q30"
         ],
         "actors": [
-          "Q7",
-          "Q11"
+          "Q29"
         ],
         "mechanism": [
-          "Q5",
-          "Q6",
-          "Q11"
+          "Q3",
+          "Q15",
+          "Q28"
         ],
         "outcomes": [
-          "Q9",
-          "Q10"
+          "Q4",
+          "Q6",
+          "Q8",
+          "Q30"
         ],
         "causes": [
-          "Q0",
-          "Q2"
+          "Q7",
+          "Q28"
         ],
         "long_term_impacts": [
-          "Q13"
+          "Q18",
+          "Q34"
         ],
         "stages": [
-          "Q7",
-          "Q11",
-          "Q10"
+          "Q26",
+          "Q28",
+          "Q4",
+          "Q8",
+          "Q15"
         ]
       },
       "object_id": "9bd26e74-21af-470a-97a8-2821fcdb008d",
-      "elapsed_s": 6.7
+      "elapsed_s": 6.2
     },
     {
       "seed": "seed_hankou_tea",
@@ -570,13 +1019,80 @@
         "kind": "FLOW",
         "entities": 1,
         "events": 0,
-        "quotes": 0,
-        "distinct_resources": 0,
-        "distinct_source_domains": 0
+        "quotes": 2,
+        "distinct_resources": 2,
+        "distinct_source_domains": 1,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": false,
+            "destination": true,
+            "content": true,
+            "time": true,
+            "route": false,
+            "mechanism": false
+          },
+          "field_coverage_ratio": 0.5,
+          "independent_clusters": 2,
+          "authority_distribution": {
+            "B": 2
+          },
+          "temporal_coverage": [
+            1863,
+            1863
+          ],
+          "spatial_coverage": [
+            "羊楼洞"
+          ],
+          "contradiction_coverage": 0
+        }
       },
-      "decision": "SKIP_INSUFFICIENT_EVIDENCE",
-      "reason": "distinct_resources=0 < 2",
-      "elapsed_s": 0.1
+      "why_yangtze": "",
+      "uncertainty": [
+        "具体长江水路运输路线未详述",
+        "顺丰茶厂具体建成时间仅知1863年建厂、1873年迁入汉口"
+      ],
+      "decision": "ADMITTED",
+      "reason": "coverage=1.00 cited_resources=2 supported=['origin', 'destination', 'content']",
+      "coverage": 1.0,
+      "cited_resources": [
+        "res-6864e2d2513aff4e",
+        "res-914a392867e767f2"
+      ],
+      "supported_fields": [
+        "origin",
+        "destination",
+        "content"
+      ],
+      "used_quotes": {
+        "origin": [
+          "Q1"
+        ],
+        "destination": [
+          "Q1"
+        ],
+        "content": [
+          "Q1"
+        ],
+        "carrier": [
+          "Q0"
+        ],
+        "time": [
+          "Q0"
+        ],
+        "route": [
+          "Q0",
+          "Q1"
+        ],
+        "mechanism": [
+          "Q0"
+        ],
+        "impact": [
+          "Q0",
+          "Q1"
+        ]
+      },
+      "object_id": "62c76e5f-0edb-42dc-baf8-da6a5df4510e",
+      "elapsed_s": 3.3
     },
     {
       "seed": "seed_hu_xiang_xiangxiu",
@@ -587,13 +1103,39 @@
         "kind": "TRADITION",
         "entities": 2,
         "events": 0,
-        "quotes": 0,
-        "distinct_resources": 0,
-        "distinct_source_domains": 0
+        "quotes": 2,
+        "distinct_resources": 2,
+        "distinct_source_domains": 2,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": true,
+            "core_practices": true,
+            "carriers": false,
+            "time": true
+          },
+          "field_coverage_ratio": 0.75,
+          "independent_clusters": 2,
+          "authority_distribution": {
+            "UNKNOWN": 2
+          },
+          "temporal_coverage": null,
+          "spatial_coverage": [
+            "湘绣"
+          ],
+          "contradiction_coverage": 0
+        }
       },
-      "decision": "SKIP_INSUFFICIENT_EVIDENCE",
-      "reason": "distinct_resources=0 < 2",
-      "elapsed_s": 0.1
+      "why_yangtze": "",
+      "uncertainty": [
+        "证据仅描述蜀绣，未提供湘绣相关信息"
+      ],
+      "decision": "CANDIDATE",
+      "reason": "key fields without evidence: ['core_practices']",
+      "coverage": 0.0,
+      "cited_resources": [],
+      "supported_fields": [],
+      "object_id": "eaf41d39-4853-43c7-add2-0f3eec57f56a",
+      "elapsed_s": 1.5
     },
     {
       "seed": "seed_hu_xiang_yuelu",
@@ -603,28 +1145,83 @@
         "seed": "seed_hu_xiang_yuelu",
         "kind": "TRADITION",
         "entities": 25,
-        "events": 30,
-        "quotes": 14,
-        "distinct_resources": 7,
-        "distinct_source_domains": 2
+        "events": 0,
+        "quotes": 40,
+        "distinct_resources": 11,
+        "distinct_source_domains": 4,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": true,
+            "core_practices": false,
+            "carriers": true,
+            "time": true
+          },
+          "field_coverage_ratio": 0.75,
+          "independent_clusters": 12,
+          "authority_distribution": {
+            "UNKNOWN": 34,
+            "B": 4,
+            "C": 1,
+            "S": 1
+          },
+          "temporal_coverage": [
+            300,
+            2025
+          ],
+          "spatial_coverage": [
+            "书院",
+            "岳麓书院"
+          ],
+          "contradiction_coverage": 0
+        }
       },
-      "why_yangtze": "岳麓书院作为湖湘文化核心地标，其讲学传统深刻影响了长江中游地区的学术与教育生态。",
+      "why_yangtze": {
+        "value": "湖湘文化核心载体，见证长江流域书院教育演变",
+        "quotes": [
+          "Q1"
+        ]
+      },
       "uncertainty": [
-        "证据未提供讲学传统的具体起源时间、核心实践内容及发展历程。",
-        "证据未提供该传统的具体地域变体及现代形式。"
+        "具体讲学仪式细节证据不足"
       ],
-      "decision": "CANDIDATE",
-      "reason": "key fields without evidence: ['core_practices']",
-      "coverage": 0.5,
+      "decision": "ADMITTED",
+      "reason": "coverage=1.00 cited_resources=2 supported=['origin_time_place', 'core_practices', 'carriers', 'development']",
+      "coverage": 1.0,
       "cited_resources": [
-        "res-24aea719a84b370e"
+        "res-24aea719a84b370e",
+        "res-ad4228cd4e9c3ba0"
       ],
       "supported_fields": [
         "origin_time_place",
-        "carriers"
+        "core_practices",
+        "carriers",
+        "development"
       ],
+      "used_quotes": {
+        "origin_time_place": [
+          "Q0"
+        ],
+        "core_practices": [
+          "Q15"
+        ],
+        "carriers": [
+          "Q2"
+        ],
+        "development": [
+          "Q7",
+          "Q6",
+          "Q15",
+          "Q9"
+        ],
+        "modern_forms": [
+          "Q23"
+        ],
+        "why_yangtze": [
+          "Q1"
+        ]
+      },
       "object_id": "46d12e8a-759b-471d-9351-77624fc5f013",
-      "elapsed_s": 2.9
+      "elapsed_s": 3.4
     },
     {
       "seed": "seed_jiangxi_tian_huguang",
@@ -634,151 +1231,43 @@
         "seed": "seed_jiangxi_tian_huguang",
         "kind": "PROCESS",
         "entities": 1,
-        "events": 6,
-        "quotes": 1,
-        "distinct_resources": 1,
-        "distinct_source_domains": 1
-      },
-      "decision": "SKIP_INSUFFICIENT_EVIDENCE",
-      "reason": "distinct_resources=1 < 2",
-      "elapsed_s": 0.1
-    },
-    {
-      "seed": "seed_huxiang_school",
-      "name": "湖湘学派形成与传承",
-      "kind": "PROCESS",
-      "bundle": {
-        "seed": "seed_huxiang_school",
-        "kind": "PROCESS",
-        "entities": 25,
-        "events": 7,
-        "quotes": 2,
-        "distinct_resources": 1,
-        "distinct_source_domains": 1
-      },
-      "decision": "SKIP_INSUFFICIENT_EVIDENCE",
-      "reason": "distinct_resources=1 < 2",
-      "elapsed_s": 0.1
-    },
-    {
-      "seed": "seed_changsha_rice",
-      "name": "长沙米市与洞庭粮运",
-      "kind": "FLOW",
-      "bundle": {
-        "seed": "seed_changsha_rice",
-        "kind": "FLOW",
-        "entities": 1,
         "events": 0,
-        "quotes": 0,
-        "distinct_resources": 0,
-        "distinct_source_domains": 0
+        "quotes": 5,
+        "distinct_resources": 3,
+        "distinct_source_domains": 1,
+        "sufficiency": {
+          "field_coverage": {
+            "time": true,
+            "origin": false,
+            "destination": true,
+            "carriers": true,
+            "mechanism": true,
+            "outcomes": false
+          },
+          "field_coverage_ratio": 0.667,
+          "independent_clusters": 4,
+          "authority_distribution": {
+            "B": 3,
+            "UNKNOWN": 2
+          },
+          "temporal_coverage": null,
+          "spatial_coverage": [
+            "江西填湖广"
+          ],
+          "contradiction_coverage": 0
+        }
       },
-      "decision": "SKIP_INSUFFICIENT_EVIDENCE",
-      "reason": "distinct_resources=0 < 2",
-      "elapsed_s": 0.1
-    },
-    {
-      "seed": "seed_wu_yue_silk",
-      "name": "蚕桑丝织技艺",
-      "kind": "TRADITION",
-      "bundle": {
-        "seed": "seed_wu_yue_silk",
-        "kind": "TRADITION",
-        "entities": 24,
-        "events": 21,
-        "quotes": 13,
-        "distinct_resources": 5,
-        "distinct_source_domains": 3
-      },
-      "why_yangtze": "缂丝生产集中在江苏苏州、南通一带，属吴越文化区。",
+      "why_yangtze": "江西与湖广（湖北、湖南）同属长江流域，地理相邻，水系相通，便于人口沿长江及其支流迁徙与拓垦。",
       "uncertainty": [
-        "起源时间与具体发源地证据不足",
-        "现代形式证据不足"
-      ],
-      "decision": "ADMITTED",
-      "reason": "coverage=1.00 cited_resources=2 supported=['core_practices', 'carriers', 'development', 'regional_variants']",
-      "coverage": 1.0,
-      "cited_resources": [
-        "res-df282b217afc7413",
-        "res-f37aa5533a8b014c"
-      ],
-      "supported_fields": [
-        "core_practices",
-        "carriers",
-        "development",
-        "regional_variants"
-      ],
-      "used_quotes": {
-        "core_practices": [
-          "Q2"
-        ],
-        "carriers": [
-          "Q0",
-          "Q1",
-          "Q2",
-          "Q5",
-          "Q7",
-          "Q8",
-          "Q9",
-          "Q10",
-          "Q11",
-          "Q12"
-        ],
-        "development": [
-          "Q2"
-        ],
-        "regional_variants": [
-          "Q0",
-          "Q1",
-          "Q0",
-          "Q1"
-        ]
-      },
-      "object_id": "63ffdc83-5cdf-4131-abfe-1294dd33c7d6",
-      "elapsed_s": 5.2
-    },
-    {
-      "seed": "seed_wu_yue_kunqu",
-      "name": "昆曲",
-      "kind": "TRADITION",
-      "bundle": {
-        "seed": "seed_wu_yue_kunqu",
-        "kind": "TRADITION",
-        "entities": 25,
-        "events": 9,
-        "quotes": 4,
-        "distinct_resources": 1,
-        "distinct_source_domains": 1
-      },
-      "decision": "SKIP_INSUFFICIENT_EVIDENCE",
-      "reason": "distinct_resources=1 < 2",
-      "elapsed_s": 0.1
-    },
-    {
-      "seed": "seed_yongjia_nandu",
-      "name": "永嘉南渡与江南开发",
-      "kind": "PROCESS",
-      "bundle": {
-        "seed": "seed_yongjia_nandu",
-        "kind": "PROCESS",
-        "entities": 25,
-        "events": 30,
-        "quotes": 6,
-        "distinct_resources": 5,
-        "distinct_source_domains": 3
-      },
-      "why_yangtze": "中原文明首次大规模南迁至长江流域，政治中心转移至此。",
-      "uncertainty": [
-        "江南开发的具体经济数据未在证据中体现。",
-        "建康城遗址保护级别的具体公布时间未知。"
+        "具体起始与结束年份在证据中未明确给出，仅知为明初至明末清初。"
       ],
       "decision": "ADMITTED",
       "reason": "coverage=1.17 cited_resources=3 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
       "coverage": 1.167,
       "cited_resources": [
-        "res-0696f1d84dd00ca4",
-        "res-2aacfddf13839649",
-        "res-c442b12db29b541f"
+        "res-0f5aaaaf14c01688",
+        "res-2a80bd45d9866a63",
+        "res-9f8a1d4f83145afb"
       ],
       "supported_fields": [
         "time",
@@ -791,43 +1280,529 @@
       ],
       "used_quotes": {
         "time": [
-          "Q5",
-          "Q0"
-        ],
-        "origin": [
+          "Q0",
           "Q2"
         ],
-        "destination": [
+        "origin": [
+          "Q0",
           "Q2",
+          "Q4"
+        ],
+        "destination": [
+          "Q0",
+          "Q2"
+        ],
+        "actors": [
+          "Q0",
+          "Q2",
+          "Q4"
+        ],
+        "mechanism": [
+          "Q0",
+          "Q2"
+        ],
+        "outcomes": [
+          "Q0",
+          "Q4"
+        ],
+        "causes": [
+          "Q0",
+          "Q1"
+        ],
+        "long_term_impacts": [
           "Q0"
+        ],
+        "stages": [
+          "Q0",
+          "Q0"
+        ]
+      },
+      "object_id": "7916a039-9606-4514-854a-6014ebf9565b",
+      "elapsed_s": 4.6
+    },
+    {
+      "seed": "seed_huxiang_school",
+      "name": "湖湘学派形成与传承",
+      "kind": "PROCESS",
+      "bundle": {
+        "seed": "seed_huxiang_school",
+        "kind": "PROCESS",
+        "entities": 25,
+        "events": 0,
+        "quotes": 7,
+        "distinct_resources": 5,
+        "distinct_source_domains": 3,
+        "sufficiency": {
+          "field_coverage": {
+            "time": true,
+            "origin": true,
+            "destination": true,
+            "carriers": false,
+            "mechanism": true,
+            "outcomes": false
+          },
+          "field_coverage_ratio": 0.667,
+          "independent_clusters": 6,
+          "authority_distribution": {
+            "UNKNOWN": 2,
+            "B": 3,
+            "C": 2
+          },
+          "temporal_coverage": [
+            1167,
+            1619
+          ],
+          "spatial_coverage": [
+            "张栻",
+            "王夫之"
+          ],
+          "contradiction_coverage": 0
+        }
+      },
+      "why_yangtze": "岳麓书院位于长江流域湖南长沙，是长江文化系统中湖湘文化的重要载体与精神地标。",
+      "uncertainty": [
+        "王夫之早期家谱在元代至正年间前已失佚，具体传承细节存在空白。",
+        "湖湘学派的具体形成时间跨度及早期传承脉络在证据中未完全明确。"
+      ],
+      "decision": "ADMITTED",
+      "reason": "coverage=1.17 cited_resources=5 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
+      "coverage": 1.167,
+      "cited_resources": [
+        "res-1848870c409e6514",
+        "res-24aea719a84b370e",
+        "res-849da8ce55b89e09",
+        "res-ad4228cd4e9c3ba0",
+        "res-dd71af9a283bf8fd"
+      ],
+      "supported_fields": [
+        "time",
+        "origin",
+        "destination",
+        "actors",
+        "mechanism",
+        "outcomes",
+        "stages"
+      ],
+      "used_quotes": {
+        "time": [
+          "Q0",
+          "Q2"
+        ],
+        "origin": [
+          "Q4"
+        ],
+        "destination": [
+          "Q2"
         ],
         "actors": [
           "Q0",
           "Q2"
         ],
         "mechanism": [
-          "Q2",
           "Q0",
-          "Q5"
+          "Q3"
         ],
         "outcomes": [
-          "Q0",
-          "Q5"
+          "Q3",
+          "Q6"
         ],
         "causes": [
-          "Q0"
-        ],
-        "long_term_impacts": [
-          "Q4",
+          "Q0",
+          "Q3",
           "Q5"
         ],
+        "long_term_impacts": [
+          "Q2",
+          "Q3"
+        ],
         "stages": [
+          "Q0",
+          "Q3",
+          "Q2"
+        ]
+      },
+      "object_id": "bf5f1854-31b7-4d06-9617-889dfda32f06",
+      "elapsed_s": 5.7
+    },
+    {
+      "seed": "seed_changsha_rice",
+      "name": "长沙米市与洞庭粮运",
+      "kind": "FLOW",
+      "bundle": {
+        "seed": "seed_changsha_rice",
+        "kind": "FLOW",
+        "entities": 1,
+        "events": 0,
+        "quotes": 1,
+        "distinct_resources": 1,
+        "distinct_source_domains": 1,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": false,
+            "destination": false,
+            "content": true,
+            "time": true,
+            "route": false,
+            "mechanism": false
+          },
+          "field_coverage_ratio": 0.333,
+          "independent_clusters": 1,
+          "authority_distribution": {
+            "B": 1
+          },
+          "temporal_coverage": [
+            1914,
+            1914
+          ],
+          "spatial_coverage": [
+            "长沙米市"
+          ],
+          "contradiction_coverage": 0
+        }
+      },
+      "decision": "SKIP_INSUFFICIENT_EVIDENCE",
+      "reason": "distinct_resources=1 < 2",
+      "elapsed_s": 0.2
+    },
+    {
+      "seed": "seed_wu_yue_silk",
+      "name": "蚕桑丝织技艺",
+      "kind": "TRADITION",
+      "bundle": {
+        "seed": "seed_wu_yue_silk",
+        "kind": "TRADITION",
+        "entities": 24,
+        "events": 0,
+        "quotes": 18,
+        "distinct_resources": 11,
+        "distinct_source_domains": 4,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": true,
+            "core_practices": true,
+            "carriers": true,
+            "time": true
+          },
+          "field_coverage_ratio": 1.0,
+          "independent_clusters": 12,
+          "authority_distribution": {
+            "B": 8,
+            "UNKNOWN": 9,
+            "C": 1
+          },
+          "temporal_coverage": [
+            1922,
+            2026
+          ],
+          "spatial_coverage": [
+            "丝织",
+            "缂丝",
+            "蚕桑"
+          ],
+          "contradiction_coverage": 0
+        }
+      },
+      "why_yangtze": {
+        "value": "主要产地苏州、成都、南京、南通均位于长江流域，依托发达的水网与丝绸产业历史。",
+        "quotes": [
+          "Q0",
+          "Q2",
           "Q5",
+          "Q9",
+          "Q12",
+          "Q16"
+        ]
+      },
+      "uncertainty": [
+        "具体起源时间证据不足，仅知2009年入选非遗。",
+        "部分工艺细节如都锦生丝织厂建立时间虽明确，但非技艺起源。"
+      ],
+      "decision": "ADMITTED",
+      "reason": "coverage=1.25 cited_resources=10 supported=['origin_time_place', 'core_practices', 'carriers', 'development', 'regional_variants']",
+      "coverage": 1.25,
+      "cited_resources": [
+        "res-0b252dfff702d42a",
+        "res-368b75602a3dce83",
+        "res-7f4237943d61db49",
+        "res-876a35cfbd751a6a",
+        "res-c109424417427dae",
+        "res-da16c649f6cad665",
+        "res-df282b217afc7413",
+        "res-e116d1c10e535144",
+        "res-e42c67a7f6410eb4",
+        "res-f37aa5533a8b014c"
+      ],
+      "supported_fields": [
+        "origin_time_place",
+        "core_practices",
+        "carriers",
+        "development",
+        "regional_variants"
+      ],
+      "used_quotes": {
+        "origin_time_place": [
+          "Q0",
+          "Q3",
+          "Q4"
+        ],
+        "core_practices": [
+          "Q0",
+          "Q1",
+          "Q8"
+        ],
+        "carriers": [
+          "Q0",
+          "Q1",
+          "Q2",
+          "Q4",
+          "Q5",
+          "Q9"
+        ],
+        "development": [
+          "Q1",
+          "Q6",
+          "Q7"
+        ],
+        "modern_forms": [
+          "Q0",
+          "Q8"
+        ],
+        "why_yangtze": [
+          "Q0",
+          "Q2",
+          "Q5",
+          "Q9",
+          "Q12",
+          "Q16"
+        ],
+        "regional_variants": [
+          "Q0",
+          "Q1",
+          "Q11",
+          "Q2",
+          "Q6",
+          "Q13",
+          "Q9",
+          "Q10",
+          "Q5",
+          "Q11"
+        ]
+      },
+      "object_id": "63ffdc83-5cdf-4131-abfe-1294dd33c7d6",
+      "elapsed_s": 6.5
+    },
+    {
+      "seed": "seed_wu_yue_kunqu",
+      "name": "昆曲",
+      "kind": "TRADITION",
+      "bundle": {
+        "seed": "seed_wu_yue_kunqu",
+        "kind": "TRADITION",
+        "entities": 25,
+        "events": 0,
+        "quotes": 18,
+        "distinct_resources": 7,
+        "distinct_source_domains": 2,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": true,
+            "core_practices": true,
+            "carriers": false,
+            "time": true
+          },
+          "field_coverage_ratio": 0.75,
+          "independent_clusters": 8,
+          "authority_distribution": {
+            "UNKNOWN": 12,
+            "B": 6
+          },
+          "temporal_coverage": [
+            1577,
+            2026
+          ],
+          "spatial_coverage": [
+            "昆山腔",
+            "昆曲",
+            "水磨调",
+            "牡丹亭"
+          ],
+          "contradiction_coverage": 0
+        }
+      },
+      "why_yangtze": {
+        "value": "发源于江苏昆山，属吴越文化系统，主要流传于江浙沪",
+        "quotes": [
+          "Q0",
+          "Q4",
+          "Q9"
+        ]
+      },
+      "uncertainty": [
+        "证据未明确提及具体地域流派分支特征",
+        "证据未提供除昆山外的具体起源细节"
+      ],
+      "decision": "ADMITTED",
+      "reason": "coverage=1.00 cited_resources=4 supported=['origin_time_place', 'core_practices', 'carriers', 'development']",
+      "coverage": 1.0,
+      "cited_resources": [
+        "res-119c6193c59d4893",
+        "res-4552e98affdd0062",
+        "res-9a3b7703aca27644",
+        "res-fd6e885d92513f61"
+      ],
+      "supported_fields": [
+        "origin_time_place",
+        "core_practices",
+        "carriers",
+        "development"
+      ],
+      "used_quotes": {
+        "origin_time_place": [
+          "Q0",
+          "Q2"
+        ],
+        "core_practices": [
+          "Q0",
+          "Q4"
+        ],
+        "carriers": [
+          "Q4",
+          "Q7",
+          "Q10",
+          "Q13"
+        ],
+        "development": [
+          "Q4",
+          "Q14",
+          "Q16",
+          "Q13"
+        ],
+        "modern_forms": [
+          "Q3",
+          "Q6"
+        ],
+        "why_yangtze": [
+          "Q0",
+          "Q4",
+          "Q9"
+        ]
+      },
+      "object_id": "8ee16866-ecf4-4020-90c4-738fcb0fcaaf",
+      "elapsed_s": 3.7
+    },
+    {
+      "seed": "seed_yongjia_nandu",
+      "name": "永嘉南渡与江南开发",
+      "kind": "PROCESS",
+      "bundle": {
+        "seed": "seed_yongjia_nandu",
+        "kind": "PROCESS",
+        "entities": 25,
+        "events": 0,
+        "quotes": 40,
+        "distinct_resources": 20,
+        "distinct_source_domains": 7,
+        "sufficiency": {
+          "field_coverage": {
+            "time": true,
+            "origin": true,
+            "destination": true,
+            "carriers": true,
+            "mechanism": false,
+            "outcomes": false
+          },
+          "field_coverage_ratio": 0.667,
+          "independent_clusters": 26,
+          "authority_distribution": {
+            "B": 14,
+            "UNKNOWN": 17,
+            "S": 2,
+            "C": 5,
+            "A": 2
+          },
+          "temporal_coverage": [
+            3,
+            2200
+          ],
+          "spatial_coverage": [
+            "侨置",
+            "六朝",
+            "衣冠南渡"
+          ],
+          "contradiction_coverage": 1
+        }
+      },
+      "why_yangtze": "建康（南京）位于长江流域，是六朝都城，南方相对安定且拥有长江水系优势，成为移民落脚与开发中心。",
+      "uncertainty": [
+        "具体开发进程的细节证据不足",
+        "部分文化影响的具体量化数据缺失"
+      ],
+      "decision": "ADMITTED",
+      "reason": "coverage=1.17 cited_resources=6 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
+      "coverage": 1.167,
+      "cited_resources": [
+        "res-0696f1d84dd00ca4",
+        "res-17aa02dfdf9fade7",
+        "res-2aacfddf13839649",
+        "res-5b7cc67fa9ffbf21",
+        "res-6b3b9b6e4c4c4b3c",
+        "res-7366ba1be2d7186e"
+      ],
+      "supported_fields": [
+        "time",
+        "origin",
+        "destination",
+        "actors",
+        "mechanism",
+        "outcomes",
+        "stages"
+      ],
+      "used_quotes": {
+        "time": [
+          "Q0",
+          "Q3"
+        ],
+        "origin": [
           "Q0"
+        ],
+        "destination": [
+          "Q0",
+          "Q26"
+        ],
+        "actors": [
+          "Q1",
+          "Q26",
+          "Q37"
+        ],
+        "mechanism": [
+          "Q2",
+          "Q17"
+        ],
+        "outcomes": [
+          "Q1",
+          "Q3",
+          "Q16"
+        ],
+        "causes": [
+          "Q1",
+          "Q2"
+        ],
+        "long_term_impacts": [
+          "Q5",
+          "Q21",
+          "Q27"
+        ],
+        "stages": [
+          "Q0",
+          "Q1",
+          "Q26",
+          "Q16",
+          "Q21",
+          "Q33"
         ]
       },
       "object_id": "509037d5-1ed0-4745-a055-a27d5f636611",
-      "elapsed_s": 6.6
+      "elapsed_s": 5.6
     },
     {
       "seed": "seed_jiangnan_towns",
@@ -837,14 +1812,38 @@
         "seed": "seed_jiangnan_towns",
         "kind": "PROCESS",
         "entities": 5,
-        "events": 7,
-        "quotes": 5,
-        "distinct_resources": 2,
-        "distinct_source_domains": 2
+        "events": 0,
+        "quotes": 4,
+        "distinct_resources": 3,
+        "distinct_source_domains": 2,
+        "sufficiency": {
+          "field_coverage": {
+            "time": false,
+            "origin": false,
+            "destination": false,
+            "carriers": false,
+            "mechanism": false,
+            "outcomes": false
+          },
+          "field_coverage_ratio": 0.0,
+          "independent_clusters": 3,
+          "authority_distribution": {
+            "B": 3,
+            "C": 1
+          },
+          "temporal_coverage": [
+            107,
+            107
+          ],
+          "spatial_coverage": [
+            "市镇"
+          ],
+          "contradiction_coverage": 0
+        }
       },
       "why_yangtze": "",
       "uncertainty": [
-        "证据束仅涉及岷江流域及四川自贡仙市古镇，与候选对象“明清江南市镇专业化”（吴越文化系统）无直接关联，无法提取相关证据。"
+        "提供的证据束（Q0-Q3）主要涉及临湘市行政区划、岷江流经市镇及自贡景点，与“明清江南市镇专业化”这一主题无直接关联，无法提取有效证据。"
       ],
       "decision": "CANDIDATE",
       "reason": "key fields without evidence: ['time']",
@@ -852,7 +1851,7 @@
       "cited_resources": [],
       "supported_fields": [],
       "object_id": "8b351079-723d-4315-9b3b-cfa4790b8710",
-      "elapsed_s": 4.5
+      "elapsed_s": 2.3
     },
     {
       "seed": "seed_huizhou_trade",
@@ -862,31 +1861,521 @@
         "seed": "seed_huizhou_trade",
         "kind": "FLOW",
         "entities": 25,
-        "events": 26,
-        "quotes": 6,
-        "distinct_resources": 5,
-        "distinct_source_domains": 4
+        "events": 0,
+        "quotes": 24,
+        "distinct_resources": 16,
+        "distinct_source_domains": 5,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": true,
+            "destination": true,
+            "content": true,
+            "time": true,
+            "route": false,
+            "mechanism": true
+          },
+          "field_coverage_ratio": 0.833,
+          "independent_clusters": 16,
+          "authority_distribution": {
+            "S": 3,
+            "B": 14,
+            "UNKNOWN": 4,
+            "C": 3
+          },
+          "temporal_coverage": [
+            169,
+            2004
+          ],
+          "spatial_coverage": [
+            "徽商",
+            "徽帮",
+            "扬州盐业",
+            "盐商"
+          ],
+          "contradiction_coverage": 0
+        }
       },
-      "why_yangtze": "徽商依托渔梁等水路码头兴盛，通过水路运输鱼鲜等商品，形成沿江贸易网络。",
+      "why_yangtze": "长江水系连接徽州产地与两淮、两浙等消费及集散中心，是徽商盐业贸易的生命线",
       "uncertainty": [
-        "具体沿江贸易路线细节未明确",
-        "起源时间虽有东晋说法但需更多佐证"
+        "具体贸易路线细节证据不足",
+        "部分早期历史时间模糊"
       ],
-      "decision": "REJECT",
-      "reason": "flow hard gate missing: ['destination']",
-      "coverage": 0.6666666666666666,
+      "decision": "ADMITTED",
+      "reason": "coverage=1.00 cited_resources=8 supported=['origin', 'destination', 'content']",
+      "coverage": 1.0,
       "cited_resources": [
+        "res-080dbdc236dbd3e8",
+        "res-3e29192c1be58625",
+        "res-4491360cb28e88e1",
+        "res-493a6f099cefe5ca",
         "res-4b0136309c4b16ee",
         "res-57a31923f340689a",
-        "res-95ae66f8e1ab0a4c",
-        "res-9f7401eb78611576",
-        "res-c9af43e3f44eb8fc"
+        "res-72cf4cef2e0fe173",
+        "res-9f7401eb78611576"
       ],
       "supported_fields": [
         "origin",
+        "destination",
         "content"
       ],
-      "elapsed_s": 5.6
+      "used_quotes": {
+        "origin": [
+          "Q0",
+          "Q8",
+          "Q9",
+          "Q19"
+        ],
+        "destination": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q10",
+          "Q13"
+        ],
+        "content": [
+          "Q3",
+          "Q10",
+          "Q13"
+        ],
+        "carrier": [
+          "Q0",
+          "Q8"
+        ],
+        "time": [
+          "Q0",
+          "Q16"
+        ],
+        "route": [
+          "Q2",
+          "Q7",
+          "Q11"
+        ],
+        "mechanism": [
+          "Q3",
+          "Q10",
+          "Q13"
+        ],
+        "impact": [
+          "Q2",
+          "Q3",
+          "Q10",
+          "Q13"
+        ]
+      },
+      "object_id": "5e34e0e2-f1e5-49b4-b196-1f65b533dc81",
+      "elapsed_s": 4.8
+    },
+    {
+      "seed": "flow_kangzhan_yixi",
+      "name": "抗战文化教育机构西迁",
+      "kind": "FLOW",
+      "bundle": {
+        "seed": "flow_kangzhan_yixi",
+        "kind": "FLOW",
+        "entities": 13,
+        "events": 0,
+        "quotes": 0,
+        "distinct_resources": 0,
+        "distinct_source_domains": 0,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": false,
+            "destination": false,
+            "content": false,
+            "time": false,
+            "route": false,
+            "mechanism": false
+          },
+          "field_coverage_ratio": 0.0,
+          "independent_clusters": 0,
+          "authority_distribution": {},
+          "temporal_coverage": null,
+          "spatial_coverage": [],
+          "contradiction_coverage": 0
+        }
+      },
+      "decision": "SKIP_INSUFFICIENT_EVIDENCE",
+      "reason": "distinct_resources=0 < 2",
+      "elapsed_s": 0.2
+    },
+    {
+      "seed": "flow_yangtze_shipping_modern",
+      "name": "近代长江航运商品流动",
+      "kind": "FLOW",
+      "bundle": {
+        "seed": "flow_yangtze_shipping_modern",
+        "kind": "FLOW",
+        "entities": 8,
+        "events": 0,
+        "quotes": 14,
+        "distinct_resources": 7,
+        "distinct_source_domains": 2,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": false,
+            "destination": true,
+            "content": true,
+            "time": true,
+            "route": false,
+            "mechanism": false
+          },
+          "field_coverage_ratio": 0.5,
+          "independent_clusters": 9,
+          "authority_distribution": {
+            "B": 10,
+            "UNKNOWN": 3,
+            "C": 1
+          },
+          "temporal_coverage": [
+            598,
+            1985
+          ],
+          "spatial_coverage": [
+            "轮船招商局"
+          ],
+          "contradiction_coverage": 0
+        }
+      },
+      "why_yangtze": "长江连接上海与汉口，是近代中国最重要的内河航运通道，招商局设汉口分局即依托此水道。",
+      "uncertainty": [
+        "具体商品种类除粮食军火外不详",
+        "早期长江航运其他主体信息不足"
+      ],
+      "decision": "ADMITTED",
+      "reason": "coverage=1.00 cited_resources=4 supported=['origin', 'destination', 'content']",
+      "coverage": 1.0,
+      "cited_resources": [
+        "res-020e9041e8f2115f",
+        "res-80d8f40405a9f3a4",
+        "res-a903eaef3e23d314",
+        "res-d0865a9b0bb89902"
+      ],
+      "supported_fields": [
+        "origin",
+        "destination",
+        "content"
+      ],
+      "used_quotes": {
+        "origin": [
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q11"
+        ],
+        "destination": [
+          "Q3",
+          "Q11"
+        ],
+        "content": [
+          "Q1"
+        ],
+        "carrier": [
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q11"
+        ],
+        "time": [
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "route": [
+          "Q3",
+          "Q11"
+        ],
+        "mechanism": [
+          "Q1"
+        ],
+        "impact": [
+          "Q3"
+        ]
+      },
+      "object_id": "a6abc858-c78e-414f-ac30-52a8ff4007a5",
+      "elapsed_s": 3.9
+    },
+    {
+      "seed": "flow_hanyeping_transport",
+      "name": "汉冶萍煤铁原料运输",
+      "kind": "FLOW",
+      "bundle": {
+        "seed": "flow_hanyeping_transport",
+        "kind": "FLOW",
+        "entities": 21,
+        "events": 0,
+        "quotes": 20,
+        "distinct_resources": 5,
+        "distinct_source_domains": 1,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": true,
+            "destination": false,
+            "content": true,
+            "time": true,
+            "route": false,
+            "mechanism": true
+          },
+          "field_coverage_ratio": 0.667,
+          "independent_clusters": 8,
+          "authority_distribution": {
+            "B": 12,
+            "UNKNOWN": 8
+          },
+          "temporal_coverage": [
+            226,
+            2007
+          ],
+          "spatial_coverage": [
+            "大冶铁矿",
+            "汉冶萍",
+            "萍乡煤矿"
+          ],
+          "contradiction_coverage": 0
+        }
+      },
+      "why_yangtze": "大冶铁矿与汉阳铁厂均位于长江沿岸，依托长江水系及铁路进行原料与产品运输，是长江中游近代工业化的重要体现。",
+      "uncertainty": [
+        "具体运输路线细节未详述",
+        "早期运输方式除铁路外是否包含水运未明确"
+      ],
+      "decision": "ADMITTED",
+      "reason": "coverage=1.00 cited_resources=3 supported=['origin', 'destination', 'content']",
+      "coverage": 1.0,
+      "cited_resources": [
+        "res-656f97908764b4b2",
+        "res-aa485f5d08373737",
+        "res-df9da891dca799ae"
+      ],
+      "supported_fields": [
+        "origin",
+        "destination",
+        "content"
+      ],
+      "used_quotes": {
+        "origin": [
+          "Q0",
+          "Q12"
+        ],
+        "destination": [
+          "Q0",
+          "Q12"
+        ],
+        "content": [
+          "Q0",
+          "Q12"
+        ],
+        "carrier": [
+          "Q11",
+          "Q15"
+        ],
+        "time": [
+          "Q0",
+          "Q12"
+        ],
+        "route": [
+          "Q0",
+          "Q12"
+        ],
+        "mechanism": [
+          "Q0",
+          "Q11",
+          "Q12"
+        ],
+        "impact": [
+          "Q1",
+          "Q2",
+          "Q6"
+        ]
+      },
+      "object_id": "d0a116b5-e08e-4dca-9280-3fac4081b8a4",
+      "elapsed_s": 4.3
+    },
+    {
+      "seed": "flow_marxism_yangtze",
+      "name": "马克思主义沿长江城市传播",
+      "kind": "FLOW",
+      "bundle": {
+        "seed": "flow_marxism_yangtze",
+        "kind": "FLOW",
+        "entities": 1,
+        "events": 0,
+        "quotes": 1,
+        "distinct_resources": 1,
+        "distinct_source_domains": 1,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": false,
+            "destination": false,
+            "content": false,
+            "time": false,
+            "carriers": false,
+            "mechanism": false
+          },
+          "field_coverage_ratio": 0.0,
+          "independent_clusters": 1,
+          "authority_distribution": {
+            "B": 1
+          },
+          "temporal_coverage": null,
+          "spatial_coverage": [],
+          "contradiction_coverage": 0
+        }
+      },
+      "decision": "SKIP_INSUFFICIENT_EVIDENCE",
+      "reason": "distinct_resources=1 < 2",
+      "elapsed_s": 0.2
+    },
+    {
+      "seed": "flow_buddhism_downstream",
+      "name": "佛教沿江传播",
+      "kind": "FLOW",
+      "bundle": {
+        "seed": "flow_buddhism_downstream",
+        "kind": "FLOW",
+        "entities": 25,
+        "events": 0,
+        "quotes": 25,
+        "distinct_resources": 7,
+        "distinct_source_domains": 3,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": true,
+            "destination": true,
+            "content": true,
+            "time": true,
+            "route": false,
+            "carriers": true
+          },
+          "field_coverage_ratio": 0.833,
+          "independent_clusters": 8,
+          "authority_distribution": {
+            "B": 12,
+            "UNKNOWN": 9,
+            "C": 4
+          },
+          "temporal_coverage": [
+            400,
+            2010
+          ],
+          "spatial_coverage": [
+            "归元寺",
+            "金山寺"
+          ],
+          "contradiction_coverage": 0
+        }
+      },
+      "why_yangtze": "",
+      "uncertainty": [
+        "证据束仅包含归元寺（武汉）和金山寺（镇江）的独立历史、建筑及传说信息，缺乏佛教沿江传播的路径、载体、机制及具体时间的直接证据。",
+        "无法从现有证据中推断出长江作为传播通道的具体过程。"
+      ],
+      "decision": "REJECT",
+      "reason": "flow hard gate missing: ['origin', 'destination', 'content']",
+      "coverage": 0.0,
+      "cited_resources": [],
+      "supported_fields": [],
+      "elapsed_s": 2.6
+    },
+    {
+      "seed": "flow_jingdezhen_porcelain",
+      "name": "景德镇瓷器长江外运",
+      "kind": "FLOW",
+      "bundle": {
+        "seed": "flow_jingdezhen_porcelain",
+        "kind": "FLOW",
+        "entities": 0,
+        "events": 0,
+        "quotes": 0,
+        "distinct_resources": 0,
+        "distinct_source_domains": 0,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": false,
+            "destination": false,
+            "content": false,
+            "time": false,
+            "route": false,
+            "mechanism": false
+          },
+          "field_coverage_ratio": 0.0,
+          "independent_clusters": 0,
+          "authority_distribution": {},
+          "temporal_coverage": null,
+          "spatial_coverage": [],
+          "contradiction_coverage": 0
+        }
+      },
+      "decision": "SKIP_INSUFFICIENT_EVIDENCE",
+      "reason": "distinct_resources=0 < 2",
+      "elapsed_s": 0.1
+    },
+    {
+      "seed": "flow_hanyang_technology",
+      "name": "汉阳铁厂西方技术引进",
+      "kind": "FLOW",
+      "bundle": {
+        "seed": "flow_hanyang_technology",
+        "kind": "FLOW",
+        "entities": 0,
+        "events": 0,
+        "quotes": 1,
+        "distinct_resources": 1,
+        "distinct_source_domains": 1,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": false,
+            "destination": false,
+            "content": false,
+            "time": false,
+            "carriers": false,
+            "mechanism": false
+          },
+          "field_coverage_ratio": 0.0,
+          "independent_clusters": 1,
+          "authority_distribution": {
+            "B": 1
+          },
+          "temporal_coverage": null,
+          "spatial_coverage": [],
+          "contradiction_coverage": 0
+        }
+      },
+      "decision": "SKIP_INSUFFICIENT_EVIDENCE",
+      "reason": "distinct_resources=1 < 2",
+      "elapsed_s": 0.2
+    },
+    {
+      "seed": "flow_chuanliang_downstream",
+      "name": "清代川粮长江下运",
+      "kind": "FLOW",
+      "bundle": {
+        "seed": "flow_chuanliang_downstream",
+        "kind": "FLOW",
+        "entities": 0,
+        "events": 0,
+        "quotes": 0,
+        "distinct_resources": 0,
+        "distinct_source_domains": 0,
+        "sufficiency": {
+          "field_coverage": {
+            "origin": false,
+            "destination": false,
+            "content": false,
+            "time": false,
+            "route": false,
+            "mechanism": false
+          },
+          "field_coverage_ratio": 0.0,
+          "independent_clusters": 0,
+          "authority_distribution": {},
+          "temporal_coverage": null,
+          "spatial_coverage": [],
+          "contradiction_coverage": 0
+        }
+      },
+      "decision": "SKIP_INSUFFICIENT_EVIDENCE",
+      "reason": "distinct_resources=0 < 2",
+      "elapsed_s": 0.1
     }
   ]
 }

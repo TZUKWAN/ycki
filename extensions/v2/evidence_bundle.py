@@ -23,6 +23,7 @@ from __future__ import annotations
 import math
 import re
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any
 
 import psycopg2
@@ -150,7 +151,7 @@ def build_bundle(cur: psycopg2.extensions.cursor, seed: dict[str, Any],
             LEFT JOIN resources r ON r.resource_id=e.resource_id
             LEFT JOIN sources s ON s.source_id=r.source_id
             LEFT JOIN timespans t ON t.timespan_id=c.timespan_id
-            WHERE e.claim_id = ANY(%s) LIMIT 120""", (claim_ids,))
+            WHERE e.claim_id = ANY(%s::uuid[]) LIMIT 120""", (claim_ids,))
         add([dict(r) for r in cur.fetchall()], "entity")
 
     # ---- 3 event：ADMITTED 事件命中（引文已分段验证） ----
@@ -182,8 +183,8 @@ def build_bundle(cur: psycopg2.extensions.cursor, seed: dict[str, Any],
     if claim_ids:
         cur.execute("""SELECT DISTINCT c2.claim_id FROM claims c2
                        WHERE c2.status='ADMITTED' AND (
-                           c2.subject_id IN (SELECT object_id FROM claims WHERE claim_id = ANY(%s))
-                        OR c2.object_id   IN (SELECT subject_id FROM claims WHERE claim_id = ANY(%s)))
+                           c2.subject_id IN (SELECT object_id FROM claims WHERE claim_id = ANY(%s::uuid[]))
+                        OR c2.object_id   IN (SELECT subject_id FROM claims WHERE claim_id = ANY(%s::uuid[])))
                        LIMIT 120""", (claim_ids, claim_ids))
         hop_ids = [r[0] for r in cur.fetchall()]
         if hop_ids:
@@ -196,8 +197,67 @@ def build_bundle(cur: psycopg2.extensions.cursor, seed: dict[str, Any],
                 LEFT JOIN resources r ON r.resource_id=e.resource_id
                 LEFT JOIN sources s ON s.source_id=r.source_id
                 LEFT JOIN timespans t ON t.timespan_id=c.timespan_id
-                WHERE e.claim_id = ANY(%s) LIMIT 80""", (hop_ids,))
+                WHERE e.claim_id = ANY(%s::uuid[]) LIMIT 80""", (hop_ids,))
             add([dict(r) for r in cur.fetchall()], "graph")
+
+    # ---- 5 fulltext：湖内 CORE/CONTEXT 全文命中片段（§7.1 第6通道）----
+    # 动机：大量 CORE 资源的 claim 在实体解析阶段未通过，但其原文含关键证据；
+    # 只允许 ADMITTED claim 证据进束会让检索死于上游失败。此处直接从湖文本
+    # 抽取词命中片段（±110 字符窗），每资源最多 2 片段，可被原文定位验证。
+    ft_like = " OR ".join(["r.title ILIKE %s", "r.search_query ILIKE %s"] * 1)
+    ft_params: list[Any] = []
+    ft_ors = []
+    for t in terms:
+        ft_ors.append("r.title ILIKE %s")
+        ft_params.append(f"%{t}%")
+    for t in terms:
+        ft_ors.append("r.search_query ILIKE %s")
+        ft_params.append(f"%{t}%")
+    cur.execute(f"""SELECT r.resource_id, r.title, r.source_domain, r.published_at,
+                           s.authority_level, r.source_cluster_id, r.text_path
+                    FROM resources r LEFT JOIN sources s ON s.source_id=r.source_id
+                    WHERE r.admission_status IN ('CORE','CONTEXT')
+                      AND r.text_path IS NOT NULL AND ({' OR '.join(ft_ors)})
+                    ORDER BY char_length(COALESCE(r.title, '')) DESC LIMIT 14""",
+                tuple(ft_params))
+    for row in cur.fetchall():
+        d = dict(row)
+        try:
+            tp = d.get("text_path")
+            full = Path(tp).read_text(encoding="utf-8", errors="replace") if tp and Path(tp).exists() else ""
+        except Exception:
+            continue
+        if not full:
+            continue
+        snippet_count = 0
+        seen_spans: set[int] = set()
+        for t in terms:
+            start = 0
+            while snippet_count < 2:
+                idx = full.find(t, start)
+                if idx < 0:
+                    break
+                bucket = idx // 400
+                if bucket in seen_spans:
+                    start = idx + len(t)
+                    continue
+                seen_spans.add(bucket)
+                s0, s1 = max(0, idx - 110), min(len(full), idx + len(t) + 110)
+                snippet = full[s0:s1].strip()
+                if len(_norm_key(snippet)) >= 30:
+                    key = _norm_key(snippet)
+                    if key and key not in pool:
+                        pool[key] = {
+                            "evidence_id": None, "claim_id": None, "quote_span": snippet,
+                            "resource_id": d["resource_id"], "title": d["title"],
+                            "source_domain": d["source_domain"], "published_at": d["published_at"],
+                            "authority_level": d["authority_level"],
+                            "source_cluster_id": d["source_cluster_id"],
+                            "subject_id": None, "object_id": None, "time_text": None,
+                            "channels": ["fulltext"],
+                        }
+                    snippet_count += 1
+                start = idx + len(t)
 
     # 相关实体（供 prompt 与充分度）
     ent_like2 = " OR ".join(["(ce.canonical_name ILIKE %s OR ce.description ILIKE %s)"] * len(terms))
@@ -249,9 +309,13 @@ def _score_and_select(rows: list[dict[str, Any]], terms: list[str],
         auth = (r.get("authority_level") or "").upper()
         cluster = str(r.get("source_cluster_id") or f"res:{r.get('resource_id')}")
         ln = len(_norm_key(qs))
-        yrs = _YEAR_RE.findall(qs)
+        yrs = []
+        for _y in _YEAR_RE.findall(qs):
+            _digits = re.sub(r"[^0-9]", "", _y)
+            if _digits:
+                yrs.append(int(_digits))
         r["_cluster"] = cluster
-        r["_year"] = int(yrs[0]) if yrs else None
+        r["_year"] = yrs[0] if yrs else None
         r["score"] = round(
             0.30 * max(0.0, min(1.0, sems[i]))
             + 0.20 * min(1.0, 0.25 * f_hits + 0.15 * term_hits)
@@ -303,9 +367,10 @@ def _sufficiency(b: Bundle, seed: dict[str, Any]) -> dict[str, Any]:
     for q in b.quotes:
         a = (q.get("authority_level") or "UNKNOWN").upper()
         auth[a] = auth.get(a, 0) + 1
-        m = _YEAR_RE.findall(q.get("quote_span") or "")
+        m = [int(re.sub(r"[^0-9]", "", y)) for y in _YEAR_RE.findall(q.get("quote_span") or "")
+             if re.sub(r"[^0-9]", "", y)]
         if m:
-            years.append(int(m[0]))
+            years.append(m[0])
     places = set()
     for q in b.quotes:
         for t in (seed.get("terms") or [seed["name"]]):
