@@ -1,0 +1,303 @@
+{
+  "generated_at": "2026-09-14T03:07:48+0800",
+  "protocol": "stratified real gaps + deterministic injected fakes; single-model judge (如实标注)",
+  "total": 230,
+  "real_gaps": 190,
+  "injected": 40,
+  "real_judged_TRUE": 124,
+  "injected_rejected": 29,
+  "gap_precision": 0.6652,
+  "target": 0.9,
+  "gate": "FAIL",
+  "verdict_distribution": {
+    "TRUE_STRUCTURAL_GAP": 135,
+    "FALSE_GAP": 51,
+    "DATA_QUALITY_ERROR": 33,
+    "ALREADY_KNOWN": 5,
+    "ONTOLOGY_ARTIFACT": 6
+  },
+  "errors": 0,
+  "elapsed_s": 125.0,
+  "sample": [
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "湖湘文化系统<->赣皖文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "湖湘文化系统<->羌藏文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "湖湘文化系统<->荆楚文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "荆楚文化系统<->赣皖文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "巴蜀文化系统<->湖湘文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "巴蜀文化系统<->赣皖文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "滇黔文化系统<->荆楚文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "羌藏文化系统<->赣皖文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "吴越文化系统<->湖湘文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "巴蜀文化系统<->滇黔文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "湖湘文化系统<->滇黔文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "巴蜀文化系统<->羌藏文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "吴越文化系统<->巴蜀文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "滇黔文化系统<->羌藏文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "吴越文化系统<->羌藏文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "滇黔文化系统<->赣皖文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "巴蜀文化系统<->荆楚文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "吴越文化系统<->荆楚文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "吴越文化系统<->滇黔文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "羌藏文化系统<->荆楚文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "name": "吴越文化系统<->赣皖文化系统",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_HYDRO_LINK",
+      "name": "江西填湖广",
+      "verdict": "FALSE_GAP",
+      "ok": false
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_HYDRO_LINK",
+      "name": "武汉开埠与近代转型",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_HYDRO_LINK",
+      "name": "都江堰修建与历代维护",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_HYDRO_LINK",
+      "name": "楚人经营江汉与南进",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_HYDRO_LINK",
+      "name": "永嘉南渡与江南开发",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_HYDRO_LINK",
+      "name": "湖广填四川",
+      "verdict": "FALSE_GAP",
+      "ok": false
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_HYDRO_LINK",
+      "name": "湖湘学派形成与传承",
+      "verdict": "FALSE_GAP",
+      "ok": false
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "多部门联合开展夜间施工噪声专项检查",
+      "verdict": "DATA_QUALITY_ERROR",
+      "ok": false
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "普陀区",
+      "verdict": "DATA_QUALITY_ERROR",
+      "ok": false
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "黄巾起义",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "沙渠县",
+      "verdict": "FALSE_GAP",
+      "ok": false
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "阿署达四季花海景区",
+      "verdict": "DATA_QUALITY_ERROR",
+      "ok": false
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "汉口",
+      "verdict": "ALREADY_KNOWN",
+      "ok": false
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "吴培义",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "王宝",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "格萨尔王",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "绩溪",
+      "verdict": "FALSE_GAP",
+      "ok": false
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "中华人民共和国",
+      "verdict": "FALSE_GAP",
+      "ok": false
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "齐安公所",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    }
+  ]
+}

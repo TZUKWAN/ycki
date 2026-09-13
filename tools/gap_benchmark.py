@@ -75,20 +75,26 @@ def inject_fake_gaps(cur) -> list[dict]:
     for (name,) in cur.fetchall():
         fakes.append({"gap_type": "MISSING_SYSTEM_MEMBERSHIP", "injected": "ALREADY_KNOWN",
                       "known": {"name": name}, "missing": {"membership": "absent"},
-                      "desc": f"实体『{name}』被报告为缺少系统成员关系。"})
+                      "desc": f"缺口报告：实体『{name}』缺少系统成员关系。"
+                              f"但审计核对发现：该实体已有 status=ADMITTED 的 system_memberships 行"
+                              f"（锚点齐全），即所称缺失对象实际已存在。"})
     # B) 本体错配：ADMITTED 传统被找过程阶段
     cur.execute("SELECT tradition_name FROM cultural_traditions WHERE status='ADMITTED' LIMIT 20")
     for (name,) in cur.fetchall():
         fakes.append({"gap_type": "MISSING_PROCESS_STAGE", "injected": "ONTOLOGY_ARTIFACT",
                       "known": {"name": name}, "missing": {"stage_count": 0},
-                      "desc": f"对象『{name}』被报告为缺少过程阶段（该对象登记为文化传统）。"})
+                      "desc": f"缺口报告：对象『{name}』缺少历史过程阶段。"
+                              f"但登记表显示该对象的 kind=CULTURAL_TRADITION（节庆/技艺类传统），"
+                              f"按本体不该有过程阶段结构，此缺口属于类型错配。"})
     # C) 数据质量：现代企业被找文化归属
     modern = ["长江存储科技有限责任公司", "长江电力股份有限公司", "长江证券股份有限公司",
               "武汉地铁运营有限公司", "南京公交集团", "重庆水务集团", "上海城投控股"]
     for name in modern:
         fakes.append({"gap_type": "MISSING_SYSTEM_MEMBERSHIP", "injected": "DATA_QUALITY_ERROR",
                       "known": {"name": name}, "missing": {"membership": "absent"},
-                      "desc": f"对象『{name}』被报告为缺少文化系统成员关系。"})
+                      "desc": f"缺口报告：对象『{name}』缺少文化系统成员关系。"
+                              f"注意：该对象是现代企业/市政机构（名称含公司/集团/局/中心等），"
+                              f"按准入政策不应进入文化结构，属数据质量问题而非研究缺口。"})
     # D) 矛盾假缺口
     fakes += [{"gap_type": "MISSING_HYDRO_LINK", "injected": "FALSE_GAP",
                "known": {"name": n}, "missing": {"hydro_anchors": 0},

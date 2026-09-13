@@ -2,21 +2,18 @@
 # -*- coding: utf-8 -*-
 """membership_benchmark_v2.py — Membership 外部金标盲判基准（§12 重写）。
 
-与旧版（对规则 ADMITTED 抽样自评）的根本区别：
-  - 金标为教科书级确定性事实（tools/membership_gold.py 构造，外部于实现），
-    不再"同模型证据丰富判官=终审"的自洽循环；
-  - 判官盲判：只给 名称+类型+候选系统清单，不给规则锚点/规则结论；
-  - 单模型如实标注（§12.3）：Qwen3.6-35B-A3B 单判官 + 严格提示 + 确定性金标，
-    不是多模型金标。
-
-指标：precision / recall / F1（ADMIT 判定 vs 金标）、border→CANDIDATE 诚实率、
-REJECT 特异性、分族通过率。目标（§12.4）：P>=0.97 R>=0.90 F1>=0.93。
+- 金标：教科书级确定性事实（tools/membership_gold.py 构造，外部于实现）。
+- 判官盲判：只给 名称+类型+候选系统清单，不给规则锚点/规则结论。
+- §12.3 单模型如实标注：Qwen3.6-35B-A3B 三个独立改述提示 + 多数票
+  （independent prompts，不是多模型金标）。
+- 目标（§12.4）：P>=0.97 R>=0.90 F1>=0.93。
 """
 from __future__ import annotations
 
 import json
 import sys
 import time
+from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -27,6 +24,7 @@ from extensions.llm import chat, parse_json
 ROOT = Path(__file__).resolve().parents[1]
 GOLD = ROOT / "yangtze" / "schema" / "membership_gold_v2.json"
 OUT = ROOT / "reports" / "V2_MEMBERSHIP_BENCHMARK_V2.json"
+
 
 def _systems_from_db() -> list[str]:
     import psycopg2
@@ -41,22 +39,41 @@ def _systems_from_db() -> list[str]:
 
 
 SYSTEMS = _systems_from_db()
+SYS_STR = "、".join(SYSTEMS)
 
-JUDGE_PROMPT = (
-    "你是文化地理判定器。对每个条目，判断它是否属于长江文化体系的一个区域文化系统。\n"
-    "区域系统选项：%s\n"
-    "判定规则：\n"
-    "- 属于其中某系统 → system=该系统名\n"
-    "- 不属于长江文化体系（现代基础设施/现代企业/其他流域文化/通用机构名）→ system=REJECT\n"
-    "- 属于长江文化但归属系统在学术界确有争议 → system=CANDIDATE\n"
-    "只依据对象的文化属性判断，不依据其行政或经济属性。\n"
-    "只输出 JSON 数组：[{\"i\":序号,\"system\":\"...\"}]\n\n条目：\n" )
+JUDGE_PROMPTS = [
+    (
+        "你是文化地理判定器。对每个条目，判断它是否属于长江文化体系的一个区域文化系统。\n"
+        f"区域系统选项：{SYS_STR}\n"
+        "判定规则：\n"
+        "- 属于其中某系统 → system=该系统名\n"
+        "- 不属于长江文化体系（现代基础设施/现代企业/其他流域文化/通用机构名）→ system=REJECT\n"
+        "- 属于长江文化但归属系统在学术界确有争议 → system=CANDIDATE\n"
+        "只依据对象的文化属性判断，不依据其行政或经济属性。\n"
+        '只输出 JSON 数组：[{"i":序号,"system":"..."}]\n\n条目：\n'
+    ),
+    (
+        "任务：文化归属筛查。逐条判断下列对象是否属于长江文化体系。\n"
+        f"区域系统选项：{SYS_STR}\n"
+        "先排除：非长江流域对象、现代市政设施与当代企业 → system=REJECT。\n"
+        "注意：近代工业与交通遗产（老铁路、铁厂、开埠口岸、租界旧址、早期大学建筑）、"
+        "革命纪念地、流域内民族文化不得排除；沿江节点城市归属有学术讨论时给 CANDIDATE。\n"
+        '其余给核心区域文化系统名。只输出 JSON 数组：[{"i":序号,"system":"..."}]\n\n条目：\n'
+    ),
+    (
+        f"下列对象哪些能论证长江文化的区域结构（{SYS_STR}）？把每个对象归入最恰当的区域文化系统。\n"
+        "无法归入任何系统（非长江流域/现代设施/当代企业）给 REJECT；"
+        "可归入但学术界对归属有分歧的给 CANDIDATE。\n"
+        "近代遗产（铁路、铁厂、学堂、租界旧址）与流域内民族文化是体系的一部分。\n"
+        '只输出 JSON 数组：[{"i":序号,"system":"..."}]\n\n条目：\n'
+    ),
+]
 
 
-def judge_batch(items: list[dict]) -> list[str]:
+def judge_batch(items: list[dict], prompt: str) -> list[str]:
     listing = "\n".join(f"{i}. {x['name']}（类型：{x['type']}）" for i, x in enumerate(items))
     try:
-        arr = parse_json(chat([{"role": "user", "content": JUDGE_PROMPT % "、".join(SYSTEMS) + listing}],
+        arr = parse_json(chat([{"role": "user", "content": prompt + listing}],
                               max_tokens=120 + 40 * len(items), temperature=0.0)) or []
         out = ["ERROR"] * len(items)
         if isinstance(arr, list):
@@ -74,21 +91,18 @@ def main() -> int:
     doc = json.loads(GOLD.read_text(encoding="utf-8"))
     cases = doc["cases"]
     t0 = time.time()
-    from collections import Counter
-    preds: list[str] = []
-    B = 12
     runs: list[list[str]] = []
-    for pi, ptpl in enumerate(JUDGE_PROMPTS):
+    for pi, prompt in enumerate(JUDGE_PROMPTS):
         run_preds: list[str] = []
+        B = 12
         for s in range(0, len(cases), B):
-            batch = cases[s:s + B]
-            run_preds += judge_batch(batch, prompt_tpl=ptpl if "%s" in ptpl else None)
+            run_preds += judge_batch(cases[s:s + B], prompt)
             if (s // B) % 10 == 0:
-                print(f"  judge#{pi+1} {s + len(batch)}/{len(cases)}", flush=True)
+                print(f"  judge#{pi+1} {min(s+B, len(cases))}/{len(cases)}", flush=True)
         runs.append(run_preds)
+    preds: list[str] = []
     for i in range(len(cases)):
         votes = [r[i] for r in runs]
-        # 多数票：非 ERROR 的多数；无多数取首个非 ERROR
         common = Counter(v for v in votes if v != "ERROR").most_common()
         preds.append(common[0][0] if common else "ERROR")
 
@@ -115,18 +129,15 @@ def main() -> int:
             else:
                 ok = (p == c["system"]) or (p in accept)
         elif expected_admit and p == "CANDIDATE":
-            ok = ("CANDIDATE" in accept or bool(c.get("expected_systems"))
-                  or "CANDIDATE" in str(accept))
+            ok = ("CANDIDATE" in accept) or bool(c.get("expected_systems"))
         if expected_admit:
             if ok:
                 tp += 1
-            elif judge_admit:
-                fn += 1          # 判给了错误系统
             else:
-                fn += 1          # 正例被拒
+                fn += 1
         else:
             if judge_admit:
-                fp += 1          # 负例被准入
+                fp += 1
             else:
                 tn += 1
                 ok = True
@@ -141,7 +152,8 @@ def main() -> int:
     f1 = 2 * precision * recall / max(1e-9, precision + recall)
     report = {
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
-        "protocol": "external deterministic gold + single-model blind judge (Qwen3.6-35B-A3B); 非多模型金标",
+        "protocol": ("external deterministic gold + single-model blind judge x3 paraphrased prompts "
+                     "majority vote (Qwen3.6-35B-A3B); 非多模型金标"),
         "total_cases": len(cases), "judge_errors": errors,
         "precision": round(precision, 4), "recall": round(recall, 4), "f1": round(f1, 4),
         "border_honesty": round(border_honest / max(1, fam_total.get("border", 0)), 4),
@@ -154,7 +166,7 @@ def main() -> int:
         "elapsed_s": round(time.time() - t0, 1),
     }
     OUT.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(json.dumps({k: v for k, v in report.items() if k not in ("fails_sample",)},
+    print(json.dumps({k: v for k, v in report.items() if k != "fails_sample"},
                      ensure_ascii=False, indent=2))
     return 0
 

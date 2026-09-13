@@ -742,3 +742,119 @@ def why_yangtze(entity_name: str = ""):
                        f"因此无法给出到『{target_name}』的结构路径。")
     return {"entity": entity_out, "target": target_name,
             "path_count": len(paths), "paths": paths, "explanation": explanation}
+
+
+# ---------------------------------------------------------------- §4.7 图谱端点
+
+@router.get("/graph/system")
+@_guarded
+def graph_system():
+    """系统结构图：ROOT→区域系统→领域/分期 + 水系母干线。"""
+    with _conn() as conn, conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+        cur.execute("""SELECT system_id::text AS id, system_name AS name, system_level,
+                              parent_system::text AS parent
+                       FROM cultural_systems ORDER BY system_level""")
+        systems = [_jsonable(r) for r in cur.fetchall()]
+        cur.execute("""SELECT domain_id::text AS id, domain_name AS name, system_id::text AS sys
+                       FROM cultural_domains LIMIT 120""")
+        domains = [_jsonable(r) for r in cur.fetchall()]
+        cur.execute("""SELECT phase_id::text AS id, phase_name AS name, macro_phase AS macro
+                       FROM historical_phases ORDER BY phase_id LIMIT 40""")
+        phases = [_jsonable(r) for r in cur.fetchall()]
+        cur.execute("""SELECT hsu_id::text AS id, hsu_name AS name, hsu_type AS type
+                       FROM hydro_spatial_units WHERE hsu_type IN ('MAINSTREAM','TRIBUTARY')
+                       ORDER BY hsu_id LIMIT 40""")
+        hydro = [_jsonable(r) for r in cur.fetchall()]
+    nodes, edges = [], []
+    for s in systems:
+        nodes.append({"id": f"sys:{s['id']}", "label": s["name"],
+                      "group": "root" if s["system_level"] == "ROOT" else "system"})
+        if s.get("parent"):
+            edges.append({"from": f"sys:{s['parent']}", "to": f"sys:{s['id']}", "label": "构成"})
+    for d in domains:
+        if d.get("sys"):
+            nodes.append({"id": f"dom:{d['id']}", "label": d["name"], "group": "domain"})
+            edges.append({"from": f"sys:{d['sys']}", "to": f"dom:{d['id']}", "label": "领域"})
+    prev = None
+    for p in phases:
+        nodes.append({"id": f"ph:{p['id']}", "label": p["name"], "group": "phase"})
+        if prev:
+            edges.append({"from": f"ph:{prev}", "to": f"ph:{p['id']}", "label": "演进"})
+        prev = p["id"]
+    main = [h for h in hydro if h.get("type") == "MAINSTREAM"]
+    for h in main:
+        nodes.append({"id": f"hyd:{h['id']}", "label": h["name"], "group": "hydro"})
+    return {"nodes": nodes, "edges": edges}
+
+
+@router.get("/graph/flow")
+@_guarded
+def graph_flow():
+    """流动图：origin →(flow)→ destination，附类型与时期。"""
+    with _conn() as conn, conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+        cur.execute("""SELECT flow_id::text AS id, flow_type, origin, destination,
+                              COALESCE(via,'') AS via, COALESCE(time_range,'') AS time_range,
+                              COALESCE(content,'') AS content, confidence
+                       FROM cultural_flows ORDER BY created_at DESC LIMIT 200""")
+        flows = [_jsonable(r) for r in cur.fetchall()]
+    nodes: dict[str, dict] = {}
+    edges = []
+    for f in flows:
+        o, d = f.get("origin") or "?", f.get("destination") or "?"
+        for place in (o, d):
+            if place and place not in nodes:
+                nodes[place] = {"id": f"pl:{place}", "label": place[:24], "group": "place"}
+        if o and d:
+            edges.append({"from": f"pl:{o}", "to": f"pl:{d}", "label": (f.get("content") or f["flow_type"])[:20],
+                          "title": f"{f.get('time_range','')} {f.get('via','')}", "id": f["id"]})
+    return {"nodes": list(nodes.values()), "edges": edges}
+
+
+@router.get("/graph/region")
+@_guarded
+def graph_region():
+    """区域互动图：系统间结构关系（EVIDENCE_BACKED/ONTOLOGY）+ 共享过程/流动计数。"""
+    with _conn() as conn, conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+        cur.execute("""SELECT s.system_id::text AS id, s.system_name AS name
+                       FROM cultural_systems s WHERE s.system_level='REGIONAL'""")
+        systems = [_jsonable(r) for r in cur.fetchall()]
+        cur.execute("""SELECT subject_id::text, object_id::text, predicate, knowledge_type,
+                              status, COALESCE(evidence_count,0) AS evidence_count
+                       FROM structural_relations
+                       WHERE status IN ('ADMITTED','SUPPORTED') LIMIT 200""")
+        rels = [_jsonable(r) for r in cur.fetchall()]
+    ids = {s["id"] for s in systems}
+    edges = []
+    for r in rels:
+        if r["subject_id"] in ids and r["object_id"] in ids:
+            edges.append({"from": f"sys:{r['subject_id']}", "to": f"sys:{r['object_id']}",
+                          "label": f"{r['predicate']}({r['knowledge_type'][:4]})",
+                          "title": f"evidence={r['evidence_count']}"})
+    return {"nodes": [{"id": f"sys:{s['id']}", "label": s["name"], "group": "system"} for s in systems],
+            "edges": edges}
+
+
+@router.get("/graph/evidence")
+@_guarded
+def graph_evidence(object_kind: str = "", object_id: str = ""):
+    """证据下钻：结构对象 → 字段级证据行 → 资源。"""
+    with _conn() as conn, conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+        rows: list[dict] = []
+        if object_kind == "TRADITION" and object_id:
+            cur.execute("""SELECT te.evidence_role AS field, te.quote_span, te.resource_id,
+                                  r.title FROM tradition_evidence te
+                           LEFT JOIN resources r ON r.resource_id=te.resource_id
+                           WHERE te.tradition_id=%s::uuid LIMIT 60""", (object_id,))
+            rows = [_jsonable(r) for r in cur.fetchall()]
+        elif object_kind == "PROCESS" and object_id:
+            cur.execute("""SELECT pe.field_name AS field, pe.quote_span, pe.resource_id,
+                                  r.title FROM process_evidence pe
+                           LEFT JOIN resources r ON r.resource_id=pe.resource_id
+                           WHERE pe.process_id=%s::uuid LIMIT 60""", (object_id,))
+            rows = [_jsonable(r) for r in cur.fetchall()]
+        elif object_kind == "FLOW" and object_id:
+            cur.execute("""SELECT 'flow' AS field, quote_span, resource_id,
+                                  (SELECT title FROM resources r WHERE r.resource_id=f.resource_id) AS title
+                           FROM cultural_flows f WHERE f.flow_id=%s::uuid""", (object_id,))
+            rows = [_jsonable(r) for r in cur.fetchall()]
+    return {"rows": rows}
