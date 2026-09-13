@@ -20,7 +20,7 @@ UA = "YCKI-ResearchBot/0.1 (+Yangtze Cultural Knowledge Infrastructure; academic
 HEADERS = {"User-Agent": UA, "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.5"}
 
 SKIP_SUFFIX = (".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".ico",
-               ".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx",
+               ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx",
                ".zip", ".rar", ".7z", ".mp3", ".mp4", ".avi", ".wmv", ".flv",
                ".exe", ".apk", ".iso")
 # 实测硬封锁（403，含浏览器 UA）或需登录的站点：直接跳过，如实记录（2026-09-06 实测）
@@ -78,6 +78,19 @@ def looks_like_garbage(text: str) -> bool:
     return (ends / max(len(sample), 1)) < 0.01
 
 
+def _extract_pdf(raw: bytes, url: str) -> tuple[str, int]:
+    """born-digital PDF 逐页抽取（§5.7）。页间以 \x0c 分隔，保留分页结构；
+    OCR 扫描件（无文本层）返回空串，由调用方按失败处理，不冒充原生文本。"""
+    try:
+        from pdfminer.high_level import extract_text
+        text = extract_text(raw) or ""
+    except Exception as exc:
+        log.info("pdf extract failed %s: %s", url, exc)
+        return "", 0
+    pages = text.count("\x0c") + 1 if text else 0
+    return text.strip(), pages
+
+
 def fetch(url: str, timeout: int = 25, max_bytes: int = 2_000_000) -> FetchedDoc | None:
     """真实抓取。任何失败返回 None（调用方记录失败原因）。"""
     low = url.lower()
@@ -103,6 +116,23 @@ def fetch(url: str, timeout: int = 25, max_bytes: int = 2_000_000) -> FetchedDoc
         log.warning("too large: %s", url)
         return None
     ctype = resp.headers.get("Content-Type", "")
+    ctype_main = ctype.split(";")[0].strip().lower()
+    # ---- PDF 通道（§5.7）：born-digital 文本层抽取，页结构保留 ----
+    if "pdf" in ctype_main or low.endswith(".pdf"):
+        text, pages = _extract_pdf(raw, url)
+        if len(text) < 200:
+            log.info("pdf no text layer / too short (pages=%d): %s", pages, url)
+            return None
+        canon = canonicalize(url)
+        first = text[:60].replace("\n", " ").strip()
+        return FetchedDoc(
+            url=url, canonical_url=canon, final_url=str(resp.url), http_status=status,
+            raw_sha256=hashlib.sha256(raw).hexdigest(),
+            text_sha256=hashlib.sha256(text.encode("utf-8")).hexdigest(),
+            title=first[:80] or canon.rsplit("/", 1)[-1][:80],
+            text=text, author=None, date=None,
+            raw_bytes=raw, mime_type="application/pdf",
+        )
     if "html" not in ctype.lower() and "text" not in ctype.lower() and "xhtml" not in ctype.lower():
         log.info("skip non-text content-type %s: %s", ctype, url)
         return None

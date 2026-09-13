@@ -21,15 +21,16 @@ import requests
 
 from adapters.searxng_provider import SearxngProvider, SearchConfig
 from adapters.wikipedia_provider import WikipediaProvider
+from config.settings import SETTINGS
 from tools.fetcher import fetch, domain_of, lake_safe, FetchedDoc
 from tools.registry import Registry, rid_of
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s")
 log = logging.getLogger("ycki.collect")
 
-LIGHTRAG = "http://localhost:9621"
-LR_HEADERS = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", "")}
-LAKE = Path(r"D:\长江学论纲\ycki\data\lake")
+LIGHTRAG = SETTINGS.lightrag_url
+LR_HEADERS = {"X-API-Key": SETTINGS.lightrag_api_key} if SETTINGS.lightrag_api_key else {}
+LAKE = SETTINGS.lake_dir
 
 
 def safe_name(s: str, maxlen: int = 40) -> str:
@@ -52,7 +53,8 @@ def upload_to_lightrag(rid: str, title: str, text: str) -> tuple[bool, str]:
         return False, ""
 
 
-def handle_wiki_doc(w: dict, reg: Registry, batch: str, stats: dict) -> None:
+def handle_wiki_doc(w: dict, reg: Registry, batch: str, stats: dict,
+                    source_class: str = "Wikipedia") -> None:
     """把维基 extract 结果接入同一注册/入湖/上传链路。"""
     from tools.fetcher import canonicalize, domain_of, lake_safe
 
@@ -88,7 +90,8 @@ def handle_wiki_doc(w: dict, reg: Registry, batch: str, stats: dict) -> None:
 
     d.discovery_topic = None
     status, rid = reg.insert_resource(d, w["search_query"], batch,
-                                      str(ddir / f"{rid}.json"), text_path)
+                                      str(ddir / f"{rid}.json"), text_path,
+                                      source_class=source_class)
     if status != "registered":
         stats["dup_url" if status == "duplicate_url" else "dup_text"] += 1
         return
@@ -134,32 +137,38 @@ def run(batch: str, topics_file: str, max_urls_per_query: int = 6,
                  "wiki_docs": 0, "registered": 0, "dup_url": 0, "dup_text": 0,
                  "uploaded": 0, "upload_fail": 0}
 
+        from extensions.v2.source_strategy import provider_plan
         for theme in seed["themes"]:
             topic = theme["topic"]
-            discovery_topic = topic
-            for query in theme["queries"]:
+            gap_type = theme.get("gap_type")
+            # ---- §5.1/§5.4：Source Strategy 生成 provider 计划 ----
+            specs = theme.get("provider_plan") or provider_plan(theme["queries"], topic, gap_type)
+            for spec in specs:
                 if total_registered >= max_total:
                     log.info("max_total=%d reached, stop.", max_total)
                     break
-                # ---- 来源一：维基百科官方 API（百科深度）----
-                for w in wiki.search_and_fetch(query, top_k=wiki_per_query):
-                    before = stats["registered"]
-                    handle_wiki_doc(w, reg, batch, stats)
-                    if stats["registered"] > before:
-                        stats["wiki_docs"] += 1
-                        total_registered += 1
-                    time.sleep(fetch_delay)
-                # ---- 来源二：SearXNG（bing/sogou → 政府/媒体/机构网页）----
-                results = provider.search(query, top_k=max_urls_per_query + 2)
+                query = spec["query"]
+                source_class = spec.get("source_class") or "GeneralWebsite"
+                if spec["provider"] == "wikipedia":
+                    for w in wiki.search_and_fetch(query, top_k=wiki_per_query):
+                        before = stats["registered"]
+                        handle_wiki_doc(w, reg, batch, stats, source_class=source_class)
+                        if stats["registered"] > before:
+                            stats["wiki_docs"] += 1
+                            total_registered += 1
+                        time.sleep(fetch_delay)
+                    continue
+                # ---- SearXNG（泛搜或来源类限定）----
+                results = provider.search(query, top_k=max_urls_per_query if source_class == "GeneralWebsite" else 3)
                 reg.log_job(batch, "search", "ok" if results else "skipped",
                             query=query, engine="searxng",
-                            detail={"results": len(results), "topic": topic})
+                            detail={"results": len(results), "topic": topic,
+                                    "source_class": source_class})
                 if not results:
                     stats["search_empty"] += 1
                     continue
                 stats["search_ok"] += 1
-                log.info("[%s] %s -> wiki+%d urls", topic, query, len(results))
-                for res in results[:max_urls_per_query]:
+                for res in results[:max_urls_per_query if source_class == "GeneralWebsite" else 3]:
                     if total_registered >= max_total:
                         break
                     from tools.fetcher import BLOCKED_DOMAINS
@@ -186,13 +195,15 @@ def run(batch: str, topics_file: str, max_urls_per_query: int = 6,
                     ddir.mkdir(parents=True, exist_ok=True)
                     tdir.mkdir(parents=True, exist_ok=True)
                     rid = rid_of(doc.canonical_url)
-                    raw_path = str(ddir / f"{rid}.html")
+                    suffix = ".pdf" if doc.mime_type == "application/pdf" else ".html"
+                    raw_path = str(ddir / f"{rid}{suffix}")
                     text_path = str(tdir / f"{rid}.txt")
-                    (ddir / f"{rid}.html").write_bytes(doc.raw_bytes)
+                    (ddir / f"{rid}{suffix}").write_bytes(doc.raw_bytes)
                     (tdir / f"{rid}.txt").write_text(doc.text, encoding="utf-8")
 
                     status, rid = reg.insert_resource(doc, query, batch, raw_path, text_path,
-                                                      discovery_topic=discovery_topic)
+                                                      discovery_topic=topic,
+                                                      source_class=source_class)
                     if status == "duplicate_url":
                         stats["dup_url"] += 1
                         continue
@@ -203,11 +214,11 @@ def run(batch: str, topics_file: str, max_urls_per_query: int = 6,
                     total_registered += 1
                     stats["fetched"] += 1
 
-                    # ---- Phase 2: Resource Scope Gate（生产入口强制准入）----
+                    # ---- Resource Scope Gate（生产入口强制准入）----
                     from extensions.admission import resource_gate
                     from extensions.kg.pg_retrieval_graph import PGRetrievalGraph
                     verdict = resource_gate.evaluate(doc.title, doc.text, domain,
-                                                     "GeneralWebsite",
+                                                     source_class,
                                                      search_query=query)
                     resource_gate.persist(rid, verdict, reg.conn)
                     if verdict["scope_role"] == "REJECT":
@@ -222,7 +233,6 @@ def run(batch: str, topics_file: str, max_urls_per_query: int = 6,
                     if ok:
                         stats["uploaded"] += 1
                         reg.mark(rid, ingest_status="uploaded", lightrag_doc_id=file_source)
-                        # 同步写入 PG Retrieval Graph（逐条，原子性）
                         try:
                             pg = PGRetrievalGraph(reg.conn)
                             pg.upsert_node(doc.title[:80], "Concept",

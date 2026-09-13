@@ -165,42 +165,10 @@ def prompt_for(q: dict, a: dict[str, Any]) -> str:
     )
 
 
-CHECK_HINTS = {
-    "FLOW": ["flow", "flows", "流动"],
-    "EVOLUTION": ["evolution", "phases"],
-    "INTERACTION": ["processes", "interacted"],
-}
-
-
 def evaluate(q: dict, a: dict[str, Any], answer: str) -> dict[str, Any]:
-    names = ([r.get("system_name") or "" for r in a["systems"]]
-             + [r.get("hsu_name") or "" for r in a["hydro"]]
-             + [r.get("tradition_name") or "" for r in a["traditions"]]
-             + [r.get("process_name") or "" for r in a["processes"]]
-             + [r.get("phase_name") or "" for r in a["phases"]])
-    cited_objects = [n for n in names if n and n in answer]
-    ev_ids = set(e["id"] for e in a["evidence"])
-    used_ev = set(re.findall(r"\[EV:(EV\d+)\]", answer))
-    used_ev |= {f"EV{x}" for x in re.findall(r"\[EV:(\d+)\]", answer)}
-    valid_ev = used_ev & ev_ids
-    space_tokens = [r.get("hsu_name") or "" for r in a["hydro"]] + [r.get("origin_region") or "" for r in a["processes"]]
-    date_tokens = [str(r.get("start_time") or "") for r in a["processes"]] + [r.get("phase_name") or "" for r in a["phases"]]
-
-    checks = {
-        "structural_correctness": len(cited_objects) >= 2,
-        "evidence_grounding": bool(valid_ev) or len(re.findall(r"\[EV:", answer)) >= 2,
-        "temporal_coherence": (not DATE_RE.search(answer)) or any(
-            d and d in answer for d in date_tokens if d),
-        "spatial_coherence": (not any(s and s in answer for s in space_tokens))
-                             or any(s and s in answer for s in space_tokens),
-        "mechanism_explanation": (q["category"] not in ("EVOLUTION", "FLOW", "INTERACTION", "HUMAN_ENVIRONMENT"))
-                                 or any(w in answer for w in ("机制", "过程", "因为", "由于", "推动", "促进", "导致")),
-        "uncertainty_honesty": (q["category"] != "FLOW" or not a["flows"])
-                               or ("证据不足" in answer or "不确定" in answer),
-        "citation_completeness": len(re.findall(r"\[EV:", answer)) >= max(1, len(valid_ev)),
-    }
-    return {"checks": checks, "score": round(sum(checks.values()) / len(checks), 3),
-            "cited_objects": cited_objects[:8], "cited_evidence": sorted(valid_ev)}
+    """真评估：claim 分解 + 逐断言蕴含（§3.5，替代旧代理指标）。"""
+    from extensions.v2.dh_eval import evaluate_answer
+    return evaluate_answer(q["question"], q["category"], a, answer)
 
 
 def main() -> int:
@@ -246,7 +214,7 @@ def main() -> int:
         "answered": len(results),
         "mean_score": round(sum(scores) / len(scores), 3) if scores else None,
         "dimension_pass_rate": {k: round(v / len(results), 3) for k, v in dim_ok.items()},
-        "note": "评分为确定性代理指标（§87 七维），非人工金标；结构先行装配、证据标记校验为真实门禁",
+        "note": "真评估（§3.5）：claim 分解 + 逐断言蕴含 + 假引用拒绝 + 空间硬事实门；judge=同一模型严格提示（单一模型，非多模型金标）",
         "results": results,
     }
     OUT.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")

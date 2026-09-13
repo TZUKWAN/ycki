@@ -1,0 +1,332 @@
+{
+  "generated_at": "2026-09-14T01:44:18+0800",
+  "total_cases": 1100,
+  "total_caught": 1047,
+  "per_family": {
+    "FAKE_CITATION": {
+      "total": 120,
+      "caught": 120,
+      "pass_through": 0.0
+    },
+    "FLOW_WHEN_EMPTY": {
+      "total": 100,
+      "caught": 100,
+      "pass_through": 0.0
+    },
+    "FORMAT_ONLY": {
+      "total": 100,
+      "caught": 100,
+      "pass_through": 0.0
+    },
+    "MIXED_POISON": {
+      "total": 120,
+      "caught": 67,
+      "pass_through": 0.4417
+    },
+    "SPATIAL_HARD": {
+      "total": 110,
+      "caught": 110,
+      "pass_through": 0.0
+    },
+    "STATUS_POISON": {
+      "total": 100,
+      "caught": 100,
+      "pass_through": 0.0
+    },
+    "UNCITED_FACT": {
+      "total": 120,
+      "caught": 120,
+      "pass_through": 0.0
+    },
+    "UNRELATED_CITE": {
+      "total": 110,
+      "caught": 110,
+      "pass_through": 0.0
+    },
+    "WRONG_DYNASTY": {
+      "total": 110,
+      "caught": 110,
+      "pass_through": 0.0
+    },
+    "WRONG_YEAR": {
+      "total": 110,
+      "caught": 110,
+      "pass_through": 0.0
+    }
+  },
+  "critical_families": {
+    "total": 870,
+    "caught": 870,
+    "pass_through": 0.0
+  },
+  "semantic_leak_deterministic": 53,
+  "llm_spot_check": {
+    "sampled": 53,
+    "caught_by_judge": 53
+  },
+  "error_pass_rate": 0.0,
+  "gate": "PASS",
+  "leaks_sample": [
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。李冰父子在岷江主持修建都江堰 [EV:EV3]。1986年广汉三星堆出土青铜大立人 [EV:EV4",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。李冰父子在岷江主持修建都江堰 [EV:EV3]。1986年广汉三星堆出土青铜大立人 [EV:EV4",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。李冰父子在岷江主持修建都江堰 [EV:EV3",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。李冰父子在岷江主持修建都江堰 [EV:EV3]。1986年广汉三星堆出土青铜大立人 [EV:EV4]",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。李冰父子在岷江主持修建都江堰 [EV:EV3]。1986年广汉三星堆出土青铜大立人 [EV:EV4",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。李冰父子在岷江主持修建都江堰 [EV:EV3]。1986年广汉三星堆出土青铜大立人 [EV:EV4]",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。李冰父子在岷江主持修建都江堰 [EV:EV3]。1986年广汉三星堆出土青铜大立人 [EV:EV4]",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。李冰父子在岷江主持修建都江堰 [EV:EV3]。1986年广汉三星堆出土青铜大立人 [EV:EV4",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。1986年广汉三星堆出土青铜大立人 [EV:",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。李冰父子在岷江主持修建都江堰 [EV:EV3",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。李冰父子在岷江主持修建都江堰 [EV:EV3]。1986年广汉三星堆出土青铜大立人 [EV:EV4]",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。1986年广汉三星堆出土青铜大立人 [EV:",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。李冰父子在岷江主持修建都江堰 [EV:EV3]。1986年广汉三星堆出土青铜大立人 [EV:EV4]",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。1986年广汉三星堆出土青铜大立人 [EV:",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。李冰父子在岷江主持修建都江堰 [EV:EV3]。1986年广汉三星堆出土青铜大立人 [EV:EV4",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。1986年广汉三星堆出土青铜大立人 [EV:",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。李冰父子在岷江主持修建都江堰 [EV:EV3]。1986年广汉三星堆出土青铜大立人 [EV:EV4]",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。1986年广汉三星堆出土青铜大立人 [EV:",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。庆历四年滕子京谪守巴陵郡后重修岳阳楼 [EV:EV1]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。李冰父子在岷江主持修建都江堰 [EV:EV3",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    },
+    {
+      "family": "MIXED_POISON",
+      "answer": "结构对象：荆楚文化系统、汉江\n1861年《中英天津条约》使汉口开埠 [EV:EV0]。1978年随州曾侯乙墓出土战国编钟 [EV:EV2]。李冰父子在岷江主持修建都江堰 [EV:EV3]。1986年广汉三星堆出土青铜大立人 [EV:EV4]",
+      "checks": {
+        "structural_correctness": true,
+        "evidence_grounding": true,
+        "citation_entailment": true,
+        "temporal_coherence": true,
+        "spatial_coherence": true,
+        "mechanism_explanation": true,
+        "uncertainty_honesty": true
+      }
+    }
+  ],
+  "elapsed_s": 8.8
+}

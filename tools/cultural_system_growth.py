@@ -126,11 +126,22 @@ def ensure_task_for_gap(cur, gap: dict[str, Any]) -> str | None:
         "MISSING_HYDRO_LINK": f"长江水系在{target_name}中扮演了什么角色？",
     }.get(gap_type, f"如何填补{target_name}的结构性缺口{gap_type}？")
     templates = QUERY_TEMPLATES.get(gap_type, ["{target_name} 历史", "{target_name} 文化"])
-    queries = [t.format(target_name=target_name, region_a=known.get("systems", ["", ""])[0]
-                        if isinstance(known, dict) else "",
-                        region_b=known.get("systems", ["", ""])[1]
-                        if isinstance(known, dict) else "")
-               for t in templates]
+    try:
+        # §6：研究规划器生成查询波次（诊断+证据矩阵+迭代），模板仅作 fallback
+        from extensions.v2.research_planner import build_plan, plan_queries
+        plan = build_plan(cur, gap, target_name, use_llm=False)
+        queries = plan_queries(plan, 0) + plan_queries(plan, 2)
+        plan_json = json.dumps({"target": plan["target"], "matrix": list(plan["matrix"].keys()),
+                                "waves": [w["purpose"] for w in plan["waves"]],
+                                "llm_augmented": plan["llm_augmented"]}, ensure_ascii=False)
+    except Exception:
+        queries = [t.format(target_name=target_name, region_a=known.get("systems", ["", ""])[0]
+                            if isinstance(known, dict) else "",
+                            region_b=known.get("systems", ["", ""])[1]
+                            if isinstance(known, dict) else "")
+                   for t in templates]
+        plan_json = json.dumps({"degraded": "template_fallback"}, ensure_ascii=False)
+    queries = queries[:5]
     cur.execute("""
         INSERT INTO structural_research_tasks (gap_id, research_question, structural_gap_type,
             target_object, current_known_structure, missing_structure, candidate_hypotheses,
@@ -234,6 +245,19 @@ def run_cycle(max_gaps: int) -> dict[str, Any]:
                                 "--apply"], capture_output=True, text=True, timeout=600, cwd=str(ROOT))
             except subprocess.TimeoutExpired:
                 pass
+
+            # 4.7) §9 结构综合：类型匹配的缺口必须经过 Structural Synthesis
+            try:
+                from extensions.v2.gap_synthesis import synthesize_for_gap
+                with conn.cursor() as cur:
+                    syn = synthesize_for_gap(cur, {"gap_id": gap["gap_id"], "type": gap["type"],
+                                                   "known": gap["known"], "missing": gap["missing"]})
+                conn.commit()
+                task_entry["synthesis"] = {k: syn.get(k) for k in ("attempted", "decision", "reason")}
+            except Exception as exc:
+                conn.rollback()
+                task_entry["synthesis"] = {"attempted": True, "decision": "ERROR",
+                                           "reason": str(exc)[:150]}
 
             # 5) 缺口复测（§62：缺口消失才 RESOLVED）
             with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
