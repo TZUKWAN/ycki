@@ -65,7 +65,7 @@ def resolve_match_only(surface_name: str, entity_type: str, description: str,
         # 同名同名：上下文裁决；multi-same → AMBIGUOUS（§3.4）
         best = _best_context_match(cand, rows, conn)
         if best["decision"] == "merged_existing":
-            return best
+            return {**best, "method": "exact+llm"}
         if best["decision"] == "ambiguous":
             return {"decision": "unresolved", "method": "exact+llm",
                     "reason": "AMBIGUOUS_MATCH：多候选 same，等待更多上下文"}
@@ -80,7 +80,7 @@ def resolve_match_only(surface_name: str, entity_type: str, description: str,
             n, d = cur.fetchone()
         best = _adjudicate(cand, [(alias_id, n, d, 0.95)], conn)
         if best["decision"] == "merged_existing":
-            return best
+            return {**best, "method": "alias+llm"}
         if best["decision"] == "ambiguous":
             return {"decision": "unresolved", "method": "alias+llm",
                     "reason": "AMBIGUOUS_MATCH"}
@@ -90,7 +90,7 @@ def resolve_match_only(surface_name: str, entity_type: str, description: str,
     if emb:
         best = _adjudicate(cand, emb, conn)
         if best["decision"] == "merged_existing":
-            return best
+            return {**best, "method": "embedding+llm"}
         if best["decision"] == "ambiguous":
             return {"decision": "unresolved", "method": "embedding+llm",
                     "reason": "AMBIGUOUS_MATCH"}

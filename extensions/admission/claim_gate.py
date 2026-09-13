@@ -168,10 +168,10 @@ def admit(claim_draft: dict[str, Any], conn) -> dict[str, Any]:
                 (claim_draft["subject_entity_id"], claim_draft["predicate"],
                  claim_draft["object_entity_id"]))
             r = cur.fetchone()
-            indep = (r["indep"] if r else 0) + 1
-            raw_res = (r["raw_res"] if r else 0) + 1
-            raw_src = (r["raw_src"] if r else 0) + 1
-            raw_ev = (r["raw_ev"] if r else 0) + 1
+            indep = (r[0] if r else 0) + 1
+            raw_res = (r[1] if r else 0) + 1
+            raw_src = (r[2] if r else 0) + 1
+            raw_ev = (r[3] if r else 0) + 1
             cur.execute("SELECT authority_level FROM sources WHERE source_id=%s",
                         (claim_draft.get("source_id") or "",))
             ar = cur.fetchone()

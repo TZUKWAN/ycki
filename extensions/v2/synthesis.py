@@ -229,8 +229,8 @@ def _persist(cur: psycopg2.extensions.cursor, seed: dict[str, Any], b: Bundle,
               json.dumps([{"region": _s(v.get("region")), "feature": _s(v.get("feature"))}
                           for v in variants if isinstance(v, dict)], ensure_ascii=False),
               _s(obj.get("summary"))[:2000],
-              status, confidence, str(primary.get("resource_id") or ""),
-              (primary.get("quote_span") or "")[:500]))
+              status, confidence, _s(primary.get("resource_id")),
+              _s(primary.get("quote_span"))[:500]))
         tid = str(cur.fetchone()[0])
         cur.execute("DELETE FROM tradition_evidence WHERE tradition_id=%s", (tid,))
         for field_name, qs in verdict.get("used_quotes", {}).items():
@@ -271,8 +271,8 @@ def _persist(cur: psycopg2.extensions.cursor, seed: dict[str, Any], b: Bundle,
               _splt(_fval(obj, "actors")) or None, _splt(_fval(obj, "carriers")) or None,
               _fval(obj, "mechanism"), _fval(obj, "causes"),
               _fval(obj, "outcomes"), _fval(obj, "long_term_impacts"),
-              status, confidence, str(primary.get("resource_id") or ""),
-              (primary.get("quote_span") or "")[:500],
+              status, confidence, _s(primary.get("resource_id")),
+              _s(primary.get("quote_span"))[:500],
               len(verdict.get("cited_resources", []))))
         pid = str(cur.fetchone()[0])
         cur.execute("DELETE FROM process_stages WHERE process_id=%s", (pid,))
@@ -309,8 +309,8 @@ def _persist(cur: psycopg2.extensions.cursor, seed: dict[str, Any], b: Bundle,
                 (_fval(obj, "content"), _fval(obj, "carrier"),
                  _fval(obj, "time"), route_val[:400],
                  _fval(obj, "mechanism"), _fval(obj, "impact"),
-                 (primary.get("quote_span") or "")[:500],
-                 str(primary.get("resource_id") or ""), fid))
+                 _s(primary.get("quote_span"))[:500],
+                 _s(primary.get("resource_id")), fid))
         else:
             cur.execute("""INSERT INTO cultural_flows (flow_type, origin, destination, via, time_range,
                 carrier, content, mechanism, impact, quote_span, resource_id)
@@ -318,7 +318,7 @@ def _persist(cur: psycopg2.extensions.cursor, seed: dict[str, Any], b: Bundle,
                 (seed.get("type") or "CULTURAL_FLOW", _fval(obj, "origin"), _fval(obj, "destination"),
                  route_val[:400], _fval(obj, "time"), _fval(obj, "carrier"), _fval(obj, "content"),
                  _fval(obj, "mechanism"), _fval(obj, "impact"),
-                 (primary.get("quote_span") or "")[:500], str(primary.get("resource_id") or "")))
+                 _s(primary.get("quote_span"))[:500], _s(primary.get("resource_id"))))
             fid = str(cur.fetchone()[0])
         object_id = fid
     else:

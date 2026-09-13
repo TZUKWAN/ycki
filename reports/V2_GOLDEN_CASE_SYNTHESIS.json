@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T04:53:07+0800",
+  "generated_at": "2026-09-13T13:42:54+0800",
   "results": [
     {
       "seed": "seed_ba_shu_fangshui",
@@ -15,15 +15,17 @@
         "distinct_source_domains": 8
       },
       "why_yangtze": {
-        "value": "位于岷江，属长江支流，体现天人合一治水理念，灌溉千万亩良田。",
+        "value": "都江堰位于岷江，属长江支流，是巴蜀文化代表工程，体现天人合一理念。",
         "quotes": [
+          "Q1",
           "Q7",
           "Q11",
           "Q12"
         ]
       },
       "uncertainty": [
-        "证据束中未提及“都江堰放水节”这一特定民俗活动的起源、时间、核心仪式或现代形式，仅包含都江堰水利工程本身的历史与地理信息。"
+        "证据束中未提及“放水节”这一特定民俗活动或节日的名称、起源时间及核心仪式。",
+        "证据主要描述都江堰水利工程本身、李冰治水历史及地理分布，缺乏关于“节”的直接证据。"
       ],
       "decision": "CANDIDATE",
       "reason": "key fields without evidence: ['core_practices']",
@@ -31,11 +33,12 @@
       "cited_resources": [
         "res-36f326cc2c38fd03",
         "res-690d2fc255c1036d",
-        "res-905fc03c41b94f44"
+        "res-905fc03c41b94f44",
+        "res-b8c1ecd5594f6a9b"
       ],
       "supported_fields": [],
       "object_id": "8e9c2d37-0a6f-4aef-b521-63a0f0282ce1",
-      "elapsed_s": 2.1
+      "elapsed_s": 3.1
     },
     {
       "seed": "seed_ba_shu_chuanju",
@@ -50,10 +53,10 @@
         "distinct_resources": 4,
         "distinct_source_domains": 4
       },
-      "why_yangtze": "川剧起源于四川（含今重庆），流行于长江上游及中游部分地区，是巴蜀文化系统的重要代表，体现蜀地戏曲艺术特色。",
+      "why_yangtze": "川剧起源于四川（含今重庆），流行于长江上游及中游部分地区，是巴蜀文化系统的重要代表，体现长江流域戏曲艺术多样性。",
       "uncertainty": [
         "具体起源时间证据不足",
-        "五大声腔具体构成细节需更多证据支持"
+        "声腔分类细节需结合更多史料确认"
       ],
       "decision": "ADMITTED",
       "reason": "coverage=1.25 cited_resources=4 supported=['origin_time_place', 'core_practices', 'carriers', 'development', 'regional_variants']",
@@ -93,15 +96,17 @@
           "Q19"
         ],
         "regional_variants": [
+          "Q20",
           "Q21",
           "Q22",
+          "Q25",
           "Q26",
           "Q28",
           "Q29"
         ]
       },
       "object_id": "807c344c-957a-4d31-9d56-4cd2d44d34c1",
-      "elapsed_s": 3.7
+      "elapsed_s": 4.5
     },
     {
       "seed": "seed_huguang_tian_sichuan",
@@ -116,10 +121,10 @@
         "distinct_resources": 2,
         "distinct_source_domains": 1
       },
-      "why_yangtze": "移民沿长江水道进入四川盆地，是长江流域人口流动与文化融合的关键事件。",
+      "why_yangtze": "湖广与四川同属长江流域，移民沿长江水道进行",
       "uncertainty": [
-        "具体起止年份及除明初外的详细阶段时间不明",
-        "除湖广、江西外其他来源地比例不明"
+        "具体结束时间不明确",
+        "除湖广外其他来源地细节未详述"
       ],
       "decision": "ADMITTED",
       "reason": "coverage=1.17 cited_resources=2 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
@@ -146,10 +151,12 @@
           "Q0"
         ],
         "destination": [
+          "Q0",
           "Q1"
         ],
         "actors": [
-          "Q0"
+          "Q0",
+          "Q1"
         ],
         "mechanism": [
           "Q1"
@@ -158,8 +165,7 @@
           "Q0"
         ],
         "causes": [
-          "Q0",
-          "Q1"
+          "Q0"
         ],
         "long_term_impacts": [
           "Q2"
@@ -170,7 +176,7 @@
         ]
       },
       "object_id": "52b94d36-ca90-4333-b624-80843fa610e1",
-      "elapsed_s": 4.0
+      "elapsed_s": 5.8
     },
     {
       "seed": "seed_dujiangyan_construction",
@@ -185,20 +191,19 @@
         "distinct_resources": 12,
         "distinct_source_domains": 8
       },
-      "why_yangtze": "位于长江支流岷江，是长江流域古代水利智慧的杰出代表",
+      "why_yangtze": "都江堰位于长江支流岷江，是长江上游关键水利设施，体现长江流域治水智慧。",
       "uncertainty": [
         "李冰之子是否直接参与施工存神话色彩",
-        "具体完工年份有不同记载"
+        "具体完工年份证据略有差异"
       ],
       "decision": "ADMITTED",
-      "reason": "coverage=1.17 cited_resources=8 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
+      "reason": "coverage=1.17 cited_resources=7 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
       "coverage": 1.167,
       "cited_resources": [
         "res-355ee5038288aa6f",
         "res-36f326cc2c38fd03",
         "res-690d2fc255c1036d",
         "res-6d094b4cc7da07d7",
-        "res-84ba6785c1187795",
         "res-905fc03c41b94f44",
         "res-b8c1ecd5594f6a9b",
         "res-de1cab9c7e4d3709"
@@ -214,35 +219,18 @@
       ],
       "used_quotes": {
         "time": [
-          "Q0",
-          "Q26"
+          "Q0"
         ],
         "origin": [
-          "Q10",
-          "Q13",
-          "Q18",
-          "Q24",
-          "Q26"
+          "Q10"
         ],
         "destination": [
-          "Q0",
-          "Q18",
-          "Q24",
-          "Q26",
-          "Q28"
+          "Q0"
         ],
         "actors": [
-          "Q2",
-          "Q7",
-          "Q9",
+          "Q0",
           "Q10",
-          "Q13",
-          "Q14",
-          "Q16",
-          "Q18",
-          "Q24",
-          "Q26",
-          "Q28"
+          "Q18"
         ],
         "mechanism": [
           "Q6",
@@ -253,34 +241,25 @@
         ],
         "outcomes": [
           "Q0",
-          "Q8",
           "Q11",
-          "Q18",
-          "Q24"
+          "Q18"
         ],
         "causes": [
-          "Q0",
+          "Q10",
           "Q26",
           "Q28"
         ],
         "long_term_impacts": [
           "Q11",
-          "Q17",
-          "Q26"
+          "Q17"
         ],
         "stages": [
           "Q10",
-          "Q13",
-          "Q16",
-          "Q28",
-          "Q0",
-          "Q9",
-          "Q14",
-          "Q26"
+          "Q0"
         ]
       },
       "object_id": "8203afdb-36af-4920-b1bd-3d6abaa977a1",
-      "elapsed_s": 6.2
+      "elapsed_s": 8.6
     },
     {
       "seed": "seed_chuan_yan_ji_chu",
@@ -312,17 +291,16 @@
         "distinct_resources": 7,
         "distinct_source_domains": 6
       },
-      "why_yangtze": "屈原为战国楚国诗人，其故里秭归位于长江三峡地区，该习俗是荆楚文化的重要载体。",
+      "why_yangtze": "屈原为战国楚国诗人，其故里秭归位于长江三峡地区，竞渡习俗由此发源并流传。",
       "uncertainty": [
-        "证据未明确区分竞渡在荆楚与吴越的具体起源先后，仅提及流传范围。",
-        "部分来源时间标注为未知，具体历史演变细节存疑。"
+        "起源具体地域除吴越外是否包含荆楚需更多证据",
+        "早期流传范围细节不明"
       ],
       "decision": "ADMITTED",
-      "reason": "coverage=1.25 cited_resources=6 supported=['origin_time_place', 'core_practices', 'carriers', 'development', 'regional_variants']",
-      "coverage": 1.25,
+      "reason": "coverage=1.00 cited_resources=5 supported=['origin_time_place', 'core_practices', 'carriers', 'development']",
+      "coverage": 1.0,
       "cited_resources": [
         "res-3f3611e9b5156617",
-        "res-6d1b2baa4a09d8db",
         "res-8fed1110b8d087af",
         "res-98fc96649c88caf5",
         "res-bdac1ff2d89e691e",
@@ -332,12 +310,10 @@
         "origin_time_place",
         "core_practices",
         "carriers",
-        "development",
-        "regional_variants"
+        "development"
       ],
       "used_quotes": {
         "origin_time_place": [
-          "Q3",
           "Q4",
           "Q10"
         ],
@@ -352,18 +328,12 @@
           "Q7"
         ],
         "development": [
-          "Q0",
-          "Q12"
-        ],
-        "regional_variants": [
           "Q3",
-          "Q5",
-          "Q6",
-          "Q7"
+          "Q12"
         ]
       },
       "object_id": "e097907f-95a0-4025-97a7-aa89411934be",
-      "elapsed_s": 3.7
+      "elapsed_s": 4.0
     },
     {
       "seed": "seed_jing_chu_bianzhong",
@@ -378,14 +348,21 @@
         "distinct_resources": 4,
         "distinct_source_domains": 2
       },
-      "why_yangtze": "曾侯乙编钟出土于湖北随州，是荆楚文化系统内礼乐文明与青铜铸造技术的杰出代表。",
+      "why_yangtze": {
+        "value": "出土于湖北随州，反映楚国势力范围内曾国礼乐文化。",
+        "quotes": [
+          "Q7",
+          "Q8"
+        ]
+      },
       "uncertainty": [
-        "编钟乐舞的具体舞蹈形态证据不足",
+        "编钟乐舞的具体舞蹈形式证据不足",
+        "铜绿山矿源为推测",
         "曾侯乙生年不详"
       ],
       "decision": "ADMITTED",
-      "reason": "coverage=1.25 cited_resources=4 supported=['origin_time_place', 'core_practices', 'carriers', 'development', 'regional_variants']",
-      "coverage": 1.25,
+      "reason": "coverage=1.00 cited_resources=4 supported=['origin_time_place', 'core_practices', 'carriers', 'development']",
+      "coverage": 1.0,
       "cited_resources": [
         "res-4baafb12690d76a2",
         "res-8927884107f89998",
@@ -396,42 +373,35 @@
         "origin_time_place",
         "core_practices",
         "carriers",
-        "development",
-        "regional_variants"
+        "development"
       ],
       "used_quotes": {
         "origin_time_place": [
-          "Q11",
-          "Q10",
           "Q7",
-          "Q4"
+          "Q11"
         ],
         "core_practices": [
-          "Q6",
-          "Q1",
-          "Q0"
+          "Q0",
+          "Q6"
         ],
         "carriers": [
-          "Q7",
-          "Q2"
+          "Q2",
+          "Q7"
         ],
         "development": [
-          "Q11",
           "Q10",
-          "Q6",
-          "Q12"
+          "Q11"
         ],
         "modern_forms": [
           "Q6"
         ],
-        "regional_variants": [
-          "Q4",
-          "Q8",
-          "Q1"
+        "why_yangtze": [
+          "Q7",
+          "Q8"
         ]
       },
       "object_id": "8e18c5fc-471d-47e6-927e-c1ac8681fcc4",
-      "elapsed_s": 3.9
+      "elapsed_s": 5.7
     },
     {
       "seed": "seed_chu_southward",
@@ -446,22 +416,18 @@
         "distinct_resources": 10,
         "distinct_source_domains": 6
       },
-      "why_yangtze": "楚国核心统治区位于长江中游江汉平原及两湖地区",
+      "why_yangtze": "楚国核心在江汉，经略两湖，影响长江中游。",
       "uncertainty": [
-        "上海曾为楚国春申君封地说法存在争议",
-        "具体南进路线细节证据不足"
+        "上海曾为春申君封地说法存疑"
       ],
       "decision": "ADMITTED",
-      "reason": "coverage=1.17 cited_resources=9 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
+      "reason": "coverage=1.17 cited_resources=6 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
       "coverage": 1.167,
       "cited_resources": [
         "res-277b86df897b6b0d",
         "res-3c506fe21b0c8e15",
         "res-412a2ab946491181",
-        "res-60e9718dbff4ae11",
         "res-85ce924b24a83ae6",
-        "res-8fed1110b8d087af",
-        "res-bdac1ff2d89e691e",
         "res-da89d79b522a17cc",
         "res-f08b1b0ca1944611"
       ],
@@ -481,26 +447,21 @@
         ],
         "origin": [
           "Q0",
-          "Q1",
-          "Q8"
+          "Q5"
         ],
         "destination": [
-          "Q2",
-          "Q4"
+          "Q2"
         ],
         "actors": [
-          "Q5",
-          "Q9"
+          "Q5"
         ],
         "mechanism": [
           "Q0",
-          "Q9",
-          "Q2",
-          "Q10"
+          "Q2"
         ],
         "outcomes": [
-          "Q9",
-          "Q2"
+          "Q2",
+          "Q10"
         ],
         "causes": [
           "Q3",
@@ -508,18 +469,16 @@
           "Q13"
         ],
         "long_term_impacts": [
-          "Q6",
-          "Q12"
+          "Q9"
         ],
         "stages": [
           "Q0",
           "Q5",
-          "Q2",
-          "Q4"
+          "Q2"
         ]
       },
       "object_id": "cf3e0a91-1c4f-4416-8afd-6d67273fe5a7",
-      "elapsed_s": 4.7
+      "elapsed_s": 6.5
     },
     {
       "seed": "seed_wuhan_openport",
@@ -534,19 +493,19 @@
         "distinct_resources": 9,
         "distinct_source_domains": 2
       },
-      "why_yangtze": "武汉位于长江中游，张之洞在此布局汉阳铁厂及京汉铁路终点，利用长江水运与枢纽地位推动近代化。",
+      "why_yangtze": "依托长江水运与汉阳、汉口地理优势，构建沿江工业带",
       "uncertainty": [
         "开埠具体起始时间证据不足",
-        "部分事件具体日期仅知年份"
+        "部分事件确切年份存在差异"
       ],
       "decision": "ADMITTED",
       "reason": "coverage=1.17 cited_resources=7 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
       "coverage": 1.167,
       "cited_resources": [
+        "res-1103b585d8bc0707",
         "res-15443b2a545a88f0",
         "res-85ce924b24a83ae6",
         "res-932be2a896c283c3",
-        "res-b4f6a3874506e47a",
         "res-df9da891dca799ae",
         "res-e589dd1e8fd162d0",
         "res-ff7eae4933b73848"
@@ -567,43 +526,40 @@
         ],
         "origin": [
           "Q7",
-          "Q6"
+          "Q9"
         ],
         "destination": [
-          "Q9",
-          "Q10"
+          "Q6",
+          "Q11"
         ],
         "actors": [
           "Q7",
-          "Q6",
-          "Q5"
+          "Q11"
         ],
         "mechanism": [
           "Q5",
           "Q6",
-          "Q7"
+          "Q11"
         ],
         "outcomes": [
-          "Q10",
-          "Q9"
+          "Q9",
+          "Q10"
         ],
         "causes": [
-          "Q2",
-          "Q7"
+          "Q0",
+          "Q2"
         ],
         "long_term_impacts": [
-          "Q13",
-          "Q1"
+          "Q13"
         ],
         "stages": [
           "Q7",
-          "Q6",
           "Q11",
           "Q10"
         ]
       },
       "object_id": "9bd26e74-21af-470a-97a8-2821fcdb008d",
-      "elapsed_s": 4.9
+      "elapsed_s": 6.7
     },
     {
       "seed": "seed_hankou_tea",
@@ -648,21 +604,27 @@
         "kind": "TRADITION",
         "entities": 25,
         "events": 30,
-        "quotes": 13,
-        "distinct_resources": 6,
+        "quotes": 14,
+        "distinct_resources": 7,
         "distinct_source_domains": 2
       },
-      "why_yangtze": "",
+      "why_yangtze": "岳麓书院作为湖湘文化核心地标，其讲学传统深刻影响了长江中游地区的学术与教育生态。",
       "uncertainty": [
-        "证据仅提及岳麓书院地理位置，缺乏讲学传统相关信息。"
+        "证据未提供讲学传统的具体起源时间、核心实践内容及发展历程。",
+        "证据未提供该传统的具体地域变体及现代形式。"
       ],
       "decision": "CANDIDATE",
       "reason": "key fields without evidence: ['core_practices']",
-      "coverage": 0.0,
-      "cited_resources": [],
-      "supported_fields": [],
+      "coverage": 0.5,
+      "cited_resources": [
+        "res-24aea719a84b370e"
+      ],
+      "supported_fields": [
+        "origin_time_place",
+        "carriers"
+      ],
       "object_id": "46d12e8a-759b-471d-9351-77624fc5f013",
-      "elapsed_s": 1.5
+      "elapsed_s": 2.9
     },
     {
       "seed": "seed_jiangxi_tian_huguang",
@@ -728,24 +690,52 @@
         "distinct_resources": 5,
         "distinct_source_domains": 3
       },
-      "why_yangtze": "缂丝生产集中在江苏苏州、南通，属吴越文化区。",
+      "why_yangtze": "缂丝生产集中在江苏苏州、南通一带，属吴越文化区。",
       "uncertainty": [
         "起源时间与具体发源地证据不足",
-        "核心技艺细节未详述",
-        "载体信息缺失"
+        "现代形式证据不足"
       ],
-      "decision": "CANDIDATE",
-      "reason": "key fields without evidence: ['core_practices']",
-      "coverage": 0.5,
+      "decision": "ADMITTED",
+      "reason": "coverage=1.00 cited_resources=2 supported=['core_practices', 'carriers', 'development', 'regional_variants']",
+      "coverage": 1.0,
       "cited_resources": [
+        "res-df282b217afc7413",
         "res-f37aa5533a8b014c"
       ],
       "supported_fields": [
+        "core_practices",
+        "carriers",
         "development",
         "regional_variants"
       ],
+      "used_quotes": {
+        "core_practices": [
+          "Q2"
+        ],
+        "carriers": [
+          "Q0",
+          "Q1",
+          "Q2",
+          "Q5",
+          "Q7",
+          "Q8",
+          "Q9",
+          "Q10",
+          "Q11",
+          "Q12"
+        ],
+        "development": [
+          "Q2"
+        ],
+        "regional_variants": [
+          "Q0",
+          "Q1",
+          "Q0",
+          "Q1"
+        ]
+      },
       "object_id": "63ffdc83-5cdf-4131-abfe-1294dd33c7d6",
-      "elapsed_s": 2.8
+      "elapsed_s": 5.2
     },
     {
       "seed": "seed_wu_yue_kunqu",
@@ -779,7 +769,8 @@
       },
       "why_yangtze": "中原文明首次大规模南迁至长江流域，政治中心转移至此。",
       "uncertainty": [
-        "建康城遗址公布时间及六朝博物馆具体位置细节未明确。"
+        "江南开发的具体经济数据未在证据中体现。",
+        "建康城遗址保护级别的具体公布时间未知。"
       ],
       "decision": "ADMITTED",
       "reason": "coverage=1.17 cited_resources=3 supported=['time', 'origin', 'destination', 'actors', 'mechanism', 'outcomes', 'stages']",
@@ -836,7 +827,7 @@
         ]
       },
       "object_id": "509037d5-1ed0-4745-a055-a27d5f636611",
-      "elapsed_s": 4.5
+      "elapsed_s": 6.6
     },
     {
       "seed": "seed_jiangnan_towns",
@@ -853,7 +844,7 @@
       },
       "why_yangtze": "",
       "uncertainty": [
-        "证据仅涉及岷江流域及川南古镇，无明清江南市镇专业化相关证据。"
+        "证据束仅涉及岷江流域及四川自贡仙市古镇，与候选对象“明清江南市镇专业化”（吴越文化系统）无直接关联，无法提取相关证据。"
       ],
       "decision": "CANDIDATE",
       "reason": "key fields without evidence: ['time']",
@@ -861,7 +852,7 @@
       "cited_resources": [],
       "supported_fields": [],
       "object_id": "8b351079-723d-4315-9b3b-cfa4790b8710",
-      "elapsed_s": 2.0
+      "elapsed_s": 4.5
     },
     {
       "seed": "seed_huizhou_trade",
@@ -876,10 +867,10 @@
         "distinct_resources": 5,
         "distinct_source_domains": 4
       },
-      "why_yangtze": "依托渔梁等水路码头开展贸易",
+      "why_yangtze": "徽商依托渔梁等水路码头兴盛，通过水路运输鱼鲜等商品，形成沿江贸易网络。",
       "uncertainty": [
         "具体沿江贸易路线细节未明确",
-        "部分证据时间标注为未知"
+        "起源时间虽有东晋说法但需更多佐证"
       ],
       "decision": "REJECT",
       "reason": "flow hard gate missing: ['destination']",
@@ -895,7 +886,7 @@
         "origin",
         "content"
       ],
-      "elapsed_s": 3.4
+      "elapsed_s": 5.6
     }
   ]
 }

@@ -28,6 +28,7 @@ import psycopg2.extras
 
 from config.settings import SETTINGS
 from extensions.admission import resource_gate, chunk_gate
+from extensions.admission.entity_gate import gate_entity
 from extensions.admission.claim_gate import admit
 from extensions.entity_resolution.resolver import resolve
 from extensions.kg.pg_retrieval_graph import PGRetrievalGraph
@@ -184,7 +185,7 @@ def process_resource(resource: dict, conn) -> dict:
         # 写入 Retrieval Graph（PG 逐条，原子性保证）
         pg_graph.upsert_node(
             cand["surface_name"], cand["entity_type"],
-            cand.get("description", ""), rid, doc_id)
+            cand.get("description", ""), rid, resource.get("lightrag_doc_id") or "")
 
     def entity_for(name: str) -> str | None:
         """只取已解析实体；不存在返回 None（claim 在 entity_resolution 阶段拒绝）。
@@ -293,8 +294,9 @@ def process_resource(resource: dict, conn) -> dict:
     return stats
 
 
-def fetch_batch(conn, limit: int, all_rows: bool):
+def fetch_batch(conn, limit: int, all_rows: bool, batch: str | None = None):
     order = "r.resource_id ASC" if all_rows else "random()"
+    batch_filter = "AND r.collection_batch = %s" if batch else ""
     with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
         cur.execute(f"""SELECT r.resource_id, r.title, r.text_path, r.source_domain,
                                r.source_type, r.source_id, r.search_query,
@@ -304,7 +306,9 @@ def fetch_batch(conn, limit: int, all_rows: bool):
                         FROM resources r
                         WHERE r.ingest_status IN ('processed','failed')
                           AND r.rebuild_stage <> 'DONE'
-                        ORDER BY {order} LIMIT %s""", (limit,))
+                          {batch_filter}
+                        ORDER BY {order} LIMIT %s""",
+            (batch, limit) if batch else (limit,))
         return cur.fetchall()
 
 
@@ -312,11 +316,14 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=10)
     ap.add_argument("--all", action="store_true")
+    ap.add_argument("--collection-batch", type=str, default=None,
+                    help="只处理指定采集批次（定向研究闭环用）")
     a = ap.parse_args()
 
     conn = psycopg2.connect(SETTINGS.pg_dsn)
     conn.autocommit = False
-    batch = fetch_batch(conn, a.limit if not a.all else 10**6, a.all)
+    batch = fetch_batch(conn, a.limit if not a.all else 10**6, a.all,
+                        getattr(a, "collection_batch", None))
     log(f"=== Canonical 重建 v3：本批 {len(batch)} 资源 ===")
     totals = {"resources": 0, "claims": 0, "admitted": 0, "rejected": 0,
               "events": 0, "unresolved": 0}
