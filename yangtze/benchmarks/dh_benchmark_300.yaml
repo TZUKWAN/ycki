@@ -1,6 +1,6 @@
 version: dh_benchmark_v2
-description: 长江文化数字人文基准（177题=100原+100事实+60综合+40批判）
-total: 177
+description: 长江文化数字人文基准（204题=100原+100事实+60综合+40批判）
+total: 204
 questions:
 - id: DH-001
   category: STRUCTURE
@@ -1589,7 +1589,7 @@ questions:
   difficulty: MEDIUM
 - id: DH-101
   category: FACTUAL
-  question: 都江堰放水节在知识库中归属哪个区域文化系统？其证据链是什么？
+  question: 端午竞渡在知识库中归属哪个区域文化系统？其证据链是什么？
   target_systems: []
   required_object_types:
   - CulturalTradition
@@ -1605,7 +1605,7 @@ questions:
   - uncertainty_honesty
   difficulty: MEDIUM
   answer_key_hint:
-    object: 都江堰放水节
+    object: 端午竞渡
 - id: DH-102
   category: FACTUAL
   question: 关于川剧，知识库有哪些字段级证据？哪些字段证据不足？
@@ -1619,54 +1619,19 @@ questions:
     object: 川剧
 - id: DH-103
   category: FACTUAL
-  question: 端午竞渡的形成与长江水系有何关系？库中有无水系锚点证据？
+  question: 编钟乐舞的形成与长江水系有何关系？库中有无水系锚点证据？
   target_systems: []
   required_object_types:
   - CulturalTradition
   - HydroSpatialUnit
   evidence_requirements: 必须区分有证据的水系关联与无证据推断
-  evaluation_dimensions: *id001
-  difficulty: MEDIUM
-  answer_key_hint:
-    object: 端午竞渡
-- id: DH-104
-  category: FACTUAL
-  question: 编钟乐舞在知识库中归属哪个区域文化系统？其证据链是什么？
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - CulturalSystem
-  evidence_requirements: 必须点名系统成员关系并附证据编号
   evaluation_dimensions: *id001
   difficulty: MEDIUM
   answer_key_hint:
     object: 编钟乐舞
-- id: DH-105
+- id: DH-104
   category: FACTUAL
-  question: 关于湘绣，知识库有哪些字段级证据？哪些字段证据不足？
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  evidence_requirements: 必须逐字段说明证据覆盖与缺口
-  evaluation_dimensions: *id001
-  difficulty: MEDIUM
-  answer_key_hint:
-    object: 湘绣
-- id: DH-106
-  category: FACTUAL
-  question: 岳麓书院讲学传统的形成与长江水系有何关系？库中有无水系锚点证据？
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HydroSpatialUnit
-  evidence_requirements: 必须区分有证据的水系关联与无证据推断
-  evaluation_dimensions: *id001
-  difficulty: MEDIUM
-  answer_key_hint:
-    object: 岳麓书院讲学传统
-- id: DH-107
-  category: FACTUAL
-  question: 蚕桑丝织技艺在知识库中归属哪个区域文化系统？其证据链是什么？
+  question: 湘绣在知识库中归属哪个区域文化系统？其证据链是什么？
   target_systems: []
   required_object_types:
   - CulturalTradition
@@ -1675,10 +1640,10 @@ questions:
   evaluation_dimensions: *id001
   difficulty: MEDIUM
   answer_key_hint:
-    object: 蚕桑丝织技艺
-- id: DH-108
+    object: 湘绣
+- id: DH-105
   category: FACTUAL
-  question: 关于昆曲，知识库有哪些字段级证据？哪些字段证据不足？
+  question: 关于都江堰放水节，知识库有哪些字段级证据？哪些字段证据不足？
   target_systems: []
   required_object_types:
   - CulturalTradition
@@ -1686,10 +1651,185 @@ questions:
   evaluation_dimensions: *id001
   difficulty: MEDIUM
   answer_key_hint:
-    object: 昆曲
+    object: 都江堰放水节
+- id: DH-106
+  category: FACTUAL
+  question: 赣剧的形成与长江水系有何关系？库中有无水系锚点证据？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HydroSpatialUnit
+  evidence_requirements: 必须区分有证据的水系关联与无证据推断
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 赣剧
+- id: DH-107
+  category: FACTUAL
+  question: 岳麓书院讲学传统在知识库中归属哪个区域文化系统？其证据链是什么？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - CulturalSystem
+  evidence_requirements: 必须点名系统成员关系并附证据编号
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 岳麓书院讲学传统
+- id: DH-108
+  category: FACTUAL
+  question: 关于扬剧，知识库有哪些字段级证据？哪些字段证据不足？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  evidence_requirements: 必须逐字段说明证据覆盖与缺口
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 扬剧
 - id: DH-109
   category: FACTUAL
-  question: 永嘉南渡与江南开发的形成与长江水系有何关系？库中有无水系锚点证据？
+  question: 花鼓戏的形成与长江水系有何关系？库中有无水系锚点证据？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HydroSpatialUnit
+  evidence_requirements: 必须区分有证据的水系关联与无证据推断
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 花鼓戏
+- id: DH-110
+  category: FACTUAL
+  question: 昆曲在知识库中归属哪个区域文化系统？其证据链是什么？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - CulturalSystem
+  evidence_requirements: 必须点名系统成员关系并附证据编号
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 昆曲
+- id: DH-111
+  category: FACTUAL
+  question: 关于蜀绣，知识库有哪些字段级证据？哪些字段证据不足？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  evidence_requirements: 必须逐字段说明证据覆盖与缺口
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 蜀绣
+- id: DH-112
+  category: FACTUAL
+  question: 湘剧的形成与长江水系有何关系？库中有无水系锚点证据？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HydroSpatialUnit
+  evidence_requirements: 必须区分有证据的水系关联与无证据推断
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 湘剧
+- id: DH-113
+  category: FACTUAL
+  question: 徽剧在知识库中归属哪个区域文化系统？其证据链是什么？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - CulturalSystem
+  evidence_requirements: 必须点名系统成员关系并附证据编号
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 徽剧
+- id: DH-114
+  category: FACTUAL
+  question: 关于越剧，知识库有哪些字段级证据？哪些字段证据不足？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  evidence_requirements: 必须逐字段说明证据覆盖与缺口
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 越剧
+- id: DH-115
+  category: FACTUAL
+  question: 苏绣的形成与长江水系有何关系？库中有无水系锚点证据？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HydroSpatialUnit
+  evidence_requirements: 必须区分有证据的水系关联与无证据推断
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 苏绣
+- id: DH-116
+  category: FACTUAL
+  question: 川江号子在知识库中归属哪个区域文化系统？其证据链是什么？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - CulturalSystem
+  evidence_requirements: 必须点名系统成员关系并附证据编号
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 川江号子
+- id: DH-117
+  category: FACTUAL
+  question: 关于蚕桑丝织技艺，知识库有哪些字段级证据？哪些字段证据不足？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  evidence_requirements: 必须逐字段说明证据覆盖与缺口
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 蚕桑丝织技艺
+- id: DH-118
+  category: FACTUAL
+  question: 汉剧的形成与长江水系有何关系？库中有无水系锚点证据？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HydroSpatialUnit
+  evidence_requirements: 必须区分有证据的水系关联与无证据推断
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 汉剧
+- id: DH-119
+  category: FACTUAL
+  question: 土家族摆手舞在知识库中归属哪个区域文化系统？其证据链是什么？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - CulturalSystem
+  evidence_requirements: 必须点名系统成员关系并附证据编号
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 土家族摆手舞
+- id: DH-120
+  category: FACTUAL
+  question: 关于淮剧，知识库有哪些字段级证据？哪些字段证据不足？
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  evidence_requirements: 必须逐字段说明证据覆盖与缺口
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 淮剧
+- id: DH-121
+  category: FACTUAL
+  question: 明清江南市镇专业化的形成与长江水系有何关系？库中有无水系锚点证据？
   target_systems: []
   required_object_types:
   - HistoricalProcess
@@ -1698,8 +1838,8 @@ questions:
   evaluation_dimensions: *id001
   difficulty: MEDIUM
   answer_key_hint:
-    object: 永嘉南渡与江南开发
-- id: DH-110
+    object: 明清江南市镇专业化
+- id: DH-122
   category: FACTUAL
   question: 湖广填四川在知识库中归属哪个区域文化系统？其证据链是什么？
   target_systems: []
@@ -1711,7 +1851,42 @@ questions:
   difficulty: MEDIUM
   answer_key_hint:
     object: 湖广填四川
-- id: DH-111
+- id: DH-123
+  category: FACTUAL
+  question: 关于楚人经营江汉与南进，知识库有哪些字段级证据？哪些字段证据不足？
+  target_systems: []
+  required_object_types:
+  - HistoricalProcess
+  evidence_requirements: 必须逐字段说明证据覆盖与缺口
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 楚人经营江汉与南进
+- id: DH-124
+  category: FACTUAL
+  question: 武汉开埠与近代转型的形成与长江水系有何关系？库中有无水系锚点证据？
+  target_systems: []
+  required_object_types:
+  - HistoricalProcess
+  - HydroSpatialUnit
+  evidence_requirements: 必须区分有证据的水系关联与无证据推断
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 武汉开埠与近代转型
+- id: DH-125
+  category: FACTUAL
+  question: 永嘉南渡与江南开发在知识库中归属哪个区域文化系统？其证据链是什么？
+  target_systems: []
+  required_object_types:
+  - HistoricalProcess
+  - CulturalSystem
+  evidence_requirements: 必须点名系统成员关系并附证据编号
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 永嘉南渡与江南开发
+- id: DH-126
   category: FACTUAL
   question: 关于都江堰修建与历代维护，知识库有哪些字段级证据？哪些字段证据不足？
   target_systems: []
@@ -1722,9 +1897,9 @@ questions:
   difficulty: MEDIUM
   answer_key_hint:
     object: 都江堰修建与历代维护
-- id: DH-112
+- id: DH-127
   category: FACTUAL
-  question: 楚人经营江汉与南进的形成与长江水系有何关系？库中有无水系锚点证据？
+  question: 渡江战役的形成与长江水系有何关系？库中有无水系锚点证据？
   target_systems: []
   required_object_types:
   - HistoricalProcess
@@ -1733,10 +1908,10 @@ questions:
   evaluation_dimensions: *id001
   difficulty: MEDIUM
   answer_key_hint:
-    object: 楚人经营江汉与南进
-- id: DH-113
+    object: 渡江战役
+- id: DH-128
   category: FACTUAL
-  question: 明清江南市镇专业化在知识库中归属哪个区域文化系统？其证据链是什么？
+  question: 荆江分洪工程在知识库中归属哪个区域文化系统？其证据链是什么？
   target_systems: []
   required_object_types:
   - HistoricalProcess
@@ -1745,10 +1920,10 @@ questions:
   evaluation_dimensions: *id001
   difficulty: MEDIUM
   answer_key_hint:
-    object: 明清江南市镇专业化
-- id: DH-114
+    object: 荆江分洪工程
+- id: DH-129
   category: FACTUAL
-  question: 关于武汉开埠与近代转型，知识库有哪些字段级证据？哪些字段证据不足？
+  question: 关于湖湘学派形成与传承，知识库有哪些字段级证据？哪些字段证据不足？
   target_systems: []
   required_object_types:
   - HistoricalProcess
@@ -1756,10 +1931,10 @@ questions:
   evaluation_dimensions: *id001
   difficulty: MEDIUM
   answer_key_hint:
-    object: 武汉开埠与近代转型
-- id: DH-115
+    object: 湖湘学派形成与传承
+- id: DH-130
   category: FACTUAL
-  question: 江西填湖广的形成与长江水系有何关系？库中有无水系锚点证据？
+  question: 武昌起义的形成与长江水系有何关系？库中有无水系锚点证据？
   target_systems: []
   required_object_types:
   - HistoricalProcess
@@ -1768,10 +1943,10 @@ questions:
   evaluation_dimensions: *id001
   difficulty: MEDIUM
   answer_key_hint:
-    object: 江西填湖广
-- id: DH-116
+    object: 武昌起义
+- id: DH-131
   category: FACTUAL
-  question: 湖湘学派形成与传承在知识库中归属哪个区域文化系统？其证据链是什么？
+  question: 武汉长江大桥建设在知识库中归属哪个区域文化系统？其证据链是什么？
   target_systems: []
   required_object_types:
   - HistoricalProcess
@@ -1780,8 +1955,54 @@ questions:
   evaluation_dimensions: *id001
   difficulty: MEDIUM
   answer_key_hint:
-    object: 湖湘学派形成与传承
-- id: DH-117
+    object: 武汉长江大桥建设
+- id: DH-132
+  category: FACTUAL
+  question: 关于江西填湖广，知识库有哪些字段级证据？哪些字段证据不足？
+  target_systems: []
+  required_object_types:
+  - HistoricalProcess
+  evidence_requirements: 必须逐字段说明证据覆盖与缺口
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 江西填湖广
+- id: DH-133
+  category: FACTUAL
+  question: 三峡工程建设的形成与长江水系有何关系？库中有无水系锚点证据？
+  target_systems: []
+  required_object_types:
+  - HistoricalProcess
+  - HydroSpatialUnit
+  evidence_requirements: 必须区分有证据的水系关联与无证据推断
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 三峡工程建设
+- id: DH-134
+  category: FACTUAL
+  question: 南水北调中线工程在知识库中归属哪个区域文化系统？其证据链是什么？
+  target_systems: []
+  required_object_types:
+  - HistoricalProcess
+  - CulturalSystem
+  evidence_requirements: 必须点名系统成员关系并附证据编号
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 南水北调中线工程
+- id: DH-135
+  category: FACTUAL
+  question: 关于长江十年禁渔，知识库有哪些字段级证据？哪些字段证据不足？
+  target_systems: []
+  required_object_types:
+  - HistoricalProcess
+  evidence_requirements: 必须逐字段说明证据覆盖与缺口
+  evaluation_dimensions: *id001
+  difficulty: MEDIUM
+  answer_key_hint:
+    object: 长江十年禁渔
+- id: DH-136
   category: SYNTHESIS
   question: 知识库中『四川自贡→湖南、湖北（两湖/楚地）』的流动反映了怎样的区域互动机制？其路线与载体证据是否充分？
   target_systems: []
@@ -1793,9 +2014,9 @@ questions:
   difficulty: HARD
   answer_key_hint:
     flow: 四川自贡→湖南、湖北（两湖/楚地）
-- id: DH-118
+- id: DH-137
   category: SYNTHESIS
-  question: 知识库中『羊楼洞→俄国』的流动反映了怎样的区域互动机制？其路线与载体证据是否充分？
+  question: 知识库中『四川自贡（自流井、富顺等地）→湖南、湖北（两湖地区）』的流动反映了怎样的区域互动机制？其路线与载体证据是否充分？
   target_systems: []
   required_object_types:
   - CulturalFlow
@@ -1804,10 +2025,10 @@ questions:
   evaluation_dimensions: *id001
   difficulty: HARD
   answer_key_hint:
-    flow: 羊楼洞→俄国
-- id: DH-119
+    flow: 四川自贡（自流井、富顺等地）→湖南、湖北（两湖地区）
+- id: DH-138
   category: SYNTHESIS
-  question: 知识库中『徽州府（今安徽黄山、绩溪及江西婺源等地）→扬州、两淮、两浙及长江中上游各省』的流动反映了怎样的区域互动机制？其路线与载体证据是否充分？
+  question: 知识库中『湖北羊楼洞→俄国』的流动反映了怎样的区域互动机制？其路线与载体证据是否充分？
   target_systems: []
   required_object_types:
   - CulturalFlow
@@ -1816,10 +2037,10 @@ questions:
   evaluation_dimensions: *id001
   difficulty: HARD
   answer_key_hint:
-    flow: 徽州府（今安徽黄山、绩溪及江西婺源等地）→扬州、两淮、两浙及长江中上游各省
-- id: DH-120
+    flow: 湖北羊楼洞→俄国
+- id: DH-139
   category: SYNTHESIS
-  question: 知识库中『上海→汉口』的流动反映了怎样的区域互动机制？其路线与载体证据是否充分？
+  question: 知识库中『徽州府（今安徽黄山、绩溪及江西婺源等地）→两淮（扬州等地）及长江中上游安徽、江西、湖北、湖南四省』的流动反映了怎样的区域互动机制？其路线与载体证据是否充分？
   target_systems: []
   required_object_types:
   - CulturalFlow
@@ -1828,8 +2049,8 @@ questions:
   evaluation_dimensions: *id001
   difficulty: HARD
   answer_key_hint:
-    flow: 上海→汉口
-- id: DH-121
+    flow: 徽州府（今安徽黄山、绩溪及江西婺源等地）→两淮（扬州等地）及长江中上游安徽、江西、湖北、湖南四省
+- id: DH-140
   category: SYNTHESIS
   question: 知识库中『湖北大冶铁矿→湖北汉阳铁厂』的流动反映了怎样的区域互动机制？其路线与载体证据是否充分？
   target_systems: []
@@ -1841,207 +2062,79 @@ questions:
   difficulty: HARD
   answer_key_hint:
     flow: 湖北大冶铁矿→湖北汉阳铁厂
-- id: DH-122
-  category: SYNTHESIS
-  question: 都江堰放水节与永嘉南渡与江南开发在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-123
-  category: SYNTHESIS
-  question: 都江堰放水节与湖广填四川在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-124
-  category: SYNTHESIS
-  question: 都江堰放水节与都江堰修建与历代维护在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-125
-  category: SYNTHESIS
-  question: 都江堰放水节与楚人经营江汉与南进在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-126
-  category: SYNTHESIS
-  question: 都江堰放水节与明清江南市镇专业化在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-127
-  category: SYNTHESIS
-  question: 都江堰放水节与武汉开埠与近代转型在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-128
-  category: SYNTHESIS
-  question: 都江堰放水节与江西填湖广在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-129
-  category: SYNTHESIS
-  question: 都江堰放水节与湖湘学派形成与传承在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-130
-  category: SYNTHESIS
-  question: 川剧与永嘉南渡与江南开发在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-131
-  category: SYNTHESIS
-  question: 川剧与湖广填四川在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-132
-  category: SYNTHESIS
-  question: 川剧与都江堰修建与历代维护在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-133
-  category: SYNTHESIS
-  question: 川剧与楚人经营江汉与南进在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-134
-  category: SYNTHESIS
-  question: 川剧与明清江南市镇专业化在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-135
-  category: SYNTHESIS
-  question: 川剧与武汉开埠与近代转型在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-136
-  category: SYNTHESIS
-  question: 川剧与江西填湖广在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-137
-  category: SYNTHESIS
-  question: 川剧与湖湘学派形成与传承在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-138
-  category: SYNTHESIS
-  question: 端午竞渡与永嘉南渡与江南开发在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-139
-  category: SYNTHESIS
-  question: 端午竞渡与湖广填四川在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-140
-  category: SYNTHESIS
-  question: 端午竞渡与都江堰修建与历代维护在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
 - id: DH-141
   category: SYNTHESIS
-  question: 端午竞渡与楚人经营江汉与南进在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  question: 知识库中『羊楼洞→俄国』的流动反映了怎样的区域互动机制？其路线与载体证据是否充分？
   target_systems: []
   required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  - CulturalFlow
+  - CulturalProcess
+  evidence_requirements: 必须给出起讫、路线、载体及证据编号；路线 UNKNOWN 时必须如实说明
   evaluation_dimensions: *id001
   difficulty: HARD
+  answer_key_hint:
+    flow: 羊楼洞→俄国
 - id: DH-142
+  category: SYNTHESIS
+  question: 知识库中『上海→汉口』的流动反映了怎样的区域互动机制？其路线与载体证据是否充分？
+  target_systems: []
+  required_object_types:
+  - CulturalFlow
+  - CulturalProcess
+  evidence_requirements: 必须给出起讫、路线、载体及证据编号；路线 UNKNOWN 时必须如实说明
+  evaluation_dimensions: *id001
+  difficulty: HARD
+  answer_key_hint:
+    flow: 上海→汉口
+- id: DH-143
+  category: SYNTHESIS
+  question: 知识库中『上海→武汉、北京、长沙、济南、广州』的流动反映了怎样的区域互动机制？其路线与载体证据是否充分？
+  target_systems: []
+  required_object_types:
+  - CulturalFlow
+  - CulturalProcess
+  evidence_requirements: 必须给出起讫、路线、载体及证据编号；路线 UNKNOWN 时必须如实说明
+  evaluation_dimensions: *id001
+  difficulty: HARD
+  answer_key_hint:
+    flow: 上海→武汉、北京、长沙、济南、广州
+- id: DH-144
+  category: SYNTHESIS
+  question: 知识库中『四川自贡（自流井、富顺等）→湖南、湖北（两湖/楚地）』的流动反映了怎样的区域互动机制？其路线与载体证据是否充分？
+  target_systems: []
+  required_object_types:
+  - CulturalFlow
+  - CulturalProcess
+  evidence_requirements: 必须给出起讫、路线、载体及证据编号；路线 UNKNOWN 时必须如实说明
+  evaluation_dimensions: *id001
+  difficulty: HARD
+  answer_key_hint:
+    flow: 四川自贡（自流井、富顺等）→湖南、湖北（两湖/楚地）
+- id: DH-145
+  category: SYNTHESIS
+  question: 知识库中『徽州府（今安徽黄山、绩溪及江西婺源等地）→扬州、两淮、两浙及长江中上游各省』的流动反映了怎样的区域互动机制？其路线与载体证据是否充分？
+  target_systems: []
+  required_object_types:
+  - CulturalFlow
+  - CulturalProcess
+  evidence_requirements: 必须给出起讫、路线、载体及证据编号；路线 UNKNOWN 时必须如实说明
+  evaluation_dimensions: *id001
+  difficulty: HARD
+  answer_key_hint:
+    flow: 徽州府（今安徽黄山、绩溪及江西婺源等地）→扬州、两淮、两浙及长江中上游各省
+- id: DH-146
+  category: SYNTHESIS
+  question: 知识库中『大冶铁矿→汉阳铁厂』的流动反映了怎样的区域互动机制？其路线与载体证据是否充分？
+  target_systems: []
+  required_object_types:
+  - CulturalFlow
+  - CulturalProcess
+  evidence_requirements: 必须给出起讫、路线、载体及证据编号；路线 UNKNOWN 时必须如实说明
+  evaluation_dimensions: *id001
+  difficulty: HARD
+  answer_key_hint:
+    flow: 大冶铁矿→汉阳铁厂
+- id: DH-147
   category: SYNTHESIS
   question: 端午竞渡与明清江南市镇专业化在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
   target_systems: []
@@ -2051,59 +2144,9 @@ questions:
   evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-143
-  category: SYNTHESIS
-  question: 端午竞渡与武汉开埠与近代转型在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-144
-  category: SYNTHESIS
-  question: 端午竞渡与江西填湖广在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-145
-  category: SYNTHESIS
-  question: 端午竞渡与湖湘学派形成与传承在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-146
-  category: SYNTHESIS
-  question: 编钟乐舞与永嘉南渡与江南开发在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
-- id: DH-147
-  category: SYNTHESIS
-  question: 编钟乐舞与湖广填四川在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
-  target_systems: []
-  required_object_types:
-  - CulturalTradition
-  - HistoricalProcess
-  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
-  evaluation_dimensions: *id001
-  difficulty: HARD
 - id: DH-148
   category: SYNTHESIS
-  question: 编钟乐舞与都江堰修建与历代维护在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  question: 端午竞渡与湖广填四川在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
   target_systems: []
   required_object_types:
   - CulturalTradition
@@ -2113,7 +2156,7 @@ questions:
   difficulty: HARD
 - id: DH-149
   category: SYNTHESIS
-  question: 编钟乐舞与楚人经营江汉与南进在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  question: 端午竞渡与楚人经营江汉与南进在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
   target_systems: []
   required_object_types:
   - CulturalTradition
@@ -2123,7 +2166,7 @@ questions:
   difficulty: HARD
 - id: DH-150
   category: SYNTHESIS
-  question: 编钟乐舞与明清江南市镇专业化在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  question: 端午竞渡与武汉开埠与近代转型在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
   target_systems: []
   required_object_types:
   - CulturalTradition
@@ -2133,7 +2176,7 @@ questions:
   difficulty: HARD
 - id: DH-151
   category: SYNTHESIS
-  question: 编钟乐舞与武汉开埠与近代转型在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  question: 端午竞渡与永嘉南渡与江南开发在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
   target_systems: []
   required_object_types:
   - CulturalTradition
@@ -2142,38 +2185,256 @@ questions:
   evaluation_dimensions: *id001
   difficulty: HARD
 - id: DH-152
-  category: CRITIQUE
-  question: 有观点认为永嘉南渡与江南开发始于当代而非晋朝时期，请依据库内证据评判该观点。
+  category: SYNTHESIS
+  question: 端午竞渡与都江堰修建与历代维护在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
   target_systems: []
-  required_object_types: []
-  evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
   evaluation_dimensions: *id001
   difficulty: HARD
 - id: DH-153
-  category: CRITIQUE
-  question: 有观点认为湖广填四川始于当代而非明末清初，请依据库内证据评判该观点。
+  category: SYNTHESIS
+  question: 端午竞渡与渡江战役在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
   target_systems: []
-  required_object_types: []
-  evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
   evaluation_dimensions: *id001
   difficulty: HARD
 - id: DH-154
-  category: CRITIQUE
-  question: 有观点认为都江堰修建与历代维护始于当代而非公元前256年，请依据库内证据评判该观点。
+  category: SYNTHESIS
+  question: 端午竞渡与荆江分洪工程在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
   target_systems: []
-  required_object_types: []
-  evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
   evaluation_dimensions: *id001
   difficulty: HARD
 - id: DH-155
-  category: CRITIQUE
-  question: 有观点认为楚人经营江汉与南进始于当代而非西周初年，请依据库内证据评判该观点。
+  category: SYNTHESIS
+  question: 端午竞渡与湖湘学派形成与传承在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
   target_systems: []
-  required_object_types: []
-  evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
   evaluation_dimensions: *id001
   difficulty: HARD
 - id: DH-156
+  category: SYNTHESIS
+  question: 端午竞渡与武昌起义在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-157
+  category: SYNTHESIS
+  question: 川剧与明清江南市镇专业化在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-158
+  category: SYNTHESIS
+  question: 川剧与湖广填四川在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-159
+  category: SYNTHESIS
+  question: 川剧与楚人经营江汉与南进在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-160
+  category: SYNTHESIS
+  question: 川剧与武汉开埠与近代转型在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-161
+  category: SYNTHESIS
+  question: 川剧与永嘉南渡与江南开发在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-162
+  category: SYNTHESIS
+  question: 川剧与都江堰修建与历代维护在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-163
+  category: SYNTHESIS
+  question: 川剧与渡江战役在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-164
+  category: SYNTHESIS
+  question: 川剧与荆江分洪工程在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-165
+  category: SYNTHESIS
+  question: 川剧与湖湘学派形成与传承在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-166
+  category: SYNTHESIS
+  question: 川剧与武昌起义在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-167
+  category: SYNTHESIS
+  question: 编钟乐舞与明清江南市镇专业化在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-168
+  category: SYNTHESIS
+  question: 编钟乐舞与湖广填四川在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-169
+  category: SYNTHESIS
+  question: 编钟乐舞与楚人经营江汉与南进在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-170
+  category: SYNTHESIS
+  question: 编钟乐舞与武汉开埠与近代转型在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-171
+  category: SYNTHESIS
+  question: 编钟乐舞与永嘉南渡与江南开发在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-172
+  category: SYNTHESIS
+  question: 编钟乐舞与都江堰修建与历代维护在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-173
+  category: SYNTHESIS
+  question: 编钟乐舞与渡江战役在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-174
+  category: SYNTHESIS
+  question: 编钟乐舞与荆江分洪工程在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-175
+  category: SYNTHESIS
+  question: 编钟乐舞与湖湘学派形成与传承在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-176
+  category: SYNTHESIS
+  question: 编钟乐舞与武昌起义在知识库中是否存在结构关联（共享实体/过程/水系）？给出关联路径或如实说明无关联证据。
+  target_systems: []
+  required_object_types:
+  - CulturalTradition
+  - HistoricalProcess
+  evidence_requirements: 必须基于结构对象路径论证，禁止无证据的类比
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-177
   category: CRITIQUE
   question: 有观点认为明清江南市镇专业化始于当代而非早期，请依据库内证据评判该观点。
   target_systems: []
@@ -2181,7 +2442,23 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-157
+- id: DH-178
+  category: CRITIQUE
+  question: 有观点认为湖广填四川始于当代而非元末明初，请依据库内证据评判该观点。
+  target_systems: []
+  required_object_types: []
+  evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-179
+  category: CRITIQUE
+  question: 有观点认为楚人经营江汉与南进始于当代而非西周初年，请依据库内证据评判该观点。
+  target_systems: []
+  required_object_types: []
+  evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-180
   category: CRITIQUE
   question: 有观点认为武汉开埠与近代转型始于当代而非1861年，请依据库内证据评判该观点。
   target_systems: []
@@ -2189,15 +2466,39 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-158
+- id: DH-181
   category: CRITIQUE
-  question: 有观点认为江西填湖广始于当代而非明初，请依据库内证据评判该观点。
+  question: 有观点认为永嘉南渡与江南开发始于当代而非晋朝时期，请依据库内证据评判该观点。
   target_systems: []
   required_object_types: []
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-159
+- id: DH-182
+  category: CRITIQUE
+  question: 有观点认为都江堰修建与历代维护始于当代而非公元前256年，请依据库内证据评判该观点。
+  target_systems: []
+  required_object_types: []
+  evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-183
+  category: CRITIQUE
+  question: 有观点认为渡江战役始于当代而非1949年4月21日，请依据库内证据评判该观点。
+  target_systems: []
+  required_object_types: []
+  evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-184
+  category: CRITIQUE
+  question: 有观点认为荆江分洪工程始于当代而非1952年4月5日，请依据库内证据评判该观点。
+  target_systems: []
+  required_object_types: []
+  evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-185
   category: CRITIQUE
   question: 有观点认为湖湘学派形成与传承始于当代而非1167年，请依据库内证据评判该观点。
   target_systems: []
@@ -2205,7 +2506,15 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-160
+- id: DH-186
+  category: CRITIQUE
+  question: 有观点认为武昌起义始于当代而非1911年10月10日，请依据库内证据评判该观点。
+  target_systems: []
+  required_object_types: []
+  evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
+  evaluation_dimensions: *id001
+  difficulty: HARD
+- id: DH-187
   category: CRITIQUE
   question: 有人断言湖北省人民政府不属于荆楚文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2213,7 +2522,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-161
+- id: DH-188
   category: CRITIQUE
   question: 有人断言重庆市不属于巴蜀文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2221,7 +2530,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-162
+- id: DH-189
   category: CRITIQUE
   question: 有人断言重庆不属于巴蜀文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2229,7 +2538,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-163
+- id: DH-190
   category: CRITIQUE
   question: 有人断言马伯援不属于荆楚文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2237,7 +2546,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-164
+- id: DH-191
   category: CRITIQUE
   question: 有人断言大冶铁矿不属于荆楚文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2245,7 +2554,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-165
+- id: DH-192
   category: CRITIQUE
   question: 有人断言扬州市不属于吴越文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2253,7 +2562,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-166
+- id: DH-193
   category: CRITIQUE
   question: 有人断言沙市市不属于荆楚文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2261,7 +2570,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-167
+- id: DH-194
   category: CRITIQUE
   question: 有人断言俞与不属于荆楚文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2269,7 +2578,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-168
+- id: DH-195
   category: CRITIQUE
   question: 有人断言赣南采茶戏不属于赣皖文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2277,7 +2586,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-169
+- id: DH-196
   category: CRITIQUE
   question: 有人断言铜绿山古铜矿遗址不属于荆楚文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2285,7 +2594,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-170
+- id: DH-197
   category: CRITIQUE
   question: 有人断言重庆市万县区不属于巴蜀文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2293,7 +2602,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-171
+- id: DH-198
   category: CRITIQUE
   question: 有人断言陈尧佐不属于巴蜀文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2301,7 +2610,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-172
+- id: DH-199
   category: CRITIQUE
   question: 有人断言荆州花鼓戏不属于荆楚文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2309,7 +2618,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-173
+- id: DH-200
   category: CRITIQUE
   question: 有人断言玉佛禅寺不属于吴越文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2317,7 +2626,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-174
+- id: DH-201
   category: CRITIQUE
   question: 有人断言韩殿甲不属于赣皖文化系统，这一断言能否成立？给出结构证据。
   target_systems: []
@@ -2325,7 +2634,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-175
+- id: DH-202
   category: CRITIQUE
   question: 目前知识库的文化流动总量仍然很小。请评估：仅凭现有流动证据，能否支撑『长江文化已形成完整流动网络』的结论？
   target_systems: []
@@ -2333,7 +2642,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-176
+- id: DH-203
   category: CRITIQUE
   question: 如果只允许引用 ADMITTED 状态的结构对象，哪些广为流传的长江文化说法在库中其实证据不足？
   target_systems: []
@@ -2341,7 +2650,7 @@ questions:
   evidence_requirements: 必须区分【库内可证】与【库外常识】，禁止用常识冒充库内证据
   evaluation_dimensions: *id001
   difficulty: HARD
-- id: DH-177
+- id: DH-204
   category: CRITIQUE
   question: 请指出知识库中证据最薄弱的三个结构性判断，并说明薄弱原因。
   target_systems: []

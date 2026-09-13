@@ -122,8 +122,9 @@ def assemble(cur, q: dict[str, Any], terms: list[str]) -> dict[str, Any]:
                    FROM system_memberships m
                    JOIN canonical_entities e ON e.entity_id=m.object_id
                    JOIN cultural_systems s ON s.system_id=m.system_id
-                   WHERE m.system_id IS NOT NULL
-                   ORDER BY (m.status='ADMITTED') DESC, m.anchor_count DESC LIMIT 12""")
+                   WHERE m.system_id IS NOT NULL AND m.status='ADMITTED'
+                     AND e.canonical_name !~ '(人民政府|办公室|局$|委员会|公司|集团|中心$)'
+                   ORDER BY m.anchor_count DESC LIMIT 12""")
     a["memberships"] = [dict(r) for r in cur.fetchall()]
 
     cur.execute("""SELECT statement, knowledge_type, status FROM interpretations
@@ -150,7 +151,9 @@ def prompt_for(q: dict, a: dict[str, Any]) -> str:
     ev = "\n".join(f"[{e['id']}] {e['quote']}（{e['source']}）" for e in a["evidence"]) or "（无）"
     return (
         f"你是长江文化知识基础设施。回答研究问题必须【仅依据】下面装配的结构对象与证据，"
-        f"不得引入未列出的事实；证据不足的部分明确写“证据不足”。每个关键断言末尾附证据标记 [EV:编号]。\n\n"
+        f"不得引入未列出的事实；证据不足的部分明确写“证据不足”。\n"
+        f"证据标记格式硬性要求：只能写 [EV:数字]（如 [EV:0]、[EV:3]，数字=证据引文行首编号）。"
+        f"严禁把对象名或文字放进 EV 标记（[EV:历史分期] 属伪造引用）。每个关键断言末尾必须附 [EV:数字]。\n\n"
         f"研究问题（{q['category']}）：{q['question']}\n\n"
         + j("文化系统", a["systems"], ["system_name", "description"])
         + j("水系空间", a["hydro"], ["hsu_name", "hsu_type", "description"])
