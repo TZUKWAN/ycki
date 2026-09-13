@@ -1,7 +1,7 @@
 # V2 FINAL RELEASE VALIDATION
 
-- 生成：2026-09-14T07:16:11+0800
-- HEAD：`dabfc6162e82`（§29：报告 commit 必须等于当前 HEAD）
+- 生成：2026-09-14T07:17:55+0800
+- HEAD：`a74c0d96a97f`（§29：报告 commit 必须等于当前 HEAD）
 - **OVERALL：FAIL**
 
 ## 硬门（§22.2）
@@ -12,7 +12,7 @@
 - G04_MEMBERSHIP: **FAIL** `{"precision": 0.9167, "recall": 0.8974, "f1": 0.9069, "cases": 1012, "protocol": "external deterministic gold + single-model blind judge x3 paraphrased prompts majority vote (Qwen3.6-35B-A3B); 非多模型金标", "note": "单模型判官+多数票`
 - G05_TRADITION: **FAIL** `{"admitted": 17, "target": 50, "integrity": "PASS"}`
 - G06_PROCESS: **FAIL** `{"admitted": 15, "target": 80, "integrity": "PASS"}`
-- G07_FLOW: **FAIL** `{"flows": 16, "flow_types": 1, "target": 30}`
+- G07_FLOW: **FAIL** `{"flows": 23, "flow_types": 3, "target": 30}`
 - G08_STRUCTURAL_RELATION: **PASS** `{"admitted": 7}`
 - G09_GAP_QUALITY: **FAIL** `{"gap_precision": 0.8456, "total": 149, "protocol": "stratified real gaps + deterministic injected fakes; single-model 2-neutral-paraphrase majority judge (如实标注：判官跨提示方差±0.1，结果为诊断值)", "note": "单模型判官跨提示方差±0.1（多次运行 0.79~0.8`
 - G10_RESEARCH_TASK: **FAIL** `{"resolved": 2, "target": "12/20 burn-in"}`
@@ -34,8 +34,8 @@
  "evidence": 4979,
  "traditions_admitted": 17,
  "processes_admitted": 15,
- "flows_total": 16,
- "flow_types": 1,
+ "flows_total": 23,
+ "flow_types": 3,
  "structural_relations": 7,
  "interpretations": 9,
  "gaps_open": 449,

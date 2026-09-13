@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-14T07:16:11+0800",
-  "head_commit": "dabfc6162e8226fb57a45de5bb14744c4a3ce67d",
+  "generated_at": "2026-09-14T07:17:55+0800",
+  "head_commit": "a74c0d96a97f77141846eca9a5374585a2662414",
   "overall": "FAIL",
   "failed": [
     "G04_MEMBERSHIP",
@@ -66,8 +66,8 @@
     "G07_FLOW": {
       "status": "FAIL",
       "detail": {
-        "flows": 16,
-        "flow_types": 1,
+        "flows": 23,
+        "flow_types": 3,
         "target": 30
       }
     },
@@ -149,8 +149,8 @@
     "evidence": 4979,
     "traditions_admitted": 17,
     "processes_admitted": 15,
-    "flows_total": 16,
-    "flow_types": 1,
+    "flows_total": 23,
+    "flow_types": 3,
     "structural_relations": 7,
     "interpretations": 9,
     "gaps_open": 449,
