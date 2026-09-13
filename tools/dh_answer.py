@@ -38,7 +38,9 @@ sys.path.insert(0, str(ROOT))
 from extensions.llm import chat  # noqa: E402
 from extensions.v2.evidence_bundle import Bundle, build_bundle  # noqa: E402
 
-BENCH = ROOT / "yangtze" / "benchmarks" / "dh_benchmark_100.yaml"
+BENCH = ROOT / "yangtze" / "benchmarks" / "dh_benchmark_300.yaml"
+if not BENCH.exists():
+    BENCH = ROOT / "yangtze" / "benchmarks" / "dh_benchmark_100.yaml"
 OUT = ROOT / "reports" / "V2_DH_BENCHMARK_ANSWERS.json"
 
 DATE_RE = re.compile(r"(公元前?\d+|\d{3,4}年?|[夏商周秦汉]|隋唐|宋元|明清|晚清|民国)")

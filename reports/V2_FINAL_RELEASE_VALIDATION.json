@@ -1,0 +1,167 @@
+{
+  "generated_at": "2026-09-14T04:41:47+0800",
+  "head_commit": "e67190b30b1bd6dc62e174546ae691a8301a17da",
+  "overall": "FAIL",
+  "failed": [
+    "G02_SECRET_CONFIG",
+    "G04_MEMBERSHIP",
+    "G05_TRADITION",
+    "G06_PROCESS",
+    "G07_FLOW",
+    "G09_GAP_QUALITY",
+    "G12_GOLDEN_TEN",
+    "G13_COMPUTER_USE_UAT",
+    "G15_GROWTH_50CYCLE"
+  ],
+  "not_measured": [
+    "G10_RESEARCH_TASK",
+    "G11_DIGITAL_HUMANITIES"
+  ],
+  "gates": {
+    "G01_REPRODUCIBILITY": {
+      "status": "PASS",
+      "detail": {
+        "verify_exit": 0
+      }
+    },
+    "G02_SECRET_CONFIG": {
+      "status": "FAIL",
+      "detail": {
+        "hits": [
+          {
+            "file": "HEAD:tools/generate_release_validation.py",
+            "kind": "lightrag-key"
+          },
+          {
+            "file": "HEAD:tools/generate_release_validation.py",
+            "kind": "pg-password"
+          }
+        ],
+        "count": 2
+      }
+    },
+    "G03_CANONICAL_V1_REGRESSION": {
+      "status": "PASS",
+      "detail": {
+        "claims_admitted": 4510
+      }
+    },
+    "G04_MEMBERSHIP": {
+      "status": "FAIL",
+      "detail": {
+        "precision": 0.9167,
+        "recall": 0.8974,
+        "f1": 0.9069,
+        "cases": 1012,
+        "protocol": "external deterministic gold + single-model blind judge x3 paraphrased prompts majority vote (Qwen3.6-35B-A3B); 非多模型金标",
+        "note": "单模型判官+多数票；未达 §12.4 阈值如实 FAIL"
+      }
+    },
+    "G05_TRADITION": {
+      "status": "FAIL",
+      "detail": {
+        "admitted": 7,
+        "target": 50,
+        "integrity": "PASS"
+      }
+    },
+    "G06_PROCESS": {
+      "status": "FAIL",
+      "detail": {
+        "admitted": 7,
+        "target": 80,
+        "integrity": "PASS"
+      }
+    },
+    "G07_FLOW": {
+      "status": "FAIL",
+      "detail": {
+        "flows": 5,
+        "flow_types": 1,
+        "target": 30
+      }
+    },
+    "G08_STRUCTURAL_RELATION": {
+      "status": "PASS",
+      "detail": {
+        "admitted": 7
+      }
+    },
+    "G09_GAP_QUALITY": {
+      "status": "FAIL",
+      "detail": {
+        "gap_precision": 0.8456,
+        "total": 149,
+        "protocol": "stratified real gaps + deterministic injected fakes; single-model 2-neutral-paraphrase majority judge (如实标注：判官跨提示方差±0.1，结果为诊断值)",
+        "note": "单模型判官跨提示方差±0.1（多次运行 0.79~0.89），如实 FAIL"
+      }
+    },
+    "G10_RESEARCH_TASK": {
+      "status": "NOT_MEASURED",
+      "detail": {
+        "resolved": 0,
+        "target": "12/20 burn-in"
+      }
+    },
+    "G11_DIGITAL_HUMANITIES": {
+      "status": "NOT_MEASURED",
+      "detail": {
+        "answered": 100,
+        "need": ">=300 questions answered"
+      }
+    },
+    "G12_GOLDEN_TEN": {
+      "status": "FAIL",
+      "detail": {
+        "passed": 0,
+        "total": 10
+      }
+    },
+    "G13_COMPUTER_USE_UAT": {
+      "status": "FAIL",
+      "detail": {
+        "sessions": 2,
+        "note": "任务表未满 100 条前不得 PASS"
+      }
+    },
+    "G14_RED_TEAM": {
+      "status": "PASS",
+      "detail": {
+        "evaluator_red_team": {
+          "cases": 2130,
+          "gate": "PASS",
+          "error_pass_rate": 0.0
+        },
+        "pipeline_red_team": {
+          "cases": 2000,
+          "breaches": 0
+        },
+        "note": ""
+      }
+    },
+    "G15_GROWTH_50CYCLE": {
+      "status": "FAIL",
+      "detail": {
+        "cycles_available": 69,
+        "cycles_with_gain(计数法:结构总数>19)": 10,
+        "note": "结构增量按报告快照计算，需 ≥60% 有真实增益"
+      }
+    }
+  },
+  "counts": {
+    "resources": 4171,
+    "sources": 894,
+    "source_domains": 889,
+    "entities": 21978,
+    "claims_admitted": 4510,
+    "evidence": 4952,
+    "traditions_admitted": 7,
+    "processes_admitted": 7,
+    "flows_total": 5,
+    "flow_types": 1,
+    "structural_relations": 7,
+    "interpretations": 9,
+    "gaps_open": 436,
+    "tasks_resolved": 0
+  }
+}
