@@ -1,0 +1,11 @@
+{"themes":[
+ {"topic":"flow:长沙米市","gap_type":"MISSING_CROSS_REGION_LINK","queries":["长沙米市 明清 湘米","洞庭湖 粮食贸易 汉口","湘米 下运 长江 历史"]},
+ {"topic":"flow:抗战西迁","gap_type":"MISSING_CROSS_REGION_LINK","queries":["抗战 院校 西迁 四川","宜昌大撤退 历史","中央大学 西迁 重庆","兵工厂 迁移 抗战 长江"]},
+ {"topic":"flow:马克思主义传播","gap_type":"MISSING_CROSS_REGION_LINK","queries":["马克思主义 中国 传播 上海 武汉","恽代英 利群书社","武汉 共产主义小组 历史"]},
+ {"topic":"flow:景德镇瓷器","gap_type":"MISSING_CROSS_REGION_LINK","queries":["景德镇 瓷器 运输 历史","瓷器 外销 长江 扬州","明清 瓷器 贸易 路线"]},
+ {"topic":"flow:汉阳铁厂技术","gap_type":"MISSING_CROSS_REGION_LINK","queries":["汉阳铁厂 西方 技术 设备","张之洞 冶金 引进 历史"]},
+ {"topic":"flow:川粮下运","gap_type":"MISSING_CROSS_REGION_LINK","queries":["清代 四川 粮食 长江 运销","川米 湖北 历史","重庆 粮栈 米"]},
+ {"topic":"flow:佛教沿江","gap_type":"MISSING_CROSS_REGION_LINK","queries":["佛教 传入 四川 历史","长江流域 佛教 传播 路线","东晋 佛教 沿江 高僧"]},
+ {"topic":"flow:川盐济楚补证","gap_type":"MISSING_CROSS_REGION_LINK","queries":["川盐济楚 史料","咸丰 川盐 湖北 湖南","自贡 盐商 两湖 市场"]},
+ {"topic":"flow:万里茶道","gap_type":"MISSING_CROSS_REGION_LINK","queries":["万里茶道 路线 历史","汉口 砖茶 俄国 出口","羊楼洞 茶庄 晋商"]}
+]}

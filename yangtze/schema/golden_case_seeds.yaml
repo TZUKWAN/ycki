@@ -237,3 +237,1189 @@ candidates:
     fields: [origin, destination, content, time, route, mechanism]
     cross_region: true
     interacting_systems: [荆楚文化系统, 湖湘文化系统, 吴越文化系统]
+
+  # ---------- §11 规模扩展种子（2026-09-14 自动派生自金标数据） ----------
+  - id: t_5603585678
+    kind: TRADITION
+    name: 川剧
+    system: 巴蜀文化系统
+    terms: [川剧]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_5628893796
+    kind: TRADITION
+    name: 蜀绣
+    system: 巴蜀文化系统
+    terms: [蜀绣]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_7047114671
+    kind: TRADITION
+    name: 巴渝舞
+    system: 巴蜀文化系统
+    terms: [巴渝舞]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_9919639722
+    kind: TRADITION
+    name: 编钟乐舞
+    system: 荆楚文化系统
+    terms: [编钟乐舞]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6075321499
+    kind: TRADITION
+    name: 汉绣
+    system: 荆楚文化系统
+    terms: [汉绣]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_3295441816
+    kind: TRADITION
+    name: 知音传说
+    system: 荆楚文化系统
+    terms: [知音传说]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_1496457970
+    kind: TRADITION
+    name: 古琴台
+    system: 荆楚文化系统
+    terms: [古琴台]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_4008183435
+    kind: TRADITION
+    name: 炎帝神农传说
+    system: 荆楚文化系统
+    terms: [炎帝神农传说]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_4220153424
+    kind: TRADITION
+    name: 湘绣
+    system: 湖湘文化系统
+    terms: [湘绣]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_5043407687
+    kind: TRADITION
+    name: 湘剧
+    system: 湖湘文化系统
+    terms: [湘剧]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_2239817672
+    kind: TRADITION
+    name: 湘西赶尸传说
+    system: 湖湘文化系统
+    terms: [湘西赶尸传说]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_7221436225
+    kind: TRADITION
+    name: 徽剧
+    system: 赣皖文化系统
+    terms: [徽剧]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_9370434557
+    kind: TRADITION
+    name: 傩舞
+    system: 赣皖文化系统
+    terms: [傩舞]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_2577173141
+    kind: TRADITION
+    name: 越剧
+    system: 吴越文化系统
+    terms: [越剧]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_9391142828
+    kind: TRADITION
+    name: 苏绣
+    system: 吴越文化系统
+    terms: [苏绣]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6490960707
+    kind: TRADITION
+    name: 龙井茶制作技艺
+    system: 吴越文化系统
+    terms: [龙井茶制作技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_7580072430
+    kind: TRADITION
+    name: 都江堰放水节
+    system: 巴蜀文化系统
+    terms: [都江堰放水节]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6307764255
+    kind: TRADITION
+    name: 川江号子
+    system: 巴蜀文化系统
+    terms: [川江号子]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6796843807
+    kind: TRADITION
+    name: 麻城孝感乡传说
+    system: 巴蜀文化系统
+    terms: [麻城孝感乡传说]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6962639932
+    kind: TRADITION
+    name: 绵竹年画
+    system: 巴蜀文化系统
+    terms: [绵竹年画]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_5621025965
+    kind: TRADITION
+    name: 泸州老窖酿制技艺
+    system: 巴蜀文化系统
+    terms: [泸州老窖酿制技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_4048108375
+    kind: TRADITION
+    name: 郫县豆瓣制作技艺
+    system: 巴蜀文化系统
+    terms: [郫县豆瓣制作技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_608899919
+    kind: TRADITION
+    name: 木兰传说
+    system: 荆楚文化系统
+    terms: [木兰传说]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_237402171
+    kind: TRADITION
+    name: 汉剧
+    system: 荆楚文化系统
+    terms: [汉剧]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_1506465446
+    kind: TRADITION
+    name: 楚剧
+    system: 荆楚文化系统
+    terms: [楚剧]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_9871687265
+    kind: TRADITION
+    name: 湖北评书
+    system: 荆楚文化系统
+    terms: [湖北评书]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_3655640285
+    kind: TRADITION
+    name: 孝感雕花剪纸
+    system: 荆楚文化系统
+    terms: [孝感雕花剪纸]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_9244846887
+    kind: TRADITION
+    name: 花鼓戏
+    system: 湖湘文化系统
+    terms: [花鼓戏]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_8960333543
+    kind: TRADITION
+    name: 祁剧
+    system: 湖湘文化系统
+    terms: [祁剧]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_7196467353
+    kind: TRADITION
+    name: 长沙弹词
+    system: 湖湘文化系统
+    terms: [长沙弹词]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_2609752948
+    kind: TRADITION
+    name: 土家族摆手舞
+    system: 湖湘文化系统
+    terms: [土家族摆手舞]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6781064948
+    kind: TRADITION
+    name: 苗族银饰锻造技艺
+    system: 湖湘文化系统
+    terms: [苗族银饰锻造技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_1096831966
+    kind: TRADITION
+    name: 浏阳文庙祭孔音乐
+    system: 湖湘文化系统
+    terms: [浏阳文庙祭孔音乐]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_8111895439
+    kind: TRADITION
+    name: 绳金塔庙会
+    system: 赣皖文化系统
+    terms: [绳金塔庙会]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6632787650
+    kind: TRADITION
+    name: 景德镇手工制瓷技艺
+    system: 赣皖文化系统
+    terms: [景德镇手工制瓷技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_5191386636
+    kind: TRADITION
+    name: 婺源徽剧
+    system: 赣皖文化系统
+    terms: [婺源徽剧]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_9645444872
+    kind: TRADITION
+    name: 赣剧
+    system: 赣皖文化系统
+    terms: [赣剧]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_8625324113
+    kind: TRADITION
+    name: 歙砚制作技艺
+    system: 赣皖文化系统
+    terms: [歙砚制作技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_4953595848
+    kind: TRADITION
+    name: 徽州三雕
+    system: 赣皖文化系统
+    terms: [徽州三雕]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_1743988966
+    kind: TRADITION
+    name: 锡剧
+    system: 吴越文化系统
+    terms: [锡剧]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_2334955651
+    kind: TRADITION
+    name: 扬剧
+    system: 吴越文化系统
+    terms: [扬剧]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_8738767003
+    kind: TRADITION
+    name: 淮剧
+    system: 吴越文化系统
+    terms: [淮剧]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_1797968887
+    kind: TRADITION
+    name: 沪剧
+    system: 吴越文化系统
+    terms: [沪剧]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_147764612
+    kind: TRADITION
+    name: 滑稽戏
+    system: 吴越文化系统
+    terms: [滑稽戏]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_9049889734
+    kind: TRADITION
+    name: 桃花坞年画
+    system: 吴越文化系统
+    terms: [桃花坞年画]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_1746397267
+    kind: TRADITION
+    name: 杨柳青木版年画
+    system: 吴越文化系统
+    terms: [杨柳青木版年画]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_1900582111
+    kind: TRADITION
+    name: 宋锦织造技艺
+    system: 吴越文化系统
+    terms: [宋锦织造技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_7969150145
+    kind: TRADITION
+    name: 缂丝织造技艺
+    system: 吴越文化系统
+    terms: [缂丝织造技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_2317450135
+    kind: TRADITION
+    name: 南京金箔锻制技艺
+    system: 吴越文化系统
+    terms: [南京金箔锻制技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_5916446348
+    kind: TRADITION
+    name: 明式家具制作技艺
+    system: 吴越文化系统
+    terms: [明式家具制作技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_7419875042
+    kind: TRADITION
+    name: 香山帮传统建筑营造技艺
+    system: 吴越文化系统
+    terms: [香山帮传统建筑营造技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_8302602214
+    kind: TRADITION
+    name: 苏州御窑金砖制作技艺
+    system: 吴越文化系统
+    terms: [苏州御窑金砖制作技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_4681357655
+    kind: TRADITION
+    name: 米芾拜石传说
+    system: 吴越文化系统
+    terms: [米芾拜石传说]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_944189625
+    kind: TRADITION
+    name: 奉节诗城文化
+    system: 巴蜀文化系统
+    terms: [奉节诗城文化]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_7845233240
+    kind: TRADITION
+    name: 彝族火把节
+    system: 巴蜀文化系统
+    terms: [彝族火把节]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_7486003942
+    kind: TRADITION
+    name: 蜀派古琴
+    system: 巴蜀文化系统
+    terms: [蜀派古琴]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6154216245
+    kind: TRADITION
+    name: 梁平木版年画
+    system: 巴蜀文化系统
+    terms: [梁平木版年画]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6576078753
+    kind: TRADITION
+    name: 铜梁龙舞
+    system: 巴蜀文化系统
+    terms: [铜梁龙舞]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6193867487
+    kind: TRADITION
+    name: 酉阳古歌
+    system: 巴蜀文化系统
+    terms: [酉阳古歌]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6414051001
+    kind: TRADITION
+    name: 巴山背二歌
+    system: 巴蜀文化系统
+    terms: [巴山背二歌]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6840896724
+    kind: TRADITION
+    name: 资阳河川剧艺术
+    system: 巴蜀文化系统
+    terms: [资阳河川剧艺术]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_5494592119
+    kind: TRADITION
+    name: 雕龙碑遗址
+    system: 荆楚文化系统
+    terms: [雕龙碑遗址]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_9041109702
+    kind: TRADITION
+    name: 楚式漆器髹饰技艺
+    system: 荆楚文化系统
+    terms: [楚式漆器髹饰技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_8303300342
+    kind: TRADITION
+    name: 红安绣活
+    system: 荆楚文化系统
+    terms: [红安绣活]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_5892559593
+    kind: TRADITION
+    name: 大冶刺绣
+    system: 荆楚文化系统
+    terms: [大冶刺绣]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_104979598
+    kind: TRADITION
+    name: 恩施扬琴
+    system: 荆楚文化系统
+    terms: [恩施扬琴]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_4112601134
+    kind: TRADITION
+    name: 利川灯歌
+    system: 荆楚文化系统
+    terms: [利川灯歌]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_2595568936
+    kind: TRADITION
+    name: 炎帝诞辰祭祀
+    system: 湖湘文化系统
+    terms: [炎帝诞辰祭祀]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_2111417804
+    kind: TRADITION
+    name: 舜帝祭典
+    system: 湖湘文化系统
+    terms: [舜帝祭典]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_7497569541
+    kind: TRADITION
+    name: 资兴瑶族盘王节
+    system: 湖湘文化系统
+    terms: [资兴瑶族盘王节]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_4693024859
+    kind: TRADITION
+    name: 侗锦织造技艺
+    system: 湖湘文化系统
+    terms: [侗锦织造技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_5003388647
+    kind: TRADITION
+    name: 苗族古歌
+    system: 湖湘文化系统
+    terms: [苗族古歌]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_9626589266
+    kind: TRADITION
+    name: 侗族大歌
+    system: 湖湘文化系统
+    terms: [侗族大歌]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_1197722902
+    kind: TRADITION
+    name: 土家族织锦技艺
+    system: 湖湘文化系统
+    terms: [土家族织锦技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_497872703
+    kind: TRADITION
+    name: 蓝印花布印染技艺
+    system: 湖湘文化系统
+    terms: [蓝印花布印染技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_1703671136
+    kind: TRADITION
+    name: 滩头木版年画
+    system: 湖湘文化系统
+    terms: [滩头木版年画]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_5632713905
+    kind: TRADITION
+    name: 湘潭纸影戏
+    system: 湖湘文化系统
+    terms: [湘潭纸影戏]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_5366448567
+    kind: TRADITION
+    name: 邵阳布袋戏
+    system: 湖湘文化系统
+    terms: [邵阳布袋戏]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_700448001
+    kind: TRADITION
+    name: 目连戏
+    system: 湖湘文化系统
+    terms: [目连戏]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6199627700
+    kind: TRADITION
+    name: 西山万寿宫庙会
+    system: 赣皖文化系统
+    terms: [西山万寿宫庙会]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_2851700946
+    kind: TRADITION
+    name: 李渡烧酒酿造技艺
+    system: 赣皖文化系统
+    terms: [李渡烧酒酿造技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_8105218145
+    kind: TRADITION
+    name: 景德镇水碓营造技艺
+    system: 赣皖文化系统
+    terms: [景德镇水碓营造技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_1677311743
+    kind: TRADITION
+    name: 婺源三雕
+    system: 赣皖文化系统
+    terms: [婺源三雕]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_8188038624
+    kind: TRADITION
+    name: 祁门红茶制作技艺
+    system: 赣皖文化系统
+    terms: [祁门红茶制作技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6786054667
+    kind: TRADITION
+    name: 黄山毛峰制作技艺
+    system: 赣皖文化系统
+    terms: [黄山毛峰制作技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6755428672
+    kind: TRADITION
+    name: 太平猴魁制作技艺
+    system: 赣皖文化系统
+    terms: [太平猴魁制作技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_2300836582
+    kind: TRADITION
+    name: 徽州祠祭
+    system: 赣皖文化系统
+    terms: [徽州祠祭]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_9156225529
+    kind: TRADITION
+    name: 安苗节
+    system: 赣皖文化系统
+    terms: [安苗节]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_2472722470
+    kind: TRADITION
+    name: 杭罗织造技艺
+    system: 吴越文化系统
+    terms: [杭罗织造技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_4756147551
+    kind: TRADITION
+    name: 龙泉青瓷烧制技艺
+    system: 吴越文化系统
+    terms: [龙泉青瓷烧制技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_528098248
+    kind: TRADITION
+    name: 龙泉宝剑锻制技艺
+    system: 吴越文化系统
+    terms: [龙泉宝剑锻制技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_1607814840
+    kind: TRADITION
+    name: 青田石雕
+    system: 吴越文化系统
+    terms: [青田石雕]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_4311433741
+    kind: TRADITION
+    name: 宁波朱金漆木雕
+    system: 吴越文化系统
+    terms: [宁波朱金漆木雕]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_5172019774
+    kind: TRADITION
+    name: 乐清黄杨木雕
+    system: 吴越文化系统
+    terms: [乐清黄杨木雕]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_9133127688
+    kind: TRADITION
+    name: 东阳木雕
+    system: 吴越文化系统
+    terms: [东阳木雕]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_4999330519
+    kind: TRADITION
+    name: 绍兴黄酒酿制技艺
+    system: 吴越文化系统
+    terms: [绍兴黄酒酿制技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_2817612105
+    kind: TRADITION
+    name: 金陵鸭馁制作技艺
+    system: 吴越文化系统
+    terms: [金陵鸭馁制作技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_8283112358
+    kind: TRADITION
+    name: 镇江恒顺香醋酿制技艺
+    system: 吴越文化系统
+    terms: [镇江恒顺香醋酿制技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_8874285671
+    kind: TRADITION
+    name: 扬州漆器髹饰技艺
+    system: 吴越文化系统
+    terms: [扬州漆器髹饰技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_6375659735
+    kind: TRADITION
+    name: 扬州玉雕
+    system: 吴越文化系统
+    terms: [扬州玉雕]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_1577482657
+    kind: TRADITION
+    name: 扬州剪纸
+    system: 吴越文化系统
+    terms: [扬州剪纸]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_583695609
+    kind: TRADITION
+    name: 如皋盆景技艺
+    system: 吴越文化系统
+    terms: [如皋盆景技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_7163903723
+    kind: TRADITION
+    name: 雨花茶制作技艺
+    system: 吴越文化系统
+    terms: [雨花茶制作技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_470906648
+    kind: TRADITION
+    name: 绿柳居素食烹制技艺
+    system: 吴越文化系统
+    terms: [绿柳居素食烹制技艺]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_323922567
+    kind: TRADITION
+    name: 秦淮灯会
+    system: 吴越文化系统
+    terms: [秦淮灯会]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: t_5727579279
+    kind: TRADITION
+    name: 苏州庙会
+    system: 吴越文化系统
+    terms: [苏州庙会]
+    fields: [origin, core_practices, carriers, time]
+    cross_region: false
+
+  - id: p_6227791340
+    kind: PROCESS
+    name: 吴王夫差开凿邗沟
+    system: 吴越文化系统
+    terms: [吴王夫差开凿邗沟]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_1328722337
+    kind: PROCESS
+    name: 楚国经营江汉
+    system: 荆楚文化系统
+    terms: [楚国经营江汉]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_2879535709
+    kind: PROCESS
+    name: 秦灭楚与江汉郡县化
+    system: 荆楚文化系统
+    terms: [秦灭楚与江汉郡县化]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_4899236860
+    kind: PROCESS
+    name: 孙吴经营江东
+    system: 吴越文化系统
+    terms: [孙吴经营江东]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_5175013158
+    kind: PROCESS
+    name: 永嘉南渡
+    system: 吴越文化系统
+    terms: [永嘉南渡]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_4367180266
+    kind: PROCESS
+    name: 隋唐大运河江南河开凿
+    system: 吴越文化系统
+    terms: [隋唐大运河江南河开凿]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_8457859058
+    kind: PROCESS
+    name: 唐代扬州繁华
+    system: 吴越文化系统
+    terms: [唐代扬州繁华]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_73912927
+    kind: PROCESS
+    name: 南宋定都临安
+    system: 吴越文化系统
+    terms: [南宋定都临安]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_6281871303
+    kind: PROCESS
+    name: 明初南京都城营建
+    system: 吴越文化系统
+    terms: [明初南京都城营建]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_4614948043
+    kind: PROCESS
+    name: 郑和宝船厂造船
+    system: 吴越文化系统
+    terms: [郑和宝船厂造船]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_5534172843
+    kind: PROCESS
+    name: 清代两淮盐业
+    system: 吴越文化系统
+    terms: [清代两淮盐业]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_57982763
+    kind: PROCESS
+    name: 徽商崛起与经营
+    system: 赣皖文化系统
+    terms: [徽商崛起与经营]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_9746649291
+    kind: PROCESS
+    name: 鸦片战争镇江之战
+    system: 吴越文化系统
+    terms: [鸦片战争镇江之战]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_712289082
+    kind: PROCESS
+    name: 太平天国定都天京
+    system: 吴越文化系统
+    terms: [太平天国定都天京]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_8590607979
+    kind: PROCESS
+    name: 金陵机器局创办
+    system: 吴越文化系统
+    terms: [金陵机器局创办]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_8572018387
+    kind: PROCESS
+    name: 江南制造总局创办
+    system: 吴越文化系统
+    terms: [江南制造总局创办]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_4093192927
+    kind: PROCESS
+    name: 轮船招商局创办
+    system: 吴越文化系统
+    terms: [轮船招商局创办]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_2578465346
+    kind: PROCESS
+    name: 保路运动
+    system: 湖湘文化系统
+    terms: [保路运动]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_6090603123
+    kind: PROCESS
+    name: 武昌起义
+    system: 荆楚文化系统
+    terms: [武昌起义]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_4047007416
+    kind: PROCESS
+    name: 宜昌大撤退
+    system: 荆楚文化系统
+    terms: [宜昌大撤退]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_6924773665
+    kind: PROCESS
+    name: 重庆大轰炸与抗战陪都
+    system: 巴蜀文化系统
+    terms: [重庆大轰炸与抗战陪都]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_5704727557
+    kind: PROCESS
+    name: 渡江战役
+    system: 荆楚文化系统
+    terms: [渡江战役]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_6364658300
+    kind: PROCESS
+    name: 荆江分洪工程
+    system: 荆楚文化系统
+    terms: [荆江分洪工程]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_2897609886
+    kind: PROCESS
+    name: 武汉长江大桥建设
+    system: 荆楚文化系统
+    terms: [武汉长江大桥建设]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_474172567
+    kind: PROCESS
+    name: 葛洲坝水利枢纽建设
+    system: 荆楚文化系统
+    terms: [葛洲坝水利枢纽建设]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_9788185397
+    kind: PROCESS
+    name: 三峡工程建设
+    system: 巴蜀文化系统
+    terms: [三峡工程建设]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_6831399128
+    kind: PROCESS
+    name: 南水北调中线工程
+    system: 荆楚文化系统
+    terms: [南水北调中线工程]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_6283960708
+    kind: PROCESS
+    name: 1998年长江抗洪
+    system: 荆楚文化系统
+    terms: [1998年长江抗洪]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_3274092314
+    kind: PROCESS
+    name: 长江十年禁渔
+    system: 荆楚文化系统
+    terms: [长江十年禁渔]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_9891923596
+    kind: PROCESS
+    name: 浦东开发开放
+    system: 吴越文化系统
+    terms: [浦东开发开放]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_2670462332
+    kind: PROCESS
+    name: 三线建设重庆基地
+    system: 巴蜀文化系统
+    terms: [三线建设重庆基地]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_8299680978
+    kind: PROCESS
+    name: 成渝铁路建设
+    system: 巴蜀文化系统
+    terms: [成渝铁路建设]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_5536134834
+    kind: PROCESS
+    name: 抗战院校西迁
+    system: 巴蜀文化系统
+    terms: [抗战院校西迁]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_6190771439
+    kind: PROCESS
+    name: 禅宗南传与江南寺院
+    system: 吴越文化系统
+    terms: [禅宗南传与江南寺院]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_389371677
+    kind: PROCESS
+    name: 江南书院制度演进
+    system: 吴越文化系统
+    terms: [江南书院制度演进]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_8324235522
+    kind: PROCESS
+    name: 湖广填四川
+    system: 巴蜀文化系统
+    terms: [湖广填四川]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_6414418700
+    kind: PROCESS
+    name: 江西填湖广
+    system: 湖湘文化系统
+    terms: [江西填湖广]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_3412143539
+    kind: PROCESS
+    name: 芜湖米市形成
+    system: 赣皖文化系统
+    terms: [芜湖米市形成]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_7617259177
+    kind: PROCESS
+    name: 无锡米市与粮食集散
+    system: 吴越文化系统
+    terms: [无锡米市与粮食集散]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_948253923
+    kind: PROCESS
+    name: 近代上海开埠
+    system: 吴越文化系统
+    terms: [近代上海开埠]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_8754823960
+    kind: PROCESS
+    name: 宁波帮商业网络
+    system: 吴越文化系统
+    terms: [宁波帮商业网络]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
+  - id: p_1924013176
+    kind: PROCESS
+    name: 洞庭湖区围垦
+    system: 湖湘文化系统
+    terms: [洞庭湖区围垦]
+    fields: [time, origin, destination, carriers, mechanism, outcomes]
+    cross_region: false
+
