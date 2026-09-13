@@ -61,12 +61,15 @@ def fld(value: str, quotes: list[str]) -> dict:
 # 案例生成
 # ----------------------------------------------------------------------
 
+SCALE = 4  # §20：2000 用例（原 500×4）
+
+
 def gen_cases() -> list[dict]:
     cases: list[dict] = []
 
     # RT-A 流动硬门禁（120：各缺一项）
     for missing in ("origin", "destination", "content"):
-        for i in range(40):
+        for i in range(40 * SCALE):
             obj = {"name": f"flow缺{missing}{i}",
                    "origin": fld("甲地", ["Q0"]), "destination": fld("乙地", ["Q1"]),
                    "content": fld("茶叶", ["Q2"])}
@@ -76,14 +79,14 @@ def gen_cases() -> list[dict]:
                           "attack": f"flow 缺 {missing} 试图通过"})
 
     # RT-B 引文伪造（120）
-    for i in range(60):
+    for i in range(60 * SCALE):
         cases.append({"family": "RT-B", "id": f"B-fakeqid-{i}", "kind": "FLOW",
                       "bundle": fake_bundle(3, 2),
                       "obj": {"name": f"伪引{i}", "origin": fld("甲", ["Q0"]),
                               "destination": fld("乙", ["Q99"]),
                               "content": fld("盐", ["Q-1"])},
                       "expect_not": "ADMITTED", "attack": "引用不存在的 Q 编号"})
-    for i in range(60):
+    for i in range(60 * SCALE):
         cases.append({"family": "RT-B", "id": f"B-noquote-{i}", "kind": "PROCESS",
                       "bundle": fake_bundle(4, 2),
                       "obj": {"name": f"无证{i}", "summary": " x",
@@ -94,7 +97,7 @@ def gen_cases() -> list[dict]:
                       "expect_not": "ADMITTED", "attack": "时间字段零引文"})
 
     # RT-C 单来源越权（80）
-    for i in range(80):
+    for i in range(80 * SCALE):
         cases.append({"family": "RT-C", "id": f"C-single-{i}", "kind": "TRADITION",
                       "bundle": fake_bundle(6, 1),
                       "obj": {"name": f"单源{i}", "summary": " x",
@@ -106,32 +109,32 @@ def gen_cases() -> list[dict]:
                       "expect_not": "ADMITTED", "attack": "单来源集群试图 ADMITTED"})
 
     # RT-D/E 成员关系（120，走运行库实际门禁 SQL 判定）
-    for i in range(80):
+    for i in range(80 * SCALE):
         cases.append({"family": "RT-D", "id": f"D-geoonly-{i}",
                       "attack": "纯空间锚 Place 试图 ADMITTED",
                       "sql_probe": ("PLACE", 1, ["spatial"]), "expect": "blocked"})
     provinces = ["四川省", "湖北省", "湖南省", "江苏省", "浙江省", "安徽省", "江西省",
                  "贵州省", "云南省", "青海省", "甘肃省", "陕西省", "河南省", "广西壮族自治区"]
-    for i in range(40):
+    for i in range(40 * SCALE):
         cases.append({"family": "RT-E", "id": f"E-prov-{i}",
                       "attack": "省级容器试图 ADMITTED",
                       "sql_probe": (provinces[i % len(provinces)], 2, ["spatial", "temporal"]),
                       "expect": "blocked"})
 
     # RT-F 伪因果结构关系（40）——对运行库门禁的注入探测
-    for i in range(40):
+    for i in range(40 * SCALE):
         cases.append({"family": "RT-F", "id": f"F-fakecausal-{i}",
                       "attack": "0证据高风险谓词试图 ADMITTED",
                       "sql_probe_rel": (" developed_from ",), "expect": "blocked"})
 
     # RT-G 假任务闭合（10）——查询级不变量
-    for i in range(10):
+    for i in range(10 * SCALE):
         cases.append({"family": "RT-G", "id": f"G-falseres-{i}",
                       "attack": "缺口仍 OPEN 时任务标记 RESOLVED",
                       "sql_probe_task": True, "expect": "zero"})
 
     # RT-H 覆盖率造假（10）
-    for i in range(10):
+    for i in range(10 * SCALE):
         cases.append({"family": "RT-H", "id": f"H-lowcov-{i}", "kind": "PROCESS",
                       "bundle": fake_bundle(9, 3),
                       "obj": {"name": f"低覆盖{i}", "summary": " x",

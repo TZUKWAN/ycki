@@ -1,40 +1,40 @@
 {
-  "generated_at": "2026-09-13T03:28:14+0800",
-  "total_cases": 500,
+  "generated_at": "2026-09-14T04:02:38+0800",
+  "total_cases": 2000,
   "breaches": 0,
   "pass": true,
   "by_family": {
     "RT-A": {
-      "total": 120,
-      "blocked": 120
+      "total": 480,
+      "blocked": 480
     },
     "RT-B": {
-      "total": 120,
-      "blocked": 120
+      "total": 480,
+      "blocked": 480
     },
     "RT-C": {
-      "total": 80,
-      "blocked": 80
+      "total": 320,
+      "blocked": 320
     },
     "RT-D": {
-      "total": 80,
-      "blocked": 80
+      "total": 320,
+      "blocked": 320
     },
     "RT-E": {
-      "total": 40,
-      "blocked": 40
+      "total": 160,
+      "blocked": 160
     },
     "RT-F": {
+      "total": 160,
+      "blocked": 160
+    },
+    "RT-G": {
       "total": 40,
       "blocked": 40
     },
-    "RT-G": {
-      "total": 10,
-      "blocked": 10
-    },
     "RT-H": {
-      "total": 10,
-      "blocked": 10
+      "total": 40,
+      "blocked": 40
     }
   },
   "breach_details": [],
