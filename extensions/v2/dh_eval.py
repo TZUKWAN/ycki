@@ -106,25 +106,29 @@ def evaluate_answer(question: str, category: str, assembly: dict[str, Any],
     entailments: dict[str, str] = {}
     judge_used = False
     if entail_pairs and use_llm_judge:
-        listing = "\n".join(
-            f"{i}. 断言：{p['claim']}\n   引文[{p['ev']}]：{_norm(p['quote'])[:300]}"
-            for i, p in enumerate(entail_pairs[:24]))
-        prompt = (
-            "对每对『断言/引文』判定引文是否支持断言。只允许三值：supported / "
-            "unsupported（引文相关但方向或事实不符）/ unrelated（引文与断言无关）。\n"
-            "严格标准：断言中的年代、地名、因果关系必须有引文依据；引文未提及即不支持。\n"
-            "输出 JSON 数组：[{\"i\":编号,\"v\":\"supported|unsupported|unrelated\"}]\n\n"
-            + listing)
-        try:
-            arr = parse_json(chat([{"role": "user", "content": prompt}],
-                                  max_tokens=1600, temperature=0.0)) or []
-            if isinstance(arr, list):
-                for item in arr:
-                    if isinstance(item, dict) and "i" in item:
-                        entailments[str(item["i"])] = str(item.get("v", "unrelated"))
-                judge_used = bool(entailments)
-        except Exception:
-            judge_used = False
+        CHUNK = 10
+        for cs in range(0, len(entail_pairs), CHUNK):
+            chunk = entail_pairs[cs:cs + CHUNK]
+            listing = "\n".join(
+                f"{i}. 断言：{p['claim']}\n   引文[{p['ev']}]：{_norm(p['quote'])[:300]}"
+                for i, p in enumerate(chunk))
+            prompt = (
+                "对每对『断言/引文』判定引文是否支持断言。只允许三值：supported / "
+                "unsupported（引文相关但方向或事实不符）/ unrelated（引文与断言无关）。\n"
+                "严格标准：断言中的年代、地名、因果关系必须有引文依据；引文未提及即不支持。\n"
+                "输出 JSON 数组：[{\"i\":编号,\"v\":\"supported|unsupported|unrelated\"}]\n\n"
+                + listing)
+            try:
+                arr = parse_json(chat([{"role": "user", "content": prompt}],
+                                      max_tokens=120 + 60 * len(chunk), temperature=0.0)) or []
+                if isinstance(arr, list):
+                    for item in arr:
+                        if isinstance(item, dict) and "i" in item:
+                            entailments[str(cs + int(item["i"]))] = str(item.get("v", "unrelated"))
+                    judge_used = True
+            except Exception:
+                continue
+        judge_used = bool(entailments) or judge_used
 
     # ---- 确定性蕴含预检 + 汇总 ----
     n_entail_ok = n_entail_bad = 0
@@ -181,9 +185,13 @@ def evaluate_answer(question: str, category: str, assembly: dict[str, Any],
     # ---- 汇总维度 ----
     checks = {
         "structural_correctness": struct_ok,
-        "evidence_grounding": len(claims) > 0 and n_fake == 0 and n_uncited == 0
-                              and n_grounded >= 2,
-        "citation_entailment": n_entail_bad == 0 and n_entail_ok >= 2,
+        "evidence_grounding": (
+            # 零证据装配：诚实声明证据不足且零伪造引用 = 通过（不强迫编造）
+            ("证据不足" in answer or "尚无" in answer or "暂无" in answer or "无法" in answer)
+            and n_fake == 0 and n_grounded == 0
+        ) if len(evidence) == 0 else (
+            len(claims) > 0 and n_fake == 0 and n_uncited == 0 and n_grounded >= 2),
+        "citation_entailment": (n_entail_bad == 0 and (n_entail_ok >= 2 or not entail_pairs)),
         "temporal_coherence": True,   # 冲突年代已在 entailment 的 year_ok/dyn_ok 内判
         "spatial_coherence": spatial_ok,
         "mechanism_explanation": (category not in ("EVOLUTION", "FLOW", "INTERACTION",

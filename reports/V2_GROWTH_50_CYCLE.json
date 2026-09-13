@@ -1,0 +1,152 @@
+{
+  "generated_at": "2026-09-14T05:36:20+0800",
+  "cycles_available": 76,
+  "cycles_with_structural_gain": 4,
+  "gain_rate": 0.053,
+  "tasks_total": 240,
+  "tasks_resolved_in_cycle": 0,
+  "circuit_healthy_rate": 0.987,
+  "targets": {
+    "cycles": 50,
+    "gain_rate": 0.6,
+    "resolution": "20-task burn-in RESOLVED>=12 (G10)"
+  },
+  "gate": "FAIL",
+  "rows_tail": [
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_032758.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 21,
+      "gaps_open": 435,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_033359.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 21,
+      "gaps_open": 436,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_034030.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 21,
+      "gaps_open": 436,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_034623.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 21,
+      "gaps_open": 436,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_035111.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 21,
+      "gaps_open": 436,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_035650.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 21,
+      "gaps_open": 436,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_040214.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 21,
+      "gaps_open": 436,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_040731.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 21,
+      "gaps_open": 436,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_045132.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 21,
+      "gaps_open": 436,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_051044.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 46,
+      "gaps_open": 437,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_051350.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 46,
+      "gaps_open": 447,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_051732.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 46,
+      "gaps_open": 447,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_052048.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 46,
+      "gaps_open": 447,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_052932.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 50,
+      "gaps_open": 447,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_053432.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    }
+  ]
+}

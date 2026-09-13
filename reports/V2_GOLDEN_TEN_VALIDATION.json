@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T05:05:48+0800",
+  "generated_at": "2026-09-14T05:32:42+0800",
   "cases": [
     {
       "id": "G1",
@@ -303,9 +303,9 @@
         "processes": [
           {
             "name": "经济重心南移",
-            "exists": false,
-            "status": null,
-            "ok": false
+            "exists": true,
+            "status": "ADMITTED",
+            "ok": true
           },
           {
             "name": "近代开埠与上海城市化",
@@ -363,12 +363,12 @@
       },
       "coverage": {
         "traditions": 0.0,
-        "processes": 0.0,
+        "processes": 0.5,
         "flows": 0.5,
         "key_entities": 0.714,
         "interpretations": 0.0
       },
-      "ratio": 0.4,
+      "ratio": 0.467,
       "gate": "FAIL"
     },
     {
