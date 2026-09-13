@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """统一修复：栅栏清理 → 对 failed/pending 资源做 Scope Gate → CORE/CONTEXT 补上传 LightRAG。"""
+import os
 import sys
 import time
 from pathlib import Path
@@ -13,7 +14,7 @@ import requests
 from config.settings import SETTINGS
 from extensions.admission import resource_gate
 
-H = {"X-API-Key": "***REMOVED***"}
+H = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", "")}
 
 
 def unfreeze():

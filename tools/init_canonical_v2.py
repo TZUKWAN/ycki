@@ -21,6 +21,7 @@
 EXPECTED 恒等于当前版本 manifest（goal §9）。
 """
 from __future__ import annotations
+import os
 
 import argparse
 import hashlib
@@ -635,7 +636,7 @@ def dsn(override: str | None = None) -> str:
         from config.settings import SETTINGS  # type: ignore
         return SETTINGS.pg_dsn
     except Exception:
-        return "host=127.0.0.1 port=5433 dbname=ycki user=postgres password=***REMOVED***"
+        return os.environ.get("YCKI_PG_DSN", "")
 
 
 def main() -> int:

@@ -6,6 +6,7 @@
 4. 主题抽查询（真实 RAG 回答）+ 引用 file_path 反查 PG 的 source_url/authority
 """
 from __future__ import annotations
+import os
 
 import collections
 import json
@@ -24,7 +25,7 @@ GRAPH = RAG / "graph_chunk_entity_relation.graphml"
 CHUNKS = RAG / "kv_store_text_chunks.json"
 DOCS = RAG / "kv_store_full_docs.json"
 LIGHTRAG = "http://localhost:9621"
-H = {"X-API-Key": "***REMOVED***"}
+H = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", "")}
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from tools.registry import Registry  # noqa: E402
 

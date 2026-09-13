@@ -5,6 +5,7 @@
 - 引擎暂停/恢复
 """
 from __future__ import annotations
+import os
 
 import json
 import subprocess
@@ -27,7 +28,7 @@ sys.path.insert(0, str(ROOT))
 from tools.registry import Registry  # noqa: E402
 
 LIGHTRAG = "http://localhost:9621"
-H = {"X-API-Key": "***REMOVED***"}
+H = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", "")}
 CUSTOM_TOPICS = ROOT / "yangtze" / "custom_topics.json"
 ENGINE_STATE = ROOT / "data" / "engine_state.json"
 PAUSE_FLAG = ROOT / "data" / "engine_pause.flag"

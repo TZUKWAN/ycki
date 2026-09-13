@@ -48,9 +48,7 @@ class Settings:
     embed_model: str = os.environ.get("YCKI_EMBED_MODEL", "bge-m3")
 
     # PostgreSQL
-    pg_dsn: str = os.environ.get(
-        "YCKI_PG_DSN",
-        "host=127.0.0.1 port=5433 dbname=ycki user=postgres password=***REMOVED***")
+    pg_dsn: str = os.environ.get("YCKI_PG_DSN", "")
 
     # 路径
     lake_dir: Path = field(default_factory=lambda: Path(os.environ.get(

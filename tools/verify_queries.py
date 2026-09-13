@@ -3,6 +3,7 @@
 只输出真实结果：引用无法回查的会如实打印 UNRESOLVED。
 """
 from __future__ import annotations
+import os
 
 import json
 import sys
@@ -17,7 +18,7 @@ import requests
 from tools.registry import Registry
 
 LIGHTRAG = "http://localhost:9621"
-H = {"X-API-Key": "***REMOVED***", "Content-Type": "application/json"}
+H = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", ""), "Content-Type": "application/json"}
 
 QUESTIONS = [
     ("时空水利", "都江堰是谁主持修建的？由哪三大主体工程构成？"),

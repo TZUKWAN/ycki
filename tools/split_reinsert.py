@@ -2,6 +2,7 @@
 """顽固失败文档终态处置：按段落边界对半拆分 → 注册为两条新资源 → 重灌 LightRAG。
 原 PG 行标记 duplicate（fail_reason 指向拆分件），内容零丢失。
 """
+import os
 import hashlib
 import sys
 from pathlib import Path
@@ -15,7 +16,7 @@ from tools.fetcher import domain_of, lake_safe
 from tools.registry import Registry, rid_of
 
 LIGHTRAG = "http://localhost:9621"
-H = {"X-API-Key": "***REMOVED***"}
+H = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", "")}
 LAKE = Path(r"D:\长江学论纲\ycki\data\lake")
 
 

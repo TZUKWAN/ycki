@@ -50,8 +50,8 @@ docker exec ycki-postgres psql -U postgres -c "CREATE DATABASE ycki_cleanroom TE
 for f in 001_init 002_canonical_migration 003_pipeline_resume 004_er_evolution 005_retrieval_graph 006_cultural_system_v2 007_structural_layer_v2; do
   docker exec -i ycki-postgres psql -U postgres -d ycki_cleanroom -v ON_ERROR_STOP=1 < deploy/sql/$f.sql || exit 1
 done
-python tools/init_canonical_v2.py --apply --dsn "host=127.0.0.1 port=5433 dbname=ycki_cleanroom user=postgres password=***REMOVED***"
-python tools/init_canonical_v2.py --verify --dsn "host=127.0.0.1 port=5433 dbname=ycki_cleanroom user=postgres password=***REMOVED***"
+python tools/init_canonical_v2.py --apply --dsn "host=127.0.0.1 port=5433 dbname=ycki_cleanroom user=postgres password=<REDACTED>"
+python tools/init_canonical_v2.py --verify --dsn "host=127.0.0.1 port=5433 dbname=ycki_cleanroom user=postgres password=<REDACTED>"
 docker exec ycki-postgres psql -U postgres -c "DROP DATABASE ycki_cleanroom"
 ```
 

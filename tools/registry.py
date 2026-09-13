@@ -17,10 +17,7 @@ log = logging.getLogger("ycki.registry")
 
 import os
 
-DSN = os.environ.get(
-    "YCKI_PG_DSN",
-    "host=127.0.0.1 port=5433 dbname=ycki user=postgres password=***REMOVED***",
-)
+DSN = os.environ.get("YCKI_PG_DSN", "")
 
 # 权威分级（方案 §14：仅作证据信息之一，非唯一真值判据）
 GOV_SUFFIX = (".gov.cn",)

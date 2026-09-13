@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """把已过准入但缺失 LightRAG 文档的 CORE/CONTEXT 资源重灌检索索引。"""
+import os
 import sys
 from pathlib import Path
 
@@ -13,7 +14,7 @@ import requests
 
 from config.settings import SETTINGS
 
-H = {"X-API-Key": "***REMOVED***"}
+H = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", "")}
 
 
 def safe_fs(title: str, rid: str) -> str:

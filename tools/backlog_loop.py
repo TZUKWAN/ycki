@@ -2,6 +2,7 @@
 """积压清零循环：解楔 → gate 评审 → 补传 → 等 LightRAG 消化 → canonical pass → 对账。
 循环直到 PG 中 CORE/CONTEXT 资源全部有 lightrag_doc_id 且无 FETCHED 积压。
 """
+import os
 import json
 import subprocess
 import sys
@@ -18,7 +19,7 @@ import requests
 
 from config.settings import SETTINGS
 
-H = {"X-API-Key": "***REMOVED***"}
+H = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", "")}
 
 
 def log(msg):

@@ -22,6 +22,7 @@
     python tools/rebuild_memberships.py --apply     # 单事务写回
 """
 from __future__ import annotations
+import os
 
 import argparse
 import json
@@ -58,7 +59,7 @@ def dsn() -> str:
         from config.settings import SETTINGS  # type: ignore
         return SETTINGS.pg_dsn
     except Exception:
-        return "host=127.0.0.1 port=5433 dbname=ycki user=postgres password=***REMOVED***"
+        return os.environ.get("YCKI_PG_DSN", "")
 
 
 def rebuild(conn: psycopg2.extensions.connection, apply: bool) -> dict[str, Any]:

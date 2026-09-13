@@ -5,6 +5,7 @@ SearXNG 搜索 -> 轻量抓取 -> 正文抽取 -> 湖存储 -> PG 注册（去�
 """
 from __future__ import annotations
 
+import os
 import argparse
 import json
 import logging
@@ -27,7 +28,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname
 log = logging.getLogger("ycki.collect")
 
 LIGHTRAG = "http://localhost:9621"
-LR_HEADERS = {"X-API-Key": "***REMOVED***"}
+LR_HEADERS = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", "")}
 LAKE = Path(r"D:\长江学论纲\ycki\data\lake")
 
 

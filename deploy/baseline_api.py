@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """T01 基线上传/管理脚本：UTF-8 文件名安全上传 + 状态轮询 + 查询 + 删除"""
+import os
 import io
 import json
 import sys
@@ -8,7 +9,7 @@ import time
 import requests
 
 API = "http://localhost:9621"
-KEY = "***REMOVED***"
+KEY = os.environ.get("LIGHTRAG_API_KEY", "")
 H = {"X-API-Key": KEY}
 
 

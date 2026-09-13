@@ -3,6 +3,7 @@
 匹配键：resources.lightrag_doc_id 中保存的 file_source（上传时的 file_path）。
 """
 from __future__ import annotations
+import os
 
 import sys
 from pathlib import Path
@@ -15,7 +16,7 @@ import requests
 from tools.registry import Registry
 
 LIGHTRAG = "http://localhost:9621"
-LR_HEADERS = {"X-API-Key": "***REMOVED***"}
+LR_HEADERS = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", "")}
 
 
 def fetch_all_docs():

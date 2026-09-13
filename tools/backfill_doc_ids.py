@@ -4,6 +4,7 @@
 原理：collect 上传时 file_source 含 resource_id 后 8 位（{title}_{rid8}.txt），
 与 LightRAG docs.file_path 可匹配；维基源经 wikipedia_provider 亦同规则。
 """
+import os
 import sys
 from pathlib import Path
 
@@ -15,7 +16,7 @@ import requests
 
 from config.settings import SETTINGS
 
-H = {"X-API-Key": "***REMOVED***"}
+H = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", "")}
 
 
 def all_lr_docs():

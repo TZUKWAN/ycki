@@ -25,6 +25,7 @@
   python tools/validate_v2_ontology.py --json     # 机器可读输出
 """
 from __future__ import annotations
+import os
 
 import argparse
 import json
@@ -261,7 +262,7 @@ def validate_db() -> list[Finding]:
         from config.settings import SETTINGS  # type: ignore
         dsn = SETTINGS.pg_dsn
     except Exception:
-        dsn = "host=127.0.0.1 port=5433 dbname=ycki user=postgres password=***REMOVED***"
+        dsn = os.environ.get("YCKI_PG_DSN", "")
     conn = psycopg2.connect(dsn)
     try:
         with conn.cursor() as cur:

@@ -2,6 +2,7 @@
 """修复 40 条 PG failed(lightrag_upload)：重新上传正文到 LightRAG，用 resource_id 做安全 file_source。
 不依赖原 title（可能有乱码/截断），用 title 前 30 字 + rid 后缀。
 """
+import os
 import sys
 from pathlib import Path
 
@@ -13,7 +14,7 @@ import requests
 from tools.registry import Registry
 
 LIGHTRAG = "http://localhost:9621"
-H = {"X-API-Key": "***REMOVED***"}
+H = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", "")}
 
 
 def safe_title(t: str, rid: str) -> str:

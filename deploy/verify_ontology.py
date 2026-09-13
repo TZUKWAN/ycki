@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """T04 验证：上传都江堰测试文本，验证长江文化本体类型（Person/WaterSystem/Site）真实生效"""
+import os
 import json
 import sys
 import time
@@ -7,7 +8,7 @@ import time
 import requests
 
 API = "http://localhost:9621"
-H = {"X-API-Key": "***REMOVED***",
+H = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", ""),
      "Content-Type": "application/json"}
 
 TEXT = """都江堰水利工程概况

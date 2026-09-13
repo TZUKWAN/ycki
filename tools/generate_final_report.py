@@ -95,27 +95,55 @@ def main() -> int:
         daemon = {}
     dh_ok = dh.get("answered") == 100 and (dh.get("mean_score") or 0) >= 0.85
 
+    # 门禁状态直读（含 FAIL_CAPABILITY_ABSENT / NOT_MEASURED 语义，§3.2）
+    g09 = gate.get("G09", {}).get("status", "NOT_MEASURED")
+    g04 = gate.get("G04", {}).get("status", "NOT_MEASURED")
+    g1213 = gate.get("G12/G13", {}).get("status", "NOT_MEASURED")
+    g05 = gate.get("G05", {}).get("status", "NOT_MEASURED")
+    g06 = gate.get("G06", {}).get("status", "NOT_MEASURED")
+
+    # Golden Ten：从真实综合报告计算（10/10 结构 ADMITTED 且流动能力存在）
+    synth = _json_report("V2_GOLDEN_CASE_SYNTHESIS.json")
+    results = synth.get("results", []) if isinstance(synth, dict) else []
+    golden_admitted = sum(1 for r in results if r.get("decision") == "ADMITTED")
+    flows_now = counts.get("flows", 0)
+    golden_status = ("PASS" if len(results) >= 10 and golden_admitted >= 10 and flows_now > 0
+                     else f"PARTIAL(admitted={golden_admitted}/{len(results)},flows={flows_now})")
+
+    # Clean Room：读取真实报告，禁止硬编码 PASS
+    cr_path = ROOT / "reports" / "V2_CLEAN_ROOM_REPORT.md"
+    if cr_path.exists() and "PASS" in cr_path.read_text(encoding="utf-8"):
+        cr_mtime = time.strftime("%Y-%m-%d %H:%M", time.localtime(cr_path.stat().st_mtime))
+        clean_room = f"PASS(report {cr_mtime})"
+    else:
+        clean_room = "NOT_MEASURED(no fresh clean-room report)"
+
+    burn_cycles = len(burn_in.get("cycles", [])) if isinstance(burn_in, dict) else 0
+    struct_rel = ("PASS" if g05 == "PASS" and g06 == "PASS"
+                  else (g05 if g05 != "PASS" else g06))
+
     phase_status = {
         "REPRODUCIBILITY": gate["G01"]["status"],
         "ONTOLOGY": gate["G02/G03"]["status"],
         "HYDRO_SPATIAL": gate["G02/G03"]["status"],
-        "SYSTEM_MEMBERSHIP": gate["G04"]["status"],
-        "STRUCTURAL_RELATION": gate["G05"]["status"] and gate["G06"]["status"],
+        "SYSTEM_MEMBERSHIP": g04,
+        "STRUCTURAL_RELATION": struct_rel,
         "TRADITION": gate["G07"]["status"],
         "PROCESS": gate["G08"]["status"],
-        "FLOW": gate["G09"]["status"],
+        "FLOW": g09,
         "INTERPRETATION": ("PASS" if counts.get("interpretations", 0) > 0
                            and counts.get("interpretations_without_evidence", 1) == 0
                            else ("FAIL" if counts.get("interpretations", 0) > 0 else "NOT_MEASURED")),
-        "STRUCTURAL_GAP_ENGINE": "PASS" if gate["G12/G13"]["status"] == "PASS" else gate["G12/G13"]["status"],
-        "RESEARCH_ENGINE": gate["G12/G13"]["status"],
-        "DIGITAL_HUMANITIES_BENCHMARK": ("PASS(proxy_eval,mean=%.3f)" % dh["mean_score"]
-                                         if dh_ok else "PARTIAL(questions_ready,answers_not_measured)"),
-        "GOLDEN_TEN": "PARTIAL(structures_partial,flows=0)",
+        "STRUCTURAL_GAP_ENGINE": g1213,
+        "RESEARCH_ENGINE": g1213,
+        "DIGITAL_HUMANITIES_BENCHMARK": (f"FAIL_PROXY_ONLY(mean={dh.get('mean_score')},needs_real_benchmark)"
+                                         if dh_ok else "NOT_MEASURED(questions_ready,answers_not_measured)"),
+        "GOLDEN_TEN": golden_status,
         "RED_TEAM": ("PASS" if red_team.get("total_cases", 0) >= 500 and red_team.get("breaches") == 0
                      else ("FAIL" if red_team else "NOT_MEASURED")),
-        "CLEAN_ROOM": "PASS(2026-09-13 twice)",  # reports/V2_CLEAN_ROOM_REPORT.md
-        "BURN_IN": ("PASS_PARTIAL_GAIN" if len(burn_in.get("cycles", [])) >= 3 else "NOT_MEASURED"),
+        "CLEAN_ROOM": clean_room,
+        "BURN_IN": (f"PARTIAL_GAIN(cycles={burn_cycles})" if burn_cycles >= 3
+                    else f"NOT_MEASURED(cycles={burn_cycles})"),
         "SOAK_TEST": ("PASS" if soak.get("cycles_completed", 0) >= 10
                       and soak.get("zero_violation_across_run") else
                       (f"PARTIAL({soak.get('cycles_completed', 0)}/10)" if soak else "NOT_MEASURED")),

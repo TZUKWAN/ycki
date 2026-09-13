@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-09-13T13:46:23+0800",
-  "git_commit": "95aa300",
+  "generated_at": "2026-09-14T01:23:12+0800",
+  "git_commit": "df6844f",
   "final_status": "FAIL",
   "phase_status": {
     "REPRODUCIBILITY": "PASS",
     "ONTOLOGY": "PASS",
     "HYDRO_SPATIAL": "PASS",
-    "SYSTEM_MEMBERSHIP": "PASS",
+    "SYSTEM_MEMBERSHIP": "NOT_MEASURED",
     "STRUCTURAL_RELATION": "PASS",
     "TRADITION": "PASS",
     "PROCESS": "PASS",
-    "FLOW": "PASS",
+    "FLOW": "FAIL_CAPABILITY_ABSENT",
     "INTERPRETATION": "PASS",
-    "STRUCTURAL_GAP_ENGINE": "PASS",
-    "RESEARCH_ENGINE": "PASS",
-    "DIGITAL_HUMANITIES_BENCHMARK": "PASS(proxy_eval,mean=0.917)",
-    "GOLDEN_TEN": "PARTIAL(structures_partial,flows=0)",
+    "STRUCTURAL_GAP_ENGINE": "NOT_MEASURED",
+    "RESEARCH_ENGINE": "NOT_MEASURED",
+    "DIGITAL_HUMANITIES_BENCHMARK": "FAIL_PROXY_ONLY(mean=0.917,needs_real_benchmark)",
+    "GOLDEN_TEN": "PARTIAL(admitted=9/20,flows=0)",
     "RED_TEAM": "PASS",
-    "CLEAN_ROOM": "PASS(2026-09-13 twice)",
-    "BURN_IN": "PASS_PARTIAL_GAIN",
+    "CLEAN_ROOM": "PASS(report 2026-09-13 03:29)",
+    "BURN_IN": "PARTIAL_GAIN(cycles=3)",
     "SOAK_TEST": "PASS",
-    "CULTURAL_SYSTEM_AUTONOMOUS_GROWTH": "RUNNING(daemon cycle 39)",
+    "CULTURAL_SYSTEM_AUTONOMOUS_GROWTH": "RUNNING(daemon cycle 43)",
     "CANONICAL_V1_REGRESSION": "PASS"
   },
   "gates": [
@@ -31,7 +31,12 @@
       "metrics": {
         "verify_exit": 0
       },
-      "failures": []
+      "failures": [],
+      "sample_count": 1,
+      "positive_count": 0,
+      "negative_count": 0,
+      "minimum_required_sample": 1,
+      "coverage": null
     },
     {
       "id": "G02/G03",
@@ -40,18 +45,34 @@
       "metrics": {
         "ontology_errors": 0
       },
-      "failures": []
+      "failures": [],
+      "sample_count": 1,
+      "positive_count": 0,
+      "negative_count": 0,
+      "minimum_required_sample": 1,
+      "coverage": null
     },
     {
       "id": "G04",
       "name": "Membership",
-      "status": "PASS",
+      "status": "NOT_MEASURED",
       "metrics": {
         "geo_only_admitted": 0,
         "admitted": 23,
-        "candidate": 2013
+        "candidate": 2014,
+        "benchmark_diagnostic": {
+          "sample_size": 131,
+          "admitted_precision": 0.5217
+        }
       },
-      "failures": []
+      "failures": [
+        "sample 23 < minimum 30"
+      ],
+      "sample_count": 23,
+      "positive_count": 23,
+      "negative_count": 0,
+      "minimum_required_sample": 30,
+      "coverage": 0.767
     },
     {
       "id": "G05",
@@ -62,19 +83,28 @@
         "evidence_less_admitted": 0,
         "ontology_relations": 7
       },
-      "failures": []
+      "failures": [],
+      "sample_count": 21,
+      "positive_count": 21,
+      "negative_count": 0,
+      "minimum_required_sample": 1,
+      "coverage": 21.0
     },
     {
       "id": "G06",
       "name": "HighRiskRelationPolicy",
       "status": "PASS",
       "metrics": {
-        "admitted_without_policy_version": 0,
-        "predicates_v2": 35,
-        "high_risk_predicates_min2src": 11,
-        "high_risk_missing": 0
+        "high_risk_predicates": 11,
+        "violations_detail": {},
+        "admitted_without_policy_version": 0
       },
-      "failures": []
+      "failures": [],
+      "sample_count": 21,
+      "positive_count": 21,
+      "negative_count": 0,
+      "minimum_required_sample": 1,
+      "coverage": 21.0
     },
     {
       "id": "G07",
@@ -82,10 +112,15 @@
       "status": "PASS",
       "metrics": {
         "admitted_without_evidence": 0,
-        "total": 6,
-        "admitted": 4
+        "key_field_missing": 0,
+        "total": 6
       },
-      "failures": []
+      "failures": [],
+      "sample_count": 4,
+      "positive_count": 4,
+      "negative_count": 0,
+      "minimum_required_sample": 1,
+      "coverage": 4.0
     },
     {
       "id": "G08",
@@ -94,56 +129,85 @@
       "metrics": {
         "without_time_evidence": 0,
         "without_process_structure": 0,
-        "total": 6,
-        "admitted": 5
+        "total": 6
       },
-      "failures": []
+      "failures": [],
+      "sample_count": 5,
+      "positive_count": 5,
+      "negative_count": 0,
+      "minimum_required_sample": 1,
+      "coverage": 5.0
     },
     {
       "id": "G09",
       "name": "Flow",
-      "status": "PASS",
+      "status": "FAIL_CAPABILITY_ABSENT",
       "metrics": {
         "missing_hard_fields": 0,
+        "missing_evidence": 0,
         "total": 0
       },
-      "failures": []
+      "failures": [
+        "capability absent: no valid samples exist"
+      ],
+      "sample_count": 0,
+      "positive_count": 0,
+      "negative_count": 0,
+      "minimum_required_sample": 1,
+      "coverage": 0.0
     },
     {
       "id": "G10",
       "name": "Provenance",
       "status": "PASS",
       "metrics": {
-        "traditions_with_resource": 4,
-        "traditions_total": 6,
-        "processes_with_resource": 5,
-        "processes_total": 6
+        "traditions_traced": "4/4",
+        "processes_traced": "5/5",
+        "flows_total": 0
       },
-      "failures": []
+      "failures": [],
+      "sample_count": 9,
+      "positive_count": 9,
+      "negative_count": 0,
+      "minimum_required_sample": 1,
+      "coverage": 9.0
     },
     {
       "id": "G12/G13",
       "name": "GapEngine+ResearchTask",
-      "status": "PASS",
+      "status": "NOT_MEASURED",
       "metrics": {
-        "gaps_open": 527,
+        "gaps_open": 532,
         "gaps_resolved": 3,
         "tasks": 10,
+        "tasks_resolved": 0,
         "false_resolution": 0
       },
-      "failures": []
+      "failures": [
+        "sample 0 < minimum 1"
+      ],
+      "sample_count": 0,
+      "positive_count": 0,
+      "negative_count": 0,
+      "minimum_required_sample": 1,
+      "coverage": 0.0
     },
     {
       "id": "V1REG",
       "name": "canonical_v1 regression guard",
       "status": "PASS",
       "metrics": {
-        "resources": 4034,
-        "admitted_claims": 4383,
-        "entities": 27625,
+        "resources": 4042,
+        "admitted_claims": 4482,
+        "entities": 27630,
         "claims_without_evidence": 0
       },
-      "failures": []
+      "failures": [],
+      "sample_count": 4482,
+      "positive_count": 0,
+      "negative_count": 0,
+      "minimum_required_sample": 1,
+      "coverage": null
     }
   ],
   "membership_benchmark": {
@@ -155,17 +219,17 @@
     "interpretation": "单模型受限：同模型证据丰富判官=准入终审（自洽不可作金标）；本 precision 为信息饥饿盲判官一致率（诊断指标，系统性低于准入判官）；多模型金标 P/R/F1 因网关仅 1 稳定模型而 NOT_MEASURED"
   },
   "counts": {
-    "resources": 4034,
-    "entities": 27625,
-    "claims_admitted": 4383,
-    "evidence": 4822,
+    "resources": 4042,
+    "entities": 27630,
+    "claims_admitted": 4482,
+    "evidence": 4923,
     "systems": 8,
     "regions": 7,
     "hydro_units": 34,
     "hydro_relations": 46,
     "phases": 13,
     "domains": 93,
-    "system_memberships": 10081,
+    "system_memberships": 10082,
     "memberships_admitted": 23,
     "traditions": 6,
     "processes": 6,
@@ -174,14 +238,14 @@
     "interpretations": 9,
     "interpretation_evidence": 166,
     "interpretations_without_evidence": 0,
-    "fact_only_entities": 17563,
-    "gaps_open": 527,
-    "gaps_partial": 3,
+    "fact_only_entities": 17567,
+    "gaps_open": 532,
+    "gaps_partial": 4,
     "gaps_resolved": 3,
     "tasks_resolved": 0
   },
   "notes": [
-    "未达 PASS 项（§120）：DIGITAL_HUMANITIES_BENCHMARK=PASS(proxy_eval,mean=0.917); GOLDEN_TEN=PARTIAL(structures_partial,flows=0); CLEAN_ROOM=PASS(2026-09-13 twice); BURN_IN=PASS_PARTIAL_GAIN; CULTURAL_SYSTEM_AUTONOMOUS_GROWTH=RUNNING(daemon cycle 39)",
+    "未达 PASS 项（§120）：SYSTEM_MEMBERSHIP=NOT_MEASURED; FLOW=FAIL_CAPABILITY_ABSENT; STRUCTURAL_GAP_ENGINE=NOT_MEASURED; RESEARCH_ENGINE=NOT_MEASURED; DIGITAL_HUMANITIES_BENCHMARK=FAIL_PROXY_ONLY(mean=0.917,needs_real_benchmark); GOLDEN_TEN=PARTIAL(admitted=9/20,flows=0); CLEAN_ROOM=PASS(report 2026-09-13 03:29); BURN_IN=PARTIAL_GAIN(cycles=3); CULTURAL_SYSTEM_AUTONOMOUS_GROWTH=RUNNING(daemon cycle 43)",
     "按 §0.4：代码完成/SQL成功/HTTP200/数据库有数据均不视为完成；完成只由验收门禁决定。"
   ]
 }

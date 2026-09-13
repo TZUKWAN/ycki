@@ -15,6 +15,7 @@ Gate 10 ResearchTask 假完成 = 0
 FAIL 的 ADMITTED 证据自动 REVOKED（§31），并计入修复清单。
 """
 from __future__ import annotations
+import os
 
 import json
 import re
@@ -52,7 +53,7 @@ def gate_scope_benchmark() -> dict:
     if not gold_path.exists():
         return {"gate": "SKIP", "reason": "scope_gold.json 未生成（NOT MEASURED）"}
     cases = json.loads(gold_path.read_text(encoding="utf-8"))["cases"]
-    H = {"X-API-Key": "***REMOVED***"}
+    H = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", "")}
     tp = fp = fn = tn = 0
     per_class = Counter()
     fails = []

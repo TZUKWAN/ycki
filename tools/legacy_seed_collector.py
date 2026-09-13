@@ -11,6 +11,7 @@
   python auto_growth.py            # 持续循环（默认）
   python auto_growth.py --once     # 单轮后退出（测试用）
 """
+import os
 import argparse
 import glob
 import json
@@ -28,7 +29,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 import requests
 
 LIGHTRAG = "http://localhost:9621"
-H = {"X-API-Key": "***REMOVED***"}  # 服务端已关闭鉴权则此头被忽略，两边兼容
+H = {"X-API-Key": os.environ.get("LIGHTRAG_API_KEY", "")}  # 服务端已关闭鉴权则此头被忽略，两边兼容
 LOG = ROOT / "data" / "auto_growth.log"
 ENGINE_STATE = ROOT / "data" / "engine_state.json"
 PAUSE_FLAG = ROOT / "data" / "engine_pause.flag"
