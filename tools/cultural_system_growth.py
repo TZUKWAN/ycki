@@ -180,10 +180,16 @@ def run_cycle(max_gaps: int) -> dict[str, Any]:
             cur.execute("""
                 SELECT g.gap_id::text, g.gap_type, g.priority, g.current_structure, g.missing_structure
                 FROM structural_gaps g
+                LEFT JOIN LATERAL (
+                    SELECT count(*) AS attempts FROM structural_research_tasks t
+                    WHERE t.gap_id=g.gap_id AND t.status IN ('NO_GAIN','FAILED')
+                      AND t.updated_at > now() - interval '24 hours'
+                ) f ON true
                 WHERE g.status='OPEN'
                   AND NOT EXISTS (SELECT 1 FROM structural_research_tasks t
                                   WHERE t.gap_id=g.gap_id AND t.status IN ('RESOLVED','FAILED'))
-                ORDER BY g.priority DESC, g.created_at
+                ORDER BY g.priority * CASE WHEN COALESCE(f.attempts,0) >= 2 THEN 0.4 ELSE 1 END DESC,
+                         g.created_at
                 LIMIT %s
             """, (max_gaps,))
             gaps = [{"gap_id": r["gap_id"], "type": r["gap_type"], "priority": float(r["priority"]),
