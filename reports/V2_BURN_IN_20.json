@@ -1,0 +1,262 @@
+{
+  "generated_at": "2026-09-14T06:35:31+0800",
+  "total": 12,
+  "resolved": 3,
+  "target": 12,
+  "gate": "FAIL",
+  "results": [
+    {
+      "idx": 1,
+      "gap_id": "ccaaab4a-b5ad-4bb0-8d48-952a4449bcc5",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "target": "吴越文化系统<->湖湘文化系统",
+      "queries": [
+        "吴越文化系统<->湖湘文化系统 历史",
+        "吴越文化系统<->湖湘文化系统 起源",
+        "吴越文化系统<->湖湘文化系统 沿革"
+      ],
+      "collect_exit": 0,
+      "synthesis": {
+        "attempted": true,
+        "decision": "ERROR",
+        "reason": "ValueError: dictionary update sequence element #0 has length 20; 2 is required"
+      },
+      "gap_still_open": false,
+      "status": "RESOLVED",
+      "task_id": "4f6c1f0f-5f92-4a7d-841e-ff09287ff7e9",
+      "elapsed_s": 55.2
+    },
+    {
+      "idx": 2,
+      "gap_id": "674b71de-e192-48b5-be1d-405d620a9065",
+      "gap_type": "MISSING_HYDRO_LINK",
+      "target": "长江十年禁渔",
+      "queries": [
+        "长江十年禁渔 历史",
+        "長江十年禁渔 历史",
+        "长江十年禁渔 起源"
+      ],
+      "collect_exit": 0,
+      "synthesis": {
+        "attempted": false,
+        "decision": null,
+        "reason": "gap_type MISSING_HYDRO_LINK 不走综合路径（membership/hydro 重建处理）"
+      },
+      "gap_still_open": false,
+      "status": "RESOLVED",
+      "task_id": "bcf3e073-95f3-4901-8f7c-4cdfb1f3964c",
+      "elapsed_s": 22.6
+    },
+    {
+      "idx": 3,
+      "gap_id": "c22b32fd-ed67-442b-9600-492002e28555",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "target": "苏轼",
+      "queries": [
+        "苏轼 历史",
+        "苏轼 起源",
+        "苏轼 沿革"
+      ],
+      "collect_exit": 0,
+      "synthesis": {
+        "attempted": false,
+        "decision": null,
+        "reason": "gap_type MISSING_SYSTEM_MEMBERSHIP 不走综合路径（membership/hydro 重建处理）"
+      },
+      "gap_still_open": false,
+      "status": "RESOLVED",
+      "task_id": "71e086db-9a7d-4662-b086-652a02f1adee",
+      "elapsed_s": 9.1
+    },
+    {
+      "idx": 4,
+      "gap_id": "778f02db-9364-48f3-addc-a0605d9f4534",
+      "gap_type": "SINGLE_SOURCE_STRUCTURE",
+      "target": "FLOW:19688be3-7d40-4978-aa50-367eec43b568",
+      "queries": [
+        "FLOW:19688be3-7d40-4978-aa50-367eec43b568 历史",
+        "FLOW:19688be3-7d40-4978-aa50-367eec43b568 起源",
+        "FLOW:19688be3-7d40-4978-aa50-367eec43b568 沿革"
+      ],
+      "collect_exit": 0,
+      "synthesis": {
+        "attempted": true,
+        "decision": "SKIP_INSUFFICIENT_EVIDENCE",
+        "reason": "distinct_resources=0 < 2"
+      },
+      "gap_still_open": true,
+      "status": "NO_GAIN",
+      "task_id": "e6ed2728-8770-49e0-bfb2-679c61a604cf",
+      "elapsed_s": 70.4
+    },
+    {
+      "idx": 5,
+      "gap_id": "a107b977-6488-4bcb-8bb1-6bb47665dec9",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "target": "巴蜀文化系统<->湖湘文化系统",
+      "queries": [
+        "巴蜀文化系统<->湖湘文化系统 历史",
+        "巴蜀文化系统<->湖湘文化系统 起源",
+        "巴蜀文化系统<->湖湘文化系统 沿革"
+      ],
+      "collect_exit": 0,
+      "synthesis": {
+        "attempted": true,
+        "decision": "ERROR",
+        "reason": "ValueError: dictionary update sequence element #0 has length 20; 2 is required"
+      },
+      "gap_still_open": true,
+      "status": "NO_GAIN",
+      "task_id": "3e3004f8-1836-4e74-b782-649eefb368ac",
+      "elapsed_s": 30.3
+    },
+    {
+      "idx": 6,
+      "gap_id": "a8cb779f-f20b-4625-b651-b6fce1538ce9",
+      "gap_type": "MISSING_HYDRO_LINK",
+      "target": "江西填湖广",
+      "queries": [
+        "江西填湖广 历史",
+        "江西填湖廣 历史",
+        "江西填湖广 起源"
+      ],
+      "collect_exit": 0,
+      "synthesis": {
+        "attempted": false,
+        "decision": null,
+        "reason": "gap_type MISSING_HYDRO_LINK 不走综合路径（membership/hydro 重建处理）"
+      },
+      "gap_still_open": true,
+      "status": "NO_GAIN",
+      "task_id": "195d2b6b-a7ca-443e-8cf3-d1674d1e5c7e",
+      "elapsed_s": 10.9
+    },
+    {
+      "idx": 7,
+      "gap_id": "6cd402c1-60c4-438c-90d8-21eea734099e",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "target": "恩施市",
+      "queries": [
+        "恩施市 历史",
+        "恩施市 起源",
+        "恩施市 沿革"
+      ],
+      "collect_exit": 0,
+      "synthesis": {
+        "attempted": false,
+        "decision": null,
+        "reason": "gap_type MISSING_SYSTEM_MEMBERSHIP 不走综合路径（membership/hydro 重建处理）"
+      },
+      "gap_still_open": true,
+      "status": "NO_GAIN",
+      "task_id": "6e8e84fd-cbe2-4f99-b8e6-e0d4833d945d",
+      "elapsed_s": 11.9
+    },
+    {
+      "idx": 8,
+      "gap_id": "70d672d0-e34a-4570-a715-d7e24e80b8f9",
+      "gap_type": "SINGLE_SOURCE_STRUCTURE",
+      "target": "TRADITION:湘剧",
+      "queries": [
+        "TRADITION:湘剧 历史",
+        "TRADITION:湘剧 起源",
+        "TRADITION:湘剧 沿革"
+      ],
+      "collect_exit": 0,
+      "synthesis": {
+        "attempted": true,
+        "decision": "ERROR",
+        "reason": "ValueError: dictionary update sequence element #0 has length 36; 2 is required"
+      },
+      "gap_still_open": true,
+      "status": "NO_GAIN",
+      "task_id": "df5fe084-37d7-4760-b026-25acadf51c5d",
+      "elapsed_s": 154.7
+    },
+    {
+      "idx": 9,
+      "gap_id": "66032ed5-25aa-4229-890c-72b940147b09",
+      "gap_type": "MISSING_CROSS_REGION_LINK",
+      "target": "巴蜀文化系统<->滇黔文化系统",
+      "queries": [
+        "巴蜀文化系统<->滇黔文化系统 历史",
+        "巴蜀文化系统<->滇黔文化系统 起源",
+        "巴蜀文化系统<->滇黔文化系统 沿革"
+      ],
+      "collect_exit": 0,
+      "synthesis": {
+        "attempted": true,
+        "decision": "ERROR",
+        "reason": "ValueError: dictionary update sequence element #0 has length 20; 2 is required"
+      },
+      "gap_still_open": true,
+      "status": "NO_GAIN",
+      "task_id": "ad3ba7d3-b3e2-405e-a903-d27d83cefc49",
+      "elapsed_s": 111.7
+    },
+    {
+      "idx": 10,
+      "gap_id": "59771615-ffda-4545-84b2-02bca1c0942b",
+      "gap_type": "MISSING_HYDRO_LINK",
+      "target": "武汉开埠与近代转型",
+      "queries": [
+        "武汉开埠与近代转型 历史",
+        "武漢开埠与近代转型 历史",
+        "武汉开埠与近代转型 起源"
+      ],
+      "collect_exit": 0,
+      "synthesis": {
+        "attempted": false,
+        "decision": null,
+        "reason": "gap_type MISSING_HYDRO_LINK 不走综合路径（membership/hydro 重建处理）"
+      },
+      "gap_still_open": true,
+      "status": "NO_GAIN",
+      "task_id": "1672ff00-a727-4de0-9047-b781f161dc09",
+      "elapsed_s": 20.6
+    },
+    {
+      "idx": 11,
+      "gap_id": "b38f2685-091b-4ddb-90f5-a3ccb8c49a45",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "target": "张之洞",
+      "queries": [
+        "张之洞 历史",
+        "张之洞 起源",
+        "张之洞 沿革"
+      ],
+      "collect_exit": 0,
+      "synthesis": {
+        "attempted": false,
+        "decision": null,
+        "reason": "gap_type MISSING_SYSTEM_MEMBERSHIP 不走综合路径（membership/hydro 重建处理）"
+      },
+      "gap_still_open": true,
+      "status": "NO_GAIN",
+      "task_id": "342a5f17-3dca-4a42-a23c-a02d4dacbe7a",
+      "elapsed_s": 11.0
+    },
+    {
+      "idx": 12,
+      "gap_id": "32a64f19-12d4-49f0-9bdd-14e4484ae1a6",
+      "gap_type": "SINGLE_SOURCE_STRUCTURE",
+      "target": "TRADITION:土家族摆手舞",
+      "queries": [
+        "TRADITION:土家族摆手舞 历史",
+        "TRADITION:土家族摆手舞 起源",
+        "TRADITION:土家族摆手舞 沿革"
+      ],
+      "collect_exit": 0,
+      "synthesis": {
+        "attempted": true,
+        "decision": "ERROR",
+        "reason": "ValueError: dictionary update sequence element #0 has length 36; 2 is required"
+      },
+      "gap_still_open": true,
+      "status": "NO_GAIN",
+      "task_id": "3d3c1593-2662-4b59-b5f9-af71f5fbd439",
+      "elapsed_s": 85.0
+    }
+  ],
+  "elapsed_s": 593.4
+}

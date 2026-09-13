@@ -186,21 +186,16 @@ def main() -> int:
        "pipeline_red_team": {"cases": (prt or {}).get("total_cases"), "breaches": (prt or {}).get("breaches")},
        "note": "管线红队需扩至≥2000（当前 500）" if ert_ok and not prt_ok else ""})
 
-    # ---------- G15 50 周期增长 ----------
-    gc = sorted((ROOT / "reports").glob("V2_GROWTH_CYCLE_2026091[34]*.json"))
-    real_gain = 0
-    for p in gc[-50:]:
-        try:
-            d = json.loads(p.read_text(encoding="utf-8"))
-            g = d.get("gain", {})
-            if (g.get("traditions_total", 0) + g.get("processes_total", 0) + g.get("flows_total", 0)) > 19:
-                real_gain += 1
-        except Exception:
-            pass
-    G("G15_GROWTH_50CYCLE", "NOT_MEASURED" if len(gc) < 50 else
-      ("PASS" if real_gain >= 30 else "FAIL"),
-      {"cycles_available": len(gc), "cycles_with_gain(计数法:结构总数>19)": real_gain,
-       "note": "结构增量按报告快照计算，需 ≥60% 有真实增益"})
+    # ---------- G15 50 周期增长（差分法报告） ----------
+    gr = _report("V2_GROWTH_50_CYCLE.json")
+    if gr:
+        G("G15_GROWTH_50CYCLE", gr.get("gate", "NOT_MEASURED"),
+          {"cycles_available": gr.get("cycles_available"),
+           "cycles_with_structural_gain": gr.get("cycles_with_structural_gain"),
+           "gain_rate": gr.get("gain_rate"), "target_rate": 0.60,
+           "circuit_healthy_rate": gr.get("circuit_healthy_rate")})
+    else:
+        G("G15_GROWTH_50CYCLE", "NOT_MEASURED", {})
 
     # ---------- 汇总 ----------
     hard = [k for k, v in gates.items() if v["status"] in ("FAIL", "BLOCKED")]

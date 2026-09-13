@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-14T05:57:22+0800",
-  "cycles_available": 80,
+  "generated_at": "2026-09-14T07:15:11+0800",
+  "cycles_available": 94,
   "cycles_with_structural_gain": 4,
-  "gain_rate": 0.05,
-  "tasks_total": 252,
+  "gain_rate": 0.043,
+  "tasks_total": 294,
   "tasks_resolved_in_cycle": 0,
-  "circuit_healthy_rate": 0.988,
+  "circuit_healthy_rate": 0.989,
   "targets": {
     "cycles": 50,
     "gain_rate": 0.6,
@@ -14,133 +14,133 @@
   "gate": "FAIL",
   "rows_tail": [
     {
-      "file": "V2_GROWTH_CYCLE_20260914_035111.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 21,
-      "gaps_open": 436,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_035650.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 21,
-      "gaps_open": 436,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_040214.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 21,
-      "gaps_open": 436,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_040731.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 21,
-      "gaps_open": 436,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_045132.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 21,
-      "gaps_open": 436,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_051044.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 46,
-      "gaps_open": 437,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_051350.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 46,
-      "gaps_open": 447,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_051732.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 46,
-      "gaps_open": 447,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_052048.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 46,
-      "gaps_open": 447,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_052932.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 50,
-      "gaps_open": 447,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_053432.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 51,
-      "gaps_open": 449,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_053932.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 51,
-      "gaps_open": 449,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_054432.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 51,
-      "gaps_open": 449,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_054932.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 51,
-      "gaps_open": 449,
-      "gaps_resolved": 3
-    },
-    {
       "file": "V2_GROWTH_CYCLE_20260914_055431.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_055932.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_060432.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_060939.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_061515.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_061849.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_062429.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_062911.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_063236.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_063655.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_064137.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_064722.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_065241.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_065601.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 51,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_065913.json",
       "tasks": 3,
       "resolved": 0,
       "circuit": "HEALTHY",

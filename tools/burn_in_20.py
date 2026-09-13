@@ -73,19 +73,21 @@ def main() -> int:
         for gi, gap in enumerate(gaps):
             known = gap.get("current_structure") or {}
             target = (known.get("name") or known.get("_ref") or gap["gap_type"]) if isinstance(known, dict) else str(known)
+            gap_norm = {"gap_id": gap["gap_id"], "type": gap["gap_type"],
+                        "known": known, "missing": gap.get("missing_structure") or {}}
             rec: dict[str, Any] = {"idx": gi + 1, "gap_id": gap["gap_id"], "gap_type": gap["gap_type"],
                                    "target": str(target)[:50]}
             t1 = time.time()
             try:
                 # 1) 规划器
                 with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
-                    plan = build_plan(cur, gap, str(target), use_llm=False)
+                    plan = build_plan(cur, gap_norm, str(target), use_llm=False)
                 queries = (plan["waves"][0]["queries"] + plan["waves"][2]["queries"])[:6]
                 rec["queries"] = queries[:3]
 
                 # 2) 采集（provider 计划；batch=task 溯源）
-                batch = f"bi_{gap['gap_id'][:8]}"
-                spec = provider_plan(queries, str(target), gap["gap_type"], max_site_queries=4)
+                batch = f"bi_{gap_norm['gap_id'][:8]}"
+                spec = provider_plan(queries, str(target), gap_norm["type"], max_site_queries=4)
                 topics = ROOT / "tmp_burn_in_topics.json"
                 topics.write_text(json.dumps({"themes": [{"topic": f"bi:{str(target)[:20]}",
                                                           "gap_type": gap["gap_type"],
@@ -102,13 +104,13 @@ def main() -> int:
 
                 # 4) 结构综合（类型匹配）
                 with conn.cursor() as cur:
-                    syn = synthesize_for_gap(cur, gap)
+                    syn = synthesize_for_gap(cur, gap_norm)
                     conn.commit()
                 rec["synthesis"] = {k: syn.get(k) for k in ("attempted", "decision", "reason")}
 
                 # 5) 复测：原检测器判据（不改判）
                 from extensions.v2.structural_gaps import DETECTORS
-                det = next((d for d in DETECTORS if d["type"] == gap["gap_type"]), None)
+                det = next((d for d in DETECTORS if d["type"] == gap_norm["type"]), None)
                 still_open = True
                 if det:
                     sql = det["sql"] + (" LIMIT %s" if "LIMIT" not in det["sql"].upper() else "")
@@ -140,11 +142,11 @@ def main() -> int:
                                         expected_output_type, resolution_criteria, status,
                                         resolution_evidence)
                                        VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) RETURNING task_id""",
-                                    (gap["gap_id"], f"burn-in：{gap['gap_type']} {target}",
-                                     gap["gap_type"], str(target)[:80],
-                                     json.dumps(["假设1：采集盲区", "假设2：真实史料空缺"]),
+                                    (gap_norm["gap_id"], f"burn-in：{gap_norm['type']} {target}",
+                                     gap_norm["type"], str(target)[:80],
+                                     ["假设1：采集盲区", "假设2：真实史料空缺"],
                                      "≥2 独立来源集群，字段级引文可绑定",
-                                     json.dumps(queries[:5], ensure_ascii=False),
+                                     queries[:5],
                                      "结构对象或缺口消失", "目标缺口复测消失",
                                      rec["status"],
                                      json.dumps({"synthesis": rec.get("synthesis"),
