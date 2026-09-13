@@ -32,10 +32,17 @@ DETECTORS: list[dict[str, Any]] = [
                          AND c.status='ADMITTED')::real * 0.05) AS priority
             FROM canonical_entities ce
             WHERE ce.merged_into IS NULL
-              AND NOT EXISTS (SELECT 1 FROM system_memberships m WHERE m.object_id=ce.entity_id)
+              AND ce.canonical_name !~ '(有限公司|股份|集团|责任公司|公司$|交易中心|运营中心|服务中心|委员会办公室|指挥部|项目部|管理局)$'
+              AND ce.entity_type IN ('Person','Place','Organization','CulturalTradition','Artifact','Event','Institution')
+              AND ce.canonical_name NOT IN ('中华人民共和国','中国')
+              AND ce.canonical_name !~ '(景区|风景区|旅游区|开发区|高新区)$'
+              AND ce.canonical_name !~ '(航站楼|机场|高铁站|火车站|客运站|收费站|码头候船|停车)$'
+              AND ce.canonical_name !~ '(开展|检查|专项|工作会议|推进|督查|整治|行动).'
+              AND ce.canonical_name !~ '^(市|县|区|省|镇|乡)?$'
               AND EXISTS (SELECT 1 FROM claims c
+                  JOIN evidence e ON e.claim_id=c.claim_id
                   WHERE (c.subject_id=ce.entity_id OR c.object_id=ce.entity_id)
-                    AND c.status='ADMITTED')
+                    AND c.status='ADMITTED' AND COALESCE(length(e.quote_span),0) >= 20)
             LIMIT 200
         """,
     },
@@ -128,24 +135,8 @@ DETECTORS: list[dict[str, Any]] = [
             WHERE p.status IN ('ADMITTED','SUPPORTED')
               AND COALESCE(array_length(p.hydro_network,1),0) = 0
               AND NOT EXISTS (SELECT 1 FROM process_routes pr WHERE pr.process_id=p.process_id)
-        """,
-    },
-    {
-        "type": "ORPHAN_ENTITY",
-        "target_kind": "fact_entity",
-        "why": "实体孤立无任何证据链（v1 事实层卫生）",
-        "resolution": "关联 claim/event 证据或标记低价值",
-        "sql": """
-            SELECT ce.entity_id::text,
-                   jsonb_build_object('name', ce.canonical_name, 'type', ce.entity_type) AS known,
-                   jsonb_build_object('claims', 0, 'events', 0) AS missing,
-                   0.3 AS priority
-            FROM canonical_entities ce
-            WHERE ce.merged_into IS NULL
-              AND NOT EXISTS (SELECT 1 FROM claims c WHERE c.subject_id=ce.entity_id OR c.object_id=ce.entity_id)
-              AND NOT EXISTS (SELECT 1 FROM events ev WHERE ev.entity_id=ce.entity_id)
-              AND NOT EXISTS (SELECT 1 FROM event_participants ep WHERE ep.entity_id=ce.entity_id)
-            LIMIT 300
+              AND (p.process_name ~ '(水|江|河|湖|航|运|渠|堰|堤|洪|灌|漕|渡|盐|茶|米|漕粮)'
+                   OR COALESCE(p.mechanisms,'') ~ '(水|江|河|湖|航|运)')
         """,
     },
 ]

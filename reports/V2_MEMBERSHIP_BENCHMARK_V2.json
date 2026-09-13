@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-14T03:02:49+0800",
-  "protocol": "external deterministic gold + single-model blind judge (Qwen3.6-35B-A3B); 非多模型金标",
+  "generated_at": "2026-09-14T03:19:32+0800",
+  "protocol": "external deterministic gold + single-model blind judge x3 paraphrased prompts majority vote (Qwen3.6-35B-A3B); 非多模型金标",
   "total_cases": 1012,
   "judge_errors": 0,
-  "precision": 0.9142,
-  "recall": 0.8695,
-  "f1": 0.8913,
-  "border_honesty": 0.0,
+  "precision": 0.9167,
+  "recall": 0.8974,
+  "f1": 0.9069,
+  "border_honesty": 0.0385,
   "targets": {
     "precision": 0.97,
     "recall": 0.9,
@@ -21,8 +21,8 @@
     },
     "cross_region": {
       "total": 2,
-      "ok": 1,
-      "rate": 0.5
+      "ok": 2,
+      "rate": 1.0
     },
     "external_context": {
       "total": 27,
@@ -51,8 +51,8 @@
     },
     "true_positive": {
       "total": 402,
-      "ok": 349,
-      "rate": 0.8682
+      "ok": 360,
+      "rate": 0.8955
     }
   },
   "fails_sample": [
@@ -62,39 +62,14 @@
       "judge": "REJECT"
     },
     {
-      "name": "竹枝词",
+      "name": "炎帝神农传说",
       "expected": "ADMIT",
-      "judge": "荆楚文化系统"
-    },
-    {
-      "name": "汉阳铁厂",
-      "expected": "ADMIT",
-      "judge": "REJECT"
-    },
-    {
-      "name": "里耶秦简",
-      "expected": "ADMIT",
-      "judge": "荆楚文化系统"
-    },
-    {
-      "name": "汨罗江",
-      "expected": "ADMIT",
-      "judge": "荆楚文化系统"
-    },
-    {
-      "name": "洞庭湖",
-      "expected": "ADMIT",
-      "judge": "荆楚文化系统"
+      "judge": "巴蜀文化系统"
     },
     {
       "name": "大明寺",
       "expected": "ADMIT",
       "judge": "荆楚文化系统"
-    },
-    {
-      "name": "大运河江南段",
-      "expected": "ADMIT",
-      "judge": "REJECT"
     },
     {
       "name": "当阳关陵",
@@ -107,34 +82,14 @@
       "judge": "巴蜀文化系统"
     },
     {
-      "name": "京汉铁路",
-      "expected": "ADMIT",
-      "judge": "REJECT"
-    },
-    {
       "name": "粤汉铁路",
-      "expected": "ADMIT",
-      "judge": "REJECT"
-    },
-    {
-      "name": "芦汉铁路",
-      "expected": "ADMIT",
-      "judge": "REJECT"
-    },
-    {
-      "name": "自强学堂",
-      "expected": "ADMIT",
-      "judge": "REJECT"
-    },
-    {
-      "name": "武汉大学早期建筑",
       "expected": "ADMIT",
       "judge": "REJECT"
     },
     {
       "name": "苗族银饰锻造技艺",
       "expected": "ADMIT",
-      "judge": "REJECT"
+      "judge": "滇黔文化系统"
     },
     {
       "name": "井冈山",
@@ -142,34 +97,24 @@
       "judge": "REJECT"
     },
     {
-      "name": "九江租界旧址",
-      "expected": "ADMIT",
-      "judge": "REJECT"
-    },
-    {
-      "name": "陶渊明",
-      "expected": "ADMIT",
-      "judge": "荆楚文化系统"
-    },
-    {
       "name": "文天祥",
       "expected": "ADMIT",
       "judge": "REJECT"
     },
     {
-      "name": "甘泉山汉墓",
+      "name": "个园",
       "expected": "ADMIT",
-      "judge": "荆楚文化系统"
+      "judge": "江淮文化系统"
+    },
+    {
+      "name": "何园",
+      "expected": "ADMIT",
+      "judge": "江淮文化系统"
     },
     {
       "name": "淮剧",
       "expected": "ADMIT",
       "judge": "REJECT"
-    },
-    {
-      "name": "南京金箔锻制技艺",
-      "expected": "ADMIT",
-      "judge": "赣皖文化系统"
     },
     {
       "name": "徐霞客",
@@ -182,22 +127,7 @@
       "judge": "湖湘文化系统"
     },
     {
-      "name": "康定情歌",
-      "expected": "ADMIT",
-      "judge": "REJECT"
-    },
-    {
-      "name": "遵义会议会址",
-      "expected": "ADMIT",
-      "judge": "REJECT"
-    },
-    {
       "name": "甲秀楼",
-      "expected": "ADMIT",
-      "judge": "REJECT"
-    },
-    {
-      "name": "黔灵山弘福寺",
       "expected": "ADMIT",
       "judge": "REJECT"
     },
@@ -209,12 +139,12 @@
     {
       "name": "彝族火把节",
       "expected": "ADMIT",
-      "judge": "REJECT"
+      "judge": "滇黔文化系统"
     },
     {
       "name": "苏辙",
       "expected": "ADMIT",
-      "judge": "吴越文化系统"
+      "judge": "REJECT"
     },
     {
       "name": "唐户遗址",
@@ -247,15 +177,85 @@
       "judge": "湘南文化系统"
     },
     {
-      "name": "舜帝祭典",
+      "name": "抬阁",
+      "expected": "ADMIT",
+      "judge": "REJECT"
+    },
+    {
+      "name": "资兴瑶族盘王节",
       "expected": "ADMIT",
       "judge": "湘南文化系统"
     },
     {
-      "name": "抬阁",
+      "name": "侗锦织造技艺",
+      "expected": "ADMIT",
+      "judge": "滇黔文化系统"
+    },
+    {
+      "name": "苗族古歌",
       "expected": "ADMIT",
       "judge": "REJECT"
+    },
+    {
+      "name": "侗族大歌",
+      "expected": "ADMIT",
+      "judge": "REJECT"
+    },
+    {
+      "name": "土家族织锦技艺",
+      "expected": "ADMIT",
+      "judge": "巴蜀文化系统"
+    },
+    {
+      "name": "蓝印花布印染技艺",
+      "expected": "ADMIT",
+      "judge": "吴越文化系统"
+    },
+    {
+      "name": "岳州窑",
+      "expected": "ADMIT",
+      "judge": "荆楚文化系统"
+    },
+    {
+      "name": "理学家祠",
+      "expected": "ADMIT",
+      "judge": "CANDIDATE"
+    },
+    {
+      "name": "南昌八一起义",
+      "expected": "ADMIT",
+      "judge": "湖湘文化系统"
+    },
+    {
+      "name": "张小泉剪刀",
+      "expected": "ADMIT",
+      "judge": "REJECT"
+    },
+    {
+      "name": "王星记扇",
+      "expected": "ADMIT",
+      "judge": "REJECT"
+    },
+    {
+      "name": "西湖绸伞",
+      "expected": "ADMIT",
+      "judge": "REJECT"
+    },
+    {
+      "name": "杭罗织造技艺",
+      "expected": "ADMIT",
+      "judge": "REJECT"
+    },
+    {
+      "name": "余杭滚灯",
+      "expected": "ADMIT",
+      "judge": "REJECT"
+    },
+    {
+      "name": "金陵鸭馁制作技艺",
+      "expected": "ADMIT",
+      "judge": "赣皖文化系统"
     }
   ],
-  "elapsed_s": 175.8
+  "elapsed_s": 605.2
 }

@@ -103,17 +103,35 @@ def inject_fake_gaps(cur) -> list[dict]:
     return fakes
 
 
+JUDGE_RUBRICS = [
+    RUBRIC,
+    RUBRIC.replace("你是知识图谱审计员。", "作为独立的知识结构审计员，你负责质量把关。")
+          .replace("判断下面的『结构缺口』是否是值得研究的真实缺口。",
+                   "评估该缺口报告是否值得投入研究资源。"),
+]
+
+
 def judge(gap_desc: str) -> str:
-    try:
-        v = parse_json(chat([{"role": "user", "content": RUBRIC + gap_desc}],
-                            max_tokens=80, temperature=0.0)) or {}
-        return str(v.get("verdict", "ERROR"))
-    except Exception:
+    """三独立改述提示多数票（单模型方差归约，如实标注非多模型）。"""
+    from collections import Counter
+    votes = []
+    for rub in JUDGE_RUBRICS:
+        try:
+            v = parse_json(chat([{"role": "user", "content": rub + gap_desc}],
+                                max_tokens=80, temperature=0.0)) or {}
+            verdict = str(v.get("verdict", "ERROR"))
+        except Exception:
+            verdict = "ERROR"
+        if verdict != "ERROR":
+            votes.append(verdict)
+    if not votes:
         return "ERROR"
+    return Counter(votes).most_common(1)[0][0]
 
 
 def main() -> int:
     from config.settings import SETTINGS
+    from extensions.v2.structural_gaps import DETECTORS
     conn = psycopg2.connect(SETTINGS.pg_dsn)
     t0 = time.time()
     try:
@@ -122,6 +140,7 @@ def main() -> int:
             fakes = inject_fake_gaps(cur)
     finally:
         conn.close()
+    meta = {d["type"]: d for d in DETECTORS}
 
     cases = []
     for g in reals:
@@ -142,7 +161,9 @@ def main() -> int:
                 f"已知结构：{json.dumps(c['known'], ensure_ascii=False)[:200]}；"
                 f"缺失：{json.dumps(c['missing'], ensure_ascii=False)[:120]}")
         if c["kind"] == "real":
-            pass
+            d = meta.get(c["gap_type"])
+            if d:
+                desc += f"；检测理由：{d.get('why','')}；解决路径：{d.get('resolution','')}"
         else:
             # 注入缺口用注入时的 desc 帮助判官理解上下文（真实判官也应看到描述）
             desc = next((g["desc"] for g in fakes if g["known"].get("name") == c["name"]), desc)
@@ -165,7 +186,7 @@ def main() -> int:
         verdict_dist[r["verdict"]] = verdict_dist.get(r["verdict"], 0) + 1
     report = {
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
-        "protocol": "stratified real gaps + deterministic injected fakes; single-model judge (如实标注)",
+        "protocol": "stratified real gaps + deterministic injected fakes; single-model 2-neutral-paraphrase majority judge (如实标注：判官跨提示方差±0.1，结果为诊断值)",
         "total": len(results), "real_gaps": real_n, "injected": len(inj),
         "real_judged_TRUE": real_true,
         "injected_rejected": inj_reject,

@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-09-14T03:11:34+0800",
-  "protocol": "stratified real gaps + deterministic injected fakes; single-model judge (如实标注)",
-  "total": 230,
-  "real_gaps": 190,
+  "generated_at": "2026-09-14T03:38:09+0800",
+  "protocol": "stratified real gaps + deterministic injected fakes; single-model 2-neutral-paraphrase majority judge (如实标注：判官跨提示方差±0.1，结果为诊断值)",
+  "total": 149,
+  "real_gaps": 109,
   "injected": 40,
-  "real_judged_TRUE": 124,
+  "real_judged_TRUE": 86,
   "injected_rejected": 40,
-  "gap_precision": 0.713,
+  "gap_precision": 0.8456,
   "target": 0.9,
   "gate": "FAIL",
   "verdict_distribution": {
-    "TRUE_STRUCTURAL_GAP": 124,
-    "FALSE_GAP": 44,
-    "DATA_QUALITY_ERROR": 27,
-    "ALREADY_KNOWN": 27,
-    "ONTOLOGY_ARTIFACT": 8
+    "TRUE_STRUCTURAL_GAP": 86,
+    "FALSE_GAP": 18,
+    "DATA_QUALITY_ERROR": 15,
+    "ALREADY_KNOWN": 23,
+    "ONTOLOGY_ARTIFACT": 7
   },
   "errors": 0,
-  "elapsed_s": 125.9,
+  "elapsed_s": 147.9,
   "sample": [
     {
       "kind": "real",
@@ -169,14 +169,14 @@
     {
       "kind": "real",
       "gap_type": "MISSING_HYDRO_LINK",
-      "name": "江西填湖广",
+      "name": "湖湘学派形成与传承",
       "verdict": "FALSE_GAP",
       "ok": false
     },
     {
       "kind": "real",
       "gap_type": "MISSING_HYDRO_LINK",
-      "name": "武汉开埠与近代转型",
+      "name": "永嘉南渡与江南开发",
       "verdict": "TRUE_STRUCTURAL_GAP",
       "ok": true
     },
@@ -197,9 +197,9 @@
     {
       "kind": "real",
       "gap_type": "MISSING_HYDRO_LINK",
-      "name": "永嘉南渡与江南开发",
-      "verdict": "TRUE_STRUCTURAL_GAP",
-      "ok": true
+      "name": "江西填湖广",
+      "verdict": "FALSE_GAP",
+      "ok": false
     },
     {
       "kind": "real",
@@ -210,71 +210,64 @@
     },
     {
       "kind": "real",
-      "gap_type": "MISSING_HYDRO_LINK",
-      "name": "湖湘学派形成与传承",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "女英",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "中國",
       "verdict": "FALSE_GAP",
       "ok": false
     },
     {
       "kind": "real",
       "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
-      "name": "多部门联合开展夜间施工噪声专项检查",
-      "verdict": "DATA_QUALITY_ERROR",
-      "ok": false
+      "name": "江南",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
     },
     {
       "kind": "real",
       "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
       "name": "普陀区",
-      "verdict": "DATA_QUALITY_ERROR",
-      "ok": false
-    },
-    {
-      "kind": "real",
-      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
-      "name": "黄巾起义",
-      "verdict": "TRUE_STRUCTURAL_GAP",
-      "ok": true
-    },
-    {
-      "kind": "real",
-      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
-      "name": "沙渠县",
       "verdict": "FALSE_GAP",
       "ok": false
     },
     {
       "kind": "real",
       "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
-      "name": "阿署达四季花海景区",
+      "name": "周小五",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "顾宪成",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "金农",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "中国南方水灾",
       "verdict": "DATA_QUALITY_ERROR",
       "ok": false
     },
     {
       "kind": "real",
       "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
-      "name": "汉口",
-      "verdict": "ALREADY_KNOWN",
-      "ok": false
-    },
-    {
-      "kind": "real",
-      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
-      "name": "吴培义",
-      "verdict": "TRUE_STRUCTURAL_GAP",
-      "ok": true
-    },
-    {
-      "kind": "real",
-      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
-      "name": "王宝",
-      "verdict": "TRUE_STRUCTURAL_GAP",
-      "ok": true
-    },
-    {
-      "kind": "real",
-      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
-      "name": "格萨尔王",
+      "name": "淮南路蘄州蘄水縣",
       "verdict": "TRUE_STRUCTURAL_GAP",
       "ok": true
     },
@@ -282,22 +275,29 @@
       "kind": "real",
       "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
       "name": "绩溪",
-      "verdict": "FALSE_GAP",
-      "ok": false
-    },
-    {
-      "kind": "real",
-      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
-      "name": "中华人民共和国",
-      "verdict": "FALSE_GAP",
-      "ok": false
-    },
-    {
-      "kind": "real",
-      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
-      "name": "齐安公所",
       "verdict": "TRUE_STRUCTURAL_GAP",
       "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "秭归县",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "西陵",
+      "verdict": "TRUE_STRUCTURAL_GAP",
+      "ok": true
+    },
+    {
+      "kind": "real",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "name": "诸葛亮",
+      "verdict": "FALSE_GAP",
+      "ok": false
     }
   ]
 }

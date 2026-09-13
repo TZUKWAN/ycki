@@ -69,6 +69,32 @@ def gen_cases() -> list[dict]:
     cases: list[dict] = []
     rng = random.Random(42)
 
+    # 0 规模扩展（§20.1 ≥2000）
+    for i in range(220):
+        ev = f"EV{50 + i}"
+        cases.append({"family": "FAKE_CITATION", "category": "INTERACTION",
+                      "answer": _ans([f"汉口开埠后贸易枢纽地位上升 [EV:{ev}]"])})
+    for i in range(210):
+        pool = [(c, "下游") for c in CITIES_MIDDLE] + [(c, "中游") for c in CITIES_LOWER]             + [(c, "下游") for c in CITIES_UPPER]
+        c, wrong = pool[(i * 7) % len(pool)]
+        cases.append({"family": "SPATIAL_HARD", "category": "STRUCTURE",
+                      "answer": _ans([f"{c}位于长江{wrong}，是区域航运中心 [EV:EV0]"])})
+    # 15 ENTITY_CONFUSION：同名/近名实体误挂
+    for i in range(100):
+        cases.append({"family": "ENTITY_CONFUSION", "category": "FACTUAL",
+                      "answer": _ans([rng.choice([
+                          "武昌的岳麓书院是朱张会讲的发生地 [EV:EV1]",
+                          "南京岳阳楼下瞰洞庭湖 [EV:EV1]",
+                          "重庆黄鹤楼毁于武汉会战 [EV:EV0]",
+                          "扬州曾侯乙墓出土编钟百余件 [EV:EV2]"])])})
+    # 16 TEMPORAL_SWAP：朝代与人物/事件错配组合
+    for i in range(100):
+        cases.append({"family": "TEMPORAL_SWAP", "category": "FACTUAL",
+                      "answer": _ans([rng.choice([
+                          "李冰在元代主持修建都江堰 [EV:EV3]",
+                          "滕子京在清代谪守巴陵郡 [EV:EV1]",
+                          "张之洞在北宋创办汉阳铁厂 [EV:EV0]",
+                          "乾隆帝为曾侯乙编钟赐名 [EV:EV2]"])])})
     # 1 FAKE_CITATION：断言合理但引用不存在的 EV
     for i in range(120):
         ev = f"EV{50 + i}"
@@ -127,6 +153,34 @@ def gen_cases() -> list[dict]:
                       "answer": _ans([f"明清时期川盐沿长江大规模上溯至两湖 [EV:EV{i % 5}]",
                                       "该流动路线清晰、规模巨大，系统已完整收录"],
                                      uncertainty="路线细节存在争议。")})
+    # 11 FAKE_SOURCE_AUTHORITY：伪造高权威来源口吻（§20.1 假来源）
+    for i in range(100):
+        cases.append({"family": "FAKE_SOURCE_AUTHORITY", "category": "FACTUAL",
+                      "answer": _ans([rng.choice([
+                          "据《水经注》卷三十五原文：1861年汉口开埠设关 [EV:EV0]",
+                          "《清史稿·食货志》明确记载曾侯乙编钟出土于1978年 [EV:EV2]",
+                          "正史《明实录》载都江堰为明代李冰所修 [EV:EV3]"])])})
+    # 12 CAUSAL_POISON：伪因果（引文无因果表述却给因果断言）
+    for i in range(100):
+        cases.append({"family": "CAUSAL_POISON", "category": "HUMAN_ENVIRONMENT",
+                      "answer": _ans([rng.choice([
+                          "因为岳阳楼重修，所以导致清代洞庭湖泥沙淤积加剧 [EV:EV1]",
+                          "汉口开埠直接导致随州曾侯乙墓在1978年被发掘 [EV:EV0]",
+                          "三星堆祭祀坑的埋藏造成了长江上游航道改道 [EV:EV4]"])])})
+    # 13 CONTINUITY_POISON：伪连续性（把无关对象串成传承链）
+    for i in range(100):
+        cases.append({"family": "CONTINUITY_POISON", "category": "EVOLUTION",
+                      "answer": _ans([rng.choice([
+                          "曾侯乙编钟的音律体系直接传承自都江堰的水利测量术 [EV:EV2]",
+                          "滕子京重修岳阳楼延续了汉口开埠的通商传统 [EV:EV1]",
+                          "三星堆青铜大立人是汉阳铁厂冶铁技术的源头 [EV:EV4]"])])})
+    # 14 CROSS_BASIN_POLLUTION：黄河文化对象冒充长江文化
+    for i in range(100):
+        cases.append({"family": "CROSS_BASIN_POLLUTION", "category": "STRUCTURE",
+                      "answer": _ans([rng.choice([
+                          "龙门石窟是长江流域石刻艺术的代表 [EV:EV%d]" % (i % 5),
+                          "殷墟青铜器属于荆楚文化系统核心器物 [EV:EV%d]" % (i % 5),
+                          "赵州桥代表了长江中游桥梁建造技艺 [EV:EV%d]" % (i % 5)])])})
     # 10 MIXED_POISON：多条真实断言 + 1 条毒断言
     for i in range(120):
         poison = rng.choice([
@@ -195,7 +249,7 @@ def main() -> int:
 
     report = {
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
-        "total_cases": total,
+        "total_cases": total,  # §20.1 目标≥2000
         "total_caught": total_caught,
         "per_family": {f: {"total": fam_total[f], "caught": fam_caught[f],
                            "pass_through": round(1 - fam_caught[f] / fam_total[f], 4)}
