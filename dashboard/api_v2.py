@@ -755,14 +755,14 @@ def graph_system():
                               parent_system::text AS parent
                        FROM cultural_systems ORDER BY system_level""")
         systems = [_jsonable(r) for r in cur.fetchall()]
-        cur.execute("""SELECT domain_id::text AS id, domain_name AS name, system_id::text AS sys
+        cur.execute("""SELECT domain_id::text AS id, domain_name AS name
                        FROM cultural_domains LIMIT 120""")
         domains = [_jsonable(r) for r in cur.fetchall()]
         cur.execute("""SELECT phase_id::text AS id, phase_name AS name, macro_phase AS macro
                        FROM historical_phases ORDER BY phase_id LIMIT 40""")
         phases = [_jsonable(r) for r in cur.fetchall()]
         cur.execute("""SELECT hsu_id::text AS id, hsu_name AS name, hsu_type AS type
-                       FROM hydro_spatial_units WHERE hsu_type IN ('MAINSTREAM','TRIBUTARY')
+                       FROM hydro_spatial_units WHERE hsu_type IN ('MainStem','Tributary')
                        ORDER BY hsu_id LIMIT 40""")
         hydro = [_jsonable(r) for r in cur.fetchall()]
     nodes, edges = [], []
@@ -771,18 +771,18 @@ def graph_system():
                       "group": "root" if s["system_level"] == "ROOT" else "system"})
         if s.get("parent"):
             edges.append({"from": f"sys:{s['parent']}", "to": f"sys:{s['id']}", "label": "构成"})
+    root_id = next((f"sys:{s['id']}" for s in systems if s["system_level"] == "ROOT"), None)
     for d in domains:
-        if d.get("sys"):
-            nodes.append({"id": f"dom:{d['id']}", "label": d["name"], "group": "domain"})
-            edges.append({"from": f"sys:{d['sys']}", "to": f"dom:{d['id']}", "label": "领域"})
+        nodes.append({"id": f"dom:{d['id']}", "label": d["name"], "group": "domain"})
+        if root_id:
+            edges.append({"from": root_id, "to": f"dom:{d['id']}", "label": "领域"})
     prev = None
     for p in phases:
         nodes.append({"id": f"ph:{p['id']}", "label": p["name"], "group": "phase"})
         if prev:
             edges.append({"from": f"ph:{prev}", "to": f"ph:{p['id']}", "label": "演进"})
         prev = p["id"]
-    main = [h for h in hydro if h.get("type") == "MAINSTREAM"]
-    for h in main:
+    for h in hydro:
         nodes.append({"id": f"hyd:{h['id']}", "label": h["name"], "group": "hydro"})
     return {"nodes": nodes, "edges": edges}
 
@@ -794,7 +794,7 @@ def graph_flow():
     with _conn() as conn, conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
         cur.execute("""SELECT flow_id::text AS id, flow_type, origin, destination,
                               COALESCE(via,'') AS via, COALESCE(time_range,'') AS time_range,
-                              COALESCE(content,'') AS content, confidence
+                              COALESCE(content,'') AS content
                        FROM cultural_flows ORDER BY created_at DESC LIMIT 200""")
         flows = [_jsonable(r) for r in cur.fetchall()]
     nodes: dict[str, dict] = {}
@@ -838,6 +838,11 @@ def graph_region():
 @_guarded
 def graph_evidence(object_kind: str = "", object_id: str = ""):
     """证据下钻：结构对象 → 字段级证据行 → 资源。"""
+    import uuid as _uuid
+    try:
+        _uuid.UUID(object_id)
+    except (ValueError, TypeError):
+        return {"rows": []}
     with _conn() as conn, conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
         rows: list[dict] = []
         if object_kind == "TRADITION" and object_id:

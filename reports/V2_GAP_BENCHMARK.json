@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-09-14T03:07:48+0800",
+  "generated_at": "2026-09-14T03:11:34+0800",
   "protocol": "stratified real gaps + deterministic injected fakes; single-model judge (如实标注)",
   "total": 230,
   "real_gaps": 190,
   "injected": 40,
   "real_judged_TRUE": 124,
-  "injected_rejected": 29,
-  "gap_precision": 0.6652,
+  "injected_rejected": 40,
+  "gap_precision": 0.713,
   "target": 0.9,
   "gate": "FAIL",
   "verdict_distribution": {
-    "TRUE_STRUCTURAL_GAP": 135,
-    "FALSE_GAP": 51,
-    "DATA_QUALITY_ERROR": 33,
-    "ALREADY_KNOWN": 5,
-    "ONTOLOGY_ARTIFACT": 6
+    "TRUE_STRUCTURAL_GAP": 124,
+    "FALSE_GAP": 44,
+    "DATA_QUALITY_ERROR": 27,
+    "ALREADY_KNOWN": 27,
+    "ONTOLOGY_ARTIFACT": 8
   },
   "errors": 0,
-  "elapsed_s": 125.0,
+  "elapsed_s": 125.9,
   "sample": [
     {
       "kind": "real",
