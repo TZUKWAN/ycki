@@ -1,5 +1,5 @@
 {
- "run_at": "2026-09-13 13:45:39.840556",
+ "run_at": "2026-09-14 05:57:10.834653",
  "gates": {
   "gate2_relocation": {
    "rate": 1.0,
@@ -9,7 +9,7 @@
   "gate3_provenance": {
    "rate": 1.0,
    "gate": "PASS",
-   "document_exists_rate": 0.9774,
+   "document_exists_rate": 0.9781,
    "chunk_exists_rate": 1.0
   },
   "gate4_predicate": {
@@ -29,8 +29,8 @@
    "gate": "PASS"
   },
   "gate9_event_evidence": {
-   "count": 0,
-   "gate": "PASS"
+   "count": 111,
+   "gate": "FAIL"
   },
   "gate10_tasks": {
    "count": 0,
@@ -44,6 +44,6 @@
    "fails": []
   }
  },
- "claims_checked": 4383,
+ "claims_checked": 4525,
  "relocate_fails": []
 }

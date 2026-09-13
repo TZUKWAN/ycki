@@ -1,0 +1,66 @@
+{
+  "started_at": "2026-09-14T05:51:32+0800",
+  "tasks": [
+    {
+      "task_id": "b76c814d-085e-4afb-8c28-ab3e1fb121d9",
+      "gap_id": "5ffa50cd-26c0-466a-99ef-ac1708065f65",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "research_question": "青城山的文化归属应如何用≥2个结构锚点加以证明？",
+      "collect_exit": 0,
+      "resources_tagged": 0,
+      "synthesis": {
+        "attempted": false,
+        "decision": null,
+        "reason": "gap_type MISSING_SYSTEM_MEMBERSHIP 不走综合路径（membership/hydro 重建处理）"
+      },
+      "gap_resolved": false
+    },
+    {
+      "task_id": "71e086db-9a7d-4662-b086-652a02f1adee",
+      "gap_id": "c22b32fd-ed67-442b-9600-492002e28555",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "research_question": "苏轼的文化归属应如何用≥2个结构锚点加以证明？",
+      "collect_exit": 0,
+      "resources_tagged": 0,
+      "synthesis": {
+        "attempted": false,
+        "decision": null,
+        "reason": "gap_type MISSING_SYSTEM_MEMBERSHIP 不走综合路径（membership/hydro 重建处理）"
+      },
+      "gap_resolved": false
+    },
+    {
+      "task_id": "642091b3-f8fe-4d17-ab82-7d4246b01db8",
+      "gap_id": "99fce64e-265a-4744-9914-222c7b900925",
+      "gap_type": "MISSING_SYSTEM_MEMBERSHIP",
+      "research_question": "栖霞山的文化归属应如何用≥2个结构锚点加以证明？",
+      "collect_exit": 0,
+      "resources_tagged": 0,
+      "synthesis": {
+        "attempted": false,
+        "decision": null,
+        "reason": "gap_type MISSING_SYSTEM_MEMBERSHIP 不走综合路径（membership/hydro 重建处理）"
+      },
+      "gap_resolved": false
+    }
+  ],
+  "circuit_audit": {
+    "checks": {
+      "evidence_less_admitted_relations": 0,
+      "geo_only_admitted": 0,
+      "admitted_traditions_without_evidence": 0,
+      "admitted_processes_without_time_evidence": 0,
+      "flows_missing_hard_fields": 0,
+      "broken_evidence_links": 0
+    },
+    "hard_failures": {},
+    "circuit": "HEALTHY"
+  },
+  "gain": {
+    "traditions_total": 20,
+    "processes_total": 16,
+    "flows_total": 15,
+    "gaps_open": 449,
+    "gaps_resolved": 3
+  }
+}

@@ -1,16 +1,16 @@
 # V2 Source Quality Audit
-- 生成：2026-09-14T04:10:44+0800
+- 生成：2026-09-14T05:57:23+0800
 
 ## 来源类 × 权威级
 
 | 类 | 级 | 资源数 |
 |---|---|---|
-| GeneralWebsite | B | 2159 |
-| GeneralWebsite | UNKNOWN | 1401 |
-| GeneralWebsite | C | 280 |
-| Government | S | 186 |
-| University | A | 77 |
-| Newspaper | B | 55 |
+| GeneralWebsite | B | 2179 |
+| GeneralWebsite | UNKNOWN | 1456 |
+| GeneralWebsite | C | 281 |
+| Government | S | 188 |
+| University | A | 78 |
+| Newspaper | B | 56 |
 | Museum | A | 10 |
 | AcademicJournal | A | 3 |
 
@@ -18,10 +18,10 @@
 
 | 类 | CORE/CONTEXT | REJECTED | 通过率 |
 |---|---|---|---|
-| GeneralWebsite | 1451 | 2389 | 37.8% |
-| Government | 100 | 86 | 53.8% |
-| University | 4 | 73 | 5.2% |
-| Newspaper | 24 | 31 | 43.6% |
+| GeneralWebsite | 1457 | 2459 | 37.2% |
+| Government | 100 | 88 | 53.2% |
+| University | 4 | 74 | 5.1% |
+| Newspaper | 24 | 32 | 42.9% |
 | Museum | 6 | 4 | 60.0% |
 | AcademicJournal | 0 | 3 | 0.0% |
 
@@ -29,8 +29,8 @@
 
 | 类 | 资源数 |
 |---|---|
-| GeneralWebsite | 590 |
-| Government | 45 |
+| GeneralWebsite | 600 |
+| Government | 46 |
 | Newspaper | 11 |
 | Museum | 4 |
 | University | 2 |
@@ -59,17 +59,18 @@
 | batch8 | 143 | 69 | 135 | 0 |
 | batch9-smoke | 7 | 6 | 7 | 0 |
 | diag | 2 | 1 | 1 | 0 |
-| flow_boost1 | 28 | 12 | 0 | 0 |
+| flow_boost1 | 28 | 12 | 12 | 0 |
 | flow_targeted | 21 | 12 | 12 | 0 |
-| gap-growth | 2220 | 553 | 309 | 215 |
+| gap-growth | 2220 | 552 | 348 | 215 |
 | gaptest | 9 | 3 | 3 | 0 |
+| gt_wave1 | 80 | 7 | 4 | 0 |
 | smoke | 6 | 5 | 6 | 0 |
 | smoke2 | 8 | 7 | 8 | 0 |
 | task_1bc5dae1 | 2 | 0 | 0 | 0 |
 | task_53406969 | 11 | 3 | 3 | 0 |
-| task_642091b3 | 10 | 6 | 0 | 0 |
+| task_642091b3 | 10 | 6 | 6 | 0 |
 | task_6f91ae14 | 5 | 4 | 4 | 0 |
-| task_71e086db | 95 | 6 | 5 | 0 |
+| task_71e086db | 95 | 6 | 6 | 0 |
 | task_932b52a4 | 6 | 2 | 2 | 0 |
 | task_aded52d5 | 1 | 1 | 1 | 0 |
 | task_b76c814d | 10 | 3 | 3 | 0 |
