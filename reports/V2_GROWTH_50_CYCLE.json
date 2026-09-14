@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-14T07:15:11+0800",
-  "cycles_available": 94,
-  "cycles_with_structural_gain": 4,
-  "gain_rate": 0.043,
-  "tasks_total": 294,
+  "generated_at": "2026-09-14T08:10:05+0800",
+  "cycles_available": 102,
+  "cycles_with_structural_gain": 8,
+  "gain_rate": 0.078,
+  "tasks_total": 318,
   "tasks_resolved_in_cycle": 0,
-  "circuit_healthy_rate": 0.989,
+  "circuit_healthy_rate": 0.99,
   "targets": {
     "cycles": 50,
     "gain_rate": 0.6,
@@ -13,78 +13,6 @@
   },
   "gate": "FAIL",
   "rows_tail": [
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_055431.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 51,
-      "gaps_open": 449,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_055932.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 51,
-      "gaps_open": 449,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_060432.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 51,
-      "gaps_open": 449,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_060939.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 51,
-      "gaps_open": 449,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_061515.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 51,
-      "gaps_open": 449,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_061849.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 51,
-      "gaps_open": 449,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_062429.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 51,
-      "gaps_open": 449,
-      "gaps_resolved": 3
-    },
-    {
-      "file": "V2_GROWTH_CYCLE_20260914_062911.json",
-      "tasks": 3,
-      "resolved": 0,
-      "circuit": "HEALTHY",
-      "structures": 51,
-      "gaps_open": 449,
-      "gaps_resolved": 3
-    },
     {
       "file": "V2_GROWTH_CYCLE_20260914_063236.json",
       "tasks": 3,
@@ -146,6 +74,78 @@
       "circuit": "HEALTHY",
       "structures": 51,
       "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_071832.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 59,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_072257.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 59,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_072656.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 59,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_073917.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 62,
+      "gaps_open": 449,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_074309.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 62,
+      "gaps_open": 450,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_074836.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 62,
+      "gaps_open": 450,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_075958.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 63,
+      "gaps_open": 450,
+      "gaps_resolved": 3
+    },
+    {
+      "file": "V2_GROWTH_CYCLE_20260914_080529.json",
+      "tasks": 3,
+      "resolved": 0,
+      "circuit": "HEALTHY",
+      "structures": 65,
+      "gaps_open": 450,
       "gaps_resolved": 3
     }
   ]

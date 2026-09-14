@@ -1,0 +1,8 @@
+{"themes":[
+ {"topic":"w4:非遗","gap_type":"MISSING_EVIDENCE","queries":["长江流域 非遗 传统技艺 名录","荆楚 非遗 代表性 项目","吴越 传统工艺 非物质文化遗产"]},
+ {"topic":"w4:历史过程","gap_type":"MISSING_PROCESS_STAGE","queries":["长江流域 开埠 通商 历史 过程","近代 长江 工业 兴起 过程","湖广 江西移民 过程 研究"]},
+ {"topic":"w4:书院","gap_type":"MISSING_EVIDENCE","queries":["岳麓书院 讲学 传统","白鹿洞书院 学规 历史","东林书院 讲学"]},
+ {"topic":"w4:治水","gap_type":"MISSING_PROCESS_STAGE","queries":["荆江大堤 修筑 历史","明清 治水 长江","近代 堤防 工程"]},
+ {"topic":"w4:信仰","gap_type":"MISSING_EVIDENCE","queries":["长江流域 民间信仰 历史","水神 江神 祭祀 传统","妈祖 长江 航商"]},
+ {"topic":"w4:商帮","gap_type":"MISSING_EVIDENCE","queries":["近代 商帮 长江 航运","宁波帮 汉口 商业","洞庭商帮 历史"]}
+]}

@@ -32,7 +32,7 @@
    cultural_system_growth 主循环；研究任务查询由规划器生成；失败缺口降权。
 
 ## 四、能力突破
-- **CulturalFlow 0 → 26**（含 7+ ADMITTED：川盐济楚/万里茶道/徽商沿江/沪汉粮运/
+- **CulturalFlow 0 → 29**（含 ADMITTED 序列：川盐济楚/万里茶道/徽商沿江/沪汉粮运/
   汉冶萍煤铁/近代航运/知识传播），3 种 flow_type（COMMODITY_TRADE /
   KNOWLEDGE_DIFFUSION / BELIEF_DIFFUSION）。
 - Traditions 6 → **20**（17 ADMITTED）；Processes 6 → **16**（15 ADMITTED）；
@@ -65,7 +65,7 @@
 PASS：G01 复现 / G02 密钥(含历史重写后 0 明文) / G03 v1 回归 / G08 结构关系 /
       G14 双红队
 FAIL：G04 Membership(0.907) / G05 Traditions(17<50) / G06 Processes(15<80) /
-      G07 Flows(26<30,类型3<6) / G09 Gap(0.846) / G10 任务(2<12) /
+      G07 Flows(29<30,类型3<6) / G09 Gap(0.846) / G10 任务(2<12) /
       G12 Golden Ten / G13 UAT(未满 100 任务) / G15 增长增益率(5.3%<60%)
 NOT_MEASURED：G11 DH(需≥300 题)
 OVERALL = **FAIL**（§22：任何硬门未达即不发布；不以部分达标虚标）
