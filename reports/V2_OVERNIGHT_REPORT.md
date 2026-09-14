@@ -65,7 +65,7 @@
 PASS：G01 复现 / G02 密钥(含历史重写后 0 明文) / G03 v1 回归 / G08 结构关系 /
       G14 双红队
 FAIL：G04 Membership(0.907) / G05 Traditions(17<50) / G06 Processes(15<80) /
-      G07 Flows(29<30,类型3<6) / G09 Gap(0.846) / G10 任务(2<12) /
+      G07 Flows(30✓,类型3<6) / G09 Gap(0.846) / G10 任务(2<12) /
       G12 Golden Ten / G13 UAT(未满 100 任务) / G15 增长增益率(5.3%<60%)
 NOT_MEASURED：G11 DH(需≥300 题)
 OVERALL = **FAIL**（§22：任何硬门未达即不发布；不以部分达标虚标）

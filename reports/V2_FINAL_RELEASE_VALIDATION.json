@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-14T08:10:04+0800",
-  "head_commit": "56e0e8b5e475ef3f9b63cd614685b90a48bdc2ee",
+  "generated_at": "2026-09-14T08:21:11+0800",
+  "head_commit": "9724cd15ca2b4d2f658f1ec3f9a4025965f18ebf",
   "overall": "FAIL",
   "failed": [
     "G04_MEMBERSHIP",
@@ -66,7 +66,7 @@
     "G07_FLOW": {
       "status": "FAIL",
       "detail": {
-        "flows": 29,
+        "flows": 30,
         "flow_types": 3,
         "target": 30
       }
@@ -132,11 +132,11 @@
     "G15_GROWTH_50CYCLE": {
       "status": "FAIL",
       "detail": {
-        "cycles_available": 94,
-        "cycles_with_structural_gain": 4,
-        "gain_rate": 0.043,
+        "cycles_available": 102,
+        "cycles_with_structural_gain": 8,
+        "gain_rate": 0.078,
         "target_rate": 0.6,
-        "circuit_healthy_rate": 0.989
+        "circuit_healthy_rate": 0.99
       }
     }
   },
@@ -149,7 +149,7 @@
     "evidence": 4988,
     "traditions_admitted": 17,
     "processes_admitted": 15,
-    "flows_total": 29,
+    "flows_total": 30,
     "flow_types": 3,
     "structural_relations": 7,
     "interpretations": 9,
